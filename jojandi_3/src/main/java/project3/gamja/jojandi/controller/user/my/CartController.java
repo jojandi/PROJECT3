@@ -35,16 +35,14 @@ public class CartController {
 	@ResponseBody
 	public int loan(Model model, @RequestBody CartDTO cartDTO) {
 
-		String code = Integer.toString(cartDTO.getBook_code());
-		String cart = Integer.toString(cartDTO.getCart_seq());
+		String codes[] = cartDTO.getBook_codes();
+		String carts[] = cartDTO.getCart_seqs();
 		int user= cartDTO.getUser_seq();
 		
-		System.out.println("책 코드 : " + code);
-		System.out.println("찜 번호 : " + cart);
-		
-		String[] codes = code.split(","); // 만약 책이 하나면 한 개짜리 배열을 돌려줌
-    	String[] carts = cart.split(","); // 만약 책이 하나면 한 개짜리 배열을 돌려줌
-    	
+    	for(int i = 0; i < codes.length; i++) {
+    		System.out.println("책 : " + codes[i]);
+    		System.out.println("찜 : " + carts[i]);
+    	}
     	int res = cartService.resAll(codes, carts, user);
 		
 		return res;
