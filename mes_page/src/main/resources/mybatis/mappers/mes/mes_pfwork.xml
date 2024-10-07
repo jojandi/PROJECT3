@@ -1,1 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.mesPage.dao.PfworkDAO">
+
+
+	<select id="selectCart" resultType="cartDTO" parameterType="int">
+		SELECT 
+			book_code, cart_seq, user_seq, li_book_info, book_name, book_author, book_pub, book_img 
+		FROM 
+			user_cart 
+			JOIN li_book USING(book_code) 
+			JOIN book USING(book_isbn) 
+			WHERE 
+				user_seq = #{_parameter}
+		ORDER BY cart_seq
+	</select>
+
+
+
+</mapper>
