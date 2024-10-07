@@ -45,7 +45,8 @@
             			<input type="hidden" name="book_code" class="user" value="${list.book_code}">
 	                        <tr class="cart">
 	                            <td rowspan="3" class="border">
-	                                <input type="checkbox" name="cart_chk" value="${list.book_code}" class="chk"> 
+	                                <input type="checkbox" name="cart_chk" data-cart="${list.cart_seq}" 
+	                                value="${list.book_code}" class="chk"> 
 	                            </td>
 	                            <td rowspan="3" class="bookCover border">
 	                                <img src="${list.book_img}"  alt="${list.book_name}의 책표지">
@@ -130,27 +131,28 @@
 			function ajax_reschk() {
 	
 			    //jQuery로 for문 돌면서 check 된값 배열에 담는다
-			    var lists = [];
+			    var book = [];
 			    var cart = [];
 			    $("input[name='cart_chk']:checked").each(function(i){   
-			        lists.push($(this).val());
+			    	book.push($(this).val());
 			    });
 			    
 			    $("input[name='cart_chk']:checked").each(function(i){   
-			        cart.push($(this).val());
+			        cart.push($(this).attr('data-cart'));
 			    });
 			    
-			    console.log("책 코드 :", lists);
+			    console.log("책 코드 :", book);
 			    console.log("찜 코드 :",cart);
 
 			    const data = {
-			    		"book_code" : lists,
-			    		"cart_seq" : cart
+			    		"book_codes" : book,
+			    		"cart_seqs" : cart,
 			    		"user_seq" : user
 			    }
 			    
-			    if(lists.length > 0){
-			    	ajax("reschk", data, function(){
+			    if(cart.length > 0){
+			    	ajax("reschk", data, function(result){
+			    		console.log(result);
 			    		alert("선택 도서가 예약되었습니다. ");
 			    	}, "post")
 			    } else{
