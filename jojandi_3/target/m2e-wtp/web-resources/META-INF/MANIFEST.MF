@@ -4,11 +4,15 @@ Built-By: human
 Build-Jdk: 11
 Created-By: Maven Integration for Eclipse
 
+<<<<<<< HEAD
+=======
 =======
 Built-By: macbook
 Build-Jdk: 11.0.22
 Created-By: Maven Integration for Eclipse
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -26,3 +30,4 @@ Created-By: Maven Integration for Eclipse
 >>>>>>> 2af9427ad8ef48ed0cee36c44f3483af1f10ee40
 >>>>>>> c2911af8a91c1094c3e506fa2b2d1eeb05711021
 >>>>>>> e15a8742f8b0ed45174c0975438cd77b51908edd
+>>>>>>> a77b12e3e88ad8e851332f5bda6feaf51ba43dd3
