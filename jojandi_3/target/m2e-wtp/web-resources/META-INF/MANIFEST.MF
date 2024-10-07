@@ -3,3 +3,16 @@ Built-By: admin
 Build-Jdk: 11
 Created-By: Maven Integration for Eclipse
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+Manifest-Version: 1.0
+Built-By: admin
+Build-Jdk: 11
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 566acb0a5f91ddd7f181bb0102bdbc401592e938
+>>>>>>> 56c3e0296e906a218030823e96d649513ebd971c
+>>>>>>> 2af9427ad8ef48ed0cee36c44f3483af1f10ee40
