@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
-<%@ page import="user.dto.noti.NotiDTO"%>
+<%-- <%@ page import="user.dto.noti.NotiDTO"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
 <body>
 
 <!-- header -->
-	<%@ include file="/WEB-INF/user/base/header.jsp" %>
+<%-- 	<%@ include file="/WEB-INF/user/base/header.jsp" %> --%>
 	<!-- 메인페이지 -->
 
     <!-- google fonts 가져오기 -->
@@ -206,6 +206,6 @@
     </div> 
     
     <!-- footer -->
-    <%@ include file="/WEB-INF/user/base/footer.jsp" %>
+<%--     <%@ include file="/WEB-INF/user/base/footer.jsp" %> --%>
 </body>
 </html>
