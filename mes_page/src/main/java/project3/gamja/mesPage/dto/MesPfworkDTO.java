@@ -25,6 +25,10 @@ public class MesPfworkDTO {
 	private String ds_con;
 	
 	private int rnum;
+	
+	private int start;
+	
+	private int end;
 
 	
 	@Override
@@ -34,6 +38,31 @@ public class MesPfworkDTO {
 				+ user_seq + ", emp_name=" + emp_name + ", ds_date=" + ds_date + ", ds_con=" + ds_con + "]";
 	}
 	
+	
+
+	public int getStart() {
+		return start;
+	}
+
+
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+
+
+	public int getEnd() {
+		return end;
+	}
+
+
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
+
+
 
 	public int getRnum() {
 		return rnum;
