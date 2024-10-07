@@ -9,6 +9,21 @@ public class CartDTO {
 	private String book_author;
 	private String book_pub;
 	private String book_img;
+	private String[] book_codes;
+	private String[] cart_seqs;
+	
+	public String[] getBook_codes() {
+		return book_codes;
+	}
+	public void setBook_codes(String[] book_codes) {
+		this.book_codes = book_codes;
+	}
+	public String[] getCart_seqs() {
+		return cart_seqs;
+	}
+	public void setCart_seqs(String[] cart_seqs) {
+		this.cart_seqs = cart_seqs;
+	}
 	public int getUser_seq() {
 		return user_seq;
 	}
