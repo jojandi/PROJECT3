@@ -4,6 +4,8 @@ Built-By: human
 Build-Jdk: 11
 Created-By: Maven Integration for Eclipse
 
+<<<<<<< HEAD
+=======
 =======
 Built-By: macbook
 Build-Jdk: 11.0.22
