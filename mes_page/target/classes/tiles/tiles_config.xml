@@ -17,5 +17,23 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
 	</definition>
+	
+	<!-- 작업수행 - 주문 현황 -->
+	<definition name="mes_pfwork1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1.jsp"/>
+	</definition>
+	
+	<!-- 작업수행 - 출고 현황 -->
+	<definition name="mes_pfwork2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork2.jsp"/>
+	</definition>
+	
+	<!-- 작업수행 - 출고 현황 -->
+	<definition name="mes_pfwork1_read" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1_read.jsp"/>
+	</definition>
 
 </tiles-definitions>
