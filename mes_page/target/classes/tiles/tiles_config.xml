@@ -23,6 +23,24 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
 	</definition>
+	
+	<!-- 작업수행 - 주문 현황 -->
+	<definition name="mes_pfwork1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1.jsp"/>
+	</definition>
+	
+	<!-- 작업수행 - 출고 현황 -->
+	<definition name="mes_pfwork2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork2.jsp"/>
+	</definition>
+	
+	<!-- 작업수행 - 출고 현황 -->
+	<definition name="mes_pfwork1_read" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1_read.jsp"/>
+=======
 <<<<<<< HEAD
 	
 	<!-- 메인페이지 -->
@@ -33,7 +51,7 @@
 	<definition name="buser" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/buser_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Buser/buser.jsp"/>
-=======
+	</definition>
 	<!-- 재고 관리 - 보유 도서 목록 -->
 	<definition name="mes_stock2" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
@@ -48,7 +66,11 @@
 	<definition name="stock_update" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/stock_update.jsp"/>
+<<<<<<< HEAD
+=======
 >>>>>>> 2e97d5bf3e6e8e550e361b868081dd20a3dc98c7
+>>>>>>> 219599d5881eebbc9f6feb9bc044cf53e51bdef9
+>>>>>>> 854b8db256f10177e7659431dad2d66a98d8851e
 	</definition>
 
 </tiles-definitions>
