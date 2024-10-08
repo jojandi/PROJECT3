@@ -11,12 +11,19 @@
 		<put-attribute name="side" value=""/>
 		<put-attribute name="content" value=""/>
 	</definition>
+	<!-- template : 메인 기본 틀 -->
+	<definition name="mainLayout" template="/WEB-INF/views/common/layout2.jsp">
+		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="content" value=""/>
+	</definition>
 	
 	<!-- 재고 관리 - 재고 현황 -->
 	<definition name="mes_stock1" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
 	</definition>
+<<<<<<< HEAD
 	
 	<!-- 작업수행 - 주문 현황 -->
 	<definition name="mes_pfwork1" extends="baseLayout">
@@ -34,6 +41,34 @@
 	<definition name="mes_pfwork1_read" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1_read.jsp"/>
+=======
+<<<<<<< HEAD
+	
+	<!-- 메인페이지 -->
+	<definition name="main" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/views/Main/main.jsp"/>
+	</definition>
+	<!-- 북플릭스회원관리 페이지 -->
+	<definition name="buser" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/buser_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Buser/buser.jsp"/>
+=======
+	<!-- 재고 관리 - 보유 도서 목록 -->
+	<definition name="mes_stock2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock2.jsp"/>
+	</definition>
+	<!-- 재고 관리 - 도서 발주 -->
+	<definition name="mes_stock3" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock3.jsp"/>
+	</definition>
+	<!-- 재고 관리 - 도서 수정 -->
+	<definition name="stock_update" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/stock_update.jsp"/>
+>>>>>>> 2e97d5bf3e6e8e550e361b868081dd20a3dc98c7
+>>>>>>> 219599d5881eebbc9f6feb9bc044cf53e51bdef9
 	</definition>
 
 </tiles-definitions>

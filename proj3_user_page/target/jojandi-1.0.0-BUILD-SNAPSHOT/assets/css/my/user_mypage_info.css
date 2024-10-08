@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+aside #items #i4 .material-symbols-outlined{
+    background: rgb(165, 224, 144);
+}
+
+
+header #menu #items #i5{
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.material-symbols-outlined{
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+#wrap{
+    font-size: 0;
+    /* border: 1px solid red; */
+    padding: 30px 150px;
+}
+
+#wrap section {
+    width: 80%;
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-left: 30px;
+    /* border: 1px solid red; */
+}
+
+section #stitle h3{
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    padding: 17px;
+    box-sizing: border-box;
+}
+
+section #smenu{
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+section #smenu .text{
+    margin-right: 7px;
+}
+
+/* miniinfo */
+section #information{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+section #information #miniInfo{
+    /* border: 1px solid red; */
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+section #information #miniInfo #profile{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #929292;
+    border-radius: 50%;
+    margin-bottom: 10px;
+
+    background-image: url("../../img/profile.png");
+    background-size: 100% 100%;
+}
+
+section #information #miniInfo #nickname{
+    font-weight: 900;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+section #information #miniInfo #email{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+section #information #miniInfo #num{
+    font-size: 13px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    width: 180px;
+    border-bottom: 1px solid #929292;
+    margin-bottom: 10px;
+}
+
+section #information #miniInfo #logout{
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+section #information #realout,
+section #information #bookout{
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+    border: none;
+    background: white;
+}
+
+section #information #infoedit{
+    /* border: 1px solid red; */
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 0;
+}
+
+section #information #infoedit #infoeditTite{
+    text-align: left;
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+section #information #infoedit #pwIn{
+    width: 50%;
+    height: 35px;
+    vertical-align: top;
+}
+
+section #information #infoedit #pwBnt{
+    width: 51%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+section #information #infoedit #pwerror{
+    display: none;
+    font-size: 14px;
+    color: red;
+}
+
+section #information #infoedit #info2{
+    font-size: 16px;
+    display: none;
+}
+
+section #information #infoedit #info2 table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout:fixed;
+}
+
+section #information #infoedit #info2 table td{
+    padding: 10px;
+    border-bottom: 1px solid #929292;
+    border-top: 1px solid #929292;
+    text-align: left;
+    height: 25px;
+}
+
+section #information #infoedit #info2 #update {
+	margin-top: 15px;
+	margin-right: 5px;
+	text-align: right;
+}
+
+section #information #infoedit #info2 table .center{
+    border-right: 1px solid #929292;
+    text-align: center;
+    width: 20%;
+}
+
+section #information #infoedit #info2 table .right{
+    text-align: right;
+}
+
+section #information #infoedit #info2 table input[type=text],
+section #information #infoedit #info2 table input[type=password]{
+    height: 18px;
+}
+
+section #information #infoedit #info2 .gaip{
+	font-size: 0;
+}
+
+section #information #infoedit #info2 #addr input{
+	margin-bottom: 5px;
+}
+
+section #information #infoedit #info2 #LO01,
+section #information #infoedit #info2 #LO02{
+	color : red;
+	display: none;
+}
+
+/* 북플릭스 */
+section #information #booksub{
+    /* border: 1px solid red; */
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+section #information #booksub #booklogo{
+    display: inline-block;
+    /* border: 1px solid red; */
+    width: 15%;
+}
+
+section #information #booksub #booklogo > img{
+    width: 100%;
+}
+
+section #information #booksub #bookall{
+    display: inline-block;
+    /* border: 1px solid red; */
+    width: 80%;
+}
+
+section #information #booksub #bookall > span{
+    font-size: 16px;
+    font-weight: 900;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+section #information #booksub #books{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    align-items: baseline;
+}
+
+section #information #booksub #books .book{
+    width: 40%;
+    vertical-align: top;
+    /* border: 1px solid red; */
+}
+
+section #information #booksub #books .booktitle{
+    font-size: 15px;
+}
+
+section #information #booksub #books img{
+    width: 80%;
+}
+
+section #information #booksub #bookout{
+    margin-top: 20px;
+    text-decoration: underline;
+    cursor: pointer;
+}

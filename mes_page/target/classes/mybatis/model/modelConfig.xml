@@ -16,6 +16,7 @@
 	<typeAliases>
 		<typeAlias type="project3.gamja.mesPage.dto.MesPfworkDTO" alias="pfworkDTO"/>
 		<typeAlias type="project3.gamja.mesPage.dto.MesMainDTO" alias="mainDTO"/>
+		<typeAlias type="project3.gamja.mesPage.dto.MesBuserDTO" alias="buserDTO"/>
 	</typeAliases> 
 	 
 	
