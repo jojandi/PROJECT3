@@ -28,6 +28,7 @@ public class PfworkService {
 		
 		List<MesPfworkDTO> list = pfDAO.selectpf(dto);
 		
+//		System.out.println(list.get(0));
 		int totalCount = pfDAO.totalpf(dto);
 		
 		Map map = new HashMap();
@@ -36,5 +37,48 @@ public class PfworkService {
 		
 		return map;
 	}
+	
+	public MesPfworkDTO selectOne(MesPfworkDTO pfDTO) {
+		MesPfworkDTO list = pfDAO.selectOne(pfDTO);
+		
+		return list;
+	}
+	
 
+	public List<MesPfworkDTO> selectEmployee(){
+		List<MesPfworkDTO> list = pfDAO.selectEmployee();
+		
+		return list;
+	}
+	
+	public List<MesPfworkDTO> selectBom(){
+		List<MesPfworkDTO> list = pfDAO.selectBom();
+		
+		return list;
+	}
+	
+	public List<MesPfworkDTO> selectBookflix(){
+		List<MesPfworkDTO> list = pfDAO.selectBookflix();
+		
+		return list;
+	}
+	
+	public int insertpf(MesPfworkDTO pfDTO) {
+		int result = pfDAO.insertpf(pfDTO);
+		
+		return result;
+	}
+	
+	public int updatepf(MesPfworkDTO pfDTO) {
+		int result = pfDAO.updatepf(pfDTO);
+		
+		return result;
+	}
+	
+	public int deletepf(MesPfworkDTO pfDTO) {
+		int result = pfDAO.deletepf(pfDTO);
+		
+		return result;
+	}
+	
 }

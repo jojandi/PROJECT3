@@ -8,24 +8,84 @@
 	<select id="selectpf" resultType="pfworkDTO" parameterType="pfworkDTO">
 		SELECT * FROM (
 			SELECT 
-				rownum rnum, o.os_id, b.bom_name, t.user_id, o.os_date, e.emp_name
+			    o.os_id, 
+			    b.bom_name, 
+			    t.user_id, 
+			    o.os_date, 
+			    e.emp_name,
+			    d.ds_date,
+                d.ds_con
 			FROM 
-				orderstatus o
-				JOIN bom b ON o.bom_code = b.bom_code
-				JOIN bookflix_user f ON o.buser_seq = f.buser_seq
-				JOIN employee e ON o.emp_id = e.emp_id
-				JOIN tbl_user t ON f.user_seq = t.user_seq
-			ORDER BY os_id DESC
-				 ) WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+   				orderstatus o
+		    LEFT OUTER JOIN bom b ON o.bom_code = b.bom_code
+		    LEFT OUTER JOIN bookflix_user f ON o.buser_seq = f.buser_seq
+		    LEFT OUTER JOIN employee e ON o.emp_id = e.emp_id
+		    LEFT OUTER JOIN tbl_user t ON f.user_seq = t.user_seq
+		    LEFT OUTER JOIN deliverystatus d ON f.buser_seq = d.buser_seq
+				ORDER BY o.os_id DESC
+				 ) 
+<!-- 			WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} -->
 	</select>
 	
+	<!-- pfwork paging -->
 	<select id="totalpf" resultType="int" parameterType="pfworkDTO">
 		SELECT 
 			count(*) cnt 
 		FROM 
 			orderstatus 
 	</select>
-
-
+	
+	<!-- pfwork read -->
+	<select id="selectOne" resultType="pfworkDTO" parameterType="pfworkDTO">
+		SELECT * FROM (
+			SELECT 
+			    o.os_id, 
+			    b.bom_name, 
+			    t.user_id, 
+			    o.os_date, 
+			    e.emp_name,
+			    d.ds_date,
+                d.ds_con
+			FROM 
+   				orderstatus o
+		    LEFT OUTER JOIN bom b ON o.bom_code = b.bom_code
+		    LEFT OUTER JOIN bookflix_user f ON o.buser_seq = f.buser_seq
+		    LEFT OUTER JOIN employee e ON o.emp_id = e.emp_id
+		    LEFT OUTER JOIN tbl_user t ON f.user_seq = t.user_seq
+		    LEFT OUTER JOIN deliverystatus d ON f.buser_seq = d.buser_seq
+				ORDER BY o.os_id DESC
+				 )  where os_id = #{ os_id }
+	</select>
+	
+	<!-- 주문현황 emp_id만 select -->
+	<select id="selectEmployee" resultType="pfworkDTO">
+		SELECT emp_id FROM employee
+	</select>
+	
+	<!-- 주문현황 bom_code만 select -->
+	<select id="selectBom" resultType="pfworkDTO">
+		SELECT bom_code FROM bom
+	</select>
+	
+	<!-- 주문현황 buser_seq만 select -->
+	<select id="selectBookflix" resultType="pfworkDTO">
+		SELECT buser_seq FROM bookflix_user
+	</select>
+	
+	<!-- 주문현황 insert -->
+	<insert id="insertpf" parameterType="pfworkDTO">
+		INSERT INTO orderstatus (os_id, bom_code, emp_id, os_date, buser_seq)
+		VALUES (os_seq.NEXTVAL, #{bom_code}, #{emp_id}, #{os_date}, #{buser_seq})
+	</insert>
+	
+	<update id="updatepf" parameterType="pfworkDTO">
+		update orderstatus
+			set bom_code = #{bom_code}
+			where os_id = #{os_id}
+	</update>
+	
+	<delete id="deletepf" parameterType="pfworkDTO">
+		delete orderstatus where os_id = #{os_id}
+	</delete>
 
 </mapper>

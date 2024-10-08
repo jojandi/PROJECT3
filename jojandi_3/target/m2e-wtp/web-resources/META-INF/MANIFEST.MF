@@ -1,11 +1,16 @@
 Manifest-Version: 1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 Built-By: human
 Build-Jdk: 11
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 854b8db256f10177e7659431dad2d66a98d8851e
 Built-By: admin
 Build-Jdk: 11
+<<<<<<< HEAD
+=======
 =======
 <<<<<<< HEAD
 Built-By: admin
