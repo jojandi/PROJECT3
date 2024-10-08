@@ -11,4 +11,6 @@ import project3.gamja.mesPage.dto.MesStockDTO;
 public interface StockDAO {
 
 	List<MesStockDTO> selectStock1();
+	List<MesStockDTO> selectStock2();
+	List<MesStockDTO> selectStock3();
 }

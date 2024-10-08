@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+    pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Map"%>
 <%-- <%@ page import="mes_DTO.MesStockDTO"%> --%>
@@ -11,8 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>재고 관리</title>
+<title>도서 발주</title>
 <link href="./assets/css/admin_table.css" rel="stylesheet">
 <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
 <link href="./assets/css/admin.css" rel="stylesheet">
@@ -24,144 +22,15 @@
 <!-- <script src="./assets/js/admin_stock.js"></script> -->
 <script src="./assets/js/mes_stock_search.js"></script>
 </head>
-
 <body>
+	<section>
 
-
-		<section>
 			<div class="main_page" id="main_page_1">
-				<h3>재고 현황</h3>
-				<div>
-					<div class="bot_btn">
-						<div class="search-container">
-							<input type="text" id="searchBom" placeholder="제품명 검색...">
-						</div>
-					</div>
-					<div class="page_2">
-						<table id="main_library">
-							<colgroup>
-								<col width="3%">
-								<col width="20%">
-								<col width="7%">
-								<col width="8%">
-								<col width="8%">
-							</colgroup>
-							<thead>
-								<tr>
-									<th>제품 코드</th>
-									<th class="sortable">제품명</th>
-									<th>재고 수량</th>
-									<th>보관 위치</th>
-									<th>비고</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="productList" items="${productList}">
-									<tr>
-										<td>${productList.bom_code }</td>
-										<td class="sortable">${productList.bom_name }</td>
-										<td>${productList.pd_count }</td>
-										<td>${productList.wh_name }</td>
-										<td>${productList.pd_note }
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
-
-				</div>
-			</div>
-
-			<div class="main_page" id="main_page_2">
-				<h3>보유 도서 목록</h3>
-				<div>
-					<div class="bot_btn">
-						<div class="search-container">
-							<input type="text" id="searchInput" placeholder="도서명 검색...">
-						</div>
-					</div>
-					<div class="page_2">
-						<table id="main_library2">
-							<thead>
-								<tr>
-									<th>부품번호</th>
-									<th class="sortable">도서명</th>
-									<th>도서 코드</th>
-									<th>저자</th>
-									<th>출판사</th>
-									<th>수량</th>
-									<th>보관 위치</th>
-								</tr>
-							</thead>
-							<!-- 여기에 데이터 -->
-							<tbody>
-								<c:forEach var="mesbook" items="${map.list}">
-									<tr>
-										<td>${mesbook.mes_book_code }</td>
-										<td class="sortable">${mesbook.book_name }</td>
-										<td>${mesbook.book_isbn }</td>
-										<td>${mesbook.book_author }</td>
-										<td>${mesbook.book_pub }</td>
-										<td>${mesbook.book_count }</td>
-										<td>${mesbook.wh_code }</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
-					<!-- 보유도서 페이징 -->
-						<%
-						Map map = (Map) request.getAttribute("map");
-						int totalCount = (int) map.get("totalCount");
-
-						String str_countPerPage = (String) request.getAttribute("countPerPage");
-						int countPerPage = Integer.parseInt(str_countPerPage);
-
-						String str_pageNo = (String) request.getAttribute("page");
-						int pageNo = Integer.parseInt(str_pageNo);
-
-						int lastPage = (int) Math.ceil((double) totalCount / countPerPage);
-
-						// 한번에 보여줄 페이지의 개수
-						int countPerSection = 3;
-						// 페이지 섹션 위치
-						int position = (int) Math.ceil((double) pageNo / countPerSection);
-						int sec_first = ((position - 1) * countPerSection) + 1;
-						int sec_last = position * countPerSection;
-						if (sec_last > lastPage) {
-							sec_last = lastPage;
-						}
- 						%>
-						<c:set var="lastPage2" value="<%=lastPage%>" scope='page' />
-
-						<c:if test="<%=sec_first == 1%>">
-					      &lt;
-					   	</c:if>
-						<c:if test="<%=sec_first != 1%>">
-							<a href="stock?page=<%=sec_first - 1%>">&lt;</a>
-						</c:if>
-
-						<c:forEach var="i" begin="<%=sec_first%>" end="<%=sec_last%>">
-							<c:if test="${i eq page}"> [<a href="stock?page=${i}&mainPage=2"><strong>${ i }</strong></a>] </c:if>
-							<c:if test="${i != page}">[<a href="stock?page=${i}&mainPage=2">${ i }</a>]</c:if>
-						</c:forEach>
-
-						<c:if test="<%=sec_last == lastPage%>">
-						  &gt;
-					    </c:if>
-						<c:if test="<%=sec_last != lastPage%>">
-							<a href="stock?page=<%=sec_last + 1%>">&gt;</a>
-						</c:if>
-						<!-- 여기까지 페이징 -->
-				</div>
-			</div>
-
-			<div class="main_page" id="main_page_3">
 				<h3>도서 발주</h3>
 				<div>
 					<div class="table_wrap">
 						<div class="page_2">
-							<table id="main_library_1">
+							<table id="main_library">
 								<thead>
 									<tr>
 										<th class="sortable">부품코드</th>
@@ -174,18 +43,18 @@
 									</tr>
 								</thead>
 								<tbody class="main_tbody">
-									<c:forEach var="tbl_order" items="${tbl_order}">
+									<c:forEach var="StockList3" items="${StockList3}">
 										<tr>
-											<td class="sortable">${tbl_order.mes_book_code }</td>
-											<td>${tbl_order.order_id }</td>
-											<td>${tbl_order.pub_name }</td>
-											<td>${tbl_order.order_st }</td>
-											<td>${tbl_order.emp_name }</td>
-											<td>${tbl_order.order_date }</td>
+											<td class="sortable">${StockList3.mes_book_code }</td>
+											<td>${StockList3.order_id }</td>
+											<td>${StockList3.pub_name }</td>
+											<td>${StockList3.order_st }</td>
+											<td>${StockList3.emp_name }</td>
+											<td>${StockList3.order_date }</td>
 											<td>
 												<form method="get" action="stockUpdate">
 													<input type="hidden" name="order_id"
-														value="${tbl_order.order_id }"> <input
+														value="${StockList3.order_id }"> <input
 														type="submit" value="수정">
 												</form>
 											</td>
@@ -288,10 +157,5 @@
 			<!-- 				</div> -->
 			<!-- 			</div> -->
 		</section>
-
-
-	<!-- 가장 아래 고정 -->
-
 </body>
-<script src="./assets/js/mes_stock.js"></script>
 </html>

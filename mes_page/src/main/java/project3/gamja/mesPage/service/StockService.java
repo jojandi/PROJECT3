@@ -19,6 +19,18 @@ public class StockService {
 			List<MesStockDTO> list = stockDAO.selectStock1();
 					
 			return list;
-		}
+	}
+	public List<MesStockDTO> selectStock2(){
+		
+		List<MesStockDTO> list = stockDAO.selectStock2();
+		
+		return list;
+	}
+	public List<MesStockDTO> selectStock3(){
+		
+		List<MesStockDTO> list = stockDAO.selectStock3();
+		
+		return list;
+	}
 	
 }

@@ -41,20 +41,7 @@ window.onload = function () {
                 clickedIcon.classList.add('active');
             }
 
-            const itemId = this.id;
-            if (itemId === 'i1') {
-                document.querySelector('#main_page_1').style.display = 'inline-block';
-                document.querySelector('#main_page_2').style.display = 'none';
-                document.querySelector('#main_page_3').style.display = 'none';
-            } else if (itemId === 'i2') {
-                document.querySelector('#main_page_2').style.display = 'inline-block';
-                document.querySelector('#main_page_1').style.display = 'none';
-                document.querySelector('#main_page_3').style.display = 'none';
-            } else if (itemId === 'i3') {
-                document.querySelector('#main_page_3').style.display = 'inline-block';
-                document.querySelector('#main_page_1').style.display = 'none';
-                document.querySelector('#main_page_2').style.display = 'none';
-            }
+
         });
     });
 

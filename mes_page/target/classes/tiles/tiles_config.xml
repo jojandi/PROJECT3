@@ -17,5 +17,15 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
 	</definition>
+	<!-- 재고 관리 - 보유 도서 목록 -->
+	<definition name="mes_stock2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock2.jsp"/>
+	</definition>
+	<!-- 재고 관리 - 도서 발주 -->
+	<definition name="mes_stock3" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock3.jsp"/>
+	</definition>
 
 </tiles-definitions>
