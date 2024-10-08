@@ -11,11 +11,27 @@
 		<put-attribute name="side" value=""/>
 		<put-attribute name="content" value=""/>
 	</definition>
+	<!-- template : 메인 기본 틀 -->
+	<definition name="mainLayout" template="/WEB-INF/views/common/layout2.jsp">
+		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="content" value=""/>
+	</definition>
 	
 	<!-- 재고 관리 - 재고 현황 -->
 	<definition name="mes_stock1" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
+	</definition>
+	
+	<!-- 메인페이지 -->
+	<definition name="main" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/views/Main/main.jsp"/>
+	</definition>
+	<!-- 북플릭스회원관리 페이지 -->
+	<definition name="buser" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/buser_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Buser/buser.jsp"/>
 	</definition>
 
 </tiles-definitions>

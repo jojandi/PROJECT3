@@ -9,7 +9,7 @@
 <style>
 	
 	#side{display: inline-block; width: 30%; border: 1px solid green;}
-	#content{display: inline-block; width: 69%; border: 1px solid green; vertical-align: top;}
+	#content{display: inline-block; width: 100%; border: 1px solid green; vertical-align: top;}
 
 </style>
 </head>
@@ -22,7 +22,7 @@
 	
 	<!-- content -->
 	<div id="content">
-		<tiles:insertAttribute name="title"/>
+
 		<tiles:insertAttribute name="content"/>
 	</div>
 	
