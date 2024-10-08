@@ -48,8 +48,6 @@
 
 
 
-	<div id="wrap">
-		<!-- 사이드 -->
 	
 
 		<section>
@@ -101,7 +99,6 @@
 				</div>
 			</div>
 		</section>
-	</div>
 	<!--자바 스크립트 영역-->
 	<script src="./assets/js/mes_buser.js"></script>
 
