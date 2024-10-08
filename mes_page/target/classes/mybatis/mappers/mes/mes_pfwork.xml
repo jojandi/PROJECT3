@@ -4,17 +4,26 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project3.gamja.mesPage.dao.PfworkDAO">
 
-
-	<select id="selectCart" resultType="pfworkDTO" parameterType="int">
+	<!-- pfwork select -->
+	<select id="selectpf" resultType="pfworkDTO" parameterType="pfworkDTO">
+		SELECT * FROM (
+			SELECT 
+				rownum rnum, o.os_id, b.bom_name, t.user_id, o.os_date, e.emp_name
+			FROM 
+				orderstatus o
+				JOIN bom b ON o.bom_code = b.bom_code
+				JOIN bookflix_user f ON o.buser_seq = f.buser_seq
+				JOIN employee e ON o.emp_id = e.emp_id
+				JOIN tbl_user t ON f.user_seq = t.user_seq
+			ORDER BY os_id DESC
+				 ) WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<select id="totalpf" resultType="int" parameterType="pfworkDTO">
 		SELECT 
-			book_code, cart_seq, user_seq, li_book_info, book_name, book_author, book_pub, book_img 
+			count(*) cnt 
 		FROM 
-			user_cart 
-			JOIN li_book USING(book_code) 
-			JOIN book USING(book_isbn) 
-			WHERE 
-				user_seq = #{_parameter}
-		ORDER BY cart_seq
+			orderstatus 
 	</select>
 
 
