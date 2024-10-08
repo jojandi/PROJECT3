@@ -23,6 +23,7 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
 	</definition>
+<<<<<<< HEAD
 	
 	<!-- 메인페이지 -->
 	<definition name="main" extends="mainLayout">
@@ -32,6 +33,22 @@
 	<definition name="buser" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/buser_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Buser/buser.jsp"/>
+=======
+	<!-- 재고 관리 - 보유 도서 목록 -->
+	<definition name="mes_stock2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock2.jsp"/>
+	</definition>
+	<!-- 재고 관리 - 도서 발주 -->
+	<definition name="mes_stock3" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock3.jsp"/>
+	</definition>
+	<!-- 재고 관리 - 도서 수정 -->
+	<definition name="stock_update" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/stock_update.jsp"/>
+>>>>>>> 2e97d5bf3e6e8e550e361b868081dd20a3dc98c7
 	</definition>
 
 </tiles-definitions>

@@ -19,6 +19,37 @@ public class StockService {
 			List<MesStockDTO> list = stockDAO.selectStock1();
 					
 			return list;
-		}
+	}
+	public List<MesStockDTO> selectStock2(){
+		
+		List<MesStockDTO> list = stockDAO.selectStock2();
+		
+		return list;
+	}
+	public List<MesStockDTO> selectStock3(){
+		
+		List<MesStockDTO> list = stockDAO.selectStock3();
+		
+		return list;
+	}
+	public List<MesStockDTO> getMesPubId(){
+		
+		List<MesStockDTO> list = stockDAO.getMesPubId();
+		
+		return list;
+	}
+	public List<MesStockDTO> getMesBookCodes(){
+		
+		List<MesStockDTO> list = stockDAO.getMesBookCodes();
+		
+		return list;
+	}
+	
+	
+	
+	public MesStockDTO selectOrder(int OrderId){
+		MesStockDTO dto = stockDAO.selectOrder(OrderId);
+		return dto;
+	}
 	
 }

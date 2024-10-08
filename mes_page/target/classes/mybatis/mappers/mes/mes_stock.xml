@@ -4,12 +4,48 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project3.gamja.mesPage.dao.StockDAO">
 
-	   <!-- selectAll 메서드에 대한 SQL 매핑 -->
+	<!-- 	셀렉트 관련 -->
     <select id="selectStock1" resultType="project3.gamja.mesPage.dto.MesStockDTO">
+        select b.bom_code,b.bom_name, p.pd_count, w.wh_name, p.pd_note
+			from warehouse w, product p , bom b
+			where w.wh_code = p.wh_code
+		and p.bom_code = b.bom_code
+    </select>
+    <select id="selectStock2" resultType="project3.gamja.mesPage.dto.MesStockDTO">
         select m.mes_book_code,b.book_name, b.book_isbn, b.book_author, b.book_pub, m.book_count, m.wh_code
-		from book b, mes_book m 
+		    from book b, mes_book m
 		WHERE b.book_isbn = m.book_isbn
     </select>
-
+    <select id="selectStock3" resultType="project3.gamja.mesPage.dto.MesStockDTO">
+        select mes_book_code, order_id, pub_name, order_st, emp_name, order_date
+			from tbl_order t, publisher p, employee e
+			where t.emp_id = e.emp_id
+		and t.pub_id = p.pub_id
+    </select>
+	
+	<select id="selectOrder" resultType="project3.gamja.mesPage.dto.MesStockDTO" parameterType="int">
+		SELECT 
+			*
+		FROM 
+			tbl_order 
+		WHERE 
+			order_id= #{_parameter}
+	</select>
+<!-- 	발주처를 리스트로 반환하는 메서드 -->
+	<select id="getMesPubId" resultType="project3.gamja.mesPage.dto.MesStockDTO">
+        SELECT pub_id FROM publisher
+    </select>
+<!--     부품 코드를 리스트로 반환하는 메서드 -->
+	<select id="getMesBookCodes" resultType="project3.gamja.mesPage.dto.MesStockDTO">
+        SELECT mes_book_code FROM mes_book
+    </select>
+	
+	
+	<!-- 	셀렉트 관련 -->
+	
+	
+	
+	
+	
 
 </mapper>
