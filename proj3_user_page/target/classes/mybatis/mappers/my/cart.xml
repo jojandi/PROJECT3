@@ -21,7 +21,7 @@
 		INSERT INTO 
 			user_res(res_id, book_code, user_seq, res_day, res_pick) 
 		VALUES 
-			(user_res_seq.nextval, #{book_code}, #{user_seq}, to_date(sysdate,'YYY-MM-DD'), null)
+			(user_res_seq.nextval, #{book_code}, #{user_seq}, to_date(sysdate,'YYYY-MM-DD'), null)
 	</insert>
 	
 	<!-- 여러개 삭제하기 -->

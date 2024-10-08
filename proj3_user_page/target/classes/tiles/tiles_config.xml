@@ -25,6 +25,11 @@
 	<definition name="main" extends="baseLayout2">
 		<put-attribute name="content" value="/WEB-INF/views/user/main/user_main.jsp"/>
 	</definition>
+	
+	<!-- 베스트페이지 -->
+	<definition name="best" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best.jsp"/>
+	</definition>
 
 	<!-- 마이페이지 - 이용내역 - 예약 -->
 	<definition name="res" extends="baseLayout">
