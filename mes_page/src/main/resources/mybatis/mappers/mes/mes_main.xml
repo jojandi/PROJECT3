@@ -1,1 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.mesPage.dao.MainDAO">
+
+	   <!-- selectAll 메서드에 대한 SQL 매핑 -->
+    <select id="selectAll" resultType="project3.gamja.mesPage.dto.MesMainDTO">
+        SELECT * FROM emp0
+    </select>
+
+    <!-- getStatisticsByGenre 메서드에 대한 SQL 매핑 -->
+  <select id="getStatisticsByGenre" parameterType="map" resultType="project3.gamja.mesPage.dto.MesMainDTO">
+    SELECT t.bom_code, b.bom_name, SUM(d.month_dm) AS demand 
+    FROM demand d 
+    JOIN deliverystatus_total t ON d.ds_id = t.ds_id 
+    JOIN bom b ON t.bom_code = b.bom_code 
+    WHERE FLOOR(t.date_id / 100) = #{year} 
+    AND MOD(t.date_id, 100) = #{month}  
+    GROUP BY t.bom_code, b.bom_name 
+    ORDER BY t.bom_code;
+</select>
+</mapper>

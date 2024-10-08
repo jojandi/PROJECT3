@@ -21,4 +21,8 @@ public class MainService {
 				
 		return list;
 	}
+	
+	 public List<MesMainDTO> getStatisticsByGenre(int year, int month) {
+	        return mainDAO.getStatisticsByGenre(year, month);
+	    }
 }

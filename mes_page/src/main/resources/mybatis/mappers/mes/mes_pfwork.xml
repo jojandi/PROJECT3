@@ -5,7 +5,7 @@
 <mapper namespace="project3.gamja.mesPage.dao.PfworkDAO">
 
 
-	<select id="selectCart" resultType="cartDTO" parameterType="int">
+	<select id="selectCart" resultType="pfworkDTO" parameterType="int">
 		SELECT 
 			book_code, cart_seq, user_seq, li_book_info, book_name, book_author, book_pub, book_img 
 		FROM 
