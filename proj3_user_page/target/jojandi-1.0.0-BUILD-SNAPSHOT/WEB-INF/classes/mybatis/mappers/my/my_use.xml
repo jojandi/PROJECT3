@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.jojandi.dao.user.my.UseDAO">
+	<!-- 이용내역 - 예약내역 -->
+	<select id="selectUseRes" resultType="loanDTO" parameterType="loanDTO">
+		SELECT * FROM (
+			SELECT 
+				rownum as rnum, book_code, res_id, res_day, res_pick, user_seq, book_name, res_ing  
+			FROM ( 
+				SELECT 
+					book_code, res_id, res_day, res_pick, user_seq, book_name, (res_pick - res_day) as res_ing  
+				FROM
+					user_res 
+				JOIN li_book USING(book_code) 
+				JOIN book USING(book_isbn) 
+				WHERE 
+					user_seq = #{user_seq}
+				ORDER BY 
+					res_id 
+		)) 
+		WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- 이용내역 - 예약내역 전체 목록 개수 -->
+	<select id="totalRes" resultType="int" parameterType="loanDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			user_res 
+		WHERE user_seq = #{user_seq}
+	</select>
+	
+	
+	<!-- 이용내역 - 대출내역 -->
+	<select id="selectUseLoan" resultType="loanDTO" parameterType="loanDTO">
+		SELECT * FROM( 
+			SELECT 
+				rownum as rnum, loan_seq, book_code, user_seq, book_name, loan_date, loan_ing, loan_return, loan_ex, isOver  
+		FROM (  
+			SELECT 
+				loan_seq, book_code, user_seq, book_name, loan_date, loan_ing, loan_return, loan_ex, (loan_ex - loan_return) as isOver 
+			FROM user_loan 
+			JOIN li_book USING(book_code) 
+			JOIN book USING(book_isbn) 
+			WHERE 
+				user_seq = #{user_seq}
+			ORDER BY 
+				loan_date DESC 
+		)) 
+		WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- 이용내역 - 대출내역 전체 목록 개수 -->
+	<select id="totalLoan" resultType="int" parameterType="loanDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			user_loan 
+		WHERE user_seq = #{user_seq}
+	</select>
+	
+	
+	<!-- 이용내역 - 연체내역 -->
+	<select id="selectUseOver" resultType="loanDTO" parameterType="loanDTO">
+		SELECT * FROM( 
+			SELECT rownum as rnum, loan_seq, book_code, user_seq, book_name, loan_date, loan_return, over_date, user_pass 
+			FROM ( 
+				SELECT loan_seq, book_code, user_seq, book_name, loan_date, loan_return, (loan_return - loan_ex) as over_date,
+					   loan_return + (loan_return - loan_ex) as user_pass 
+				FROM user_loan join li_book using(book_code) 
+				JOIN book USING(book_isbn) 
+				WHERE 
+					loan_return - loan_ex > 0 AND
+					user_seq = #{user_seq}
+				ORDER BY loan_date DESC
+			)) 
+		WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- 이용내역 - 연체내역 전체 목록 개수 -->
+	<select id="totalOver" resultType="int" parameterType="loanDTO">
+		SELECT 
+			count(*) as cnt 
+		FROM user_loan 
+		JOIN li_book USING(book_code) 
+		JOIN book USING(book_isbn) 
+		WHERE 
+			loan_return - loan_ex > 0 AND 
+			user_seq = #{user_seq}
+	</select>
+</mapper>
