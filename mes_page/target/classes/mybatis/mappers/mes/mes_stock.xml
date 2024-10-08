@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.mesPage.dao.StockDAO">
+
+	   <!-- selectAll 메서드에 대한 SQL 매핑 -->
+    <select id="selectStock1" resultType="project3.gamja.mesPage.dto.MesStockDTO">
+        select m.mes_book_code,b.book_name, b.book_isbn, b.book_author, b.book_pub, m.book_count, m.wh_code
+		from book b, mes_book m 
+		WHERE b.book_isbn = m.book_isbn
+    </select>
+
+
+</mapper>

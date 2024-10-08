@@ -10,28 +10,12 @@
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
 		<put-attribute name="side" value=""/>
 		<put-attribute name="content" value=""/>
-		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
 	</definition>
 	
-	<!-- 마이페이지 - 이용내역 -->
-	<definition name="res" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_use1.jsp"/>
+	<!-- 재고 관리 - 재고 현황 -->
+	<definition name="mes_stock1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
 	</definition>
-	
-	<definition name="loan" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_use2.jsp"/>
-	</definition>
-	
-	<definition name="over" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_use3.jsp"/>
-	</definition>
-	
-	<!-- 마이페이지 - 찜목록 -->
-	<definition name="cart" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_cart.jsp"/>
-	</definition>
+
 </tiles-definitions>
