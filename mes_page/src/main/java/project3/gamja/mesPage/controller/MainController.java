@@ -24,7 +24,7 @@ public class MainController {
 	@RequestMapping("/main")
 	public String listEmp(Model model) {
 		List<MesMainDTO> list = mainService.selectAll();
-		model.addAttribute("MainList", list);
+		model.addAttribute("list", list);
 		
 		return "main";
 	}

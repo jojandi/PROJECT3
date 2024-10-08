@@ -5,12 +5,12 @@
 <mapper namespace="project3.gamja.mesPage.dao.MainDAO">
 
 	   <!-- selectAll 메서드에 대한 SQL 매핑 -->
-    <select id="selectAll" resultType="project3.gamja.mesPage.dto.MesMainDTO">
-        SELECT * FROM emp0
+    <select id="selectAll" resultType="mainDTO">
+        SELECT * FROM bom
     </select>
 
     <!-- getStatisticsByGenre 메서드에 대한 SQL 매핑 -->
-  <select id="getStatisticsByGenre" parameterType="map" resultType="project3.gamja.mesPage.dto.MesMainDTO">
+  <select id="getStatisticsByGenre" parameterType="map" resultType="mainDTO">
     SELECT t.bom_code, b.bom_name, SUM(d.month_dm) AS demand 
     FROM demand d 
     JOIN deliverystatus_total t ON d.ds_id = t.ds_id 
