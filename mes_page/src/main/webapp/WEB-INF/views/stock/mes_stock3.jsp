@@ -20,6 +20,7 @@
 <link href="./assets/css/mes_stock.css" rel="stylesheet">
 
 <!-- <script src="./assets/js/admin_stock.js"></script> -->
+<script src="./assets/js/mes_stock.js"></script>
 <script src="./assets/js/mes_stock_search.js"></script>
 </head>
 <body>
@@ -52,8 +53,8 @@
 											<td>${StockList3.emp_name }</td>
 											<td>${StockList3.order_date }</td>
 											<td>
-												<form method="get" action="stockUpdate">
-													<input type="hidden" name="order_id"
+												<form method="get" action="stock_update">
+													<input type="hidden" name="order_ID"
 														value="${StockList3.order_id }"> <input
 														type="submit" value="수정">
 												</form>
@@ -105,7 +106,7 @@
 								<td>부품코드</td>
 								<td><select name="mes_book_code">
 										<c:forEach var="code" items="${mes_book_code}">
-											<option value="${code}">${code}</option>
+											<option value="${code.mes_book_code}">${code.mes_book_code}</option>
 										</c:forEach>
 								</select></td>
 							</tr>
@@ -117,7 +118,7 @@
 								<td>발주처id</td>
 								<td><select name="pub_id">
 										<c:forEach var="code" items="${pub_id}">
-											<option value="${code}">${code}</option>
+											<option value="${code.pub_id}">${code.pub_id}</option>
 										</c:forEach>
 								</select></td>
 							</tr>

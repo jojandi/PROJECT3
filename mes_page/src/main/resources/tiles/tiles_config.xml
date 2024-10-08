@@ -27,5 +27,10 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock3.jsp"/>
 	</definition>
+	<!-- 재고 관리 - 도서 수정 -->
+	<definition name="stock_update" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/stock_update.jsp"/>
+	</definition>
 
 </tiles-definitions>
