@@ -16,7 +16,7 @@ public class PfworkService {
 	@Autowired
 	PfworkDAO pfDAO;
 	
-	public Map selectpf(int seq, int count, int pageNo) {
+	public Map selectpf(int count, int pageNo) {
 		// 시작 번호 : 이전 페이지까지 보여준 것 바로 다음 것
 		int start = ((pageNo - 1) * count) + 1;
 		// 마지막 번호
@@ -25,7 +25,6 @@ public class PfworkService {
 		MesPfworkDTO dto = new MesPfworkDTO();
 		dto.setStart(start);
 		dto.setEnd(end);
-		dto.setUser_seq(seq);
 		
 		List<MesPfworkDTO> list = pfDAO.selectpf(dto);
 		

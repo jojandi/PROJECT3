@@ -1,4 +1,4 @@
-package project3.gamja.jojandi.controller.user.my;
+package project3.gamja.jojandi.controller.my;
 
 import java.util.List;
 

@@ -22,13 +22,14 @@ public class PfworkController {
 		if(count == null) count = 7;
 		if(pageNo == null) pageNo = 1;
 		
-		Map map = pfService.selectpf(seq, count, pageNo);
+		Map map = pfService.selectpf(count, pageNo);
+		System.out.println("map : " + map);
 		
 		model.addAttribute("map", map);
 		model.addAttribute("countPerPage", count);
 		model.addAttribute("page", pageNo);
 		
-		return "order";
+		return "mes_pfwork";
 	}
 
 }
