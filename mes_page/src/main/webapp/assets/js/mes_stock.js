@@ -6,13 +6,13 @@ window.onload = function () {
     const closeButton1 = document.querySelector('.close1');
 
     // 버튼 클릭 시 모달 열기
-    openFormButton1?.addEventListener('click', function () {
+    openFormButton1.addEventListener('click', function () {
         modal1.style.display = 'block';
         console.log("모달1 열림");
     });
 
     // 모달 닫기
-    closeButton1?.addEventListener('click', function () {
+    closeButton1.addEventListener('click', function () {
         modal1.style.display = 'none';
     });
 
@@ -41,20 +41,7 @@ window.onload = function () {
                 clickedIcon.classList.add('active');
             }
 
-            const itemId = this.id;
-            if (itemId === 'i1') {
-                document.querySelector('#main_page_1').style.display = 'inline-block';
-                document.querySelector('#main_page_2').style.display = 'none';
-                document.querySelector('#main_page_3').style.display = 'none';
-            } else if (itemId === 'i2') {
-                document.querySelector('#main_page_2').style.display = 'inline-block';
-                document.querySelector('#main_page_1').style.display = 'none';
-                document.querySelector('#main_page_3').style.display = 'none';
-            } else if (itemId === 'i3') {
-                document.querySelector('#main_page_3').style.display = 'inline-block';
-                document.querySelector('#main_page_1').style.display = 'none';
-                document.querySelector('#main_page_2').style.display = 'none';
-            }
+
         });
     });
 
@@ -146,10 +133,7 @@ window.onload = function () {
     const urlParams = new URLSearchParams(window.location.search);
     const mainPage = urlParams.get('mainPage') || 1; // mainPage 값이 없으면 기본값 1
 
-    // 모든 메인 페이지를 숨깁니다.
-    document.getElementById('main_page_1').style.display = 'none';
-    document.getElementById('main_page_2').style.display = 'none';
-    document.getElementById('main_page_3').style.display = 'none';
+
 
     // 선택한 페이지 번호에 맞는 페이지를 보여줍니다.
     document.getElementById('main_page_' + mainPage).style.display = 'block';

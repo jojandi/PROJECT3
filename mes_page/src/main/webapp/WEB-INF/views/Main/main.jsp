@@ -44,16 +44,6 @@
 </head>
 <body>
 
-	<!-- 가장 위 고정 -->
-	<!-- 헤더  -->
-	<%@ include file="/WEB-INF/views/mes_base/header.jsp"%>
-	<!-- 헤더  -->
-
-	<!-- 메인페이지 -->
-
-	<!-- google fonts 가져오기 -->
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 	<div id="wrap">
 
@@ -307,6 +297,8 @@
             </table>
         </div>
     </div>
+
+<div>
 </div>
 </body>
 </html>

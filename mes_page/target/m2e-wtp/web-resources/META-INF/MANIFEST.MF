@@ -1,43 +1,10 @@
 Manifest-Version: 1.0
 <<<<<<< HEAD
-Built-By: admin
-Build-Jdk: 11
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 Built-By: macbook
 Build-Jdk: 11.0.22
 =======
-<<<<<<< HEAD
-Built-By: user
-Build-Jdk: 11.0.0.1
-=======
-<<<<<<< HEAD
-Built-By: macbook
-Build-Jdk: 11.0.22
-=======
-<<<<<<< HEAD
-Built-By: user
-Build-Jdk: 11.0.0.1
-=======
-<<<<<<< HEAD
-Built-By: macbook
-Build-Jdk: 11.0.22
-=======
-<<<<<<< HEAD
->>>>>>> b09d3f5156b327ef223420c64a49ef18a7cde6e0
 Built-By: human
 Build-Jdk: 11
-<<<<<<< HEAD
-=======
->>>>>>> 7b22effe68161ec1575cb448ee550878d0b2e0e8
->>>>>>> 00702d6a890c2e87d97a85cc58e828418c1816e5
->>>>>>> 5cbd2d912698c95900726ff94633d3e0a45bb1ae
->>>>>>> dda55b9f555f6d0519ed5388db0b16081fdd22c7
->>>>>>> d7155f7278c7814f6e630c14aee0a89a7643a7f1
->>>>>>> 49cb7115d3f43f0ab30e5d4b89af690cbd532ef3
->>>>>>> b09d3f5156b327ef223420c64a49ef18a7cde6e0
->>>>>>> 54e239292d44a2f1b9b883ff9c705dee19acb198
+>>>>>>> 2e97d5bf3e6e8e550e361b868081dd20a3dc98c7
 Created-By: Maven Integration for Eclipse
 
