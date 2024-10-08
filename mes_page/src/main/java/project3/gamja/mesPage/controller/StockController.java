@@ -37,8 +37,7 @@ public class StockController {
 		List<MesStockDTO> list = stockService.selectStock3();
 		model.addAttribute("StockList3", list);
 		
-		
-		
+
 		// 부품코드 셀렉트 옵션을 jsp로 전달해주는 친구~
 
 		List<MesStockDTO> mesBookCodes = stockService.getMesBookCodes();
@@ -49,10 +48,6 @@ public class StockController {
 		model.addAttribute("pub_id", mesPubId);
 
 		// ---------------------------------------------------------
-		
-		
-		
-		
 		
 		return "mes_stock3";
 	}
