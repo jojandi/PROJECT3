@@ -52,4 +52,17 @@ public class StockService {
 		return dto;
 	}
 	
+	public int deleteOrder(MesStockDTO dto){
+		int result = stockDAO.deleteOrder(dto);
+		return result;
+	}
+	public int updateOrder(MesStockDTO dto){
+		int result = stockDAO.updateOrder(dto);
+		return result;
+	}
+	public int insertOrder(MesStockDTO dto){
+		int result = stockDAO.insertOrder(dto);
+		return result;
+	}
+	
 }

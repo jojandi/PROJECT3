@@ -17,4 +17,8 @@ public interface StockDAO {
 	List<MesStockDTO> getMesBookCodes();
 	
 	MesStockDTO selectOrder(int orderId);
+	
+	int deleteOrder(MesStockDTO dto);
+	int updateOrder(MesStockDTO dto);
+	int insertOrder(MesStockDTO dto);
 }
