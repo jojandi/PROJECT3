@@ -7,7 +7,7 @@
 		<h2 id="title">재고 현황</h2>
 		<div id="items">
 			<div class="item" id="i1">
-				<a href="inventory"> <span>실시간 재고 현황</span> <span
+				<a href="inven"> <span>실시간 재고 현황</span> <span
 					class="material-symbols-outlined active">arrow_forward_ios</span>
 				</a>
 			</div>

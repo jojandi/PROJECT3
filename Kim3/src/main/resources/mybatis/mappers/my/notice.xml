@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="project3.gamja.Kim.dao.InfoDAO">
+	
+	<select id="totalnoti" resultType="int">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			li_book 
+	</select>
+	
+	
+	<select id="selectAnnouncement" resultType="NotiDTO">
+		SELECT * FROM announcement
+	</select>
+	<select id="selectSeq" resultType="NotiDTO" parameterType="int">
+		SELECT * FROM announcement where ann_seq=#{_parameter}
+	</select>
+	
+<!-- 관리자로 옮기기... -->
+	<insert id="insertAnnouncement" parameterType="NotiDTO">
+		INSERT INTO announcement (
+			ann_Seq, 
+			ann_Title, 
+			ann_Regi,
+			ann_Check
+		) VALUES(
+			#{ann_Seq}, 
+			#{ann_Title}, 
+			#{ann_Regi},
+			#{ann_Check}
+		)
+	</insert>
+	
+	
+	
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.Kim.dao.InfoDAO">
+
+	<select id="selectapplication" resultType="RequestDTO">
+		SELECT * FROM application
+	</select>	
+	
+		<insert id="insertapplication" parameterType="RequestDTO">
+	
+			INSERT INTO application (
+			app_book, 
+			app_name, 
+			app_pub,
+			app_seq,
+			user_seq
+		) VALUES(
+			#{app_book}, 
+			#{app_name}, 
+			#{app_pub},
+			app_seq.NEXTVAL,
+			41
+		)
+	</insert>	
+	
+	<update id="updateEmp" parameterType="RequestDTO">
+	UPDATE 
+		application 
+	SET 
+		app_book = #{app_book}, 
+		app_name = #{app_name},
+		app_pub = #{app_pub},
+		
+	WHERE 
+		app_book = #{app_book},
+		app_name = #{app_name},
+		app_pub = #{app_pub},
+		
+</update>
+	
+	
+
+
+
+	
+</mapper>

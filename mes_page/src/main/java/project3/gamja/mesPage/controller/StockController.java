@@ -53,7 +53,7 @@ public class StockController {
 		return "mes_stock3";
 	}
 	////////////////////////////////////////////////////////////////////////////////////////
-	
+	// 업데이트 페이지 /////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="/stock_update", method=RequestMethod.GET)
 	public String orderUpdateSelect(Model model, int order_ID) {
 		
@@ -63,6 +63,9 @@ public class StockController {
 		return "stock_update";
 	}
 	
+
+	// 업데이트 페이지 /////////////////////////////////////////////////////////////////////////
+
 	@RequestMapping(value="/mes_stock3", method=RequestMethod.POST)
 	public String insertOrder(MesStockDTO dto) {
 		
@@ -96,6 +99,7 @@ public class StockController {
 	    return "redirect:mes_stock3";
 	}
 	
+
 	
 	
 }

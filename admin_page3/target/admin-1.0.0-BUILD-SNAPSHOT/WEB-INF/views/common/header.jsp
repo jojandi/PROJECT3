@@ -15,8 +15,10 @@
 
 	<div id="menu">
 		<div id="items" class="left">
-			<a href="inventory" class="item" id="i0">재고 현황</a> <a href="member"
-				class="item" id="i1">회원관리</a> <a href="noti" class="item" id="i2">정보광장관리</a>
+			<a href="inven" class="item" id="i0">재고 현황</a> 
+			<a href="member" class="item" id="i1">회원관리</a> 
+			<a href="noti" class="item" id="i2">정보광장관리</a>
+			<a href="request" class="item" id="i3">도서 발주 신청</a>
 		</div>
 
 
