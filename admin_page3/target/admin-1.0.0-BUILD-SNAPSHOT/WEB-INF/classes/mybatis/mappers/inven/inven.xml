@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.admin.dao.InvenDAO">
+	<!-- 도서신청내역 -->
+	<select id="selectInven" resultType="invenDTO" parameterType="invenDTO">
+		SELECT * FROM(
+		    SELECT 
+		        rownum as rnum, book_code, book_isbn, lib_name, lib_id, book_author, book_name, 
+		        book_pub, book_loan, book_res, li_book_info, book_img
+		    FROM ( 
+		        SELECT 
+		            * 
+		        FROM book 
+		        JOIN li_book USING (book_isbn)
+		        JOIN library USING (lib_id)
+		        <where>
+					<if test="searchType != null and searchType != '' 
+							and keyword != null and keyword != ''">
+						<!-- choose문 ( otherwise 사용 가능 ) -->
+						<choose>
+							<when test="searchType == 1">
+								AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+							<when test="searchType == 2">
+								AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+						</choose>
+					</if>
+				</where>
+		        ORDER BY to_number(book_code) 
+		    ))
+		WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- 도서신청내역 - 도서신청내역 전체 목록 개수 -->
+	<select id="totalInven" resultType="int">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			li_book 
+	</select>
+	
+</mapper>

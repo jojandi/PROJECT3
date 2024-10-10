@@ -1,0 +1,327 @@
+@charset "UTF-8";
+/* ------------------------------------------------------------------ */
+/* 메인페이지 */
+
+#wrap{
+    font-size: 0;
+    /* border: 1px solid red; */
+    padding: 50px 150px;
+}
+
+#wrap .section1{
+    /* border: 1px solid red; */
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 50%;
+    padding: 20px;
+    vertical-align: top;
+    /* height: 510px; */
+}
+
+/* ------------------------------------------------------------------ */
+/* 휴관일 */
+.section1 #hukwan{
+    display: flex;
+    justify-content: center;
+    border: 2px solid #ccc;
+    border-radius: 3%;
+}
+
+
+.section1 #calendar {
+    text-align: center;
+    /* margin: 0 auto; */
+    /* border: 1px solid black;
+    border-radius: 5%; */
+    padding: 10px;
+    width: 300px;
+}
+
+.section1 #calendar .calHeader {
+    padding-bottom: 10px;
+}
+
+.section1 #calendar #days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* 
+    grid-template-columns : CSS의 Grid 레이아웃에서 사용되는 속성 중 하나로, 
+    그리드 컨테이너(grid container)의 열(column) 크기를 지정하는 것을 말한다.
+    repeat(7, 1fr) : 1행에 7개의 열이 있으며, 
+    각 열의 크기를 동일하게 1분의 1(fractional unit, fr)로 설정하라는 의미한다. 
+    */
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.section1 #calendar #dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.section1 #calendar #dates .date {
+    width: 20px;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.section1 #calendar #dates .toDay{
+    box-sizing: border-box;
+    border: 2px solid rgb(106, 170, 82);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+.section1 #calendar #dates .toDay:after{
+    font-size: 10px;
+    content:"TODAY";
+    position: relative;
+    top: 19px;
+    left: -15px;
+    color: black;
+}
+
+.section1 #calendar #dates .hu_1,
+.section1 #calendar #dates .hu_2{
+    border: 1px solid rgb(106, 170, 82);
+    background: rgb(106, 170, 82);
+    border-radius: 50%;
+    color: white;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+}
+
+.section1 #librarys {
+    /* border: 2px solid rgb(106, 170, 82); */
+    background: rgba(172, 229, 151, 0.637);
+    border-radius: 10px;
+    height: 320px;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.section1 #librarys .library{
+    border-radius: 20%;
+    padding: 10px;
+    font-size: 16px;
+	cursor: pointer;
+}
+
+.section1 #librarys .back{
+	width: 50px;
+    margin: 0 auto;
+    background: rgb(105, 170, 82);
+    color: white;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* 검색 */
+.section1 #search{
+    font-size: 0;
+}
+
+.section1 #search #searchText{
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.section1 #search #searchIn{
+    font-size: 18px;
+    height: 50px;
+    width: 85%;
+    padding-left: 5px;
+}
+
+.section1 #search #searchBnt{
+    display: inline-block;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    height: 56px;
+    width: 55px;
+    border: none;
+    font-size: 40px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.867);
+    background-color: rgb(106, 170, 82);
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------ */
+/* 페이지 이동 */
+.section1 #pageall{
+    text-align: center;
+}
+
+.section1 #pageall .pages{
+    display: flex;
+    justify-content: space-around;
+}
+
+.section1 #pageall .pages .page{
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10%;         
+    width: 80px;
+    height: 80px;
+}
+
+.section1 #pageall .pages .page .material-symbols-outlined {
+    line-height: 75px;
+    font-size: 55px;
+    color: rgb(106, 170, 82);
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+.section1 #pageall .pages .page a{
+    /* border: 1px solid red; */
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    bottom: 80px;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* section2 */
+#wrap .section2{
+    /* border: 1px solid red; */
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 70%;
+    padding: 20px;
+    vertical-align: top;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* 공지사항 */
+.section2 #noticewrap{
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 3%;
+}
+
+.section2 #noticewrap #noticetitle{
+    font-size: 20px;
+    font-weight: 700;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.section2 #noticewrap #noticetitle span{
+    vertical-align: bottom;
+    font-size: 30px;
+}
+
+
+.section2 #noticewrap ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.section2 #noticewrap .notice{
+    margin-bottom: 15px;
+}
+
+.section2 #noticewrap .notice .nbox{
+    border: 2px solid rgb(106, 170, 82);
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+.section2 #noticewrap .notice .all{
+    border: 2px solid rgb(106, 170, 82);
+}
+
+.section2 #noticewrap .notice .joong{
+    border: 2px solid rgb(82, 150, 170);
+}
+
+.section2 #noticewrap .notice .noticeTD{
+    vertical-align: top;
+    height: 50px;
+    margin-left: 5px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.section2 #noticewrap .notice .noticeTD .title{
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.section2 #noticewrap .notice .noticeTD .update{
+    font-size: 12px;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* 북플릭스 */
+
+#wrap .section3{
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 28%;
+    padding: 15px;
+    vertical-align: top;
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5%;
+    height: 315px;
+}
+
+.section3 #booksub{
+    text-align: center;
+}
+
+.section3 img{
+    width: 80%;
+}
+
+.section3 #booksubInfoTitle{
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.section3 #booksubInfo{
+    margin: 13px 0;
+    font-size: 14px;
+}
+
+.section3 #booksub #booksubBnt{
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5%;
+    background: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
+    cursor: pointer;
+}
