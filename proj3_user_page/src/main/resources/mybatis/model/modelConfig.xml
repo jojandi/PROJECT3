@@ -19,6 +19,8 @@
 		<typeAlias type="project3.gamja.user.dto.ApplyDTO" alias="applyDTO"/>
 		<typeAlias type="project3.gamja.user.dto.UserDTO" alias="userDTO"/>
 		<typeAlias type="project3.gamja.user.dto.BookflixDTO" alias="bookflixDTO"/>
+		<typeAlias type="project3.gamja.user.dto.BestDTO" alias="bestDTO"/>
+		<typeAlias type="project3.gamja.user.dto.LibraryDTO" alias="libraryDTO"/>
 	</typeAliases> 
 
 </configuration>
