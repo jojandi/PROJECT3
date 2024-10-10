@@ -92,22 +92,22 @@
 
 	<!-- 게시판 - 공지사항 -->
 	<definition name="mes_notice1" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/notice/mes_notice1.jsp"/>
 	</definition>
 	<!-- 게시판 - 글쓰기 -->
 	<definition name="mes_notice2" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/notice/mes_notice1.jsp"/>
+		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/notice/mes_notice2.jsp"/>
 	</definition>
 	<!-- 게시판 - 리드 -->
 	<definition name="mes_noticeRead" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/notice/mes_notice1.jsp"/>
+		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/notice/mes_noticeRead.jsp"/>
 	</definition>
 	<!-- 게시판 - 업데이트 -->
 	<definition name="mes_noticeUpdate" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/notice/mes_notice1.jsp"/>
+		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/notice/mes_noticeUpdate.jsp"/>
 	</definition>
 </tiles-definitions>
