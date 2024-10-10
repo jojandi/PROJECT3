@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.admin.dao.InvenDAO">
+	<!-- 실시간 재고현황 -->
+	<select id="selectInven" resultType="invenDTO" parameterType="invenDTO">
+		SELECT * FROM(
+		    SELECT 
+		        rownum as rnum, book_code, book_isbn, lib_name, lib_id, book_author, book_name, 
+		        book_pub, book_loan, book_res, li_book_info, book_img
+		    FROM ( 
+		        SELECT 
+		            * 
+		        FROM book 
+		        JOIN li_book USING (book_isbn)
+		        JOIN library USING (lib_id)
+		        <where>
+					<if test="searchType != null and searchType != '' 
+							and keyword != null and keyword != ''">
+						<!-- choose문 ( otherwise 사용 가능 ) -->
+						<choose>
+							<when test="searchType == 1">
+								AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+							<when test="searchType == 2">
+								AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+						</choose>
+					</if>
+				</where>
+		        ORDER BY to_number(book_code) 
+		    ))
+		WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- 실시간 재고현황 전체 목록 개수 -->
+	<select id="totalInven" resultType="int" parameterType="invenDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			li_book 
+			JOIN library USING(lib_id)
+			JOIN book USING (book_isbn)
+		<where>
+			<if test="searchType != null and searchType != '' 
+					and keyword != null and keyword != ''">
+				<!-- choose문 ( otherwise 사용 가능 ) -->
+				<choose>
+					<when test="searchType == 1">
+						AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+					<when test="searchType == 2">
+						AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+	
+	<!-- 도서 예약 현황 -->
+	<select id="selectRes" resultType="loanResDTO" parameterType="loanResDTO">
+		SELECT * FROM( 
+			SELECT 
+				rownum AS rnum, book_code, res_id, res_day, res_pick, user_seq, book_name, res_ing, lib_name
+			FROM 
+				user_res 
+				JOIN library USING(lib_id)
+		        JOIN li_book USING(book_code) 
+		        JOIN book USING(book_isbn)
+			ORDER BY book_res DESC, res_id DESC
+		) WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- 도서 예약 현황 전체 목록 갯수 -->
+	<select id="totalRes" resultType="int" parameterType="loanResDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			user_res 
+			JOIN library USING(lib_id)
+		<where>
+			<if test="searchType != null and searchType != '' 
+					and keyword != null and keyword != ''">
+				<!-- choose문 ( otherwise 사용 가능 ) -->
+				<choose>
+					<when test="searchType == 1">
+						AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+					<when test="searchType == 2">
+						AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+	
+	<!-- 픽업 시 예약 현황 업데이트 -->
+	<update id="updateRes" parameterType="loanResDTO">
+		UPDATE 
+			user_res
+		SET 
+			res_pick = sysdate, 
+			res_ing = 'N'
+		WHERE 
+			res_id = #{res_id}
+	</update>
+	
+	<!-- 픽업 시 대출 내역으로 이동 -->
+	<insert id="inseResLoan" parameterType="loanResDTO">
+		INSERT INTO 
+			user_loan
+			(loan_seq, book_code, user_seq, loan_date, loan_ing, loan_ex, loan_over)
+		VALUES 
+			(user_loan_seq.nextval, #{book_code}, #{user_seq}, sysdate, 'Y', sysdate + 7, 'N')
+	</insert>
+	
+	<!-- 픽업 시 재고에 대출 중 표시 -->
+	<update id="invenLoan">
+		UPDATE 
+			li_book
+		SET 
+			book_loan = CASE WHEN (
+				SELECT 
+					loan_ing 
+				FROM 
+					li_book 
+					JOIN user_loan USING(book_code)
+				WHERE 
+					loan_ing = 'Y' and book_code= #{book_code}
+			) = 'Y'  THEN 'Y' ELSE 'N' END  
+		 WHERE 
+		 	book_code= #{book_code}
+	</update>
+	
+	<!-- 픽업 시 재고에 예약 중 표시 해제 -->
+	<update id="invenRes">
+		UPDATE 
+			li_book
+		SET 
+			book_res = CASE WHEN (
+				SELECT 
+					res_ing 
+				FROM 
+					li_book 
+					JOIN user_res USING(book_code) 
+				WHERE 
+					res_ing = 'Y' AND book_code= #{book_code}
+			) = 'N'  THEN 'Y' ELSE 'N' END  
+		 WHERE 
+		 	book_code= #{book_code}
+	</update>
+	
+</mapper>

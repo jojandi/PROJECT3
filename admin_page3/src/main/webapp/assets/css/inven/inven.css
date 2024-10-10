@@ -1,0 +1,324 @@
+@charset "UTF-8";
+
+
+header #menu #items #i0{
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+
+/* -----------------------테이블-------------------------------- */
+/* body {
+    padding: 1.5em;
+    background: #f5f5f5
+} */
+
+section table tbody td{
+    padding: 15px 0;
+    height: 35px;
+    box-sizing: border-box;
+    text-overflow: ellipsis; /* 말줄임표(...) 적용 */
+}
+
+#table{
+	height: 560px;	
+}
+
+table {
+	table-layout:fixed;
+    border: 1px #a39485 solid;
+    font-size: .9em;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+th {
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+thead {
+    font-weight: bold;
+    /* color: #fff; */
+    /* background: #73685d; */
+}
+
+td,
+th {
+    padding: 1em .5em;
+    vertical-align: middle;
+}
+
+td {
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+}
+
+a {
+    color: #73685d;
+}
+
+@media all and (max-width: 768px) {
+
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+	    display: block;
+	}
+	
+	th {
+	    text-align: right;
+	}
+	
+	table {
+	    position: relative;
+	    padding-bottom: 0;
+	    border: none;
+	    /* box-shadow: 0 0 10px rgba(0, 0, 0, .2); */
+	    }
+	
+	thead {
+	    float: left;
+	    white-space: nowrap;
+	}
+	
+	tbody {
+	    overflow-x: auto;
+	    overflow-y: hidden;
+	    position: relative;
+	    white-space: nowrap;
+	}
+}
+
+#p2_add_table,
+#p3_add_table {
+    width: 400px;
+    display: none;
+}
+.main_page {
+    width: 100%;
+}
+
+.bname, .bname2{
+	text-align: left;
+}
+
+.bname input{
+	cursor: pointer;
+	border: none;
+	background: none;
+	padding: 0;
+}
+
+/* -----------------------기본-------------------------------- */
+
+            
+header #menu #items .item{
+    /* border: 1px solid red; */
+    font-size: 20px;
+    margin: 0 15px;
+    display: inline-block;
+}
+
+/* #userall {
+    position: absolute;
+    top: 0;
+    right: 0;
+} */
+
+/* ---------------------------------------------------- */
+.main_page {
+    /* border: 1px solid red; */
+    display: inline-block;
+    /* height: 600px; */
+    width: 100%;
+    text-align: center;
+    vertical-align: top;
+
+    /* position: relative;
+    top: -200px; */
+}
+
+#main_title {
+    /* border: 1px solid red; */
+    display: inline-block;
+    /* width: 800px;
+    height: 50px; */
+    /* font-size: 30px;
+    font-weight: 1000; */
+    /* position: relative; */
+    font-size: 22px;
+}
+
+section h3{
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    padding: 17px;
+    box-sizing: border-box;
+}
+
+#bookAdd{
+	text-align: right;
+}
+
+.page {
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    margin-top: 10px;
+    height: 560px;
+}
+.page_1 {
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 250px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.table_wrap {
+    /* border: 1px solid red; */
+    /* width: 80%; */
+    height: 100%;
+    overflow: scroll;
+}
+
+.bot_btn {
+    text-align: right;
+    margin-right: 10px;
+}
+
+#main_library {
+    margin-bottom: 10px;
+}
+
+th.sortable {
+    cursor: pointer;
+}
+
+th.sorted-asc::after {
+    content: " ▲";
+}
+
+th.sorted-desc::after {
+    content: " ▼";
+}
+
+.main_page {
+    width: 100%;
+}
+.input_style {
+    width: 30px;
+    text-align: center;
+}
+
+/* 모달 */
+.popup {
+    display: none;
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 5px 20px 20px 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 800px;
+    font-size: 16px;
+}
+
+.close{
+	text-align: right;
+    cursor: pointer;
+  	font-size: 30px;
+}
+
+.end {
+	margin-top: 10px;
+	padding: 5px 10px;
+    border-radius: 5%;
+    background: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.popup td input{
+	width: 85%;
+}
+
+.popup img{
+	width: 80%;
+}
+
+.popup table{
+	text-align: center;
+}
+
+
+section #movepage{
+    /* border: 1px solid red; */
+    margin: 30px 0;
+    text-align: center;
+}
+
+section #movepage span{
+    vertical-align: top;
+    color: #666666;
+    /* border: 1px solid red; */
+}
+
+section #movepage .chap{
+    display: inline-block;
+    font-size: 16px;
+    width: 20px;
+    color: #1b1b1b;
+}
+
+section #movepage .material-symbols-outlined{
+    font-size: 21px;
+}
+
+
+section .insert{
+	display: none;
+	width: 500px;
+	position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 5px 20px 20px 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+section .insert table input{
+	width: 80%;
+}
+
+section .insert table td{
+	text-align: center;
+}
+
+section .insert table th{
+	width: 35%;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+section .insert #submit{
+	margin-top: 10px;
+	text-align: right;
+}

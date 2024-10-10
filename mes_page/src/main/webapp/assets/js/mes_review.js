@@ -78,23 +78,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     modalTable.innerHTML = `
                         <tr>
                             <td><span class="modal-item">제목</span></td>
-                            <td>${title}</td>
+                            <td>${reviewList.title}</td>
                         </tr>
                         <tr>
                             <td><span class="modal-item">회원 ID</span></td>
-                            <td>${userId}</td>
+                            <td>${reviewList.userId}</td>
                         </tr>
                         <tr>
                             <td><span class="modal-item">평점</span></td>
-                            <td>${score}</td>
+                            <td>${reviewList.score}</td>
                         </tr>
                         <tr>
                             <td><span class="modal-item">내용</span></td>
-                            <td>${contents}</td>
+                            <td>${reviewList.contents}</td>
                         </tr>
                         <tr>
                             <td><span class="modal-item">작성일</span></td>
-                            <td>${date}</td>
+                            <td>${reviewList.date}</td>
                         </tr>
                     `;
                 }
