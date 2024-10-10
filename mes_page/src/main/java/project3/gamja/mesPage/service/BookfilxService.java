@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import project3.gamja.mesPage.dao.BuserDAO;
+import project3.gamja.mesPage.dao.BookflixDAO;
 import project3.gamja.mesPage.dao.MainDAO;
 import project3.gamja.mesPage.dto.MesBuserDTO;
 import project3.gamja.mesPage.dto.MesMainDTO;
@@ -13,18 +13,23 @@ import project3.gamja.mesPage.dto.MesReviewDTO;
 
 
 @Service
-public class BuserService {
+public class BookfilxService {
 
     @Autowired
-    private BuserDAO buserDAO;
+    private BookflixDAO bookflixDAO;
 
     // user_id2가 있으면 selectBuser 호출, 없으면 selectAllBusers 호출
     public List<MesBuserDTO> selectBuser(String user_id2) {
         if (user_id2 != null && !user_id2.isEmpty()) {
-            return buserDAO.selectBuser(user_id2);
+            return bookflixDAO.selectBuser(user_id2);
         } else {
-            return buserDAO.selectAllBusers();
+            return bookflixDAO.selectAllBusers();
         }
     }
+
+	 // 리뷰 리스트를 가져오는 메서드 추가
+	 public List<MesReviewDTO> getReview() {
+     return bookflixDAO.getReviews();
+ }
    
 }
