@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- template : 기본 틀 -->
+	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="side" value=""/>
+		<put-attribute name="content" value=""/>
+	</definition>
+	<!-- template : 메인 기본 틀 -->
+	<definition name="mainLayout" template="/WEB-INF/views/common/layout2.jsp">
+		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="content" value=""/>
+	</definition>
+	
+	<!-- 재고 관리 - 재고 현황 -->
+	<definition name="mes_stock1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
+	</definition>
+
+	
+	<!-- 작업수행 - 주문 현황 -->
+	<definition name="mes_pfwork1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1.jsp"/>
+	</definition>
+	
+	<!-- 작업수행 - 출고 현황 -->
+	<definition name="mes_pfwork2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork2.jsp"/>
+	</definition>
+	
+	<!-- 작업수행 - 출고 현황 -->
+	<definition name="mes_pfwork1_read" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1_read.jsp"/>
+	</definition>
+
+	
+	<!-- 메인페이지 -->
+	<definition name="main" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/views/Main/main.jsp"/>
+	</definition>
+	<!-- 북플릭스 - 회원관리 -->
+	<definition name="buser" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/buser_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Buser/buser.jsp"/>
+	</definition>
+
+	<!-- 북플릭스 - 리뷰관리 -->
+	<definition name="review" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Review/review.jsp"/>
+	</definition>
+
+	<!-- 재고 관리 - 보유 도서 목록 -->
+	<definition name="mes_stock2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock2.jsp"/>
+	</definition>
+	<!-- 재고 관리 - 도서 발주 -->
+	<definition name="mes_stock3" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock3.jsp"/>
+	</definition>
+	<!-- 재고 관리 - 도서 수정 -->
+	<definition name="stock_update" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/stock_update.jsp"/>
+	</definition>
+	
+	<!-- 생산 관리 - 작업지시서 -->
+	<definition name="mes_workorder1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1.jsp"/>
+	</definition>
+	
+	<!-- 생산 관리 - 작업지시서 - read -->
+	<definition name="mes_workorder1_read" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1_read.jsp"/>
+	</definition>
+
+</tiles-definitions>

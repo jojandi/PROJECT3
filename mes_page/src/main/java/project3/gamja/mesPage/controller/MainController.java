@@ -21,12 +21,12 @@ public class MainController {
 	@Autowired
 	MainService mainService;
 	
-	@RequestMapping("/main")
+	@RequestMapping("/mes_main")
 	public String listEmp(Model model) {
 		List<MesMainDTO> list = mainService.selectAll();
 		model.addAttribute("list", list);
 		
-		return "main";
+		return "mes_main";
 	}
 	@RequestMapping("/mesPage")
 	@ResponseBody  // JSON으로 반환
