@@ -27,4 +27,10 @@
 		<put-attribute name="content" value="/WEB-INF/views/admin/inven/inventory.jsp"/>
 	</definition>
 	
+	<!-- 재고현황 - 도서 예약 현황 -->
+	<definition name="res" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/inven_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/inven/res.jsp"/>
+	</definition>
+	
 </tiles-definitions>
