@@ -96,7 +96,7 @@
 				<!-- 도서 발주 모달 -->
 				<div class="modal-content">
 					<span class="close1">&times;</span>
-					<form id="workForm" method="post" action="stock">
+					<form id="workForm" method="post" action="mes_stock3">
 						<input type="hidden" name="action" value="insert_order">
 						<table>
 							<tr>
