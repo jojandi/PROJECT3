@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- template : 기본 틀 -->
+	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="side" value=""/>
+		<put-attribute name="content" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition>
+	
+	<!-- template : 기본 틀2 -->
+	<definition name="baseLayout2" template="/WEB-INF/views/common/layout2.jsp">
+		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="content" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition>
+	
+	<!-- 메인페이지 -->
+	<definition name="main" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/main/user_main.jsp"/>
+	</definition>
+	
+	<!-- 베스트페이지 -->
+	<definition name="best" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best.jsp"/>
+	</definition>
+
+	<!-- 마이페이지 - 이용내역 - 예약 -->
+	<definition name="res" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_res.jsp"/>
+	</definition>
+	
+	<!-- 마이페이지 - 이용내역 - 대출 -->
+	<definition name="loan" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_loan.jsp"/>
+	</definition>
+	
+	<!-- 마이페이지 - 이용내역 - 연체 -->
+	<definition name="over" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_over.jsp"/>
+	</definition>
+	
+	<!-- 마이페이지 - 찜목록 -->
+	<definition name="cart" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_cart.jsp"/>
+	</definition>
+	
+	<!-- 마이페이지 - 도서신청 -->
+	<definition name="apply" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_apply.jsp"/>
+	</definition>
+	
+	<!-- 마이페이지 - 내 정보 -->
+	<definition name="myInfo" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_info.jsp"/>
+	</definition>
+</tiles-definitions>

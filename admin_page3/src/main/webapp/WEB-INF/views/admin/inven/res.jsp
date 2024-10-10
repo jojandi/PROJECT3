@@ -21,7 +21,7 @@
 			<div class="main_page" id="main_page_1">
 				<h3>도서 예약 관리</h3>
 				<div>
-					<div class="page">
+					<div id="table">
 						<table>
 							<colgroup>
 								<col width="5%">
@@ -53,41 +53,62 @@
 										<td>${list.book_code}</td>
 										<td>${list.book_name}</td>
 										<td>${list.res_day}</td>
-										<td><c:if test="${list.res_ing == false}">
+										<td>
+											<c:if test="${list.res_pick != null}">
 				                            		${list.res_pick}
-				                            	</c:if> <c:if test="${list.res_ing == true}">
+				                            </c:if> 
+				                            <c:if test="${list.res_pick == null}">
 				                            		-
-				                            	</c:if></td>
-										<td><c:if test="${list.res_ing == true}">
+				                            </c:if>
+				                        </td>
+										<td>
+											<c:if test="${list.res_pick == null}">
 												<select name="loan_ing" class="select">
 													<option value="Y">픽업완료</option>
 													<option value="N" selected>대기중</option>
 												</select>
-											</c:if> <c:if test="${list.res_ing == false}">
+											</c:if> 
+											<c:if test="${list.res_pick != null}">
 													픽업완료
-												</c:if></td>
-										<td><c:if test="${list.res_pick == null}">
-												<input type="hidden" value=${list.book_code } class="code">
-												<input type="hidden" value=${list.user_seq } class="user">
-												<input type="hidden" value=${list.res_id } class="seq">
-												<input type="submit" value="수정" class="submit">
-											</c:if> <c:if test="${list.res_pick != null}">
+											</c:if>
+										</td>
+										<td>
+											<c:if test="${list.res_pick == null}">
+												<input type="hidden" value=${list.book_code } class="book_code">
+												<input type="hidden" value=${list.user_seq } class="user_seq">
+												<input type="hidden" value=${list.res_id } class="res_id">
+												<input type="button" value="수정" class="submit">
+											</c:if> 
+											<c:if test="${list.res_pick != null}">
 													-
-												</c:if></td>
+											</c:if>
+										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 					</div>
+					<div class="bot_btn">
+						<form action="inven" method="get">
+							<div class="search-container">
+								<select name="searchType">
+									<option value="1" ${param.searchType == 1 or param.searchType == null ? "selected='selected'" : ""}>도서명</option>
+									<option value="2" ${param.searchType == 2 ? "selected='selected'" : ""}>도서관</option>
+								</select>
+								<input type="text" id="searchInput" name="keyword" value="${param.keyword}" placeholder="검색어를 입력하시오. "> 
+									<input type="submit" value="검색">
+							</div>
+						</form>
+					</div>
 				</div>
-				<%-- <%
+				<%
 					Map map = (Map) request.getAttribute("map");
-					int totalCount = (int) map.get("totalCount");
-			
-					String str_countPerPage = (String) request.getAttribute("countPerPage");
+					int totalCount = Integer.parseInt(map.get("totalCount").toString());
+	
+					String str_countPerPage = request.getAttribute("countPerPage").toString();
 					int countPerPage = Integer.parseInt(str_countPerPage);
-			
-					String str_pageNo = (String) request.getAttribute("page");
+	
+					String str_pageNo = request.getAttribute("page").toString();
 					int pageNo = Integer.parseInt(str_pageNo);
 			
 					// 마지막 페이지 구하기 -> 전체 페이지수 / 페이지당 개수 -> 올림처리
@@ -114,7 +135,7 @@
 					</c:if>
 					<c:if test="<%=sec_first != 1%>">
 						<span class="material-symbols-outlined"> <a
-							href="res?page=<%=sec_first - 1%>">chevron_left</a>
+							href="res?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
 						</span>
 					</c:if>
 
@@ -123,10 +144,10 @@
 
 						<!-- 페이지 이동, 현재 페이지는 strong 처리 -->
 						<c:if test="${i eq param.page}">
-							<a href="res?page=${i}" id="page" class="chap"><strong>${i}</strong></a>
+							<a href="res?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap"><strong>${i}</strong></a>
 						</c:if>
 						<c:if test="${i != param.page}">
-							<a href="res?page=${i}" id="page" class="chap">${i}</a>
+							<a href="res?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap">${i}</a>
 						</c:if>
 
 					</c:forEach>
@@ -136,12 +157,66 @@
 					</c:if>
 					<c:if test="<%=sec_last != lastPage%>">
 						<span class="material-symbols-outlined"> <a
-							href="res?page=<%=sec_last + 1%>">chevron_right</a>
+							href="res?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
 						</span>
 					</c:if>
-				</div> --%>
+				</div>
 			</div>
 		</section>
-	<script src="./assets/js/inven/res_post.js"></script>
+	<script>
+		// ajax 실행 메소드 
+		function ajax(url, param, cb, method){	// cb : callback 함수
+	
+			if(!method) method = "get"; // method 기본값 설정
+			
+			const xhr = new XMLHttpRequest();
+	
+			xhr.open(method,url);
+			xhr.setRequestHeader("Content-Type","application/json");		
+			const strData = JSON.stringify(param); 
+			console.log("strData : " + strData);
+			xhr.send(strData); // 최종 전송
+			
+			// typeof : 변수의 타입을 문자로 알려줌
+			if(typeof cb == "function"){
+				xhr.onload = function(){
+					cb(xhr.responseText); // 전달인자 -> ajax에서 받아온 것
+				}
+			}
+		}
+		
+		// 수정하기
+		const submit = document.querySelectorAll(".submit");
+		for(let i = 0; i<submit.length; i++){
+		    submit[i].addEventListener('click', function(){
+		    	const book_code = document.querySelectorAll(".book_code");
+				const res_id = document.querySelectorAll(".res_id");
+				const user_seq = document.querySelectorAll(".user_seq");
+		    	console.log("book_code : " + book_code[i].value);
+			    console.log("res_id : " + res_id[i].value);
+			    console.log("user_seq : " + user_seq[i].value);
+			    
+			    const data = {
+			    		"book_code" : book_code[i].value,
+			    		"res_id" : res_id[i].value,
+			    		"user_seq" : user_seq[i].value
+			    }
+			    const page = '${param.page}';
+			    
+			    ajax("resLoan", data, function(result){
+			    	if(result > 0){
+				    	alert("수정되었습니다. ");
+				    	if(page){
+					    	location.href="res";
+				    	} else{
+					    	location.href="res?page="+page;
+				    	}
+			    	} else{
+			    		alert("다시 시도해주세요. ")
+			    	}
+			    }, "post")
+		    })
+		}
+	</script>
 </body>
 </html>
