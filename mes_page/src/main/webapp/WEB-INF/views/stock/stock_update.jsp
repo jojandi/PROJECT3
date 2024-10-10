@@ -29,7 +29,7 @@
 					<h3>발주 상세 및 수정</h3>
 					<form id="postForm" method="post" action="stockUpdate">
 						<div id="table">
-							<table id="main_library">
+							<table id="main_library" class="updateTalbe">
 								<colgroup>
 									<col width="30%"/>
 					    			<col width="60%"/>
