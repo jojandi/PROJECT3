@@ -25,6 +25,6 @@ public class MesReviewController {
         List<MesReviewDTO> reviewList = reviewService.getReview();
         model.addAttribute("reviewList", reviewList);
 
-        return "review"; 
+        return "review";
     }
 }
