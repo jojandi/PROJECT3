@@ -46,7 +46,7 @@
 	<definition name="main" extends="mainLayout">
 		<put-attribute name="content" value="/WEB-INF/views/Main/main.jsp"/>
 	</definition>
-	<!-- 북플릭스회원관리 페이지 -->
+	<!-- 북플릭스 - 회원관리 -->
 	<definition name="buser" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/buser_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Buser/buser.jsp"/>

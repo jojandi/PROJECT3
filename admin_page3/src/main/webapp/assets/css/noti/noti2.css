@@ -1,0 +1,147 @@
+
+
+#wrap{
+    font-size: 0;
+    /* border: 1px solid red; */
+    padding: 30px 150px;
+}
+
+#wrap section {
+    width: 80%;
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-left: 30px;
+    /* border: 1px solid red; */
+}
+
+section h3{
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    padding: 17px;
+    box-sizing: border-box;
+}
+
+section h1 {
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+
+table {
+	border-collapse: collapse;
+	text-align: center;
+    margin : 0 auto;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+/*     text-align: left; */
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #555;
+}
+
+td {
+    color: #666;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+td a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    #wrap {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    section {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    table {
+        font-size: 14px;
+        width: calc(100% - 40px); 
+        margin-left: 20px;  
+        margin-right: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* aside CSS */
+aside #items .item .material-symbols-outlined{
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 5px;
+    float: right;
+
+   
+}
+
+
+
+#side{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 20%;
+    /* border: 1px solid red; */
+}
+
+aside #sideleft{
+    float: left;
+    padding: 10px;
+}
+
+aside #title{
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #666666;
+}
+
+aside #items .item{
+    font-size: 16px;
+    padding: 10px 0;
+    width: 170px;
+    border-bottom: 1px solid #ccc;
+}
+
+aside #items .item a:link{
+    color: inherit;
+    text-decoration: none;
+}
+
+aside #items .item a:visited{
+    color: inherit;
+    text-decoration: none;
+}
+
+

@@ -72,11 +72,12 @@
 									<td>${dto.mes_book_code }</td>
 								</tr>
 							</table>
+							
 							<input type="hidden" name="order_id" value="${dto.order_id }">
 							<input type="hidden" name="order_date"	value="${dto.order_date }">
 							<input type="hidden" name="order_price"	value="${dto.order_price }">
 							<input type="hidden" name="order_count"	value="${dto.order_count }">
-							<input type="hidden" name="emp_ID" value="${dto.emp_id }">
+							<input type="hidden" name="emp_id" value="${dto.emp_id }">
 							<input type="hidden" name="pub_id" value="${dto.pub_id }">
 							<input type="hidden" name="mes_book_code" value="${dto.mes_book_code }">
 							<div id="bnt">
