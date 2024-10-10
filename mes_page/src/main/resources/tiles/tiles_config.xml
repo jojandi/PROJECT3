@@ -38,11 +38,9 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1_read.jsp"/>
 	</definition>
-<<<<<<< HEAD
-=======
 
 	
->>>>>>> 45f22de48a40b4bed811735b4ccbaf4438f46559
+
 	<!-- 메인페이지 -->
 	<definition name="mes_main" extends="mainLayout">
 		<put-attribute name="content" value="/WEB-INF/views/Main/mes_main.jsp"/>
@@ -77,8 +75,7 @@
 	<definition name="stock_update" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/stock_update.jsp"/>
-<<<<<<< HEAD
-=======
+
 	</definition>
 	
 	<!-- 생산 관리 - 작업지시서 -->
@@ -91,7 +88,6 @@
 	<definition name="mes_workorder1_read" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1_read.jsp"/>
->>>>>>> 45f22de48a40b4bed811735b4ccbaf4438f46559
 	</definition>
 
 	<!-- 게시판 - 공지사항 -->
