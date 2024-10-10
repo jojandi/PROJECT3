@@ -5,10 +5,10 @@ window.onload = function () {
 
     
     // 전체선택
-    document.querySelector('#main_page_1 #p1_checkAll').addEventListener('click', function () {
+    document.querySelector('#main_page_1').addEventListener('click', function () {
         const isChecked = document.querySelector('#main_page_1 #p1_checkAll').checked;
         if (isChecked) {
-            const checkboxes = document.querySelectorAll('#main_page_1 .p1_main_chack');
+            const checkboxes = document.querySelectorAll('#main_page_1');
 
             for (const checkbox of checkboxes) {
                 checkbox.checked = true;
@@ -26,24 +26,6 @@ window.onload = function () {
     })
     // page2
     
-    // 전체선택
-    document.querySelector('#main_page_2 #p1_checkAll').addEventListener('click', function () {
-        const isChecked = document.querySelector('#main_page_2 #p1_checkAll').checked;
-        if (isChecked) {
-            const checkboxes = document.querySelectorAll('#main_page_2 .p1_main_chack');
-
-            for (const checkbox of checkboxes) {
-                checkbox.checked = true;
-            }
-        }
-
-        else {
-            const checkboxes = document.querySelectorAll('#main_page_2 .p1_main_chack');
-            for (const checkbox of checkboxes) {
-                checkbox.checked = false;
-            }
-        }
-    })
 
     document.querySelector('.sortable').addEventListener('click', function () {
         // 클릭된 열의 인덱스 가져오기
@@ -98,31 +80,5 @@ window.onload = function () {
     
 }
 
-    // BOM 행 더블클릭시 모달 화면 추가 스크립트
-    function showModal() {
-        document.getElementById('modal_4').style.display = 'block';
-    }
     
-    function hideModal() {
-        document.getElementById('modal_4').style.display = 'none';
-    }
-    
-    // 더블클릭시 모달창 
-    document.addEventListener('DOMContentLoaded', () => {
-        const rows = document.querySelectorAll('#main_library tbody tr');
-        rows.forEach(row => {
-            row.addEventListener('dblclick', showModal);
-        });
-    
-        // 클로즈버튼 이벤트
-        const closeButton = document.querySelector('#modal_4 .close_4');
-        closeButton.addEventListener('click', hideModal);
-    
-        // 모달창 외부 클릭시 닫히는 이벤트
-        window.addEventListener('click', (event) => {
-            if (event.target === document.getElementById('modal_4')) {
-                hideModal();
-            }
-        });
-    });
 
