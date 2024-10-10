@@ -12,11 +12,13 @@ public interface InvenDAO {
 
 	List<InvenDTO> selectInven(InvenDTO invenDTO);
 	int totalInven(InvenDTO invenDTO);
-	List<InvenDTO> selectRes(LoanResDTO loanResDTO);
+	List<LoanResDTO> selectRes(LoanResDTO loanResDTO);
 	int totalRes(LoanResDTO loanResDTO);
 	int updateRes(LoanResDTO loanResDTO);
 	int inseResLoan(LoanResDTO loanResDTO);
 	int invenLoan(LoanResDTO loanResDTO);
 	int invenRes(LoanResDTO loanResDTO);
+	List<LoanResDTO> selectLoan(LoanResDTO loanResDTO);
+	int totalLoan(LoanResDTO loanResDTO);
 	
 }

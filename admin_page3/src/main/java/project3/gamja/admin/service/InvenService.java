@@ -48,7 +48,7 @@ public class InvenService {
 		loanResDTO.setStart(start);
 		loanResDTO.setEnd(end);
 		
-		List<InvenDTO> list = invenDAO.selectRes(loanResDTO);
+		List<LoanResDTO> list = invenDAO.selectRes(loanResDTO);
 		
 		int totalCount = invenDAO.totalRes(loanResDTO);
 		
@@ -82,6 +82,27 @@ public class InvenService {
 		int result = invenDAO.invenRes(loanResDTO);
 		
 		return result;
+	}
+	
+	// 대출현황 select
+	public Map selectLoan(LoanResDTO loanResDTO, int count, int pageNo){
+		// 시작 번호 : 이전 페이지까지 보여준 것 바로 다음 것
+		int start = ((pageNo - 1) * count) + 1;
+		// 마지막 번호
+		int end = start + count - 1;
+		
+		loanResDTO.setStart(start);
+		loanResDTO.setEnd(end);
+		
+		List<LoanResDTO> list = invenDAO.selectLoan(loanResDTO);
+		
+		int totalCount = invenDAO.totalLoan(loanResDTO);
+		
+		Map map = new HashMap();
+		map.put("list", list);
+		map.put("totalCount", totalCount); // 전체 목록 개수
+		
+		return map;
 	}
 	
 }

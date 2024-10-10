@@ -54,6 +54,9 @@
         ORDER BY 
             f.review_seq DESC
     </select>
+    <delete id="deleteReview" parameterType="reviewDTO">
+		  DELETE FROM bf_review WHERE review_seq = #{review_seq}
+	</delete>
 
 </mapper>
  

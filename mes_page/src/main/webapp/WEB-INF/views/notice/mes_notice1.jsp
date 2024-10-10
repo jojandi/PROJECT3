@@ -55,7 +55,7 @@
                                 <c:forEach var="notice" items="${ noticeList1 }">
                                 <tr>
                                 	<td>${ notice.notice_id }</td>
-                                	<td><a href="notice_read?notice_id=${ notice.notice_id }">${ notice.notice_name }</a></td>
+                                	<td><a href="mes_noticeRead?notice_id=${ notice.notice_id }">${ notice.notice_name }</a></td>
                                 	<td>${ notice.emp_name }</td>
                                 	<td>${ notice.notice_date }</td>
                                 </tr>
@@ -66,7 +66,7 @@
                     <div id="pagination"></div>
                     <br>
                     <div class="write" style="text-align:right;">
-                        <a href="notice_insert">
+                        <a href="mes_notice2">
                             <input type="button" class="btnnn" value="글쓰기">
                         </a>
                     </div>
