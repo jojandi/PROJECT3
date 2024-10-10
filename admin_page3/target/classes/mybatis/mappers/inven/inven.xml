@@ -153,4 +153,57 @@
 		 	book_code= #{book_code}
 	</update>
 	
+	<!-- 도서 대출 현황 -->
+	<select id="selectLoan" resultType="loanResDTO" parameterType="loanResDTO">
+		SELECT * FROM (
+		    SELECT 
+		        rownum as rnum, ul.loan_seq, ul.book_code, ul.user_seq, b.book_name, ul.loan_date, ul.loan_ing, ul.loan_return, ul.loan_ex, 
+		        (ul.loan_ex - ul.loan_return) as isOver, l.lib_name, ul.lib_id
+		    FROM 
+		        user_loan ul
+		        LEFT OUTER JOIN library l ON ul.lib_id = l.lib_id
+		        LEFT OUTER JOIN li_book lb ON l.lib_id = lb.lib_id
+		        LEFT OUTER JOIN book b ON lb.book_isbn = b.book_isbn
+	        <where>
+				<if test="searchType != null and searchType != '' 
+						and keyword != null and keyword != ''">
+					<!-- choose문 ( otherwise 사용 가능 ) -->
+					<choose>
+						<when test="searchType == 1">
+							AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
+						</when>
+						<when test="searchType == 2">
+							AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
+						</when>
+					</choose>
+				</if>
+			</where>
+			ORDER BY book_loan DESC, loan_date DESC
+		) WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- 도서 대출 현황 전체 목록 갯수 -->
+	<select id="totalLoan" resultType="int" parameterType="loanResDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			user_loan
+			JOIN library USING(lib_id)
+		<where>
+			<if test="searchType != null and searchType != '' 
+					and keyword != null and keyword != ''">
+				<!-- choose문 ( otherwise 사용 가능 ) -->
+				<choose>
+					<when test="searchType == 1">
+						AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+					<when test="searchType == 2">
+						AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+	
 </mapper>
