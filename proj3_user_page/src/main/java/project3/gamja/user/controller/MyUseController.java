@@ -27,6 +27,7 @@ public class MyUseController {
 		// 회원id, 목록 갯수, 페이지
 		Map map = useService.selectUseRes(seq, count, pageNo);
 		
+		map.put(pageNo, map);
 		// select 된 목록들, 목록 갯수, 페이지 jsp에 보냄
 		model.addAttribute("map", map);
 		model.addAttribute("countPerPage", count);
