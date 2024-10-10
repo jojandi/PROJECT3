@@ -17,8 +17,50 @@ public class LoanResDTO {
 	private java.sql.Date res_day;
 	private java.sql.Date res_pick;
 	private boolean res_ing;
+	private String keyword;
+	private int searchType;
+	private int lib_id;
+	private String lib_name;
+	private int start;
+	private int end;
 	
 	
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	public int getSearchType() {
+		return searchType;
+	}
+	public void setSearchType(int searchType) {
+		this.searchType = searchType;
+	}
+	public int getLib_id() {
+		return lib_id;
+	}
+	public void setLib_id(int lib_id) {
+		this.lib_id = lib_id;
+	}
+	public String getLib_name() {
+		return lib_name;
+	}
+	public void setLib_name(String lib_name) {
+		this.lib_name = lib_name;
+	}
+	public int getStart() {
+		return start;
+	}
+	public void setStart(int start) {
+		this.start = start;
+	}
+	public int getEnd() {
+		return end;
+	}
+	public void setEnd(int end) {
+		this.end = end;
+	}
 	public boolean isRes_ing() {
 		return res_ing;
 	}

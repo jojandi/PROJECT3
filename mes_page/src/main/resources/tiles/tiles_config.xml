@@ -41,19 +41,19 @@
 
 	
 	<!-- 메인페이지 -->
-	<definition name="main" extends="mainLayout">
-		<put-attribute name="content" value="/WEB-INF/views/Main/main.jsp"/>
+	<definition name="mes_main" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/views/Main/mes_main.jsp"/>
 	</definition>
 	<!-- 북플릭스 - 회원관리 -->
-	<definition name="buser" extends="baseLayout">
+	<definition name="mes_buser" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/buser_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/Buser/buser.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Bookflix/mes_buser.jsp"/>
 	</definition>
 
 	<!-- 북플릭스 - 리뷰관리 -->
-	<definition name="review" extends="baseLayout">
+	<definition name="mes_review" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/Review/review.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Bookflix/mes_review.jsp"/>
 	</definition>
 	<!-- 재고 관리 - 재고 현황 -->
 	<definition name="mes_stock1" extends="baseLayout">
