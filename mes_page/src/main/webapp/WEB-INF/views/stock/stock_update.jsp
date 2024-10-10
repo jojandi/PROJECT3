@@ -29,7 +29,7 @@
 					<h3>발주 상세 및 수정</h3>
 					<form id="postForm" method="post" action="stockUpdate">
 						<div id="table">
-							<table id="main_library">
+							<table id="main_library" class="updateTalbe">
 								<colgroup>
 									<col width="30%"/>
 					    			<col width="60%"/>
@@ -72,11 +72,12 @@
 									<td>${dto.mes_book_code }</td>
 								</tr>
 							</table>
+							
 							<input type="hidden" name="order_id" value="${dto.order_id }">
 							<input type="hidden" name="order_date"	value="${dto.order_date }">
 							<input type="hidden" name="order_price"	value="${dto.order_price }">
 							<input type="hidden" name="order_count"	value="${dto.order_count }">
-							<input type="hidden" name="emp_ID" value="${dto.emp_id }">
+							<input type="hidden" name="emp_id" value="${dto.emp_id }">
 							<input type="hidden" name="pub_id" value="${dto.pub_id }">
 							<input type="hidden" name="mes_book_code" value="${dto.mes_book_code }">
 							<div id="bnt">

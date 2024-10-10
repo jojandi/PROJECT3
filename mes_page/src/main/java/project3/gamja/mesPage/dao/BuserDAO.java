@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import project3.gamja.mesPage.dto.MesBuserDTO;
+import project3.gamja.mesPage.dto.MesReviewDTO;
 
 
 @Mapper
@@ -16,4 +18,6 @@ public interface BuserDAO {
     
     // 모든 사용자 조회
     List<MesBuserDTO> selectAllBusers();
+   
+    List<MesReviewDTO> getReviews();
 }
