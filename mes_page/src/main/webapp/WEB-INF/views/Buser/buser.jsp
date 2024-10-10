@@ -99,10 +99,7 @@
 				</div>
 			</div>
 		</section>
-<<<<<<< HEAD
 
-=======
->>>>>>> 8b08380bc17454549678684d020d6c0a7e2a7167
 	<!--자바 스크립트 영역-->
 	<script src="./assets/js/mes_buser.js"></script>
 

@@ -23,9 +23,7 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
 	</definition>
-<<<<<<< HEAD
 
-=======
 	
 	<!-- 작업수행 - 주문 현황 -->
 	<definition name="mes_pfwork1" extends="baseLayout">
@@ -44,7 +42,7 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1_read.jsp"/>
 	</definition>
->>>>>>> 8b08380bc17454549678684d020d6c0a7e2a7167
+
 	
 	<!-- 메인페이지 -->
 	<definition name="main" extends="mainLayout">
@@ -55,14 +53,13 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/buser_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Buser/buser.jsp"/>
 	</definition>
-<<<<<<< HEAD
-	<!-- 북플릭스리뷰관리 페이지 -->
+
+	<!-- 북플릭스 - 리뷰관리 -->
 	<definition name="review" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Review/review.jsp"/>
 	</definition>
-=======
->>>>>>> 8b08380bc17454549678684d020d6c0a7e2a7167
+
 	<!-- 재고 관리 - 보유 도서 목록 -->
 	<definition name="mes_stock2" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
@@ -77,8 +74,6 @@
 	<definition name="stock_update" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/stock_update.jsp"/>
-<<<<<<< HEAD
-=======
 	</definition>
 	
 	<!-- 생산 관리 - 작업지시서 -->
@@ -91,7 +86,6 @@
 	<definition name="mes_workorder1_read" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1_read.jsp"/>
->>>>>>> 8b08380bc17454549678684d020d6c0a7e2a7167
 	</definition>
 
 </tiles-definitions>
