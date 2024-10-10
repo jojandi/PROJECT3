@@ -28,7 +28,7 @@
                 <div class="item" id="i4"><a href="human">직원 관리</a></div>
                 <div class="item" id="i5"><a href="mes_buser">북플릭스 관리</a></div>
                 <div class="item" id="i5"><a href="mes_graph">수요예측 및 통계</a></div>
-                <div class="item" id="i6"><a href="notice">게시판</a></div>
+                <div class="item" id="i6"><a href="mes_notice1">게시판</a></div>
             </div>
 <%--             <c:if test="${ not empty login }"> --%>
 				<div class="right" id="userall">

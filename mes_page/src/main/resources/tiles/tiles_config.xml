@@ -18,11 +18,7 @@
 		<put-attribute name="content" value=""/>
 	</definition>
 	
-	<!-- 재고 관리 - 재고 현황 -->
-	<definition name="mes_stock1" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
-	</definition>
+	
 
 	
 	<!-- 작업수행 - 주문 현황 -->
@@ -59,7 +55,11 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Bookflix/mes_review.jsp"/>
 	</definition>
-
+	<!-- 재고 관리 - 재고 현황 -->
+	<definition name="mes_stock1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
+	</definition>
 	<!-- 재고 관리 - 보유 도서 목록 -->
 	<definition name="mes_stock2" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
@@ -88,4 +88,9 @@
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1_read.jsp"/>
 	</definition>
 
+	<!-- 게시판 - 공지사항 -->
+	<definition name="mes_notice1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/notice/mes_notice1.jsp"/>
+	</definition>
 </tiles-definitions>
