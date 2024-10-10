@@ -95,3 +95,6 @@ a {
 .main_page {
     width: 100%;
 }
+.updateTalbe td:nth-child(1) {
+	border-right: 1px solid #ccc;
+}
