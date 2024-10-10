@@ -40,9 +40,7 @@
 	<definition name="mes_pfwork1_read" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1_read.jsp"/>
-=======
-<<<<<<< HEAD
-	
+	</definition>
 	<!-- 메인페이지 -->
 	<definition name="main" extends="mainLayout">
 		<put-attribute name="content" value="/WEB-INF/views/Main/main.jsp"/>
@@ -66,11 +64,6 @@
 	<definition name="stock_update" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/stock_update.jsp"/>
-<<<<<<< HEAD
-=======
->>>>>>> 2e97d5bf3e6e8e550e361b868081dd20a3dc98c7
->>>>>>> 219599d5881eebbc9f6feb9bc044cf53e51bdef9
->>>>>>> 854b8db256f10177e7659431dad2d66a98d8851e
 	</definition>
 
 </tiles-definitions>
