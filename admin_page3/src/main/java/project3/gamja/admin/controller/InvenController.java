@@ -20,6 +20,7 @@ public class InvenController {
 	@Autowired
 	InvenService invenService;
 	
+	/////////////////////////////// 재고현황 페이지 ///////////////////////////////
 	// 실시간 재고현황 페이지
 	@RequestMapping(value="/inven", method=RequestMethod.GET)
 	public String slelctInven(Model model, InvenDTO invenDTO, String countPerPage, String page) {
@@ -42,6 +43,7 @@ public class InvenController {
 		return "inven";
 	}
 	
+	/////////////////////////////// 예약현황 페이지 ///////////////////////////////
 	// 예약 현황 페이지
 	@RequestMapping(value="/res", method=RequestMethod.GET)
 	public String selectRes(Model model, LoanResDTO loanResDTO, String countPerPage, String page) {
@@ -82,4 +84,27 @@ public class InvenController {
 		return updateRes;
 	}
 	
+	/////////////////////////////// 대출현황 페이지 ///////////////////////////////
+	// 대출 현황 페이지
+	@RequestMapping(value="/loan", method=RequestMethod.GET)
+	public String selectLoan(Model model, LoanResDTO loanResDTO, String countPerPage, String page) {
+		System.out.println("keyword : " + loanResDTO.getKeyword());
+		System.out.println("searchType : " + loanResDTO.getSearchType());
+		
+		// 페이징 기본값 설정
+		if(countPerPage == null) countPerPage = "10";
+		if(page == null) page = "1";
+		
+		int count = Integer.parseInt(countPerPage);
+		int pageNo = Integer.parseInt(page);
+		
+		Map map = invenService.selectLoan(loanResDTO, count, pageNo);
+		System.out.println(map.get("list"));
+		
+		model.addAttribute("map", map);
+		model.addAttribute("countPerPage", count);
+		model.addAttribute("page", pageNo);
+		
+		return "loan";
+	}
 }

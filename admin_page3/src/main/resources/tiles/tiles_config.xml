@@ -33,4 +33,10 @@
 		<put-attribute name="content" value="/WEB-INF/views/admin/inven/res.jsp"/>
 	</definition>
 	
+	<!-- 재고현황 - 도서 대출 현황 -->
+	<definition name="loan" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/inven_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/inven/loan.jsp"/>
+	</definition>
+	
 </tiles-definitions>
