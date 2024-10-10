@@ -35,9 +35,6 @@
 
 <body>
 
-
-    <div id="wrap">
-
         <section>
             <div class="main_page">
                 <h3>게시판</h3>
@@ -55,7 +52,7 @@
                                     <th>작성자</th>
                                     <th>작성날짜</th>
                                 </tr>
-                                <c:forEach var="notice" items="${ list }">
+                                <c:forEach var="notice" items="${ noticeList1 }">
                                 <tr>
                                 	<td>${ notice.notice_id }</td>
                                 	<td><a href="notice_read?notice_id=${ notice.notice_id }">${ notice.notice_name }</a></td>
@@ -76,7 +73,6 @@
                 </div>
             </div>
         </section>
-    </div>
 
 <script src="./assets/js/mes_notice.js"></script>
 </body>
