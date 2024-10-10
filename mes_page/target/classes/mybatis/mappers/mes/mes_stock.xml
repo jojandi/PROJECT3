@@ -31,11 +31,19 @@
 		WHERE 
 			order_id= #{_parameter}
 	</select>
+<<<<<<< HEAD
+<!-- 	발주처를 리스트로 반환하는 메서드 -->
+	<select id="getMesPubId" resultType="project3.gamja.mesPage.dto.MesStockDTO">
+        SELECT pub_id FROM publisher
+    </select>
+<!--     부품 코드를 리스트로 반환하는 메서드 -->
+=======
 <!-- 	발주처 셀렉트 -->
 	<select id="getMesPubId" resultType="project3.gamja.mesPage.dto.MesStockDTO">
         SELECT pub_id FROM publisher
     </select>
 <!--     부품 코드 셀렉트 -->
+>>>>>>> 75c2c95f32c65f47a89f8c1f25e646f0b34afd96
 	<select id="getMesBookCodes" resultType="project3.gamja.mesPage.dto.MesStockDTO">
         SELECT mes_book_code FROM mes_book
     </select>
@@ -43,6 +51,10 @@
 	
 	<!-- 	셀렉트 관련 -->
 	
+<<<<<<< HEAD
+	
+	
+=======
 	<update id="updateOrder" parameterType="project3.gamja.mesPage.dto.MesStockDTO">
 		UPDATE mes_book
 			SET book_count = book_count + #{order_count}
@@ -56,6 +68,7 @@
 		INSERT INTO tbl_order (order_id, order_date, order_count, order_st, emp_ID, pub_id, mes_book_code)
 			VALUES (tbl_order_seq.NEXTVAL, sysdate, #{order_count}, '진행중', 1, #{pub_id}, #{mes_book_code})
 	</insert>
+>>>>>>> 75c2c95f32c65f47a89f8c1f25e646f0b34afd96
 	
 	
 

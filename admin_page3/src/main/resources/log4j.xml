@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="project3.gamja.jojandi">
+	<logger name="projec3.gamja.admin">
 		<level value="info" />
 	</logger>
 	

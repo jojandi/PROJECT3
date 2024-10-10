@@ -21,10 +21,7 @@ aside #items #i1 .material-symbols-outlined {
 			<div class="main_page" id="main_page_1">
 				<h3>실시간 재고 현황</h3>
 				<div>
-					<div id="bookAdd">
-						<input type="button" value="도서 추가" class="addBnt">
-					</div>
-					<div class="page_2">
+					<div id="table">
 						<table id="main_library">
 							<colgroup>
 								<col width="5%">
@@ -77,13 +74,13 @@ aside #items #i1 .material-symbols-outlined {
 						</table>
 					</div>
 					<div class="bot_btn">
-						<form action="invenSearch" method="get">
+						<form action="inven" method="get">
 							<div class="search-container">
 								<select name="searchType">
-									<option value="1" ${searchType == 1 or searchType == null ? "selected='selected'" : ""}>도서명</option>
-									<option value="2" ${searchType == 2 ? "selected='selected'" : ""}>도서관</option>
+									<option value="1" ${param.searchType == 1 or param.searchType == null ? "selected='selected'" : ""}>도서명</option>
+									<option value="2" ${param.searchType == 2 ? "selected='selected'" : ""}>도서관</option>
 								</select>
-								<input type="text" id="searchInput" name="keyword" value="${param.keyword}" placeholder="도서명"> 
+								<input type="text" id="searchInput" name="keyword" value="${param.keyword}" placeholder="검색어를 입력하시오. "> 
 									<input type="submit" value="검색">
 							</div>
 						</form>
@@ -131,12 +128,8 @@ aside #items #i1 .material-symbols-outlined {
 
 			<%
 			Map map = (Map) request.getAttribute("map");
-			System.out.println("totalCount : " + map.get("totalCount"));
 			int totalCount = Integer.parseInt(map.get("totalCount").toString());
 
-			System.out.println("countPerPage : " + request.getAttribute("countPerPage"));
-			System.out.println("page : " + request.getAttribute("page"));
-			
 			String str_countPerPage = request.getAttribute("countPerPage").toString();
 			int countPerPage = Integer.parseInt(str_countPerPage);
 
@@ -168,7 +161,7 @@ aside #items #i1 .material-symbols-outlined {
 				</c:if>
 				<c:if test="<%=sec_first != 1%>">
 					<span class="material-symbols-outlined"> <a
-						href="inventory?page=<%=sec_first - 1%>">chevron_left</a>
+						href="inventory?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
 					</span>
 				</c:if>
 
@@ -177,10 +170,10 @@ aside #items #i1 .material-symbols-outlined {
 
 					<!-- 페이지 이동, 현재 페이지는 strong 처리 -->
 					<c:if test="${i eq param.page}">
-						<a href="inven?page=${i}&keyword=${param.keyword}" id="page" class="chap"><strong>${i}</strong></a>
+						<a href="inven?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap"><strong>${i}</strong></a>
 					</c:if>
 					<c:if test="${i != param.page}">
-						<a href="inven?page=${i}&keyword=${param.keyword}"" id="page" class="chap">${i}</a>
+						<a href="inven?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap">${i}</a>
 					</c:if>
 
 				</c:forEach>
@@ -190,7 +183,7 @@ aside #items #i1 .material-symbols-outlined {
 				</c:if>
 				<c:if test="<%=sec_last != lastPage%>">
 					<span class="material-symbols-outlined"> <a
-						href="inventory?page=<%=sec_last + 1%>">chevron_right</a>
+						href="inventory?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
 					</span>
 				</c:if>
 			</div>
