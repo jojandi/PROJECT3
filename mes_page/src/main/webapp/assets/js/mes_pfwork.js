@@ -80,31 +80,5 @@ window.onload = function () {
     
 }
 
-// BOM 행 더블클릭시 모달 화면 추가 스크립트
-    function showModal() {
-        document.getElementById('modal_4').style.display = 'none';
-    }
-    
-    function hideModal() {
-        document.getElementById('modal_4').style.display = 'none';
-    }
-    
-    // 더블클릭시 모달창 
-    document.addEventListener('DOMContentLoaded', () => {
-        const rows = document.querySelectorAll('#main_library tbody tr');
-        rows.forEach(row => {
-            row.addEventListener('dblclick', showModal);
-        });
-    
-        // 클로즈버튼 이벤트
-        const closeButton = document.querySelector('#modal_4 .close_4');
-        closeButton.addEventListener('click', hideModal);
-    
-        // 모달창 외부 클릭시 닫히는 이벤트
-        window.addEventListener('click', (event) => {
-            if (event.target === document.getElementById('modal_4')) {
-                hideModal();
-            }
-        });
-    });
+
 

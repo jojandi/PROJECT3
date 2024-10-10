@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.mesPage.dao.WorkorderDAO">
+
+	<select id="selectwo" resultType="workorderDTO" parameterType="workorderDTO">
+		SELECT 
+			w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status
+		FROM 
+			workorder w, bom b
+		WHERE w.bom_code = b.bom_code
+			ORDER BY wo_id desc
+	</select>
+	
+	<!-- workorder paging -->
+	<select id="totalwo" resultType="int" parameterType="workorderDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			workorder 
+	</select>
+	
+	<select id="selectOne" resultType="workorderDTO" parameterType="workorderDTO">
+		SELECT 
+		    w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status
+		FROM 
+		    workorder w
+		left outer join bom b on w.bom_code = b.bom_code
+		where w.wo_id = #{wo_id}
+	</select>
+	
+	<delete id="deletewo" parameterType="workorderDTO">
+		delete from workorder where wo_id = #{wo_id}
+	</delete>
+	
+	<update id="updatewo" parameterType="workorderDTO">
+		UPDATE product
+		  SET pd_count = pd_count + #{wo_count}
+		  WHERE bom_code = #{bom_code}
+	</update>
+	
+	<insert id="insertwo" parameterType="workorderDTO">
+		INSERT INTO workorder (wo_id, bom_code, wo_process, wo_count, wo_status)
+		VALUES (wo_seq.NEXTVAL, #{bom_code}, #{wo_process}, #{wo_count}, '진행중')
+	</insert>
+	
+	<!-- workorder bom_code만 select -->
+	<select id="selectBom" resultType="workorderDTO">
+		SELECT bom_code FROM bom
+	</select>
+
+</mapper>

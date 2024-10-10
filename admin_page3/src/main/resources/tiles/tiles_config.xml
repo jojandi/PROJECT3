@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- template : 기본 틀 -->
+	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="side" value=""/>
+		<put-attribute name="content" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition>
+	
+	<!-- template : 기본 틀2 -->
+	<definition name="baseLayout2" template="/WEB-INF/views/common/layout2.jsp">
+		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="content" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition>
+	
+	<!-- 재고현황 - 실시간 재고 현황 -->
+	<definition name="inven" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/inven_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/inven/inventory.jsp"/>
+	</definition>
+	
+</tiles-definitions>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import project3.gamja.mesPage.dto.MesStockDTO;
 import project3.gamja.mesPage.service.StockService;
@@ -37,8 +38,7 @@ public class StockController {
 		List<MesStockDTO> list = stockService.selectStock3();
 		model.addAttribute("StockList3", list);
 		
-		
-		
+
 		// 부품코드 셀렉트 옵션을 jsp로 전달해주는 친구~
 
 		List<MesStockDTO> mesBookCodes = stockService.getMesBookCodes();
@@ -50,21 +50,50 @@ public class StockController {
 
 		// ---------------------------------------------------------
 		
-		
-		
-		
-		
 		return "mes_stock3";
 	}
 	////////////////////////////////////////////////////////////////////////////////////////
 	
 	@RequestMapping(value="/stock_update", method=RequestMethod.GET)
-	public String orderUpdate(Model model, int order_ID) {
+	public String orderUpdateSelect(Model model, int order_ID) {
 		
 		MesStockDTO dto = stockService.selectOrder(order_ID);
 		model.addAttribute("dto", dto);
 		
 		return "stock_update";
+	}
+	
+	@RequestMapping(value="/mes_stock3", method=RequestMethod.POST)
+	public String insertOrder(MesStockDTO dto) {
+		
+		stockService.insertOrder(dto);
+		
+		return "redirect:mes_stock3";
+	}
+	
+	
+	@RequestMapping(value="/stockUpdate", method=RequestMethod.POST)
+	public String orderUpdate(MesStockDTO dto, @RequestParam String order_st) {
+		
+		
+		
+		System.out.println(order_st);
+		
+	    try {
+	        if ("완료".equals(order_st)) {
+	            // 1. tbl_order 테이블에서 해당 주문 삭제
+	            stockService.deleteOrder(dto);
+	            
+	            // 2. mes_book 테이블에서 book_count 업데이트 (수량 추가)
+	            stockService.updateOrder(dto);
+	            System.out.println(dto);
+	        }
+	        
+	    } catch (Exception e) {
+	        // 예외 발생 시 에러 로그 출력
+	        e.printStackTrace(); // 콘솔에 전체 예외 정보를 출력
+	    }
+	    return "redirect:mes_stock3";
 	}
 	
 	

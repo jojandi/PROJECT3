@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.jojandi.dao.user.my.CartDAO">
+	<!-- 찜목록 - 장바구니 select -->
+	<select id="selectCart" resultType="cartDTO" parameterType="int">
+		SELECT 
+			book_code, cart_seq, user_seq, li_book_info, book_name, book_author, book_pub, book_img 
+		FROM 
+			user_cart 
+			JOIN li_book USING(book_code) 
+			JOIN book USING(book_isbn) 
+			WHERE 
+				user_seq = #{_parameter}
+		ORDER BY cart_seq
+	</select>
+	
+	<!-- 여러개 예약하기 -->
+	<insert id="insertAllCart" parameterType="loanDTO">
+		INSERT INTO 
+			user_res(res_id, book_code, user_seq, res_day, res_pick) 
+		VALUES 
+			(user_res_seq.nextval, #{book_code}, #{user_seq}, to_date(sysdate,'YYY-MM-DD'), null)
+	</insert>
+	
+	<delete id="deleteChkCart" parameterType="cartDTO">
+		DELETE 
+			user_cart
+		WHERE 
+			cart_seq = #{cart_seq}
+	</delete>
+</mapper>
