@@ -11,7 +11,7 @@
 <title></title>
 <link href="../assets/css/base/user_base.css" rel="stylesheet">
 <style>
-     #menu #items #i4{ font-weight: 900; text-decoration: underline; }  
+ 
 </style>
 </head>
 <body>
