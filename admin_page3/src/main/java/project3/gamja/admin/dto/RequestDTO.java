@@ -8,11 +8,21 @@ public class RequestDTO {
 	
 	private java.sql.Date os_date;
 	
+	private java.sql.Date lr_date;
+	
 	private String emp_name;
 	
-	private String book_name;
+	private String app_book;
+	
+	private String app_name;
+	
+	private String app_pub;
 	
 	private Integer lr_count;
+	
+	private Integer lr_seq;
+	
+	private Integer app_seq;
 	
 	private Integer lib_id;
 	
@@ -22,27 +32,19 @@ public class RequestDTO {
 	
 	private String book_pub;
 	
+	private String lr_ing;
+	
+	public String getLr_ing() {
+		return lr_ing;
+	}
+
+	public void setLr_ing(String lr_ing) {
+		this.lr_ing = lr_ing;
+	}
+
 	private int start;
 	
 	private int end;
-	
-	
-
-	public int getStart() {
-		return start;
-	}
-
-	public void setStart(int start) {
-		this.start = start;
-	}
-
-	public int getEnd() {
-		return end;
-	}
-
-	public void setEnd(int end) {
-		this.end = end;
-	}
 
 	public Integer getOs_id() {
 		return os_id;
@@ -68,6 +70,14 @@ public class RequestDTO {
 		this.os_date = os_date;
 	}
 
+	public java.sql.Date getLr_date() {
+		return lr_date;
+	}
+
+	public void setLr_date(java.sql.Date lr_date) {
+		this.lr_date = lr_date;
+	}
+
 	public String getEmp_name() {
 		return emp_name;
 	}
@@ -76,12 +86,28 @@ public class RequestDTO {
 		this.emp_name = emp_name;
 	}
 
-	public String getBook_name() {
-		return book_name;
+	public String getApp_book() {
+		return app_book;
 	}
 
-	public void setBook_name(String book_name) {
-		this.book_name = book_name;
+	public void setApp_book(String app_book) {
+		this.app_book = app_book;
+	}
+
+	public String getApp_name() {
+		return app_name;
+	}
+
+	public void setApp_name(String app_name) {
+		this.app_name = app_name;
+	}
+
+	public String getApp_pub() {
+		return app_pub;
+	}
+
+	public void setApp_pub(String app_pub) {
+		this.app_pub = app_pub;
 	}
 
 	public Integer getLr_count() {
@@ -90,6 +116,22 @@ public class RequestDTO {
 
 	public void setLr_count(Integer lr_count) {
 		this.lr_count = lr_count;
+	}
+
+	public Integer getLr_seq() {
+		return lr_seq;
+	}
+
+	public void setLr_seq(Integer lr_seq) {
+		this.lr_seq = lr_seq;
+	}
+
+	public Integer getApp_seq() {
+		return app_seq;
+	}
+
+	public void setApp_seq(Integer app_seq) {
+		this.app_seq = app_seq;
 	}
 
 	public Integer getLib_id() {
@@ -123,5 +165,23 @@ public class RequestDTO {
 	public void setBook_pub(String book_pub) {
 		this.book_pub = book_pub;
 	}
+
+	public int getStart() {
+		return start;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
+	
+	
 	
 }
