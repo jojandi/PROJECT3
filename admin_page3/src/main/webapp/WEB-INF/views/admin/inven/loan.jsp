@@ -75,9 +75,9 @@
 										</td>
 										<td>
 											<c:if test="${list.loan_ing == true}">
-												<input type="hidden" value=${list.user_seq} class="user_seq">
-												<input type="hidden" value=${list.book_code} class="book_code">
-												<input type="hidden" value=${list.loan_seq} class="loan_seq">
+												<input type="hidden" value="${list.user_seq}" class="user_seq">
+												<input type="hidden" value="${list.book_code}" class="book_code">
+												<input type="hidden" value="${list.loan_seq}" class="loan_seq">
 												<input type="submit" value="수정" class="submit">
 											</c:if>
 											<c:if test="${list.loan_ing == false}">
@@ -192,18 +192,15 @@
 		for(let i = 0; i<submit.length; i++){
 		    submit[i].addEventListener('click', function(){
 		    	const book_code = document.querySelectorAll(".book_code");
-				const res_id = document.querySelectorAll(".res_id");
-				const loan_ing = document.querySelectorAll(".loan_ing");
+				const loan_seq = document.querySelectorAll(".loan_seq");
 				const user_seq = document.querySelectorAll(".user_seq");
 		    	console.log("book_code : " + book_code[i].value);
-			    console.log("res_id : " + res_id[i].value);
-			    console.log("loan_ing : " + loan_ing[i].value);
+			    console.log("loan_seq : " + loan_seq[i].value);
 			    console.log("user_seq : " + user_seq[i].value);
 			    
 			    const data = {
 			    		"book_code" : book_code[i].value,
-			    		"res_id" : res_id[i].value,
-			    		"loan_ing" : loan_ing[i].value
+			    		"loan_seq" : loan_seq[i].value,
 			    		"user_seq" : user_seq[i].value
 			    }
 			    const page = '${param.page}';
