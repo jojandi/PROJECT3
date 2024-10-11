@@ -21,6 +21,7 @@
 		<typeAlias type="project3.gamja.mesPage.dto.MesWorkorderDTO" alias="workorderDTO"/>
 		<typeAlias type="project3.gamja.mesPage.dto.MesStockDTO" alias="stockDTO"/>
 		<typeAlias type="project3.gamja.mesPage.dto.MesNoticeDTO" alias="noticeDTO"/>
+		<typeAlias type="project3.gamja.mesPage.dto.UserLibraryDTO" alias="LibraryDTO"/>
 	</typeAliases> 
 	 
 	
