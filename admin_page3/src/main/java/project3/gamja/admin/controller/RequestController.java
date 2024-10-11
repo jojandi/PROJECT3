@@ -29,5 +29,20 @@ public class RequestController {
 		
 		return "request";
 	}
+	
+	@RequestMapping("apply")
+	public String apply(Model model, Integer seq, Integer count, Integer pageNo) {
+		// 페이징 기본값 설정
+		if(count == null) count = 10;
+		if(pageNo == null) pageNo = 1;
+		
+		Map map = reService.selectApply(count, pageNo);
+		
+		model.addAttribute("map", map);
+		model.addAttribute("countPerPage", count);
+		model.addAttribute("page", pageNo);
+		
+		return "apply";
+	}
 
 }

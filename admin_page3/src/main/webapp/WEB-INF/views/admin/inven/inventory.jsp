@@ -161,7 +161,7 @@ aside #items #i1 .material-symbols-outlined {
 				</c:if>
 				<c:if test="<%=sec_first != 1%>">
 					<span class="material-symbols-outlined"> <a
-						href="inventory?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
+						href="inven?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
 					</span>
 				</c:if>
 
@@ -183,7 +183,7 @@ aside #items #i1 .material-symbols-outlined {
 				</c:if>
 				<c:if test="<%=sec_last != lastPage%>">
 					<span class="material-symbols-outlined"> <a
-						href="inventory?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
+						href="inven?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
 					</span>
 				</c:if>
 			</div>

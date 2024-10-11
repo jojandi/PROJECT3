@@ -11,7 +11,7 @@
 <title>도서발주</title>
 <link href="./assets/css/inven/inven.css" rel="stylesheet">
 <style>
-aside #items #i1 .material-symbols-outlined {
+aside #items #i2 .material-symbols-outlined {
 	background: rgb(165, 224, 144);
 }
 </style>
@@ -96,7 +96,7 @@ aside #items #i1 .material-symbols-outlined {
 			</c:if>
 			<c:if test="<%=sec_first != 1%>">
 				<span class="material-symbols-outlined"> <a
-					href="inventory?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
+					href="request?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
 				</span>
 			</c:if>
 
@@ -105,10 +105,10 @@ aside #items #i1 .material-symbols-outlined {
 
 				<!-- 페이지 이동, 현재 페이지는 strong 처리 -->
 				<c:if test="${i eq param.page}">
-					<a href="inven?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap"><strong>${i}</strong></a>
+					<a href="request?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap"><strong>${i}</strong></a>
 				</c:if>
 				<c:if test="${i != param.page}">
-					<a href="inven?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap">${i}</a>
+					<a href="request?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap">${i}</a>
 				</c:if>
 
 			</c:forEach>
@@ -118,7 +118,7 @@ aside #items #i1 .material-symbols-outlined {
 			</c:if>
 			<c:if test="<%=sec_last != lastPage%>">
 				<span class="material-symbols-outlined"> <a
-					href="inventory?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
+					href="request?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
 				</span>
 			</c:if>
 		</div>

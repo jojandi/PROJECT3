@@ -1,6 +1,6 @@
 package project3.gamja.Kim.dto;
 
-public class LoginDTO {
+public class UserDTO {
 	private int like_id;
 	private String like;
 	private int user_seq;
@@ -16,7 +16,7 @@ public class LoginDTO {
 	private java.sql.Date user_pass;
 	private boolean user_over;
 	private int user_loan;
-	private boolean user_admin;
+	private String user_admin;
 	
 	
 	public boolean isUser_over() {
@@ -31,10 +31,11 @@ public class LoginDTO {
 	public void setUser_loan(int user_loan) {
 		this.user_loan = user_loan;
 	}
-	public boolean isUser_admin() {
+
+	public String getUser_admin() {
 		return user_admin;
 	}
-	public void setUser_admin(boolean user_admin) {
+	public void setUser_admin(String user_admin) {
 		this.user_admin = user_admin;
 	}
 	public int getLike_id() {
