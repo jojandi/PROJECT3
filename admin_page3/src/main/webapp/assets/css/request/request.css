@@ -317,3 +317,7 @@ section .insert #submit{
 	margin-top: 10px;
 	text-align: right;
 }
+
+.bot_btn #req{
+	margin-top: 20px;
+}

@@ -9,9 +9,9 @@
 <head>
 <meta charset="UTF-8">
 <title>도서발주</title>
-<link href="./assets/css/inven/inven.css" rel="stylesheet">
+<link href="./assets/css/request/request.css" rel="stylesheet">
 <style>
-aside #items #i2 .material-symbols-outlined {
+aside #items #i1 .material-symbols-outlined {
 	background: rgb(165, 224, 144);
 }
 </style>
@@ -20,44 +20,64 @@ aside #items #i2 .material-symbols-outlined {
 
 	<section>
 		<div class="main_page" id="main_page_1">
-			<h3>도서 발주</h3>
+			<h3>도서 신청 내역</h3>
 			<div>
 				<div id="table">
-					<table id="main_library">
+					<table>
 						<colgroup>
 							<col width="9%">
 							<col width="25%">
-							<col width="5%">
-							<col width="12%">
+							<col width="10%">
+							<col width="10%">
 							<col width="8%">
 							<col width="12%">
 							<col width="8%">
 						</colgroup>
 						<thead>
 							<tr>
-								<th>발주번호</th>
+								<th></th>
 								<th class="sortable">도서명</th>
 								<th>저자명</th>
 								<th>출판사</th>
 								<th>도서관</th>
-								<th>발주일자</th>
+								<th>신청일시</th>
 								<th>상태</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="list" items="${map.list}">
 								<tr>
-									<td></td>
-									<td class="bname2">${list.book_name}</td>
-									<td>${list.book_author}</td>
-									<td>${list.book_pub}</td>
+									<td><input type="checkbox" name="check"></td>
+									<td class="bname2">${list.app_book}</td>
+									<td>${list.app_name}</td>
+									<td>${list.app_pub}</td>
 									<td>${list.lib_name}</td>
-									<td>${list.os_date}</td>
-									<td>-</td>
+									<td>${list.app_date}</td>
+									<c:if test="${not empty list.purchased}">
+										<td>${list.purchased}</td>
+									</c:if>
+									<c:if test="${empty list.purchased}">
+										<td>-</td>
+									</c:if>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
+				</div>
+				<div class="bot_btn">
+					<form action="apply" method="get">
+						<div class="search-container">
+							<select name="searchType">
+								<option value="1" ${param.searchType == 1 or param.searchType == null ? "selected='selected'" : ""}>도서명</option>
+								<option value="2" ${param.searchType == 2 ? "selected='selected'" : ""}>도서관</option>
+							</select>
+							<input type="text" id="searchInput" name="keyword" value="${param.keyword}" placeholder="검색어를 입력하시오. "> 
+								<input type="submit" value="검색">
+						</div>
+					</form>
+					<form action="req" method="post" id="reqBox">
+						<input type="submit" value="발주">
+					</form>
 				</div>
 			</div>
 		</div>
@@ -96,7 +116,7 @@ aside #items #i2 .material-symbols-outlined {
 			</c:if>
 			<c:if test="<%=sec_first != 1%>">
 				<span class="material-symbols-outlined"> <a
-					href="request?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
+					href="apply?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
 				</span>
 			</c:if>
 
@@ -105,10 +125,10 @@ aside #items #i2 .material-symbols-outlined {
 
 				<!-- 페이지 이동, 현재 페이지는 strong 처리 -->
 				<c:if test="${i eq param.page}">
-					<a href="request?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap"><strong>${i}</strong></a>
+					<a href="apply?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap"><strong>${i}</strong></a>
 				</c:if>
 				<c:if test="${i != param.page}">
-					<a href="request?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap">${i}</a>
+					<a href="apply?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap">${i}</a>
 				</c:if>
 
 			</c:forEach>
@@ -118,7 +138,7 @@ aside #items #i2 .material-symbols-outlined {
 			</c:if>
 			<c:if test="<%=sec_last != lastPage%>">
 				<span class="material-symbols-outlined"> <a
-					href="request?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
+					href="apply?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
 				</span>
 			</c:if>
 		</div>
