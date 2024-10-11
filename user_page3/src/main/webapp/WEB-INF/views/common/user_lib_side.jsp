@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="./assets/css/my/user_mypage_side.css" rel="stylesheet">
+<link href="./assets/css/library/user_library_side.css" rel="stylesheet">
 </head>
 <body>
 <!-- 사이드 -->

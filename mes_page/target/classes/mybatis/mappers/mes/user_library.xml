@@ -7,5 +7,12 @@
 			SELECT * from library
 			WHERE lib_id = #{lib_id}
 	</select>
-
+	<select id="selectHuman" resultType="humanDTO" parameterType="humanDTO">
+			SELECT e.emp_id, e.emp_name, p.po_name, d.dept_name, e.emp_hp, e.emp_add, e.emp_hiredate
+				   FROM employee e
+				   JOIN department d ON e.dept_id = d.dept_id
+				   JOIN tbl_position p ON e.po_id = p.po_id
+				   ORDER by emp_id
+	</select>
+		
 </mapper>
