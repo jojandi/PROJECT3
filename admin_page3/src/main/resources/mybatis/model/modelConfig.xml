@@ -16,6 +16,7 @@
 	<typeAliases>
 		<typeAlias type="project3.gamja.admin.dto.InvenDTO" alias="invenDTO"/>
 		<typeAlias type="project3.gamja.admin.dto.LoanResDTO" alias="loanResDTO"/>
+		<typeAlias type="project3.gamja.admin.dto.RequestDTO" alias="requestDTO"/>
 	</typeAliases> 
 
 </configuration>
