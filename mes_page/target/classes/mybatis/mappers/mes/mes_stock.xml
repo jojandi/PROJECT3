@@ -4,18 +4,20 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project3.gamja.mesPage.dao.StockDAO">
 
-	<!-- 	셀렉트 관련 -->
+
     <select id="selectStock1" resultType="stockDTO">
         select b.bom_code,b.bom_name, p.pd_count, w.wh_name, p.pd_note
 			from warehouse w, product p , bom b
 			where w.wh_code = p.wh_code
 		and p.bom_code = b.bom_code
     </select>
+    
     <select id="selectStock2" resultType="stockDTO">
         select m.mes_book_code,b.book_name, b.book_isbn, b.book_author, b.book_pub, m.book_count, m.wh_code
 		    from book b, mes_book m
 		WHERE b.book_isbn = m.book_isbn
     </select>
+    
     <select id="selectStock3" resultType="stockDTO">
         select mes_book_code, order_id, pub_name, order_st, emp_name, order_date
 			from tbl_order t, publisher p, employee e
@@ -31,17 +33,18 @@
 		WHERE
 			order_id= #{_parameter}
 	</select>
-	<!-- 발주처 셀렉트 -->
+	
 	<select id="getMesPubId" resultType="stockDTO">
         SELECT pub_id FROM publisher
     </select>
+<<<<<<< HEAD
 	<!-- 부품 코드 셀렉트 -->
+=======
+
+>>>>>>> ef3a74160f8b5717ef3e9f39607489c58de5706f
 	<select id="getMesBookCodes" resultType="stockDTO">
         SELECT mes_book_code FROM mes_book
     </select>
-	
-	
-	<!-- 셀렉트 관련 -->
 	
 	<update id="updateOrder" parameterType="stockDTO">
 		UPDATE mes_book
@@ -52,6 +55,7 @@
 	<delete id="deleteOrder" parameterType="stockDTO">
 		delete from tbl_order where order_id = #{order_id}
 	</delete>
+	
 	<insert id="insertOrder" parameterType="stockDTO">
 		INSERT INTO tbl_order (order_id, order_date, order_count, order_st, emp_ID, pub_id, mes_book_code)
 			VALUES (tbl_order_seq.NEXTVAL, sysdate, #{order_count}, '진행중', 1, #{pub_id}, #{mes_book_code})

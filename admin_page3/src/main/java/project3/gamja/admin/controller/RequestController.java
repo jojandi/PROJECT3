@@ -5,8 +5,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import project3.gamja.admin.dto.ApplyDTO;
 import project3.gamja.admin.service.RequestService;
 
 @Controller
@@ -30,6 +34,7 @@ public class RequestController {
 		return "request";
 	}
 	
+	///////////////////////////// 도서 신청 내역 /////////////////////////////
 	@RequestMapping("apply")
 	public String apply(Model model, Integer seq, Integer count, Integer pageNo) {
 		// 페이징 기본값 설정
@@ -43,6 +48,41 @@ public class RequestController {
 		model.addAttribute("page", pageNo);
 		
 		return "apply";
+	}
+	
+	// 신청 내역 삭제
+	@RequestMapping(value="applyDel", method=RequestMethod.DELETE)
+	@ResponseBody
+	public int applyDelete(@RequestBody ApplyDTO applyDTO) {
+		int[] checks = applyDTO.getChecks();
+		for(int check : checks) {
+			System.out.println("신청번호 : " + check);
+		}
+		
+		int result = reService.applyDelete(applyDTO);
+		
+		return result;
+	}
+	
+	// 신청 내역 발주로 이동
+	@RequestMapping(value="applyReq", method=RequestMethod.POST)
+	@ResponseBody
+	public int applyReq(@RequestBody ApplyDTO applyDTO) {
+		int[] checks = applyDTO.getChecks();
+		int[] lib_ids = applyDTO.getLib_ids();
+		for(int check : checks) {
+			System.out.println("신청번호 : " + check);
+		}
+		for(int lib_id : lib_ids) {
+			System.out.println("도서관 아이디 : " + lib_id);
+		}
+		
+		int result = reService.applyReq(applyDTO);
+		int update = reService.applyUpdate(applyDTO);
+		System.out.println("신청 -> 발주 : " + result);
+		System.out.println("신청 상태 : " + update);
+		
+		return result;
 	}
 
 }

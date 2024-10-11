@@ -35,7 +35,7 @@ aside #items #i1 .material-symbols-outlined {
 						</colgroup>
 						<thead>
 							<tr>
-								<th></th>
+								<th><input type="checkbox" name="checkbox"></th>
 								<th class="sortable">도서명</th>
 								<th>저자명</th>
 								<th>출판사</th>
@@ -47,7 +47,7 @@ aside #items #i1 .material-symbols-outlined {
 						<tbody>
 							<c:forEach var="list" items="${map.list}">
 								<tr>
-									<td><input type="checkbox" name="check"></td>
+									<td><input type="checkbox" name="check" value="${list.app_seq}" data-lib_id="${list.lib_id}"></td>
 									<td class="bname2">${list.app_book}</td>
 									<td>${list.app_name}</td>
 									<td>${list.app_pub}</td>
@@ -75,9 +75,10 @@ aside #items #i1 .material-symbols-outlined {
 								<input type="submit" value="검색">
 						</div>
 					</form>
-					<form action="req" method="post" id="reqBox">
-						<input type="submit" value="발주">
-					</form>
+					<div id="reqBox">
+						<input type="button" id="applyDel" value="삭제">
+						<input type="button" id="applyReq" value="발주">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -143,6 +144,93 @@ aside #items #i1 .material-symbols-outlined {
 			</c:if>
 		</div>
 	</section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		// ajax 실행 메소드 
+		function ajax(url, param, cb, method){	// cb : callback 함수
+	
+			if(!method) method = "get"; // method 기본값 설정
+			
+			const xhr = new XMLHttpRequest();
+	
+			xhr.open(method,url);
+			xhr.setRequestHeader("Content-Type","application/json");		
+			const strData = JSON.stringify(param); 
+			console.log("strData : " + strData);
+			xhr.send(strData); // 최종 전송
+			
+			// typeof : 변수의 타입을 문자로 알려줌
+			if(typeof cb == "function"){
+				xhr.onload = function(){
+					cb(xhr.responseText); // 전달인자 -> ajax에서 받아온 것
+				}
+			}
+		}
+		
+		// 삭제 이벤트
+		document.querySelector("#applyDel").addEventListener('click', function(){
+			//jQuery로 for문 돌면서 check 된값 배열에 담는다
+		    let app_seqs = [];
+		    $("input[name='check']:checked").each(function(i){   
+		    	app_seqs.push($(this).val());
+		    });
+		    
+		    if(app_seqs.length <= 0){
+		    	alert("도서를 선택해주세요. "); 
+		    } else{
+		    	console.log("삭제 체크 :", app_seqs);
+			    
+			    data = {
+			    		"checks" : app_seqs
+			    }
+			    
+			    ajax("applyDel", data, function(result){
+			    	console.log(result);
+			    	if(result > 0){
+			    		alert("삭제되었습니다. ");
+			    		location.href="apply";
+			    	} else{
+			    		alert("다시 시도해주세요. ");
+			    	}
+			    }, "delete")
+		    }
+		})
+		
+		// 발주 이벤트
+		document.querySelector("#applyReq").addEventListener('click', function(){
+			//jQuery로 for문 돌면서 check 된값 배열에 담는다
+		    let app_seqs = [];
+		    let lib_ids = [];
+		    $("input[name='check']:checked").each(function(i){   
+		    	app_seqs.push($(this).val());
+		    });
 
+		    $("input[name='check']:checked").each(function(i){   
+		    	lib_ids.push($(this).attr('data-lib_id'));
+		    });
+		    
+		    if(app_seqs.length <= 0){
+		    	alert("도서를 선택해주세요. "); 
+		    } else{
+		    	console.log("발주 체크 :", app_seqs);
+			    
+			    data = {
+			    		"checks" : app_seqs,
+			    		"lib_ids" : lib_ids
+			    }
+			    
+			    ajax("applyReq", data, function(result){
+			    	console.log(result);
+			    	if(result > 0){
+			    		alert("완료되었습니다. ");
+			    		location.href="apply";
+			    	} else{
+			    		alert("다시 시도해주세요. ");
+			    	}
+			    }, "post")
+		    }
+		})
+		
+	</script>
 </body>
 </html>
