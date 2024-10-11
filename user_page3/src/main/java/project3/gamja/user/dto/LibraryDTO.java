@@ -2,19 +2,19 @@ package project3.gamja.user.dto;
 
 public class LibraryDTO {
 
-	private int lib_id;
+	private Integer lib_id;
 	private String lib_name;
 	private String lib_add;
 	private String lib_parking;
 	private String lib_seat;
 	private String lib_open;
 	private String lib_facil;
-	private int lib_call;
+	private Integer lib_call;
 	private String lib_pic;
-	public int getLib_id() {
+	public Integer getLib_id() {
 		return lib_id;
 	}
-	public void setLib_id(int lib_id) {
+	public void setLib_id(Integer lib_id) {
 		this.lib_id = lib_id;
 	}
 	public String getLib_name() {
@@ -53,10 +53,10 @@ public class LibraryDTO {
 	public void setLib_facil(String lib_facil) {
 		this.lib_facil = lib_facil;
 	}
-	public int getLib_call() {
+	public Integer getLib_call() {
 		return lib_call;
 	}
-	public void setLib_call(int lib_call) {
+	public void setLib_call(Integer lib_call) {
 		this.lib_call = lib_call;
 	}
 	public String getLib_pic() {

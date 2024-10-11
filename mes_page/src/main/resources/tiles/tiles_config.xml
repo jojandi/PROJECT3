@@ -125,4 +125,18 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/notice/user_libraryInfo.jsp"/>
 	</definition>
+	
+		<!--직원 관리 -->
+	<definition name="mes_human" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Human/human.jsp"/>
+	</definition>
+	
+		<!--직원 관리 리드-->
+	<definition name="mes_human" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
+	</definition>
+	
+	
 </tiles-definitions>
