@@ -6,19 +6,14 @@
 
 	<!-- 도서발주 페이지 select -->
 	<select id="selectre" resultType="requestDTO" parameterType="requestDTO">
-		select * from (
+		SELECT * FROM (
 			SELECT 
-			    rownum as rnum, o.os_id, k.book_name, k.book_author, k.book_pub, l.lib_name, o.os_date, e.emp_name
+			    rownum AS rnum, r.lr_seq, r.lr_count, r.lr_date, r.app_seq, a.app_book, a.app_name, a.app_pub, 
+			    r.lib_id, l.lib_name, r.lr_ing
 			FROM 
-			    library l 
-			LEFT OUTER JOIN user_loan u ON l.lib_id = u.lib_id
-			LEFT OUTER JOIN tbl_user t ON u.loan_seq = t.loan_seq
-			LEFT OUTER JOIN bookflix_user f ON t.user_seq = f.user_seq
-			LEFT OUTER JOIN orderstatus o ON f.buser_seq = o.buser_seq
-			LEFT OUTER JOIN bom b ON o.bom_code = b.bom_code
-			LEFT OUTER JOIN employee e ON o.emp_id = e.emp_id
-			LEFT OUTER JOIN li_book i ON u.book_code = i.book_code
-			LEFT OUTER JOIN book k ON i.book_isbn = k.book_isbn
+			    lib_request r
+			    LEFT OUTER JOIN library l ON r.lib_id = l.lib_id
+			    LEFT OUTER JOIN  application a ON r.app_seq = a.app_seq
 		)
 		WHERE 
 			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
@@ -36,7 +31,8 @@
 	<select id="selectApply" resultType="applyDTO" parameterType="applyDTO">
 		SELECT * FROM(
 		    SELECT 
-		        rownum AS rnum, app_seq, app_book, app_name, app_pub, app_date, user_seq, purchased, lib_id, lib_name
+		        rownum AS rnum, app_seq, app_book, app_name, app_pub, app_date, user_seq, purchased, 
+		        lib_id, lib_name
 		    FROM 
 		        application
 		        JOIN library USING(lib_id)
@@ -53,5 +49,37 @@
 		FROM 
 			 application
 	</select>
+	
+	<!-- 도서 신청내역 삭제 -->
+	<delete id="applyDelete" parameterType="applyDTO">
+		DELETE 
+			application 
+		WHERE 
+			app_seq in
+			<foreach item="item" collection="checks" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+	</delete>
+	
+	<!-- 도서 신청 -> 발주로 이동 -->
+	<insert id="applyReq" parameterType="applyDTO">
+		INSERT INTO 
+			lib_request 
+				(lr_seq, lr_count, lr_date, app_seq, lib_id)
+			VALUES 
+				(lr_seqs.nextval, 1, sysdate, #{app_seq}, #{lib_id})
+	</insert>
+	
+	<update id="applyUpdate" parameterType="applyDTO">
+		UPDATE 
+			application 
+		SET 
+			purchased = '진행중'
+		WHERE 
+			app_seq in 
+			<foreach item="item" collection="checks" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+	</update>
 
 </mapper>

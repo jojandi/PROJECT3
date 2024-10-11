@@ -25,7 +25,7 @@ aside #items #i2 .material-symbols-outlined {
 				<div id="table">
 					<table id="main_library">
 						<colgroup>
-							<col width="9%">
+							<col width="7%">
 							<col width="25%">
 							<col width="5%">
 							<col width="12%">
@@ -47,17 +47,37 @@ aside #items #i2 .material-symbols-outlined {
 						<tbody>
 							<c:forEach var="list" items="${map.list}">
 								<tr>
-									<td></td>
-									<td class="bname2">${list.book_name}</td>
-									<td>${list.book_author}</td>
-									<td>${list.book_pub}</td>
+									<td>${list.lr_seq}</td>
+									<td class="bname2">${list.app_book}</td>
+									<td>${list.app_name}</td>
+									<td>${list.app_pub}</td>
 									<td>${list.lib_name}</td>
-									<td>${list.os_date}</td>
-									<td>-</td>
+									<td>${list.lr_date}</td>
+									<c:if test="${empty list.lr_ing}">								
+										<td>-</td>
+									</c:if>
+									<c:if test="${not empty list.lr_ing}">								
+										<td>${list.lr_ing}</td>
+									</c:if>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
+				</div>
+				<div class="bot_btn">
+					<form action="apply" method="get">
+						<div class="search-container">
+							<select name="searchType">
+								<option value="1" ${param.searchType == 1 or param.searchType == null ? "selected='selected'" : ""}>도서명</option>
+								<option value="2" ${param.searchType == 2 ? "selected='selected'" : ""}>도서관</option>
+							</select>
+							<input type="text" id="searchInput" name="keyword" value="${param.keyword}" placeholder="검색어를 입력하시오. "> 
+								<input type="submit" value="검색">
+						</div>
+					</form>
+					<div id="reqBox">
+						<input type="button" id="applyReq" value="발주">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -123,6 +143,66 @@ aside #items #i2 .material-symbols-outlined {
 			</c:if>
 		</div>
 	</section>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		// ajax 실행 메소드 
+		function ajax(url, param, cb, method){	// cb : callback 함수
+	
+			if(!method) method = "get"; // method 기본값 설정
+			
+			const xhr = new XMLHttpRequest();
+	
+			xhr.open(method,url);
+			xhr.setRequestHeader("Content-Type","application/json");		
+			const strData = JSON.stringify(param); 
+			console.log("strData : " + strData);
+			xhr.send(strData); // 최종 전송
+			
+			// typeof : 변수의 타입을 문자로 알려줌
+			if(typeof cb == "function"){
+				xhr.onload = function(){
+					cb(xhr.responseText); // 전달인자 -> ajax에서 받아온 것
+				}
+			}
+		}
+		
+		// 발주 이벤트
+		document.querySelector("#applyReq").addEventListener('click', function(){
+			//jQuery로 for문 돌면서 check 된값 배열에 담는다
+		    let app_seqs = [];
+		    let lib_ids = [];
+		    $("input[name='check']:checked").each(function(i){   
+		    	app_seqs.push($(this).val());
+		    });
+
+		    $("input[name='check']:checked").each(function(i){   
+		    	lib_ids.push($(this).attr('data-lib_id'));
+		    });
+		    
+		    if(app_seqs.length <= 0){
+		    	alert("도서를 선택해주세요. "); 
+		    } else{
+		    	console.log("발주 체크 :", app_seqs);
+			    
+			    data = {
+			    		"checks" : app_seqs,
+			    		"lib_ids" : lib_ids
+			    }
+			    
+			    ajax("applyReq", data, function(result){
+			    	console.log(result);
+			    	if(result > 0){
+			    		alert("완료되었습니다. ");
+			    		location.href="apply";
+			    	} else{
+			    		alert("다시 시도해주세요. ");
+			    	}
+			    }, "post")
+		    }
+		})
+		
+	</script>
 
 </body>
 </html>
