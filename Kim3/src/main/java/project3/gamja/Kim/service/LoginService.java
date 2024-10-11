@@ -1,12 +1,11 @@
 package project3.gamja.Kim.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import project3.gamja.Kim.dao.LoginDAO;
-import project3.gamja.Kim.dto.LoginDTO;
+import project3.gamja.Kim.dto.UserDTO;
 
 @Service
 public class LoginService {
@@ -14,13 +13,30 @@ public class LoginService {
 
 	
 	@Autowired
-	LoginDAO loginDAO;		
+	LoginDAO loginDAO;
 
-	public List<LoginDTO> listlogin() {
+	//UserDTO를 받아 정보를 조회하여 반환
+	public UserDTO selectLoginUser(UserDTO userDTO) { 
 
-		List<LoginDTO> list = loginDAO.selectTbl_user();
+		UserDTO dto = loginDAO.selectLoginUser(userDTO); // DAO에서 selectLoginUser 를 호출하여 
+																		// 데이터 베이스에서 사용자를 찾음 
+				
 
-		return list;
+		return dto; // dto를 반환
+	}
+	
+	public UserDTO selectLoginAdmin(UserDTO userDTO) {
+		
+		UserDTO dto = loginDAO.selectLoginAdmin(userDTO);
+		
+		return dto;
+	}
+	
+	public UserDTO selectLoginMes(UserDTO userDTO) {
+		
+		UserDTO dto = loginDAO.selectLoginMes(userDTO);
+		
+		return dto;
 	}
 }
 

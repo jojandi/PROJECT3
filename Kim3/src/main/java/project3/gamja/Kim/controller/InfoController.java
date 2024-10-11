@@ -57,7 +57,7 @@ public class InfoController {
 	@RequestMapping(value="/notice", method=RequestMethod.GET)
 	public String slelctInven(Model model, NotiDTO invenDTO, String countPerPage, String page) {
 		// 페이징 기본값 설정
-		if(countPerPage == null) countPerPage = "7";
+		if(countPerPage == null) countPerPage = "5";
 		if(page == null) page = "1";
 		
 		int count = Integer.parseInt(countPerPage);
@@ -89,7 +89,7 @@ public class InfoController {
 		 * List<RequestDTO> list = InfoService.listreq();
 		 * model.addAttribute("list", list);
 		 */
-
+		// 리턴값이 타일즈로 가는거임 
 		return "request";
 	}
 	// insert

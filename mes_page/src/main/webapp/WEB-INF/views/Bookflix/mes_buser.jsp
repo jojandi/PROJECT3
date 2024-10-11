@@ -47,10 +47,6 @@
 
 <body>
 
-
-
-	
-
 		<section>
 
 			<div class="main_page" id="main_page_1">
