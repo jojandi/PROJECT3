@@ -9,6 +9,7 @@ import project3.gamja.mesPage.dao.BookflixDAO;
 import project3.gamja.mesPage.dao.MainDAO;
 import project3.gamja.mesPage.dto.MesBuserDTO;
 import project3.gamja.mesPage.dto.MesMainDTO;
+import project3.gamja.mesPage.dto.MesNoticeDTO;
 import project3.gamja.mesPage.dto.MesReviewDTO;
 
 
@@ -30,6 +31,12 @@ public class BookfilxService {
 	 // 리뷰 리스트를 가져오는 메서드 추가
 	 public List<MesReviewDTO> getReview() {
      return bookflixDAO.getReviews();
- }
+	 }
+	 
+	 public int deleteReview(MesReviewDTO dto){
+			int result = bookflixDAO.deleteReview(dto);
+			return result;
+		}
+	 
    
 }

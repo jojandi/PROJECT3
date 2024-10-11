@@ -28,75 +28,65 @@ window.onload = function () {
     
 }
 
-// BOM 행 더블클릭시 모달 화면 추가 스크립트
-    function showModal() {
-        document.getElementById('modal_4').style.display = 'block';
-    }
-    
-    function hideModal() {
-        document.getElementById('modal_4').style.display = 'none';
-    }
-    
-    // 더블클릭시 모달창 
-    document.addEventListener('DOMContentLoaded', () => {
-        const rows = document.querySelectorAll('#main_library tbody tr');
-        rows.forEach(row => {
-            row.addEventListener('click', showModal);
-        });
-    
-        // 클로즈버튼 이벤트
-        const closeButton = document.querySelector('#modal_4 .close_4');
-        closeButton.addEventListener('click', hideModal);
-    
-        // 모달창 외부 클릭시 닫히는 이벤트
-        window.addEventListener('click', (event) => {
-            if (event.target === document.getElementById('modal_4')) {
-                hideModal();
-            }
-        });
-    });
-    
 document.addEventListener('DOMContentLoaded', function() {
-            const dataTable = document.getElementById('main_library');
-            const modal = document.getElementById('modal_4');
-            const modalTable = document.getElementById('modalTable');
-            
-            // 데이터 행 클릭 이벤트 추가
-            dataTable.addEventListener('click', function(event) {
-                const targetRow = event.target.closest('.data-row');
-                
-                if (targetRow) {
-                    const itemId = targetRow.getAttribute('data-id');
-                    const title = targetRow.cells[1].innerText;
-                    const userId = targetRow.cells[2].innerText;
-                    const date = targetRow.cells[3].innerText;
-                    const score = targetRow.cells[4].innerText;
-                    const contents = targetRow.cells[5].innerText;
-                    
+    const dataTable = document.getElementById('main_library');
+    const modal = document.getElementById('modal_4');
+    const modalTable = document.getElementById('modalTable');
 
-                    
-                    modalTable.innerHTML = `
-                        <tr>
-                            <td><span class="modal-item">제목</span></td>
-                            <td>${title}</td>
-                        </tr>
-                        <tr>
-                            <td><span class="modal-item">회원 ID</span></td>
-                            <td>${userId}</td>
-                        </tr>
-                        <tr>
-                            <td><span class="modal-item">평점</span></td>
-                            <td>${score}</td>
-                        </tr>
-                        <tr>
-                            <td><span class="modal-item">내용</span></td>
-                            <td>${contents}</td>
-                        </tr>
-                        <tr>
-                            <td><span class="modal-item">작성일</span></td>
-                            <td>${date}</td>
-                        </tr>
-                    `;
-                }
-            });
-        });
+    // 제목 셀 클릭 이벤트 추가 (title-cell 클래스가 있는 셀에만)
+    dataTable.addEventListener('click', function(event) {
+        const targetCell = event.target; // 클릭한 셀 확인
+
+        // title-cell 클래스를 가진 셀인지 확인
+        if (targetCell.classList.contains('title-cell')) {
+            const targetRow = targetCell.closest('.data-row'); // 클릭한 셀이 속한 행
+
+            if (targetRow) {
+                const title = targetRow.cells[1].innerText;
+                const userId = targetRow.cells[2].innerText;
+                const date = targetRow.cells[3].innerText;
+                const score = targetRow.cells[5].innerText;
+                const contents = targetRow.cells[6].innerText;
+
+                // 모달 테이블에 데이터 채우기
+                modalTable.innerHTML = `
+                    <tr>
+                        <td><span class="modal-item">제목</span></td>
+                        <td>${title}</td>
+                    </tr>
+                    <tr>
+                        <td><span class="modal-item">회원 ID</span></td>
+                        <td>${userId}</td>
+                    </tr>
+                    <tr>
+                        <td><span class="modal-item">평점</span></td>
+                        <td>${score}</td>
+                    </tr>
+                    <tr>
+                        <td><span class="modal-item">내용</span></td>
+                        <td>${contents}</td>
+                    </tr>
+                    <tr>
+                        <td><span class="modal-item">작성일</span></td>
+                        <td>${date}</td>
+                    </tr>
+                `;
+
+                // 모달 보이기
+                modal.style.display = "block";
+            }
+        }
+    });
+
+    // 모달 외부 클릭 시 닫기
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";  // 모달 창 닫기
+        }
+    });
+
+    // 닫기 버튼으로 모달 닫기
+    document.querySelector('.close_4').addEventListener('click', function() {
+        modal.style.display = "none";
+    });
+});
