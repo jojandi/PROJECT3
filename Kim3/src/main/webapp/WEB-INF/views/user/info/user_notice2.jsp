@@ -11,7 +11,7 @@
 <link href="./assets/css/info/user_info_side.css" rel="stylesheet">
 </head>
 <style>
-aside #items #i2 .material-symbols-outlined {
+aside #items #i3 .material-symbols-outlined {
         background: rgb(165, 224, 144);
 }
 </style>
@@ -64,6 +64,6 @@ aside #items #i2 .material-symbols-outlined {
         </div>
 
     </div>
-    <script src="../assets/js/info/user_notice.js"></script>
+    <script src="./assets/js/info/user_notice.js"></script>
 </body>
 </html>

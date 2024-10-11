@@ -42,16 +42,16 @@ aside #items #i1 .material-symbols-outlined {
 
 								<!-- 분류 표시 -->
 								<td><c:choose>
-										<c:when test="${noti.class_Id == 1}">
+										<c:when test="${noti.class_Id == 5002}">
 											공지
 										</c:when>
 										<c:otherwise>
 											안내
 										</c:otherwise>
 									</c:choose></td>
-
-								<td class="retitle"><a href="http://localhost:8080/kim/notice3?ann_seq=${noti.ann_Seq}">
-									${noti.ann_Title}</a></td>
+								<!--상대주소-->
+								<td class="retitle"><a
+									href="notice3?ann_seq=${noti.ann_Seq}"> ${noti.ann_Title}</a></td>
 								<td>${noti.ann_Regi}</td>
 								<td>${noti.ann_Check}</td>
 							</tr>
@@ -66,77 +66,77 @@ aside #items #i1 .material-symbols-outlined {
 			</table>
 		</div>
 
-<%
-	Map map = (Map) request.getAttribute("map");
-	System.out.println("totalCount : " + map.get("totalCount"));
-	int totalCount = Integer.parseInt(map.get("totalCount").toString());
+		<%
+		Map map = (Map) request.getAttribute("map");
+		System.out.println("totalCount : " + map.get("totalCount"));
+		int totalCount = Integer.parseInt(map.get("totalCount").toString());
 
-	System.out.println("countPerPage : " + request.getAttribute("countPerPage"));
-	System.out.println("page : " + request.getAttribute("page"));
-	
-	String str_countPerPage = request.getAttribute("countPerPage").toString();
-	int countPerPage = Integer.parseInt(str_countPerPage);
+		System.out.println("countPerPage : " + request.getAttribute("countPerPage"));
+		System.out.println("page : " + request.getAttribute("page"));
 
-	String str_pageNo = request.getAttribute("page").toString();
-	int pageNo = Integer.parseInt(str_pageNo);
-	
-	int lastPage = (int) Math.ceil((double) totalCount / countPerPage);
-	int countPerSection = 5; 
-	int position = (int) Math.ceil((double) pageNo / countPerSection);
+		String str_countPerPage = request.getAttribute("countPerPage").toString();
+		int countPerPage = Integer.parseInt(str_countPerPage);
 
-	int sec_first = ((position - 1) * countPerSection) + 1;
-	int sec_last = position * countPerSection;
+		String str_pageNo = request.getAttribute("page").toString();
+		int pageNo = Integer.parseInt(str_pageNo);
 
-	if (sec_last > lastPage) {
-		sec_last = lastPage;
-	}
-%>
-	<!-- 자바영역의 값 올리기 -->
-	<c:set var="lastPage" value="<%=lastPage%>" />
+		int lastPage = (int) Math.ceil((double) totalCount / countPerPage);
+		int countPerSection = 3;
+		int position = (int) Math.ceil((double) pageNo / countPerSection);
 
-	<div id="movepage">
-		<c:if test="<%=sec_first == 1%>">
-			<span class="material-symbols-outlined">chevron_left</span>
-		</c:if>
-		<c:if test="<%=sec_first != 1%>">
-			<span class="material-symbols-outlined"> 
-				<a href="notice?page=<%=sec_first - 1%>">chevron_left</a>
-			</span>
-		</c:if>
+		int sec_first = ((position - 1) * countPerSection) + 1;
+		int sec_last = position * countPerSection;
 
-		<c:forEach var="i" begin="<%=sec_first%>" end="<%=sec_last%>">
-			<c:if test="${i eq param.page}">
-				<a href="notice?page=${i}&keyword=${param.keyword}" id="page" class="chap"><strong>${i}</strong></a>
+		if (sec_last > lastPage) {
+			sec_last = lastPage;
+		}
+		%>
+		<!-- 자바영역의 값 올리기 -->
+		<c:set var="lastPage" value="<%=lastPage%>" />
+
+		<div id="movepage">
+			<c:if test="<%=sec_first == 1%>">
+				<span class="material-symbols-outlined">chevron_left</span>
 			</c:if>
-			<c:if test="${i != param.page}">
-				<a href="notice?page=${i}&keyword=${param.keyword}" id="page" class="chap">${i}</a>
+			<c:if test="<%=sec_first != 1%>">
+				<span class="material-symbols-outlined"> <a
+					href="notice?page=<%=sec_first - 1%>">chevron_left</a>
+				</span>
 			</c:if>
-		</c:forEach>
 
-		<c:if test="<%=sec_last == lastPage%>">
-			<span class="material-symbols-outlined">chevron_right</span>
-		</c:if>
-		<c:if test="<%=sec_last != lastPage%>">
-			<span class="material-symbols-outlined"> 
-				<a href="notice?page=<%=sec_last + 1%>">chevron_right</a>
-			</span>
-		</c:if>
-	</div>
+			<c:forEach var="i" begin="<%=sec_first%>" end="<%=sec_last%>">
+				<c:if test="${i eq param.page}">
+					<a href="notice?page=${i}&keyword=${param.keyword}" id="page"
+						class="chap"><strong>${i}</strong></a>
+				</c:if>
+				<c:if test="${i != param.page}">
+					<a href="notice?page=${i}&keyword=${param.keyword}" id="page"
+						class="chap">${i}</a>
+				</c:if>
+			</c:forEach>
 
-	<form id="search" method="get" action="comment">
-		<div id="search">
-			<select name="period">
-				<option value="분류">분류</option>
-			</select>
-			<select name="type">
-				<option value="제목">제목</option>
-			</select>
-			<input type="search" id="searchInput" name="keyword" placeholder="검색어를 입력해주세요">
-			<input type="button" value="검색" class="search" onclick="filterTable()">
+			<c:if test="<%=sec_last == lastPage%>">
+				<span class="material-symbols-outlined">chevron_right</span>
+			</c:if>
+			<c:if test="<%=sec_last != lastPage%>">
+				<span class="material-symbols-outlined"> <a
+					href="notice?page=<%=sec_last + 1%>">chevron_right</a>
+				</span>
+			</c:if>
 		</div>
-	</form>
+
+		<form id="search" method="get" action="comment">
+			<div id="search">
+				<select name="period">
+					<option value="분류">분류</option>
+				</select> <select name="type">
+					<option value="제목">제목</option>
+				</select> <input type="search" id="searchInput" name="keyword"
+					placeholder="검색어를 입력해주세요"> <input type="button" value="검색"
+					class="search" onclick="filterTable()">
+			</div>
+		</form>
 	</div>
-
-
+	<script src="./assets/js/info/user_notice.js"></script>
 </body>
 </html>

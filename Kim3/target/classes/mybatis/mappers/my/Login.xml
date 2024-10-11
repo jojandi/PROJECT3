@@ -4,14 +4,31 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="project3.gamja.Kim.dao.LoginDAO">
-	<select id="selectLogin" resultType="LoginDTO"  parameterType="int" >
+	<select id="selectLoginUser" resultType="userDTO"  parameterType="userDTO" >
+		SELECT *
+		FROM tbl_user 
+		WHERE
+			user_id = #{user_id}
+			AND user_pw = #{user_pw}
+			AND user_admin='N'
+	</select>
+	<select id="selectLoginAdmin" resultType="userDTO"  parameterType="userDTO" >
+		SELECT *
+		FROM tbl_user 
+		WHERE
+			user_id = #{user_id}
+			AND user_pw = #{user_pw}
+			AND user_admin='Y'
+	</select>
+	<select id="selectLoginMes" resultType="userDTO"  parameterType="userDTO" >
+		SELECT *
+		FROM tbl_user 
+		WHERE
+			user_id = #{user_id}
+			AND user_pw = #{user_pw}
+			AND user_admin='M'
+	</select>
 	
-	SELECT 
-		tbl_user 
-	WHERE
-		user_id = #{user_id},
-		user_pw = #{user_pw}
-</select>
 
 	
 	

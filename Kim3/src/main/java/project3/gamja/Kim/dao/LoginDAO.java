@@ -1,19 +1,20 @@
 package project3.gamja.Kim.dao;
 
-import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
+import project3.gamja.Kim.dto.UserDTO;
 
-import project3.gamja.Kim.dto.LoginDTO;
-import project3.gamja.Kim.dto.NotiDTO;
+@Mapper //MyBatis에서 해당 인터페이스가 데이터베이스 쿼리 작업을 수행할 수 있도록 
+			//설정해주는 애너테이션
 
-@Mapper
 public interface LoginDAO {
 //	List<LoginDTO> selectTbl_user(LoginDTO loginDTO);
 
-	List<LoginDTO> selectTbl_user();
+	// UserDTO를 받아 UserDTO를 조회하여 반환하는 역할 
+	UserDTO selectLoginUser(UserDTO userDTO);
+	
+	UserDTO selectLoginAdmin(UserDTO userDTO);
+	UserDTO selectLoginMes(UserDTO userDTO);
 	
 	}
 
