@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import project3.gamja.mesPage.dto.MesWorkorderDTO;
 import project3.gamja.mesPage.service.WorkorderService;
@@ -87,19 +88,62 @@ public class WorkorderController {
 		return "redirect:mes_workorder1";
 	}
 
-	    // GET 요청을 처리하는 메서드
+	    //BOM 페이지
 	    @RequestMapping(value = "/mes_bom", method = RequestMethod.GET)
 	    public String mesBom(Model model) {
 	        System.out.println("Bomcreate 실행!");
 
-	        // 서비스에서 데이터 가져오기
 	        List<MesWorkorderDTO> list = woService.getList2();
 
-	        // 데이터를 모델에 추가하여 JSP로 전달
 	        model.addAttribute("list", list);
 
-	        // JSP 페이지로 포워딩
-	        return "mes_bom"; //
+	        return "mes_bom"; 
 	    }
-	
-}
+	    
+	    @RequestMapping(value = "/mes_bom_read", method = RequestMethod.GET)
+	    public String MesBomRead(@RequestParam("bom_code") int bomCode, Model model) {
+	        // bom_code 값을 받아서 처리
+	        MesWorkorderDTO dto = new MesWorkorderDTO();
+	        dto.setBom_code(bomCode);
+
+	        // 서비스 호출해서 해당 bom_code에 대한 데이터를 가져옴
+	        MesWorkorderDTO list = woService.MesBomRead(dto);
+	        List list2 = woService.bomSelect();
+
+	        // 모델에 데이터 추가
+	        model.addAttribute("list", list);
+	        model.addAttribute("list2", list2);
+	        // bom_read.jsp 페이지로 이동
+	        return "mes_bom_read";
+	    }
+	    
+	    @RequestMapping(value = "/updateBom", method = RequestMethod.POST)
+	    public String updateBom(
+	            @RequestParam("bom_code") String strBomCode,
+	            @RequestParam("bom_name") String bomName,
+	            @RequestParam("mes_book_code1") String mesBookCode1,
+	            @RequestParam("mes_book_code2") String mesBookCode2,
+	            @RequestParam("mes_book_code3") String mesBookCode3) {
+	        
+	        System.out.println("updateBom 실행");
+
+	        // 파라미터 처리
+	        int bomCode = Integer.parseInt(strBomCode);
+
+	        // DTO 생성 후 값 설정
+	        MesWorkorderDTO orderDTO = new MesWorkorderDTO();
+	        orderDTO.setBom_code(bomCode);
+	        orderDTO.setBom_name(bomName);
+	        orderDTO.setMes_book_code1(Integer.parseInt(mesBookCode1));
+	        orderDTO.setMes_book_code2(Integer.parseInt(mesBookCode2));
+	        orderDTO.setMes_book_code3(Integer.parseInt(mesBookCode3));
+
+	        // 서비스 호출하여 업데이트
+	        int result = woService.updateBom(orderDTO);
+	        System.out.println("update 결과 : " + result);
+
+	        // 업데이트 후 리다이렉트
+	        return "redirect:mes_bom";
+	    }
+	}
+

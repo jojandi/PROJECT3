@@ -89,12 +89,18 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_bom.jsp"/>
 	</definition>
+	<!-- 생산관리 - BOM- Read -->
+	<definition name="mes_bom_read" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_bom_read.jsp"/>
+	</definition>
 	
 	<!-- 생산 관리 - 작업지시서 - read -->
 	<definition name="mes_workorder1_read" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1_read.jsp"/>
 	</definition>
+	<!-- 도서수요 및 통계 -->
 	<definition name="mes_graph" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph.jsp"/>

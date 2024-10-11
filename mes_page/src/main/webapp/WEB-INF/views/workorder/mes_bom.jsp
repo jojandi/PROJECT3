@@ -21,7 +21,7 @@
 <body>
 
 	<section>
-			<div class="main_page" id="main_page_2">
+			<div class="main_page" id="main_page_1">
 				<h3>BOM</h3>
 				<div>
 					<div id="bomsh">
@@ -44,7 +44,7 @@
 									<tr>
 										<td><input type="checkbox" class="bom_checkbox"></td>
 										<td><a
-											href="http://localhost:8080/mmes_page/bom_read?bom_code=${dto.bom_code}">${dto.bom_code}</a></td>
+											href="http://localhost:8080/mesPage/mes_bom_read?bom_code=${dto.bom_code}">${dto.bom_code}</a></td>
 										<td>${dto.bom_name}</td>
 										<td>${dto.mes_book_code1}</td>
 										<td>${dto.mes_book_code2}</td>

@@ -55,5 +55,23 @@
     <select id="getList2" resultType="workorderDTO">
       SELECT * From bom order by bom_code 
     </select>
+    <select id="mesBomRead" resultType="workorderDTO" parameterType="workorderDTO">
+		  SELECT *
+        FROM bom
+        WHERE bom_code = #{bom_code}
+	</select>
+	 <select id="bomSelect" resultType="workorderDTO" parameterType="workorderDTO">
+		  SELECT mes_book_code1,mes_book_code2,mes_book_code3
+        FROM bom
+	</select>
+	 <update id="updatebom" parameterType="workorderDTO">
+        UPDATE bom
+        SET 
+            mes_book_code1 = #{mes_book_code1},
+            mes_book_code2 = #{mes_book_code2},
+            mes_book_code3 = #{mes_book_code3}
+        WHERE 
+            bom_code = #{bom_code}
+    </update>
 	
 </mapper>
