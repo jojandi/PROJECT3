@@ -22,20 +22,22 @@
 					<div class="page">
 						<table>
 							<colgroup>
-                                <col width="5%">
-                                <col width="5%">
+                                <col width="7%">
+                                <col width="7%">
                                 <col width="28%">
                                 <col width="10%">
-                                <col width="7%">
-                                <col width="12%">
                                 <col width="10%">
-                                <col width="8%">
+                                <col width="9%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="6%">
                             </colgroup>
 							<thead>
 								<tr>
 									<th>회원번호</th>
 									<th>도서코드</th>
 									<th>도서명</th>
+									<th>도서관</th>
 									<th>대출일자</th>
 									<th>대출현황</th>
 									<th>반납예정일</th>
@@ -49,10 +51,11 @@
 										<td>${list.user_seq}</td>
 										<td>${list.book_code}</td>
 										<td>${list.book_name}</td>
+										<td>${list.lib_name}</td>
 										<td>${list.loan_date}</td>
 										<td>
 											<c:if test="${list.loan_ing == true}">
-												<select name="loan_ing" class="select">
+												<select name="loan_ing" class="loan_ing">
 													<option value="Y" selected>대출중</option>
 													<option value="N">반납완료</option>
 												</select>
@@ -72,8 +75,9 @@
 										</td>
 										<td>
 											<c:if test="${list.loan_ing == true}">
-												<input type="hidden" value=${list.book_code} class="code">
-												<input type="hidden" value=${list.loan_seq} class="seq">
+												<input type="hidden" value=${list.user_seq} class="user_seq">
+												<input type="hidden" value=${list.book_code} class="book_code">
+												<input type="hidden" value=${list.loan_seq} class="loan_seq">
 												<input type="submit" value="수정" class="submit">
 											</c:if>
 											<c:if test="${list.loan_ing == false}">
@@ -133,7 +137,7 @@
 					</c:if>
 					<c:if test="<%=sec_first != 1%>">
 						<span class="material-symbols-outlined"> <a
-							href="laon?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
+							href="loan?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
 						</span>
 					</c:if>
 
@@ -142,10 +146,10 @@
 
 						<!-- 페이지 이동, 현재 페이지는 strong 처리 -->
 						<c:if test="${i eq param.page}">
-							<a href="laon?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap"><strong>${i}</strong></a>
+							<a href="loan?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap"><strong>${i}</strong></a>
 						</c:if>
 						<c:if test="${i != param.page}">
-							<a href="laon?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap">${i}</a>
+							<a href="loan?page=${i}&keyword=${param.keyword}&searchType=${param.searchType}" id="page" class="chap">${i}</a>
 						</c:if>
 
 					</c:forEach>
@@ -155,12 +159,69 @@
 					</c:if>
 					<c:if test="<%=sec_last != lastPage%>">
 						<span class="material-symbols-outlined"> <a
-							href="laon?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
+							href="loan?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
 						</span>
 					</c:if>
 				</div>
 			</div>
 		</section>
-	<script src="./assets/js/inven/loan_post.js"></script>
+	<script>
+		// ajax 실행 메소드 
+		function ajax(url, param, cb, method){	// cb : callback 함수
+	
+			if(!method) method = "get"; // method 기본값 설정
+			
+			const xhr = new XMLHttpRequest();
+	
+			xhr.open(method,url);
+			xhr.setRequestHeader("Content-Type","application/json");		
+			const strData = JSON.stringify(param); 
+			console.log("strData : " + strData);
+			xhr.send(strData); // 최종 전송
+			
+			// typeof : 변수의 타입을 문자로 알려줌
+			if(typeof cb == "function"){
+				xhr.onload = function(){
+					cb(xhr.responseText); // 전달인자 -> ajax에서 받아온 것
+				}
+			}
+		}
+		
+		// 수정하기
+		const submit = document.querySelectorAll(".submit");
+		for(let i = 0; i<submit.length; i++){
+		    submit[i].addEventListener('click', function(){
+		    	const book_code = document.querySelectorAll(".book_code");
+				const res_id = document.querySelectorAll(".res_id");
+				const loan_ing = document.querySelectorAll(".loan_ing");
+				const user_seq = document.querySelectorAll(".user_seq");
+		    	console.log("book_code : " + book_code[i].value);
+			    console.log("res_id : " + res_id[i].value);
+			    console.log("loan_ing : " + loan_ing[i].value);
+			    console.log("user_seq : " + user_seq[i].value);
+			    
+			    const data = {
+			    		"book_code" : book_code[i].value,
+			    		"res_id" : res_id[i].value,
+			    		"loan_ing" : loan_ing[i].value
+			    		"user_seq" : user_seq[i].value
+			    }
+			    const page = '${param.page}';
+			    
+			    ajax("loanReturn", data, function(result){
+			    	if(result > 0){
+				    	alert("수정되었습니다. ");
+				    	if(page <= 0){
+					    	location.href="loan";
+				    	} else{
+					    	location.href="loan?page="+page;
+				    	}
+			    	} else{
+			    		alert("다시 시도해주세요. ")
+			    	}
+			    }, "post")
+		    })
+		}
+	</script>
 </body>
 </html>

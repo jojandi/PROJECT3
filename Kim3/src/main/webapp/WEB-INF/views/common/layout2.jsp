@@ -6,12 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-	
-	#side{display: inline-block; width: 30%; border: 1px solid green;}
-	#content{display: inline-block; width: 69%; border: 1px solid green; vertical-align: top;}
-
-</style>
+<link href="./assets/css/base/user_base.css" rel="stylesheet">
 </head>
 <body>
 
@@ -20,11 +15,7 @@
 		<tiles:insertAttribute name="header"/>
 	</div>
 	
-	<!-- content -->
-	<div id="content">
-		<tiles:insertAttribute name="title"/>
 		<tiles:insertAttribute name="content"/>
-	</div>
 	
 	<!-- footer -->
 	<div>

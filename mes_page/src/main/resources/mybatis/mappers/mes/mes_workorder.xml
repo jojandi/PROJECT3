@@ -47,7 +47,7 @@
 	
 	<!-- workorder bom_code만 select -->
 	<select id="selectBom" resultType="workorderDTO">
-		SELECT bom_code FROM bom
+		SELECT bom_code, bom_name FROM bom
 	</select>
 	
 	<!--BOM 페이지 입니다 -->

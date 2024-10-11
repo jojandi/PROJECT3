@@ -39,4 +39,10 @@
 		<put-attribute name="content" value="/WEB-INF/views/admin/inven/loan.jsp"/>
 	</definition>
 	
+	<!-- 도서 발주 신청 - 도서 발주 -->
+	<definition name="request" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/inven_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/request/request.jsp"/>
+	</definition>
+	
 </tiles-definitions>

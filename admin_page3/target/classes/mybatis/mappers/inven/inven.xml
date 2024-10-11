@@ -3,6 +3,8 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project3.gamja.admin.dao.InvenDAO">
+	
+	<!-- ////////////////////////////// 재고현황 ////////////////////////////// -->
 	<!-- 실시간 재고현황 -->
 	<select id="selectInven" resultType="invenDTO" parameterType="invenDTO">
 		SELECT * FROM(
@@ -59,6 +61,7 @@
 		</where>
 	</select>
 	
+	<!-- ////////////////////////////// 예약현황 ////////////////////////////// -->
 	<!-- 도서 예약 현황 -->
 	<select id="selectRes" resultType="loanResDTO" parameterType="loanResDTO">
 		SELECT * FROM( 
@@ -112,13 +115,13 @@
 	<insert id="inseResLoan" parameterType="loanResDTO">
 		INSERT INTO 
 			user_loan
-			(loan_seq, book_code, user_seq, loan_date, loan_ing, loan_ex, loan_over)
+			(loan_seq, book_code, user_seq, loan_date, loan_ing, loan_ex, loan_overn, lib_id)
 		VALUES 
-			(user_loan_seq.nextval, #{book_code}, #{user_seq}, sysdate, 'Y', sysdate + 7, 'N')
+			(user_loan_seq.nextval, #{book_code}, #{user_seq}, sysdate, 'Y', sysdate + 7, 'N', #{lib_id})
 	</insert>
 	
 	<!-- 픽업 시 재고에 대출 중 표시 -->
-	<update id="invenLoan">
+	<update id="invenLoan" parameterType="loanResDTO">
 		UPDATE 
 			li_book
 		SET 
@@ -136,7 +139,7 @@
 	</update>
 	
 	<!-- 픽업 시 재고에 예약 중 표시 해제 -->
-	<update id="invenRes">
+	<update id="invenRes" parameterType="loanResDTO">
 		UPDATE 
 			li_book
 		SET 
@@ -153,6 +156,7 @@
 		 	book_code= #{book_code}
 	</update>
 	
+	<!-- ////////////////////////////// 대출현황 ////////////////////////////// -->
 	<!-- 도서 대출 현황 -->
 	<select id="selectLoan" resultType="loanResDTO" parameterType="loanResDTO">
 		SELECT * FROM (
@@ -205,5 +209,63 @@
 			</if>
 		</where>
 	</select>
+	
+	<!-- 반납 시 대출내역 업데이트 -->
+	<update id="laonUpdate" parameterType="loanResDTO">
+		UPDATE 
+			user_loan
+		SET 
+			loan_ing = #{loan_ing},
+			loan_return = sysdate,
+			loan_over = 
+				CASE WHEN (
+					SELECT 
+						(loan_ex - loan_return) AS over 
+					FROM 
+						user_loan 
+					WHERE loan_seq = #{loan_seq} 
+				) >= 0 THEN 'N' ELSE 'Y' END  
+			WHERE loan_seq = #{loan_seq}
+	</update>
+	
+	<!-- 반납 시 재고 업데이트 -->
+	<update id="invenUpdate" parameterType="loanResDTO">
+		UPDATE 
+			li_book
+		SET 
+			book_loan = CASE WHEN (
+				SELECT 
+					loan_ing 
+				FROM 
+					li_book 
+					JOIN user_loan USING(book_code)
+				WHERE 
+					loan_ing='Y' AND book_code = #{book_code}
+				) = 'Y'  THEN 'Y' ELSE 'N' END 
+		WHERE book_code= #{book_code}
+	</update>
+	
+	<!-- 반납 시 연체 여부 회원 업데이트 -->
+	<update id="overUserUpdate" parameterType="loanResDTO">
+		UPDATE 
+			tbl_user
+		SET 
+			user_pass = case when (
+					SELECT 
+						(loan_return - loan_ex) AS over_date 
+					FROM user_loan 
+					WHERE 
+					loan_seq = #{loan_seq}
+				) > 0 
+				THEN (
+					SELECT 
+						loan_return + (loan_return - loan_ex) AS user_pass 
+					FROM 
+						user_loan 
+					WHERE loan_seq = #{loan_seq}
+				)
+			ELSE null END 
+		WHERE user_seq= #{user_seq}
+	</update>
 	
 </mapper>
