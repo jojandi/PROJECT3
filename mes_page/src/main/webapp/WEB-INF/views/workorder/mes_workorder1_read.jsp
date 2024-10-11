@@ -50,8 +50,10 @@
 										value="${ list.bom_code }">${ list.bom_code }</td>
 									<td><input type="hidden" name="bom_name"
 										value="${ list.bom_name }">${ list.bom_name }</td>
-									<td><input type="hidden" name="wo_process"
-										value="${ list.wo_process }">${ list.wo_process }</td>
+									<td><select name="wo_process">	
+										<option value="포장공정">포장공정</option>
+										<option value="배송공정">배송공정</option>
+										</select></td>
 									<td><input type="hidden" name="wo_count"
 										value="${ list.wo_count }">${ list.wo_count }</td>
 									<td><select name="wo_status">

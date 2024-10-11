@@ -8,47 +8,56 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="layout.css" type="text/css">
+    <link href="./assets/css/admin_table.css" rel="stylesheet">
+    <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
+    <link href="./assets/css/admin.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="./assets/css/click.css" rel="stylesheet">
+    <link href="./assets/css/mes_notice.css" rel="stylesheet">
 </head>
 <body>
 	<section>
 		<div class="main_page">
-            <div id = "infor_top_box">
-                <h1>${lib_name} 정보</h1>
-            </div>
+
+                <h3>${selectLibrary.lib_name} 정보</h3>
+
 	            
             <div>
-                <img id = "infor_img" src= "${lib_pic} }">
+                <img id = "infor_img" src= "${selectLibrary.lib_pic}">
             </div>
             <div>
                 <ul style="line-height:200%;">
                     <li>
                     <strong>위치</strong>
-                    ${lib_add}
+                    ${selectLibrary.lib_add}
                     </li> 
                     
                     <li>
                     <strong>주차면수</strong>
-                    ${lib_parking}
+                    ${selectLibrary.lib_parking}
                     </li> 
                     
                     <li>
                     <strong>좌석수</strong>
-                    ${lib_seat }
+                    ${selectLibrary.lib_seat }
                     </li> 
                     
                     <li>
                     <strong>개관일</strong>
-                    ${lib_open }
+                    ${selectLibrary.lib_open }
                     </li> 
                 
                     <li>
                     <strong>주요시설</strong>
-                    ${lib_facil }
+                    ${selectLibrary.lib_facil }
                     </li> 
                     
                     <li>
                     <strong>전화번호</strong>
-                    ${lib_call }
+                    ${selectLibrary.lib_call }
                     </li> 
 
                 </ul>
@@ -64,7 +73,7 @@
 <!--                    
 <!--                         2. 설치 스크립트 -->
 <!--                         * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다. -->
-<!--                     --> -->
+<!--                     -->
 <!--                     <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script> -->
 
 <!--                     3. 실행 스크립트 -->

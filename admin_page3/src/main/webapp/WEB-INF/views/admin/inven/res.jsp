@@ -24,14 +24,14 @@
 					<div id="table">
 						<table>
 							<colgroup>
-								<col width="5%">
-								<col width="5%">
-								<col width="5%">
+								<col width="7%">
+								<col width="7%">
+								<col width="7%">
 								<col width="28%">
 								<col width="10%">
-								<col width="7%">
-								<col width="12%">
 								<col width="10%">
+								<col width="12%">
+								<col width="7%">
 							</colgroup>
 							<thead>
 								<tr>

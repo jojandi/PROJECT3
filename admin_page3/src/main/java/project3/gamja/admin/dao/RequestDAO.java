@@ -11,5 +11,8 @@ public interface RequestDAO {
 	
 	List<RequestDTO> selectre(RequestDTO reDTO);
 	int totalre(RequestDTO reDTO);
+	
+	List<RequestDTO> selectApply(RequestDTO reDTO);
+	int totalApply(RequestDTO reDTO);
 
 }
