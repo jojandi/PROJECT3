@@ -18,7 +18,8 @@
 			LEFT OUTER JOIN bom b ON o.bom_code = b.bom_code
 			LEFT OUTER JOIN employee e ON o.emp_id = e.emp_id
 			LEFT OUTER JOIN li_book i ON u.book_code = i.book_code
-			LEFT OUTER JOIN book k ON i.book_isbn = k.book_isbn)
+			LEFT OUTER JOIN book k ON i.book_isbn = k.book_isbn
+		)
 		WHERE 
 			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
 	</select>
@@ -29,6 +30,28 @@
 			count(*) cnt 
 		FROM 
 			library 
+	</select>
+	
+	<!-- 도서 신청 내역 -->
+	<select id="selectApply" resultType="applyDTO" parameterType="applyDTO">
+		SELECT * FROM(
+		    SELECT 
+		        rownum AS rnum, app_seq, app_book, app_name, app_pub, app_date, user_seq, purchased, lib_id, lib_name
+		    FROM 
+		        application
+		        JOIN library USING(lib_id)
+		    ORDER BY app_date DESC
+		    )
+		WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>	
+	
+	<!-- 도서 신청 내역 페이지 paging -->
+	<select id="totalApply" resultType="int" parameterType="applyDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			 application
 	</select>
 
 </mapper>

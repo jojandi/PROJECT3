@@ -26,7 +26,7 @@
 			WHERE notice_id = #{notice_id}
 	</update>
 	<delete id="deleteNotice" parameterType="noticeDTO">
-		delete from tbl_order where order_id = #{notice_id}
+		delete from tbl_order where notice_id = #{notice_id}
 	</delete>
 
 </mapper>

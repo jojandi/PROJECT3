@@ -67,5 +67,10 @@ public class WorkorderService {
 		
 		return list;
 	}
+	
+//-----------------------BOM 페이지입니다------------------------
+	    public List<MesWorkorderDTO> getList2() {
+	        return woDAO.getList2();
+	    }
 
 }
