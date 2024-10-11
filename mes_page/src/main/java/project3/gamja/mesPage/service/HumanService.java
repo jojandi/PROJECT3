@@ -22,22 +22,21 @@ public class HumanService {
 		return list;
 	}
 	
-	public int insertHuman(MesHumanDTO dto){
-		int result = HumanDAO.insertHuman(dto);
-		return result;
-	}
-	
 	public MesHumanDTO selectOne(MesHumanDTO dto) {
 		MesHumanDTO list = HumanDAO.selectOne(dto);
 		
 		return list;
 	}
+	
 	public int updateHuman(MesHumanDTO dto){
 		int result = HumanDAO.updateHuman(dto);
 		return result;
 	}
+
 	public int deleteHuman(MesHumanDTO dto){
 		int result = HumanDAO.deleteHuman(dto);
 		return result;
 	}
+	
+	
 }

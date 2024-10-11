@@ -11,8 +11,6 @@ import project3.gamja.mesPage.dto.MesNoticeDTO;
 public interface HumanDAO {
 	
 	List<MesHumanDTO> selectHuman();
-	
-	
 	int insertHuman(MesHumanDTO dto);
 	MesHumanDTO selectOne(MesHumanDTO dto);
 	int updateHuman(MesHumanDTO dto);

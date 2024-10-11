@@ -171,7 +171,7 @@ a:hover {
 							<input type="submit" value="삭제">
 						</form>
 						<button class="btn" id="listBtn">
-							<a href="http://localhost:8080/mmes_page/human">목록</a>
+							<a href="http://localhost:8080/mes_page/mes_human">목록</a>
 						</button>
 					</div>
 					<div id="formModal2" class="modal">
