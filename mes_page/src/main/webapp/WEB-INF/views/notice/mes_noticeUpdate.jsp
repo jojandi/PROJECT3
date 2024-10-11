@@ -30,36 +30,39 @@
 
 <body>
 
-	<div id="wrap">
+
 		<section>
-			<div id="content_all">
-				<form method=post action="notice_update">
-					<input type="hidden" name="notice_id" value="${ update.notice_id }"><br>
-					<div class="name">
-						<input type="text" id="notititle" name="notice_name" placeholder="${ update.notice_name }"><br>
-						<div id="mini">
-							<span class="mini_date">등록일 | ${ update.notice_date }</span> <span>작성자
-								| ${ update.emp_name }</span>
+			<div class="main_page">
+	        <h3>수정하기</h3>
+				<div id="content_all">
+					<form method=post action="mes_noticeUpdate">
+						<input type="hidden" name="notice_id" value="${ noticeRead.notice_id }"><br>
+						<div class="name">
+							<input type="text" id="notititle" name="notice_name" placeholder="${ noticeRead.notice_name }"><br>
+							<div id="mini">
+								<span class="mini_date">등록일 | ${ noticeRead.notice_date }</span> <span>작성자
+									| ${ noticeRead.emp_name }</span>
+							</div>
 						</div>
-					</div>
-
-					<div id="content">
-						<textarea name="notice_contents"
-							placeholder="${ update.notice_contents }"></textarea>
-					</div>
-
-					<div id="pagination"></div>
-					<br> <br>
-					<div class="write" style="text-align: right;">
-						<input type=submit value="수정">
-						<a href="notice"> <input type="button" class="btnnn" value="목록으로">
-						</a>
-					</div>
-				</form>
-
+	
+						<div id="content">
+							<textarea name="notice_contents"
+								placeholder="${ noticeRead.notice_contents }"></textarea>
+						</div>
+	
+						<div id="pagination"></div>
+						<br> <br>
+						<div class="write" style="text-align: right;">
+							<input type=submit value="수정">
+							<a href="notice"> <input type="button" class="btnnn" value="목록으로">
+							</a>
+						</div>
+					</form>
+	
+				</div>
 			</div>
 		</section>
-	</div>
+
 
 </body>
 

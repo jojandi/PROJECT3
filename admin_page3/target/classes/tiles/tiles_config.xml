@@ -33,4 +33,22 @@
 		<put-attribute name="content" value="/WEB-INF/views/admin/inven/res.jsp"/>
 	</definition>
 	
+	<!-- 재고현황 - 도서 대출 현황 -->
+	<definition name="loan" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/inven_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/inven/loan.jsp"/>
+	</definition>
+	
+	<!-- 도서 발주 신청 - 도서 발주 -->
+	<definition name="request" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/request_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/request/request.jsp"/>
+	</definition>
+	
+	<!-- 도서 발주 신청 - 도서 신청 내역 -->
+	<definition name="apply" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/request_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/request/apply.jsp"/>
+	</definition>
+	
 </tiles-definitions>

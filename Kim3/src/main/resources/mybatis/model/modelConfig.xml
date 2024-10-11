@@ -17,7 +17,7 @@
 
 	 		<typeAlias type="project3.gamja.Kim.dto.NotiDTO" alias="NotiDTO"/>
 	 		<typeAlias type="project3.gamja.Kim.dto.RequestDTO" alias="RequestDTO"/>
-	 		<typeAlias type="project3.gamja.Kim.dto.LoginDTO" alias="LoginDTO"/>
+	 		<typeAlias type="project3.gamja.Kim.dto.UserDTO" alias="userDTO"/>
 	</typeAliases>
 
 </configuration>

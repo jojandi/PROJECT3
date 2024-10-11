@@ -40,6 +40,7 @@
 	</definition>
 
 	
+
 	<!-- 메인페이지 -->
 	<definition name="mes_main" extends="mainLayout">
 		<put-attribute name="content" value="/WEB-INF/views/Main/mes_main.jsp"/>
@@ -74,6 +75,7 @@
 	<definition name="stock_update" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/stock_update.jsp"/>
+
 	</definition>
 	
 	<!-- 생산 관리 - 작업지시서 -->
@@ -82,15 +84,45 @@
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1.jsp"/>
 	</definition>
 	
+	<!-- 생산관리 - BOM -->
+	<definition name="mes_bom" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_bom.jsp"/>
+	</definition>
+	
 	<!-- 생산 관리 - 작업지시서 - read -->
 	<definition name="mes_workorder1_read" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1_read.jsp"/>
 	</definition>
+	<definition name="mes_graph" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph.jsp"/>
+	</definition>
 
 	<!-- 게시판 - 공지사항 -->
 	<definition name="mes_notice1" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
+		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/notice/mes_notice1.jsp"/>
+	</definition>
+	<!-- 게시판 - 글쓰기 -->
+	<definition name="mes_notice2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/notice/mes_notice2.jsp"/>
+	</definition>
+	<!-- 게시판 - 리드 -->
+	<definition name="mes_noticeRead" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/notice/mes_noticeRead.jsp"/>
+	</definition>
+	<!-- 게시판 - 업데이트 -->
+	<definition name="mes_noticeUpdate" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/notice/mes_noticeUpdate.jsp"/>
+	</definition>
+	<!-- 도서관 - 정보 -->
+	<definition name="user_libraryInfo" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/notice/user_libraryInfo.jsp"/>
 	</definition>
 </tiles-definitions>

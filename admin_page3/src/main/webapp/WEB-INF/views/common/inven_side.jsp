@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link href="./assets/css/inven/inven_side.css" rel="stylesheet">
+<style>
+	header #menu #items #i0{ font-weight: 900; text-decoration: underline; }
+</style>
 
 <aside class="clearfix" id="side">
 	<div id="sideleft">

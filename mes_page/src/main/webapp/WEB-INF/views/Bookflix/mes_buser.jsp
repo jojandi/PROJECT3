@@ -15,11 +15,12 @@
 <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
 <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
 <link href="./assets/css/admin.css" rel="stylesheet">
-<link href="./assets/css/mes_human.css" rel="stylesheet">
+<link href="./assets/css/mes_buser.css" rel="stylesheet">
 <link href="./assets/css/admin_table.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+<script src="./assets/js/click.js"></script>
+<link href="./assets/css/click.css" rel="stylesheet">
 <style>
 
 /* -------------------------------관리자 직원관리------------------------------ */
@@ -45,10 +46,6 @@
 </head>
 
 <body>
-
-
-
-	
 
 		<section>
 
