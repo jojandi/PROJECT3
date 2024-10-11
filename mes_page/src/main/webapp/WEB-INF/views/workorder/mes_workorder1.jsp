@@ -74,7 +74,7 @@
 		</div>
 	</section>
 	
-	<!-- //////////////////////////// 첫번째 모달 ////////////////////////////////////// -->
+	<!-- //////////////////////////// 작업지시서 생성 모달 ////////////////////////////////////// -->
 	<div id="modal_2" class="modal_2" style="display: none;">
 		<div class="close_2">
 			<span class="material-symbols-outlined"> close </span>
@@ -94,7 +94,7 @@
 								</td>
 								<td><select name="bom_code">
 										<c:forEach var="code" items="${bom_code}">
-											<option value="${code.bom_code}">${code.bom_code}</option>
+											<option value="${code.bom_code}">${code.bom_name}</option>
 										</c:forEach>
 								</select></td>
 							</tr>
