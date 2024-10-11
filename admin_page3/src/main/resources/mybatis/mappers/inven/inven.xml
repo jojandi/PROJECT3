@@ -61,6 +61,30 @@
 		</where>
 	</select>
 	
+	<select id="readInven" resultType="invenDTO" parameterType="invenDTO">
+		SELECT b.*, ( SELECT 
+		        count(*) AS cnt 
+		    FROM 
+		        book 
+		        JOIN li_book USING (book_ISBN) 
+		        join library using (lib_id)
+		    WHERE 
+		        book_isbn = #{book_ISBN} 
+		        AND lib_id = #{lib_id}
+		) AS count, (
+		    SELECT 
+		        sum(book_loan_seq) 
+		    FROM 
+		        li_book 
+		    WHERE 
+		        book_isbn = #{book_ISBN} 
+		) AS book_loan_seq
+		FROM 
+		    book b 
+		WHERE 
+		    book_isbn = #{book_ISBN} 
+	</select>
+	
 	<!-- ////////////////////////////// 예약현황 ////////////////////////////// -->
 	<!-- 도서 예약 현황 -->
 	<select id="selectRes" resultType="loanResDTO" parameterType="loanResDTO">
@@ -215,7 +239,7 @@
 		UPDATE 
 			user_loan
 		SET 
-			loan_ing = #{loan_ing},
+			loan_ing = 'N',
 			loan_return = sysdate,
 			loan_over = 
 				CASE WHEN (
