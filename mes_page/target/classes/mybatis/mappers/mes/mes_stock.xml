@@ -35,7 +35,11 @@
 	<select id="getMesPubId" resultType="stockDTO">
         SELECT pub_id FROM publisher
     </select>
+<<<<<<< HEAD
+<!--     부품 코드 셀렉트 -->
+=======
 	<!-- 부품 코드 셀렉트 -->
+>>>>>>> ff42ce1b01b1d85cd3c419cf933067b3100d63c4
 	<select id="getMesBookCodes" resultType="stockDTO">
         SELECT mes_book_code FROM mes_book
     </select>
