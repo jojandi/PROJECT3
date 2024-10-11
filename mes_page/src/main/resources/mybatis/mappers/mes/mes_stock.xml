@@ -26,22 +26,22 @@
 	<select id="selectOrder" resultType="stockDTO" parameterType="int">
 		SELECT 
 			*
-		FROM 
-			tbl_order 
-		WHERE 
+		FROM
+			tbl_order
+		WHERE
 			order_id= #{_parameter}
 	</select>
-<!-- 	발주처 셀렉트 -->
+	<!-- 발주처 셀렉트 -->
 	<select id="getMesPubId" resultType="stockDTO">
         SELECT pub_id FROM publisher
     </select>
-<!--     부품 코드 셀렉트 -->
+	<!-- 부품 코드 셀렉트 -->
 	<select id="getMesBookCodes" resultType="stockDTO">
         SELECT mes_book_code FROM mes_book
     </select>
 	
 	
-	<!-- 	셀렉트 관련 -->
+	<!-- 셀렉트 관련 -->
 	
 	<update id="updateOrder" parameterType="stockDTO">
 		UPDATE mes_book

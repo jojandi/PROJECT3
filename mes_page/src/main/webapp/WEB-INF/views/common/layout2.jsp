@@ -9,11 +9,12 @@
 <style>
 	
 	#side{display: inline-block; width: 30%; border: 1px solid green;}
-	#content{display: inline-block; width: 100%; border: 1px solid green; vertical-align: top;}
+	#content{display: inline-block; width: 100%; vertical-align: top;}
 
 </style>
 </head>
 <body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 	<!-- header -->
 	<div>

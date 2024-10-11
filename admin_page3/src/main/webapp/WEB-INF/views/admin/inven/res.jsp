@@ -53,27 +53,36 @@
 										<td>${list.book_code}</td>
 										<td>${list.book_name}</td>
 										<td>${list.res_day}</td>
-										<td><c:if test="${list.res_ing == false}">
+										<td>
+											<c:if test="${list.res_pick != null}">
 				                            		${list.res_pick}
-				                            	</c:if> <c:if test="${list.res_ing == true}">
+				                            </c:if> 
+				                            <c:if test="${list.res_pick == null}">
 				                            		-
-				                            	</c:if></td>
-										<td><c:if test="${list.res_ing == true}">
+				                            </c:if>
+				                        </td>
+										<td>
+											<c:if test="${list.res_pick == null}">
 												<select name="loan_ing" class="select">
 													<option value="Y">픽업완료</option>
 													<option value="N" selected>대기중</option>
 												</select>
-											</c:if> <c:if test="${list.res_ing == false}">
+											</c:if> 
+											<c:if test="${list.res_pick != null}">
 													픽업완료
-												</c:if></td>
-										<td><c:if test="${list.res_pick == null}">
-												<input type="hidden" value=${list.book_code } class="code">
-												<input type="hidden" value=${list.user_seq } class="user">
-												<input type="hidden" value=${list.res_id } class="seq">
+											</c:if>
+										</td>
+										<td>
+											<c:if test="${list.res_pick == null}">
+												<input type="hidden" value=${list.book_code } class="book_code">
+												<input type="hidden" value=${list.user_seq } class="user_seq">
+												<input type="hidden" value=${list.res_id } class="res_id">
 												<input type="button" value="수정" class="submit">
-											</c:if> <c:if test="${list.res_pick != null}">
+											</c:if> 
+											<c:if test="${list.res_pick != null}">
 													-
-												</c:if></td>
+											</c:if>
+										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -176,39 +185,37 @@
 			}
 		}
 		
+		// 수정하기
 		const submit = document.querySelectorAll(".submit");
-		const code = document.querySelectorAll(".code");
-		const seq = document.querySelectorAll(".seq");
-		const user = document.querySelectorAll(".user");
-	
 		for(let i = 0; i<submit.length; i++){
 		    submit[i].addEventListener('click', function(){
-		    	console.log("code : " + code[i].value);
-			    console.log("seq : " + seq[i].value);
-			    console.log("user : " + user[i].value);
+		    	const book_code = document.querySelectorAll(".book_code");
+				const res_id = document.querySelectorAll(".res_id");
+				const user_seq = document.querySelectorAll(".user_seq");
+		    	console.log("book_code : " + book_code[i].value);
+			    console.log("res_id : " + res_id[i].value);
+			    console.log("user_seq : " + user_seq[i].value);
+			    
+			    const data = {
+			    		"book_code" : book_code[i].value,
+			    		"res_id" : res_id[i].value,
+			    		"user_seq" : user_seq[i].value
+			    }
+			    const page = '${param.page}';
+			    
+			    ajax("resLoan", data, function(result){
+			    	if(result > 0){
+				    	alert("수정되었습니다. ");
+				    	if(page){
+					    	location.href="res";
+				    	} else{
+					    	location.href="res?page="+page;
+				    	}
+			    	} else{
+			    		alert("다시 시도해주세요. ")
+			    	}
+			    }, "post")
 		    })
-		}
-	
-		function ajax(i) {
-	
-		    
-		    console.log("code=" + code[i].value + "&seq=" + seq[i].value + "&user=" + user[i].value);
-		    let url = 'res';
-		    
-		    // ajax
-		    let xhr = new XMLHttpRequest();
-		    
-		    xhr.open("post", url);
-	
-		    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
-	
-		    xhr.send( "code=" + code[i].value + "&seq=" + seq[i].value + "&user=" + user[i].value);
-		    
-		    xhr.onload = function(){
-				alert("수정되었습니다. ")
-				location.href="res"; // spring으로 옮길 때 파라미터값 가져와서 링크에 넣어주기 -> 현재페이지 새로고침 효과
-		    }
-		    
 		}
 	</script>
 </body>

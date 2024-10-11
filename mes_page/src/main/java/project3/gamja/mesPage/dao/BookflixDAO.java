@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import project3.gamja.mesPage.dto.MesBuserDTO;
+import project3.gamja.mesPage.dto.MesNoticeDTO;
 import project3.gamja.mesPage.dto.MesReviewDTO;
 
 
@@ -18,6 +19,8 @@ public interface BookflixDAO {
     
     // 모든 사용자 조회
     List<MesBuserDTO> selectAllBusers();
-   
+   // 리뷰조회
     List<MesReviewDTO> getReviews();
+    //리뷰삭제
+    int deleteReview(MesReviewDTO dto);
 }

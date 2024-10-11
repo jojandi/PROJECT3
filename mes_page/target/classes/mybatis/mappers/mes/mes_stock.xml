@@ -26,32 +26,24 @@
 	<select id="selectOrder" resultType="stockDTO" parameterType="int">
 		SELECT 
 			*
-		FROM 
-			tbl_order 
-		WHERE 
+		FROM
+			tbl_order
+		WHERE
 			order_id= #{_parameter}
 	</select>
-<!-- 	발주처 셀렉트 -->
+	<!-- 발주처 셀렉트 -->
 	<select id="getMesPubId" resultType="stockDTO">
         SELECT pub_id FROM publisher
     </select>
-<!--     부품 코드 셀렉트 -->
-<<<<<<< HEAD
-	<select id="getMesBookCodes" resultType="project3.gamja.mesPage.dto.MesStockDTO">
-=======
+	<!-- 부품 코드 셀렉트 -->
 	<select id="getMesBookCodes" resultType="stockDTO">
->>>>>>> a1eb70b71d1a864436793b98cb35706ef3caf846
         SELECT mes_book_code FROM mes_book
     </select>
 	
 	
-	<!-- 	셀렉트 관련 -->
+	<!-- 셀렉트 관련 -->
 	
-<<<<<<< HEAD
-	<update id="updateOrder" parameterType="project3.gamja.mesPage.dto.MesStockDTO">
-=======
 	<update id="updateOrder" parameterType="stockDTO">
->>>>>>> a1eb70b71d1a864436793b98cb35706ef3caf846
 		UPDATE mes_book
 			SET book_count = book_count + #{order_count}
 		WHERE mes_book_code = #{mes_book_code}
