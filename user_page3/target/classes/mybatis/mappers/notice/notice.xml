@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.user.dao.InfoDAO">
+
+	<select id="totalnoti" resultType="int">
+		SELECT
+		count(*) cnt
+		FROM
+		li_book
+	</select>
+
+	<select id="selectAnnouncement" resultType="notiDTO">
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, a.* FROM (
+		SELECT ann_seq, class, ann_title, ann_regi, ann_detail, ann_check
+		FROM announcement
+		JOIN ann_class USING(class_id)
+		ORDER BY ann_regi DESC
+		) a
+		) WHERE rnum BETWEEN #{start} AND #{end}
+	</select>
+
+	<select id="selectSeq" resultType="notiDTO" parameterType="int">
+		SELECT * FROM announcement where ann_seq=#{_parameter}
+	</select>
+
+	<select id="selectAnnClass" resultType="notiDTO"
+		parameterType="int">
+		SELECT * FROM ann_class
+	</select>
+
+	<!-- 관리자로 옮기기... -->
+	<insert id="insertAnnouncement" parameterType="notiDTO">
+		INSERT INTO
+		announcement (
+		ann_Seq,
+		ann_Title,
+		ann_Regi,
+		ann_Check
+		) VALUES(
+		#{ann_Seq},
+		#{ann_Title},
+		#{ann_Regi},
+		#{ann_Check}
+		)
+	</insert>
+
+
+
+</mapper>
