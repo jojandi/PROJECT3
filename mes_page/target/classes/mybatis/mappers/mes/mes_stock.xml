@@ -36,22 +36,14 @@
         SELECT pub_id FROM publisher
     </select>
 <!--     부품 코드 셀렉트 -->
-<<<<<<< HEAD
-	<select id="getMesBookCodes" resultType="project3.gamja.mesPage.dto.MesStockDTO">
-=======
 	<select id="getMesBookCodes" resultType="stockDTO">
->>>>>>> a1eb70b71d1a864436793b98cb35706ef3caf846
         SELECT mes_book_code FROM mes_book
     </select>
 	
 	
 	<!-- 	셀렉트 관련 -->
 	
-<<<<<<< HEAD
-	<update id="updateOrder" parameterType="project3.gamja.mesPage.dto.MesStockDTO">
-=======
 	<update id="updateOrder" parameterType="stockDTO">
->>>>>>> a1eb70b71d1a864436793b98cb35706ef3caf846
 		UPDATE mes_book
 			SET book_count = book_count + #{order_count}
 		WHERE mes_book_code = #{mes_book_code}
