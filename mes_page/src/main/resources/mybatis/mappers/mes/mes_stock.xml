@@ -37,11 +37,9 @@
 	<select id="getMesPubId" resultType="stockDTO">
         SELECT pub_id FROM publisher
     </select>
-
 	<select id="getMesBookCodes" resultType="stockDTO">
         SELECT mes_book_code FROM mes_book
     </select>
-	
 	<update id="updateOrder" parameterType="stockDTO">
 		UPDATE mes_book
 			SET book_count = book_count + #{order_count}

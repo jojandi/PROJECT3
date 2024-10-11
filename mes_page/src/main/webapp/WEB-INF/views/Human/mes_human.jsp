@@ -64,9 +64,6 @@
     
 -->
 
-    <div id="wrap">
-        <!-- 사이드 -->
-<%--         <%@ include file="/WEB-INF/mes/mes_human/human_side.jsp" %> --%>
         
         <section>
             
