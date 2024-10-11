@@ -49,5 +49,11 @@
 	<select id="selectBom" resultType="workorderDTO">
 		SELECT bom_code FROM bom
 	</select>
-
+	
+	<!--BOM 페이지 입니다 -->
+	
+    <select id="getList2" resultType="workorderDTO">
+      SELECT * From bom order by bom_code 
+    </select>
+	
 </mapper>

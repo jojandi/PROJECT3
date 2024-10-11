@@ -86,5 +86,20 @@ public class WorkorderController {
 		
 		return "redirect:mes_workorder1";
 	}
+
+	    // GET 요청을 처리하는 메서드
+	    @RequestMapping(value = "/mes_bom", method = RequestMethod.GET)
+	    public String mesBom(Model model) {
+	        System.out.println("Bomcreate 실행!");
+
+	        // 서비스에서 데이터 가져오기
+	        List<MesWorkorderDTO> list = woService.getList2();
+
+	        // 데이터를 모델에 추가하여 JSP로 전달
+	        model.addAttribute("list", list);
+
+	        // JSP 페이지로 포워딩
+	        return "mes_bom"; //
+	    }
 	
 }
