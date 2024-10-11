@@ -66,4 +66,9 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_info.jsp"/>
 	</definition>
+	<!-- 도서관 - 정보 -->
+	<definition name="user_libraryInfo" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_lib_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/library/user_libraryInfo.jsp"/>
+	</definition>
 </tiles-definitions>
