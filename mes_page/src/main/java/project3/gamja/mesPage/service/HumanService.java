@@ -38,7 +38,8 @@ public class HumanService {
 		int result = HumanDAO.deleteHuman(dto);
 		return result;
 	}
-	
+
+	}
 
 	
-}
+
