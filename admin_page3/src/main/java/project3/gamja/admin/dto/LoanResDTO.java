@@ -18,7 +18,7 @@ public class LoanResDTO {
 	private java.sql.Date res_pick;
 	private boolean res_ing;
 	private String keyword;
-	private int searchType;
+	private Integer searchType;
 	private int lib_id;
 	private String lib_name;
 	private int start;
@@ -31,10 +31,10 @@ public class LoanResDTO {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-	public int getSearchType() {
+	public Integer getSearchType() {
 		return searchType;
 	}
-	public void setSearchType(int searchType) {
+	public void setSearchType(Integer searchType) {
 		this.searchType = searchType;
 	}
 	public int getLib_id() {

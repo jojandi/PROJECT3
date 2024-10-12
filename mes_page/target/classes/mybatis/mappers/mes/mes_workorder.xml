@@ -47,7 +47,30 @@
 	
 	<!-- workorder bom_code만 select -->
 	<select id="selectBom" resultType="workorderDTO">
-		SELECT bom_code FROM bom
+		SELECT bom_code, bom_name FROM bom
 	</select>
-
+	
+	<!--BOM 페이지 입니다 -->
+    <select id="getList2" resultType="workorderDTO">
+      SELECT * From bom order by bom_code 
+    </select>
+    <select id="mesBomRead" resultType="workorderDTO" parameterType="workorderDTO">
+		  SELECT *
+        FROM bom
+        WHERE bom_code = #{bom_code}
+	</select>
+	 <select id="bomSelect" resultType="workorderDTO" parameterType="workorderDTO">
+		  SELECT mes_book_code1,mes_book_code2,mes_book_code3
+        FROM bom
+	</select>
+	 <update id="updatebom" parameterType="workorderDTO">
+        UPDATE bom
+        SET 
+            mes_book_code1 = #{mes_book_code1},
+            mes_book_code2 = #{mes_book_code2},
+            mes_book_code3 = #{mes_book_code3}
+        WHERE 
+            bom_code = #{bom_code}
+    </update>
+	
 </mapper>

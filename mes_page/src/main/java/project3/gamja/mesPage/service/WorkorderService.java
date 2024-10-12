@@ -67,5 +67,23 @@ public class WorkorderService {
 		
 		return list;
 	}
+	
+//-----------------------BOM 페이지입니다------------------------
+	    public List<MesWorkorderDTO> getList2() {
+	        return woDAO.getList2();
+	    }
+	    public MesWorkorderDTO MesBomRead(MesWorkorderDTO DTO) {
+			MesWorkorderDTO list = woDAO.mesBomRead(DTO);
+			
+			return list;
+		}
+	    public List<MesWorkorderDTO> bomSelect() {
+	        return woDAO.bomSelect();
+	    }
+
+	    public int updateBom(MesWorkorderDTO DTO) {
+	        int result = woDAO.updatebom(DTO);
+	    	return result;
+	    }
 
 }

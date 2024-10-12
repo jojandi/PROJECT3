@@ -50,7 +50,7 @@ aside #items #i1 .material-symbols-outlined {
 									<tr>
 										<td><input type="checkbox" class="p1_main_chack"></td>
 										<td class="bname2">
-											<a href="inventory_?isbn=${list.book_ISBN}">${list.book_name}</a>
+											<a href="inven_?book_ISBN=${list.book_ISBN}&lib_id=${list.lib_id}&page=${param.page}">${list.book_name}</a>
 										</td>
 										<td>${list.book_author}</td>
 										<td>${list.book_pub}</td>
@@ -87,45 +87,6 @@ aside #items #i1 .material-symbols-outlined {
 					</div>
 				</div>
 			</div>
-
-			<div class="popup">
-				<div class="close">
-					<span class="popup-close">&times;</span>
-				</div>
-				<table>
-					<colgroup>
-						<col width="15%">
-						<col width="25%">
-						<col width="15%">
-						<col width="20%">
-						<col width="10%">
-					</colgroup>
-					<thead>
-						<tr>
-							<th></th>
-							<th>도서명</th>
-							<th>도서관</th>
-							<th>ISBN</th>
-							<th>출판사</th>
-							<th>수량</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="img"><img src="${dto.book_img}"></td>
-							<td>${dto.book_name}</td>
-							<td>${dto.lib_name}</td>
-							<td>${dto.book_ISBN}</td>
-							<td>${dto.book_pub}</td>
-							<td>${dto.count}</td>
-						</tr>
-
-					</tbody>
-				</table>
-
-			</div>
-			
-
 			<%
 			Map map = (Map) request.getAttribute("map");
 			int totalCount = Integer.parseInt(map.get("totalCount").toString());
@@ -161,7 +122,7 @@ aside #items #i1 .material-symbols-outlined {
 				</c:if>
 				<c:if test="<%=sec_first != 1%>">
 					<span class="material-symbols-outlined"> <a
-						href="inventory?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
+						href="inven?page=<%=sec_first - 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_left</a>
 					</span>
 				</c:if>
 
@@ -183,12 +144,11 @@ aside #items #i1 .material-symbols-outlined {
 				</c:if>
 				<c:if test="<%=sec_last != lastPage%>">
 					<span class="material-symbols-outlined"> <a
-						href="inventory?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
+						href="inven?page=<%=sec_last + 1%>&keyword=${param.keyword}&searchType=${param.searchType}">chevron_right</a>
 					</span>
 				</c:if>
 			</div>
 
 		</section>
-		<script src="./assets/js/inven/inven_popup.js"></script>
 </body>
 </html>

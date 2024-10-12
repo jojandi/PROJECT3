@@ -10,12 +10,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항</title>
-    <link rel="stylesheet" href="layout.css" type="text/css">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="layout.css" type="text/css">
     <link href="./assets/css/admin_table.css" rel="stylesheet">
     <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
     <link href="./assets/css/admin.css" rel="stylesheet">
@@ -55,7 +55,7 @@
                                 <c:forEach var="notice" items="${ noticeList1 }">
                                 <tr>
                                 	<td>${ notice.notice_id }</td>
-                                	<td><a href="notice_read?notice_id=${ notice.notice_id }">${ notice.notice_name }</a></td>
+                                	<td><a href="mes_noticeRead?notice_id=${ notice.notice_id }">${ notice.notice_name }</a></td>
                                 	<td>${ notice.emp_name }</td>
                                 	<td>${ notice.notice_date }</td>
                                 </tr>
@@ -66,7 +66,7 @@
                     <div id="pagination"></div>
                     <br>
                     <div class="write" style="text-align:right;">
-                        <a href="notice_insert">
+                        <a href="mes_notice2">
                             <input type="button" class="btnnn" value="글쓰기">
                         </a>
                     </div>

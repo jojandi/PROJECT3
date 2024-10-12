@@ -25,12 +25,34 @@ public class BestController {
 	public String selectBestList(Model model) {
 		
 		List<BestDTO> list = bestService.selectBest();
-		List<LibraryDTO> library = bestService.selectLibrary();
 		
 		model.addAttribute("list", list);
-		model.addAttribute("library", library);
 		
 		return "best";
+	}
+	
+	// 베스트 페이지
+	@RequestMapping(value="/bestInven", method=RequestMethod.GET)
+	public String selectLibrary(Model model, BestDTO bestDTO) {
+		
+		List<BestDTO> list = bestService.selectBest();
+		List<LibraryDTO> lib = bestService.selectLibrary(bestDTO);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("lib", lib);
+		
+		return "bestInven";
+	}
+	@RequestMapping(value="/bestInvenRes", method=RequestMethod.GET)
+	public String selectLibraryRes(Model model, BestDTO bestDTO) {
+		
+		List<BestDTO> list = bestService.selectBest();
+		List<LibraryDTO> lib = bestService.selectLibrary(bestDTO);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("lib", lib);
+		
+		return "bestInvenRes";
 	}
 	
 	// 장바구니에 담기

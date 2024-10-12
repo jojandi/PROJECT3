@@ -13,7 +13,7 @@ public class InvenDTO {
 	private boolean book_loan;
 	private boolean book_res;
 	private String keyword;
-	private int searchType;
+	private Integer searchType;
 	private int lib_id;
 	private String lib_name;
 	private int start;
@@ -37,10 +37,10 @@ public class InvenDTO {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-	public int getSearchType() {
+	public Integer getSearchType() {
 		return searchType;
 	}
-	public void setSearchType(int searchType) {
+	public void setSearchType(Integer searchType) {
 		this.searchType = searchType;
 	}
 	public int getLib_id() {

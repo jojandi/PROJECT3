@@ -27,5 +27,13 @@ public interface WorkorderDAO {
 	
 	// workorder bom_code select
 	List<MesWorkorderDTO> selectBom();
-
+	
+	// ----------------BOM 페이지입니다----------------------
+	List<MesWorkorderDTO> getList2();
+	
+	MesWorkorderDTO mesBomRead(MesWorkorderDTO dto);
+	
+	List<MesWorkorderDTO> bomSelect();
+	
+	int updatebom(MesWorkorderDTO DTO);
 }

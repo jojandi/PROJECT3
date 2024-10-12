@@ -40,7 +40,7 @@
 								<th>회원ID</th>
 								<th>주문날짜</th>
 								<th>담당자</th>
-								<th></th>
+								<th>상태</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -51,77 +51,15 @@
 									<td>${ work.user_id }</td>
 									<td>${ work.os_date }</td>
 									<td>${ work.emp_name }</td>
-									<td><a href="mes_pfwork1_read?os_id=${ work.os_id }"><input
-											type="button" value="수정"></a></td>
+									<td>진행중</td>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 				</div>
-				<br>
-				<div id="pfworkpush">
-					<input type="button" id="addpf" value="주문추가">
-				</div>
 			</div>
 		</div>
 	</section>
-	
-	<!-- //////////////////////////// 첫번째 모달 ////////////////////////////////////// -->
-	<div id="modal_2" class="modal_2">
-		<div class="close_2">
-			<span class="material-symbols-outlined"> close </span>
-		</div>
-		<div class="modal-content_2">
-			<div id="daylist_2"></div>
-			<div id="modal-content-divs_2">
-				<h2>&lt;주문추가&gt;</h2>
-				<div class="modal-div_">
-					<span class="red">*</span> 필수
-				</div>
-				<form method="post" action="insertpf">
-					<div id="table">
-						<table>
-							<tr class="modal-div_2">
-								<td><span class="red">*</span> <span class="modal-item">제품명</span>
-								</td>
-								<td><select name="bom_code">
-										<c:forEach var="code" items="${bom_code}">
-											<option value="${code.bom_code}">${code.bom_code}</option>
-										</c:forEach>
-								</select></td>
-							</tr>
-							<tr class="modal-div_2">
-								<td><span class="red">*</span> <span class="modal-item">회원ID</span>
-								</td>
-								<td><select name="buser_seq">
-										<c:forEach var="code" items="${buser_seq}">
-											<option value="${code.buser_seq}">${code.buser_seq}</option>
-										</c:forEach>
-								</select></td>
-							</tr>
-							<tr class="modal-div_2">
-								<td><span class="red">*</span> <span class="modal-item">주문날짜</span>
-								</td>
-								<td><input type="date" name="os_date"></td>
-							</tr>
-							<tr class="modal-div_2">
-								<td class="modal-item">담당자</td>
-								<td><select name="emp_id">
-										<c:forEach var="code" items="${emp_id}">
-											<option value="${code.emp_id}">${code.emp_id}</option>
-										</c:forEach>
-								</select></td>
-							</tr>
-						</table>
-					</div>
-					<div class="modal-div_3" style="text-align: right;">
-						<input class="inpa" type="submit" value="생성">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- //////////////////////////// 첫번째 모달 ////////////////////////////////////// -->
 	
 	<!-- script -->
 	<script src="./assets/js/mes_pfwork.js"></script>
