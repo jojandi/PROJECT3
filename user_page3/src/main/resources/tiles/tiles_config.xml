@@ -30,6 +30,12 @@
 	<definition name="best" extends="baseLayout2">
 		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best.jsp"/>
 	</definition>
+	<definition name="bestInven" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best_inven.jsp"/>
+	</definition>
+	<definition name="bestInvenRes" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best_invenRes.jsp"/>
+	</definition>
 
 	<!-- 마이페이지 - 이용내역 - 예약 -->
 	<definition name="res" extends="baseLayout">

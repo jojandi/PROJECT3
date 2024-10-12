@@ -62,27 +62,31 @@
 	</select>
 	
 	<select id="readInven" resultType="invenDTO" parameterType="invenDTO">
-		SELECT b.*, ( SELECT 
-		        count(*) AS cnt 
-		    FROM 
-		        book 
-		        JOIN li_book USING (book_ISBN) 
-		        join library using (lib_id)
-		    WHERE 
-		        book_isbn = #{book_ISBN} 
-		        AND lib_id = #{lib_id}
-		) AS count, (
+		SELECT * FROM (
 		    SELECT 
-		        sum(book_loan_seq) 
+		        b.*, 
+		        l.lib_name, 
+		        ( 
+		            SELECT COUNT(*) 
+		            FROM book 
+		            JOIN li_book USING (book_ISBN) 
+		            JOIN library USING (lib_id)
+		            WHERE book_isbn = #{book_ISBN}
+		              AND lib_id = #{lib_id}
+		        ) AS count, 
+		        ( 
+		            SELECT SUM(book_loan_seq) 
+		            FROM li_book 
+		            WHERE book_isbn = #{book_ISBN}
+		        ) AS book_loan_seq
 		    FROM 
-		        li_book 
+		        book b 
+		        LEFT OUTER JOIN li_book lb ON b.book_ISBN = lb.book_ISBN 
+		        LEFT OUTER JOIN library l ON lb.lib_id = l.lib_id
 		    WHERE 
-		        book_isbn = #{book_ISBN} 
-		) AS book_loan_seq
-		FROM 
-		    book b 
-		WHERE 
-		    book_isbn = #{book_ISBN} 
+		        b.book_isbn = #{book_ISBN}
+		        AND lb.lib_id = #{lib_id}
+		) WHERE ROWNUM = 1
 	</select>
 	
 	<!-- ////////////////////////////// 예약현황 ////////////////////////////// -->

@@ -158,10 +158,10 @@ table .material-symbols-outlined {
     width: 500px;
     text-align: left;
     position: fixed;
-    top: 160px;
-    left: 400px;
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%);
     z-index: 100;
-    display: none;
 }
 
 .new .invenLibrary{

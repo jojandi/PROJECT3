@@ -80,6 +80,9 @@
                     </div>
                     
                     <script>
+	                    window.addEventListener("load",function(){
+	                    	info1On();
+	    	            })
 	                    function info1On(){
 	
 	                        pwIn.addEventListener('keyup', function(event){
@@ -104,8 +107,6 @@
 	                            }
 	                        })
 	                    }
-	                    
-	                    info1On();
                     </script>
 
                     <div id="info2">
@@ -141,7 +142,7 @@
                             <tr>
                                 <td class="center">전화번호</td>
                                 <td>
-                                	<%-- <%
+                                	<%
                                 	UserDTO dto = (UserDTO)session.getAttribute("login");
                                		String tel = dto.getUser_tel();
                                		System.out.println("전화번호 : " + tel);
@@ -152,14 +153,14 @@
                                		System.out.println("전화번호 : " + telArr[2]);
                                		
                                		String num = telArr[0] + telArr[1] + telArr[2];
-                                	%> --%>
-                                    <%-- <input type="number" id=tel name="user_tel" placeholder="숫자만 입력해주세요. " value="<%=num%>"> --%>
+                                	%>
+                                    <input type="number" id=tel name="user_tel" placeholder="숫자만 입력해주세요. " value="<%=num%>">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="center">이메일</td>
                                 <td>
-                                	<%-- <% 
+                                	<% 
 	                            		String email = dto.getUser_email();
                                 		System.out.println("이메일 : " + email);
                                 		String[] emailArr = email.split("@");
@@ -169,10 +170,10 @@
                                 		
                                 		String mail = emailArr[0];
                                 		String domain = emailArr[1];
-                                	%> --%>
-                                    <%-- <input class="email-input" type="text" value=<%=mail%> id="email-user" name="user_email1">
+                                	%>
+                                    <input class="email-input" type="text" value=<%=mail%> id="email-user" name="user_email1">
 									<span class="email-domain">@</span>
-									<input class="email-input" type="text" value=<%=domain%> id="email-domain" name="user_email2"> --%>
+									<input class="email-input" type="text" value=<%=domain%> id="email-domain" name="user_email2">
                                 </td>
                             </tr>
                             <tr>

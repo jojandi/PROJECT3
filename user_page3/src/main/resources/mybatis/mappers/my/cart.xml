@@ -19,9 +19,9 @@
 	<!-- 여러개 예약하기 -->
 	<insert id="insertAllCart" parameterType="loanDTO">
 		INSERT INTO 
-			user_res(res_id, book_code, user_seq, res_day, res_pick) 
+			user_res(res_id, book_code, user_seq, res_day, res_pick, lib_id) 
 		VALUES 
-			(user_res_seq.nextval, #{book_code}, #{user_seq}, to_date(sysdate,'YYYY-MM-DD'), null)
+			(user_res_seq.nextval, #{book_code}, #{user_seq}, to_date(sysdate,'YYYY-MM-DD'), null, #{lib_id})
 	</insert>
 	
 	<!-- 여러개 삭제하기 -->

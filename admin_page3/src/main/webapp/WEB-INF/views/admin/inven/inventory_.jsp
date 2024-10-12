@@ -22,38 +22,46 @@ aside #items #i1 .material-symbols-outlined {
 </head>
 <body>
 	<section>
-		<div class="main_page" id="main_page_1">
-			<h3>실시간 재고 현황</h3>
-			<div id="table2">
-				<table id="main_library">
+		<h3>실시간 재고 현황 세부내역</h3>
+		<div id="table2">
+			<table id="main_library">
+				<colgroup>
+					<col width="15%">
+					<col width="12%">
+					<col width="9%">
+					<col width="9%">
+					<col width="9%">
+					<col width="8%">
+					<col width="7%">
+				</colgroup>
+				<thead>
 					<tr>
-						<td rowspan="5" class="img, rigthBorder"><img src="${dto.book_img}"></td>
-						<td class="rigthBorder">도서명</td>
+						<th class="img"></th>
+						<th class="sortable">도서명</th>
+						<th>도서관</th>
+						<th>저자명</th>
+						<th>출판사</th>
+						<th>ISBN</th>
+						<th>수량</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><img src="${dto.book_img}"></td>
 						<td>${dto.book_name}</td>
-					</tr>
-					<tr>
-						<td class="rigthBorder">도서관</td>
 						<td>${dto.lib_name}</td>
-					</tr>
-					<tr>
-						<td class="rigthBorder">ISBN</td>
-						<td>${dto.book_ISBN}</td>
-					</tr>
-					<tr>
-						<td class="rigthBorder">출판사</td>
+						<td>${dto.book_author}</td>
 						<td>${dto.book_pub}</td>
-					</tr>
-					<tr>
-						<td class="rigthBorder">수량</td>
+						<td>${dto.book_ISBN}</td>
 						<td>${dto.count}</td>
 					</tr>
-				</table>
-			</div>
-			<div class="bot_btn">
-				 <a href="inven?page=${page}">
-					 <input type="button" value="목록">
-				 </a>
-			</div>
+				</tbody>
+			</table>
+		</div>
+		<div class="bot_btn">
+			<a href="inven?page=${param.page}">
+				<input type="button" value="목록">
+			</a>
 		</div>
 	</section>
 </body>

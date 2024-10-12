@@ -50,7 +50,7 @@ aside #items #i1 .material-symbols-outlined {
 									<tr>
 										<td><input type="checkbox" class="p1_main_chack"></td>
 										<td class="bname2">
-											<a href="inven_?book_ISBN=${list.book_ISBN}&lib_id=${list.lib_id}">${list.book_name}</a>
+											<a href="inven_?book_ISBN=${list.book_ISBN}&lib_id=${list.lib_id}&page=${param.page}">${list.book_name}</a>
 										</td>
 										<td>${list.book_author}</td>
 										<td>${list.book_pub}</td>
