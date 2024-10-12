@@ -28,7 +28,17 @@ public class HumanController {
 		return "mes_human";
 	}
 	
-	@RequestMapping(value="mes_humanRead", method=RequestMethod.GET)
+	@RequestMapping("/mes_read")
+	public String human2(Model model) {
+		List<MesHumanDTO> list = humanService.selectHuman();
+		model.addAttribute("humanlist", list);
+
+		return "mes_read";
+	}
+	
+	
+	
+	@RequestMapping(value="mes_read", method=RequestMethod.GET)
 	public String updateHuman (@RequestParam int emp_id, Model model) {
 		
 		MesHumanDTO dto = new MesHumanDTO();
@@ -38,7 +48,7 @@ public class HumanController {
 		model.addAttribute("updateHuman", list);
 
 		
-		return "mes_humanRead";
+		return "mes_read";
 	}
 	
 	@RequestMapping("/mes_humanUpdate")

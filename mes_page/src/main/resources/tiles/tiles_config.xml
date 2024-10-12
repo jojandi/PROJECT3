@@ -136,7 +136,7 @@
 	</definition>
 	
 		<!--직원 관리 리드-->
-	<definition name="mes_humanRead" extends="baseLayout">
+	<definition name="mes_read" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
 	</definition>

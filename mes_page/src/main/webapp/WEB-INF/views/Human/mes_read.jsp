@@ -124,9 +124,6 @@ a:hover {
 
 </head>
 <body>
-	<div id="wrap">
-
-<%-- 		<%@ include file="/WEB-INF/mes/mes_human/human_side.jsp"%> --%>
 		<section>
 			<div class="main_page" id="main_page_1">
 				<h3>사원 상세 내역</h3>
@@ -219,9 +216,6 @@ a:hover {
 				</div>
 			</div>
 		</section>
-	</div>
-
-
 	<script src="./assets/js/mes_human_2.js"></script>
 </body>
 </html>
