@@ -126,12 +126,9 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/notice/mes_noticeUpdate.jsp"/>
 	</definition>
-	<!-- 도서관 - 정보 -->
-	<definition name="user_libraryInfo" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/notice/user_libraryInfo.jsp"/>
-	</definition>
+
 	
+		
 		<!--직원 관리 -->
 	<definition name="mes_human" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
@@ -139,10 +136,21 @@
 	</definition>
 	
 		<!--직원 관리 리드-->
-	<definition name="mes_human" extends="baseLayout">
+	<definition name="mes_read" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
+	</definition>
+		
+		<!-- 직원관리 업데이트  -->
+		<definition name="mes_humanUpdate" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
 	</definition>
 	
+		<!-- 직원관리 삭제  -->
+		<definition name="mes_humanDelete" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
+	</definition>
 	
 </tiles-definitions>

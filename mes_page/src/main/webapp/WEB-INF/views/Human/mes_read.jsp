@@ -8,7 +8,7 @@
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>사원 상세 내역</title>
 <style>
 
 #menu #items #i4{
@@ -124,104 +124,123 @@ a:hover {
 
 </head>
 <body>
-	<div id="wrap">
+	<section>
+		<div class="mainPage" id="main_page_1">
+			<h3>사원 상세 내역</h3>
+			<div>
+				<div class="page">
+					<table id="main_library">
+						<tr>
+							<th class="sortable">사원번호</th>
+							<td>${dto.emp_id}</td>
+						</tr>
+						<tr>
+							<th>이름</th>
+							<td>${dto.emp_name}</td>
+						</tr>
+						<tr>
+							<th>직급</th>
+							<td>${dto.po_name}</td>
+						</tr>
+						<tr>
+							<th>부서</th>
+							<td>${dto.dept_name}</td>
+						</tr>
+						<tr>
+							<th>전화번호</th>
+							<td>${dto.emp_hp}</td>
+						</tr>
+						<tr>
+							<th>주소</th>
+							<td>${dto.emp_add}</td>
+						</tr>
+						<tr>
+							<th>입사일</th>
+							<td>${dto.emp_hiredate}</td>
+						</tr>
+					</table>
+				</div>
 
-<%-- 		<%@ include file="/WEB-INF/mes/mes_human/human_side.jsp"%> --%>
-		<section>
-			<div class="main_page" id="main_page_1">
-				<h3>사원 상세 내역</h3>
-				<div>
-					<div class="page">
-						<table id="main_library">
-							<tr>
-								<th class="sortable">사원번호</th>
-								<td>${dto.emp_id}</td>
-							</tr>
-							<tr>
-								<th>이름</th>
-								<td>${dto.emp_name}</td>
-							</tr>
-							<tr>
-								<th>직급</th>
-								<td>${dto.po_name}</td>
-							</tr>
-							<tr>
-								<th>부서</th>
-								<td>${dto.dept_name}</td>
-							</tr>
-							<tr>
-								<th>전화번호</th>
-								<td>${dto.emp_hp}</td>
-							</tr>
-							<tr>
-								<th>주소</th>
-								<td>${dto.emp_add}</td>
-							</tr>
-							<tr>
-								<th>입사일</th>
-								<td>${dto.emp_hiredate}</td>
-							</tr>
-						</table>
-					</div>
+				<div class="button-container">
+					<!-- 수정 버튼 추가 -->
+					<button id="openForm2">수정</button>
 
-					<div class="button-container">
-						<form method="post" action="remove">
-							<input id="openForm2" type="button" value="수정">
+					<form method="post" action="remove">
+					    <input type="hidden" name="emp_id" value="${dto.emp_id}">
+					    <input type="submit" value="삭제">
+					</form>
+					<button class="btn" id="listBtn">
+						<a href="http://localhost:8080/mesPage/mes_human">목록</a>
+					</button>
+				</div>
+				<div id="formModal2" class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<form id="workForm2" method="post" action="modify">
+							<table>
+								<tr>
+									<th colspan="2">사원 수정</th>
+								</tr>
+							<tr>
+					            <td>사원번호</td>
+					            <td>${dto.emp_id}</td>
+					        </tr>
+					        <tr>
+					            <td>이름</td>
+					            <td><input type="text" name="emp_name" value="${dto.emp_name}"></td>
+					        </tr>
+					        <tr>
+					            <td>직급</td>
+					            <td><input type="text" name="po_name" value="${dto.po_name}"></td>
+					        </tr>
+					        <tr>
+					            <td>부서</td>
+					            <td><input type="text" name="dept_name" value="${dto.dept_name}"></td>
+					        </tr>
+					        <tr>
+					            <td>전화번호</td>
+					            <td><input type="text" name="emp_hp" value="${dto.emp_hp}"></td>
+					        </tr>
+					        <tr>
+					            <td>주소</td>
+					            <td><input type="text" name="emp_add" value="${dto.emp_add}"></td>
+					        </tr>
+					        <tr>
+					            <td>입사일</td>
+					            <td><input type="date" name="emp_hiredate" value="${dto.emp_hiredate}"></td>
+					        </tr>
+							</table>
 							<input type="hidden" name="emp_id" value="${dto.emp_id }">
-							<input type="submit" value="삭제">
+							<input type="submit" value="수정">
 						</form>
-						<button class="btn" id="listBtn">
-							<a href="http://localhost:8080/mmes_page/human">목록</a>
-						</button>
-					</div>
-					<div id="formModal2" class="modal">
-						<div class="modal-content">
-							<span class="close">&times;</span>
-							<form id="workForm2" method="post" action="modify">
-								<table>
-									<tr>
-										<th colspan="2">사원 수정</th>
-									</tr>
-									<tr>
-										<td>사원번호</td>
-										<td>${dto.emp_id}
-									</tr>
-									<tr>
-										<td>이름</td>
-										<td><input type="text" name="emp_name"></td>
-									</tr>
-									<tr>
-										<td>직급</td>
-										<td><input type="text" name="po_name"></td>
-									</tr>
-									<tr>
-										<td>부서</td>
-										<td><input type="text" name="dept_name"></td>
-									</tr>
-									<tr>
-										<td>전화번호</td>
-										<td><input type="text" name="emp_hp"></td>
-									</tr>
-									<tr>
-										<td>주소</td>
-										<td><input type="text" name="emp_add"></td>
-									</tr>
-									<tr>
-										<td>입사일</td>
-										<td><input name="emp_hiredate" type="date"></td>
-									</tr>
-								</table>
-								<input type="hidden" name="emp_id" value="${dto.emp_id }">
-								<input type="submit" value="수정">
-							</form>
-						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-	</div>
+		</div>
+	</section>
 
+	<!-- JavaScript 추가 -->
+	<script>
+		// 수정 버튼을 클릭하면 모달이 나타남
+		var modal = document.getElementById("formModal2");
+		var btn = document.getElementById("openForm2");
+		var span = document.getElementsByClassName("close")[0];
 
-	<script src="./assets/js/mes_human_2.js"></script>
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+
+		// 닫기 버튼을 클릭하면 모달이 닫힘
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// 모달 외부를 클릭하면 모달이 닫힘
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
 </body>
 </html>

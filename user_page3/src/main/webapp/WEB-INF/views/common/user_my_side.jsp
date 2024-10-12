@@ -31,7 +31,7 @@
              </a>
             </div>
             <div class="item" id="i4">
-             	<a href="mypage_info?seq=${login.user_seq}">
+             	<a href="myInfo?seq=${login.user_seq}">
                   <span>내 정보</span>
                   <span class="material-symbols-outlined">arrow_forward_ios</span>
              	</a>

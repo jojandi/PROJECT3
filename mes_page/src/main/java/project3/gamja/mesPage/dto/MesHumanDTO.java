@@ -83,11 +83,17 @@ public class MesHumanDTO {
 	}
 	@Override
 	public String toString() {
-		return "Try2DTO [emp_id=" + emp_id + ", emp_name=" + emp_name + ", emp_hp=" + emp_hp + ", emp_add="
+		return "MesHumanDTO [emp_id=" + emp_id + ", emp_name=" + emp_name + ", emp_hp=" + emp_hp + ", emp_add="
 				+ emp_add + ", emp_hiredate=" + emp_hiredate + ", dept_id=" + dept_id + ", dept_name0=" + dept_name0
 				+ ", po_id=" + po_id + ", po_name0=" + po_name0 + ", po_name=" + po_name + ", dept_name=" + dept_name
-				+ "]";
+				+ ", getEmp_hiredate()=" + getEmp_hiredate() + ", getPo_name()=" + getPo_name() + ", getDept_name()="
+				+ getDept_name() + ", getEmp_id()=" + getEmp_id() + ", getEmp_name()=" + getEmp_name()
+				+ ", getEmp_hp()=" + getEmp_hp() + ", getEmp_add()=" + getEmp_add() + ", getDept_id()=" + getDept_id()
+				+ ", getDept_name0()=" + getDept_name0() + ", getPo_id()=" + getPo_id() + ", getPo_name0()="
+				+ getPo_name0() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
 	}
+	
 	
 	
 }

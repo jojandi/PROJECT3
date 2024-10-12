@@ -23,11 +23,11 @@
             </div>
             
             <div id="smenu"> 
-                <span class="text on" id="res"><a href="res?user_seq=${login.user_seq}">예약내역</a></span>
+                <span class="text on" id="res"><a href="res?seq=${login.user_seq}">예약내역</a></span>
                 <span class="text" id="line">|</span>
-                <span class="text on" id="loan"><a href="loan?user_seq=${login.user_seq}">대출내역</a></span>
+                <span class="text on" id="loan"><a href="loan?seq=${login.user_seq}">대출내역</a></span>
                 <span class="text" id="line">|</span>
-                <span class="text on" id="overdue"><a href="over?user_seq=${login.user_seq}">연체내역</a></span>
+                <span class="text on" id="overdue"><a href="over?seq=${login.user_seq}">연체내역</a></span>
             </div>
 
             <div class="table">

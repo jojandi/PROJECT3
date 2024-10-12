@@ -8,14 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 메인페이지</title>
-<link href="../assets/css/main/main_user.css" rel="stylesheet">
+<link href="./assets/css/main/main_user.css" rel="stylesheet">
 </head>
 <body>
-
-<!-- header -->
-<%-- 	<%@ include file="/WEB-INF/user/base/header.jsp" %> --%>
-	<!-- 메인페이지 -->
-
     <!-- google fonts 가져오기 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
@@ -27,10 +22,11 @@
             
             	<div id="librarys">
                     
-                    <div class="library" id="joong">일반<br>열람실</div>
-                    <div class="library" id="ssang">디자인<br>열람실</div>
-                    <div class="library" id="du">러닝<br>커먼스</div>
-                    <div class="library" id="sin">일반<br>자료실</div>
+                    <div class="library" id="joong">중앙</div>
+                    <div class="library" id="ssang">쌍용</div>
+                    <div class="library" id="du">두정</div>
+                    <div class="library" id="sin">신방</div>
+                    <div class="library" id="cheng">청수</div>
                     
                 </div>
                 
@@ -55,7 +51,7 @@
                         <!-- 날짜들 들어오는 곳 -->
                     </div>
                 </div>
-                <script src="../assets/js/main/calendar.js"></script>
+                <script src="./assets/js/main/calendar.js"></script>
 
             </div>
 
@@ -80,7 +76,7 @@
                     <div>
                         <div class="page" id="p1">
                             <span class="material-symbols-outlined">home</span>
-                            <a href="library"></a>
+                            <a href="user_libraryInfo?lib_id=7000"></a>
                         </div>
                         <div class="pname">도서관소개</div>
                     </div>
@@ -123,14 +119,14 @@
                     <div>
                         <div class="page" id="p5">
                             <span class="material-symbols-outlined">shopping_cart</span>
-                            <a href="mypage_cart"></a>
+                            <a href="cart?seq=${login.user_seq}"></a>
                         </div>
                         <div class="pname">장바구니</div>
                     </div>
                     <div>
                         <div class="page" id="p6">
                             <span class="material-symbols-outlined">person_edit</span>
-                            <a href="mypage_use"></a>
+                            <a href="res?seq=${login.user_seq}"></a>
                         </div>
                         <div class="pname">내 이용정보</div>
                     </div>
@@ -151,7 +147,7 @@
                     
                 </div>
 
-                <script src="../assets/js/main/box.js"></script>
+                <script src="./assets/js/main/box.js"></script>
             </div>
         </section>
 
@@ -187,7 +183,7 @@
 
         <section class="section3">
             <div id="booksub">
-                <img src="../assets/img/bookflix.png">
+                <img src="./assets/img/bookflix.png">
                 <div id="booksubInfoTitle">
                     취향 맞춤 도서 추천 서비스!
                 </div>
@@ -204,8 +200,5 @@
 
     <!-- wrap -->
     </div> 
-    
-    <!-- footer -->
-<%--     <%@ include file="/WEB-INF/user/base/footer.jsp" %> --%>
 </body>
 </html>
