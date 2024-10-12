@@ -23,29 +23,28 @@ public class HumanController {
 	@RequestMapping("/mes_human")
 	public String human(Model model) {
 		List<MesHumanDTO> list = humanService.selectHuman();
-		model.addAttribute("humanlist", list);
+		model.addAttribute("list", list);
 
 		return "mes_human";
 	}
 	
-	@RequestMapping("/mes_read")
-	public String human2(Model model) {
-		List<MesHumanDTO> list = humanService.selectHuman();
-		model.addAttribute("humanlist", list);
+	/*
+	 * @RequestMapping("/mes_read") public String human2(Model model) {
+	 * List<MesHumanDTO> list = humanService.selectHuman();
+	 * model.addAttribute("humanlist", list);
+	 * 
+	 * return "mes_read"; }
+	 */
 
-		return "mes_read";
-	}
 	
-	
-	
-	@RequestMapping(value="mes_read", method=RequestMethod.GET)
-	public String updateHuman (@RequestParam int emp_id, Model model) {
-		
+	@RequestMapping("/mes_read")
+	public String readNotice (@RequestParam int emp_id, Model model) {
+		System.out.println("read 실행확인");
 		MesHumanDTO dto = new MesHumanDTO();
 		dto.setEmp_id(emp_id);
 		
 		MesHumanDTO list = humanService.selectOne(dto);
-		model.addAttribute("updateHuman", list);
+		model.addAttribute("dto", list);
 
 		
 		return "mes_read";

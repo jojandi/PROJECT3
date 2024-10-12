@@ -23,6 +23,7 @@ public class HumanService {
 	}
 	
 	public MesHumanDTO selectOne(MesHumanDTO dto) {
+		System.out.println("read 실행확인_서비스");
 		MesHumanDTO list = HumanDAO.selectOne(dto);
 		
 		return list;

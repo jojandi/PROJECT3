@@ -125,7 +125,7 @@ a:hover {
 </head>
 <body>
 		<section>
-			<div class="main_page" id="main_page_1">
+			<div class="mainPage" id="main_page_1">
 				<h3>사원 상세 내역</h3>
 				<div>
 					<div class="page">
@@ -168,7 +168,7 @@ a:hover {
 							<input type="submit" value="삭제">
 						</form>
 						<button class="btn" id="listBtn">
-							<a href="http://localhost:8080/mes_page/mes_human">목록</a>
+							<a href="http://localhost:8080/mesPage/mes_human">목록</a>
 						</button>
 					</div>
 					<div id="formModal2" class="modal">
