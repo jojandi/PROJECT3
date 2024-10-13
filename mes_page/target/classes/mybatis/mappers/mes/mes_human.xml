@@ -17,10 +17,10 @@
 	<insert id="insertHuman" parameterType="humanDTO">
 		INSERT INTO employee (emp_id, emp_name, dept_id, po_id, emp_hp, emp_add,
 		emp_hiredate)
-		SELECT emp_seq.nextval, #{empName}, d.dept_id, p.po_id, #{empHp}, #{empAdd},
-		#{empHiredate}
+		SELECT emp_seq.nextval, #{emp_name}, d.dept_id, p.po_id, #{emp_hp}, #{emp_add},
+		#{emp_hiredate}
 		FROM department d, tbl_position p
-		WHERE d.dept_name = #{deptName} AND p.po_name = #{poName}
+		WHERE d.dept_name = #{dept_name} AND p.po_name = #{po_name}
 	</insert>
 
 	<select id="selectOne" resultType="humanDTO"
@@ -34,23 +34,22 @@
 	</select>
 
 	<!-- 직원 정보를 emp_id로 삭제하는 쿼리 -->
-	<delete id="updateHuman" parameterType="humanDTO">
+	<delete id="deleteHuman" parameterType="humanDTO">
 		DELETE FROM employee
-		WHERE emp_id = #{empId}
+		WHERE emp_id = #{emp_id}
 	</delete>
 
-	<update id="deleteHuman" parameterType="humanDTO">
-		UPDATE employee
-		SET emp_name = #{empName},
-		dept_id = #{deptId},
-		po_id = #{poId},
-		emp_hp = #{empHp},
-		emp_add = #{empAdd},
-		emp_hiredate = #{empHiredate},
-		WHERE emp_id = #{empId}
-	</update>
 
-
+		<update id="updateHuman" parameterType="humanDTO">
+		    UPDATE employee
+		    SET emp_name = #{emp_name},
+		        dept_id = #{dept_id},
+		        po_id = #{po_id},
+		        emp_hp = #{emp_hp},
+		        emp_add = #{emp_add},
+		        emp_hiredate = #{emp_hiredate}
+		    WHERE emp_id = #{emp_id}
+		</update>
 
 
 </mapper>
