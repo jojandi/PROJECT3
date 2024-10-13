@@ -81,6 +81,7 @@
                                     <td>${dto.emp_id}</td>
                                     <td><a href="http://localhost:8080/mesPage/mes_read?emp_id=${dto.emp_id}">${dto.emp_name}</a></td>
                                     <td>${dto.po_name}</td>
+                                    <td>${dto.dept_name}</td>
                                     <td>${dto.emp_hp}</td>
                                     <td>${dto.emp_add}</td>
                                     <td>${dto.emp_hiredate}</td>

@@ -4,12 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import project3.gamja.admin.dto.InvenDTO;
-import project3.gamja.admin.dto.LoanResDTO;
+import project3.gamja.admin.dto.NotiDTO;
 
 @Mapper
 public interface NotiDAO {
 
-
+	List<NotiDTO> selectNoti();
 	
 }

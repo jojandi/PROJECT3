@@ -57,4 +57,11 @@
 		<put-attribute name="content" value="/WEB-INF/views/admin/request/apply.jsp"/>
 	</definition>
 	
+	
+	<!--공지사항1-->
+		<definition name="notice" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice.jsp"/>
+	</definition>
+	
 </tiles-definitions>
