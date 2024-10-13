@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import project3.gamja.admin.dto.NotiDTO;
 import project3.gamja.admin.service.NotiService;
@@ -25,6 +26,26 @@ public class NotiController {
 			
 		return "notice";
 	}
+	
+//	@RequestMapping("/notice2")
+//	public String notice2() {
+//		
+//		
+//
+//		
+//		return "notice2";
+//	}
+	
+	// 공지사항 추가 
+	@RequestMapping(value="/notice2", method=RequestMethod.POST)
+	public String insertNotice(NotiDTO dto) {
+		
+		notiService.insertNoti(dto);
+		
+		return "redirect:notice1";
+	}
+	
+	
 	
 	
 

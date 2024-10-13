@@ -10,5 +10,10 @@ import project3.gamja.admin.dto.NotiDTO;
 public interface NotiDAO {
 
 	List<NotiDTO> selectNoti();
+	int insertNoti(NotiDTO dto);
+	
+//	NotiDTO selectOne(NotiDTO dto);
+//	int updateNoti(NotiDTO dto);
+//	int deleteNoti(NotiDTO dto);
 	
 }

@@ -3,12 +3,19 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-    
+
 <mapper namespace="project3.gamja.admin.dao.NotiDAO">
-    <select id="selectNoti" resultType="NotiDTO">
-        SELECT * FROM announcement
-    </select>
-    
-    
+	<select id="selectNoti" resultType="NotiDTO">
+		SELECT * FROM announcement
+	</select>
+	
+	
+	
+	<!-- 공지사항 추가 -->
+	<insert id="insertNoti" parameterType="NotiDTO">
+        INSERT INTO announcement (ann_seq, class_id, ann_title, ann_regi, ann_check, ann_detail, ann_attach)
+        VALUES (ann_seq.nextval, ?, ?, sysdate, ?, ?, ?)
+	</insert>
+
 </mapper>
 
