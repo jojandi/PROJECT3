@@ -59,6 +59,11 @@
         FROM bom
         WHERE bom_code = #{bom_code}
 	</select>
+    <select id="getList3" resultType="workorderDTO" parameterType="workorderDTO">
+		  SELECT m.mes_book_code, b.book_name, b.book_isbn, b.book_author, b.book_pub, m.book_count, m.wh_code
+   	 	FROM book b 
+    	JOIN mes_book m ON b.book_isbn = m.book_isbn
+	</select>
 	 <select id="bomSelect" resultType="workorderDTO" parameterType="workorderDTO">
 		  SELECT mes_book_code1,mes_book_code2,mes_book_code3
         FROM bom
@@ -66,11 +71,19 @@
 	 <update id="updatebom" parameterType="workorderDTO">
         UPDATE bom
         SET 
+        	bom_name = #{bom_name},
             mes_book_code1 = #{mes_book_code1},
             mes_book_code2 = #{mes_book_code2},
             mes_book_code3 = #{mes_book_code3}
         WHERE 
             bom_code = #{bom_code}
     </update>
+   <insert id="insertBom" parameterType="workorderDTO">
+        INSERT INTO bom (bom_code, bom_name, mes_book_code1, mes_book_code2, mes_book_code3)
+        VALUES (#{bom_code}, #{bom_name}, #{mes_book_code1}, #{mes_book_code2}, #{mes_book_code3})
+    </insert>
+    <delete id="deleteBom" parameterType="workorderDTO">
+		delete from bom where bom_code = #{bom_code}
+	</delete>
 	
 </mapper>
