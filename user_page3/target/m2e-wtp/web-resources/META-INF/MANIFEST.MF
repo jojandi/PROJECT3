@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: kshh6
-=======
-Built-By: ￬ﾡﾰ￫ﾯﾼ￬ﾠﾕ
->>>>>>> 7dcc49c5a4107ac743d1ebc80545448560995039
-Build-Jdk: 11
+Built-By: macbook
+Build-Jdk: 11.0.22
 Created-By: Maven Integration for Eclipse
 
