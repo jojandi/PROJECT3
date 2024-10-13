@@ -71,8 +71,8 @@
             </div>
             
             <!-- 삭제 폼 -->
-            <form method="post" action="${pageContext.request.contextPath}/deleteBom">
-                <input type="hidden" name="bom_code" value="${param.bom_code}">
+           <form method="post" action="mes_bomdelete">
+			 <input type="hidden" name="bom_code" value="${param.bom_code}">
                 <input type="submit" id="deleteButton" value="BOM 삭제">
             </form>
         </div>

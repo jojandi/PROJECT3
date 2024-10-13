@@ -85,5 +85,20 @@ public class WorkorderService {
 	        int result = woDAO.updatebom(DTO);
 	    	return result;
 	    }
+	    public int insertBom(MesWorkorderDTO DTO) {
+			int result = woDAO.insertBom(DTO);
+			
+			return result;
+		}
+	    
+	    public List<MesWorkorderDTO> getList3() {
+	        return woDAO.getList3();
+	    }
+	    
+	    public int deleteBom(MesWorkorderDTO DTO) {
+			int result = woDAO.deleteBom(DTO);
+			
+			return result;
+		}
 
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import project3.gamja.mesPage.dto.MesNoticeDTO;
 import project3.gamja.mesPage.dto.MesWorkorderDTO;
 import project3.gamja.mesPage.service.WorkorderService;
 
@@ -118,32 +119,51 @@ public class WorkorderController {
 	    }
 	    
 	    @RequestMapping(value = "/updateBom", method = RequestMethod.POST)
-	    public String updateBom(
-	            @RequestParam("bom_code") String strBomCode,
-	            @RequestParam("bom_name") String bomName,
-	            @RequestParam("mes_book_code1") String mesBookCode1,
-	            @RequestParam("mes_book_code2") String mesBookCode2,
-	            @RequestParam("mes_book_code3") String mesBookCode3) {
-	        
+	    public String updateBom(MesWorkorderDTO orderDTO) {
+
 	        System.out.println("updateBom 실행");
 
-	        // 파라미터 처리
-	        int bomCode = Integer.parseInt(strBomCode);
-
-	        // DTO 생성 후 값 설정
-	        MesWorkorderDTO orderDTO = new MesWorkorderDTO();
-	        orderDTO.setBom_code(bomCode);
-	        orderDTO.setBom_name(bomName);
-	        orderDTO.setMes_book_code1(Integer.parseInt(mesBookCode1));
-	        orderDTO.setMes_book_code2(Integer.parseInt(mesBookCode2));
-	        orderDTO.setMes_book_code3(Integer.parseInt(mesBookCode3));
-
-	        // 서비스 호출하여 업데이트
 	        int result = woService.updateBom(orderDTO);
 	        System.out.println("update 결과 : " + result);
 
-	        // 업데이트 후 리다이렉트
-	        return "redirect:mes_bom";
+	        return "redirect:/mes_bom";
 	    }
+	    @RequestMapping(value="/insertBom", method=RequestMethod.POST)
+		public String insertBom(MesWorkorderDTO dto) {
+			int result = -1;
+			
+			try {
+				result = woService.insertBom(dto);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			System.out.println("insert : " + result);
+			
+			return "redirect:mes_bom";
+		}
+	    //BOM create  Read 페이지
+	    @RequestMapping(value = "/mes_bomcreate", method = RequestMethod.GET)
+	    public String mesBomCreate(Model model) {
+	        System.out.println("Bomcreate 실행!");
+
+	        List<MesWorkorderDTO> list = woService.getList3();
+
+	        model.addAttribute("list", list);
+
+	        return "mes_bomcreate";
+	    }
+	    @RequestMapping(value="/mes_bomdelete", method=RequestMethod.POST)
+		public String mesBomDelete(MesWorkorderDTO dto, @RequestParam Integer bom_code) {
+			
+			try {
+				woService.deleteBom(dto);
+				
+			}catch (Exception e) {
+				System.out.println(e);
+			}
+			
+			
+			return "redirect:mes_bom";
+		}
 	}
 
