@@ -21,4 +21,18 @@ public class GraphService {
     public List<MesGraphDTO> getStatisticsByGenre(int year, int month) {
         return graphDAO.getStatisticsByGenre(year, month);
     }
+    public List<MesGraphDTO> selectAll_demand() {
+    	return graphDAO.selectAll();
+    }
+    
+    public List<MesGraphDTO> getStatisticsByGenreForDemand(int year, int month) {
+    	return graphDAO.getStatisticsByGenreForDemand(year, month);
+    }
+    public List<MesGraphDTO> selectAll_total() {
+    	return graphDAO.selectAll();
+    }
+    
+    public List<MesGraphDTO> getForecastData(int year, int month) {
+    	return graphDAO.getForecastData(year, month);
+    }
 }

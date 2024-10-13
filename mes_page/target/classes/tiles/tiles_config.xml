@@ -105,10 +105,20 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1_read.jsp"/>
 	</definition>
-	<!-- 도서수요 및 통계 -->
+	<!-- 도서출고 통계 -->
 	<definition name="mes_graph" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
+		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph.jsp"/>
+	</definition>
+	<!-- 도서수요 통계 -->
+	<definition name="mes_graph_2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph_2.jsp"/>
+	</definition>
+	<!-- 도서수요 예측 통계 -->
+	<definition name="mes_graph_3" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph_3.jsp"/>
 	</definition>
 
 	<!-- 게시판 - 공지사항 -->

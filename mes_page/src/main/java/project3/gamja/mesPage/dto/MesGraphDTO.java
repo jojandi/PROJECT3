@@ -22,12 +22,12 @@ public class MesGraphDTO {
 		public void setDm_id(int dm_id) {
 			this.dm_id = dm_id;
 		}
-	public double getExpectedDemand() {
-			return expectedDemand;
-		}
-		public void setExpectedDemand(double expectedDemand) {
-			this.expectedDemand = expectedDemand;
-		}
+		 public double getExpectedDemand() {
+		        return expectedDemand;
+		    }
+		 public void setExpectedDemand(double expectedDemand) {
+		        this.expectedDemand = expectedDemand;
+		    }
 		public double getActualSales() {
 			return actualSales;
 		}

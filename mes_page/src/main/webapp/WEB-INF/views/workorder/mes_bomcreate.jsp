@@ -94,7 +94,7 @@
 				        <input type="text" id="bomName" name="bom_name" required>
 				    </p>
 				    <button type="submit">등록</button>
-</form>
+					</form>
                 </div>
                
             </div>
