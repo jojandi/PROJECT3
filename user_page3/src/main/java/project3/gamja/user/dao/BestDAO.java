@@ -13,7 +13,8 @@ import project3.gamja.user.dto.LoanDTO;
 public interface BestDAO {
 
 	List<BestDTO> selectBest();
-	List<LibraryDTO> selectLibrary();
+	List<LibraryDTO> selectLibCount(BestDTO bestDTO);
+	// List<LibraryDTO> selectLibrary();
 	int insertCart(CartDTO cartDTO);
 	int insertRes(LoanDTO loanDTO);
 	int updateRes(LoanDTO loanDTO);

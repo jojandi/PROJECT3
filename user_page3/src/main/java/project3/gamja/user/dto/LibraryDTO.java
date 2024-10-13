@@ -11,6 +11,14 @@ public class LibraryDTO {
 	private String lib_facil;
 	private Integer lib_call;
 	private String lib_pic;
+	private Integer count;
+	
+	public Integer getCount() {
+		return count;
+	}
+	public void setCount(Integer count) {
+		this.count = count;
+	}
 	public Integer getLib_id() {
 		return lib_id;
 	}

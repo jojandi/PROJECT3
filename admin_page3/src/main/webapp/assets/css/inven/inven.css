@@ -215,27 +215,14 @@ th.sorted-desc::after {
     text-align: center;
 }
 
-/* 상세내역 */
-#table2 table{
-	text-align: left;
-	font-size: 13px;
-}
-
-#table2 td {
-	padding: 15px;
-}
-
-#table2 td .img{
-	width: 85%;
+#table2{
+    text-align: center;	
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
 }
 
 #table2 img{
 	width: 80%;
-}
-
-#table2 .rigthBorder{
-	font-weight:900;
-	border-right: 1px solid #ccc;
 }
 
 /* 페이징 */
