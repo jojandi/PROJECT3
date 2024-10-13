@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+#menu #items #i5{
+    font-weight: 900;
+    text-decoration: underline;
+}  
+
+#wrap{
+    height: 600px;
+}
+
+section h3{
+   border: 1px solid #ccc;
+   width: 100%;
+   text-align: center;
+   font-size: 22px;
+   padding: 17px;
+   box-sizing: border-box;
+}
+
+header #menu #items #i1 {
+    font-weight: 900;
+    text-decoration: underline;
+}
+/* ------------------------ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-bottom: 20px;
+    font-size: 13px;
+
+}
+
+table thead th {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+
+table tbody td {
+    padding: 10px;
+    text-align: center;
+    height: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.click {
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.click button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background-color: #f0f0f0;
+    margin-right: 10px;
+
+}
+
+.click button:hover {
+    background-color: #e0e0e0;
+}
+
+.page {
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    margin-top: 10px;
+    overflow: scroll;
+}
+    

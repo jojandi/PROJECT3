@@ -82,5 +82,17 @@
 		<put-attribute name="content" value="/WEB-INF/views/admin/notice/noti_read.jsp"/>
 	</definition>
 	
+	<!-- 회원 관리 - 회원관리 -->
+	<definition name="member1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/member_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/member/mem.jsp"/>
+	</definition>
+	
+	<!-- 회원 관리 - 상세정보 -->
+	<definition name="member2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/member_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/member/mem_read.jsp"/>
+	</definition>
+	
 	
 </tiles-definitions>
