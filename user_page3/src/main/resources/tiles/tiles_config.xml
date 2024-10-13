@@ -106,4 +106,10 @@
 	 <definition name="login" extends="baseLayout2">
 		<put-attribute name="content" value="/WEB-INF/views/user/login/user_login.jsp"/> 
 	</definition>
+	
+	<!-- 회원가입  -->
+	<definition name="join" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/join/userjoin.jsp"/> 
+	</definition>
+	
 </tiles-definitions>

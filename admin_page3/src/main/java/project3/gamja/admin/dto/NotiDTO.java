@@ -10,9 +10,18 @@ public class NotiDTO {
 	private int ann_check; // 조회수
 	private String ann_detail;// 내용
 	private String ann_attach;// 첨부파일
+	private String lib_id; // 도서관 
 
 	public int getAnn_seq() {
 		return ann_seq;
+	}
+
+	public String getLib_id() {
+		return lib_id;
+	}
+
+	public void setLib_id(String lib_id) {
+		this.lib_id = lib_id;
 	}
 
 	public void setAnn_seq(int ann_seq) {
@@ -76,10 +85,9 @@ public class NotiDTO {
 	}
 	@Override
 	public String toString() {
-		return "NoticeDTO [ann_seq=" + ann_seq + ", class_id=" + class_id
-				+ ", ann_title=" + ann_title + ", ann_regi=" + ann_regi
-				+ ", ann_check=" + ann_check + ", ann_detail=" + ann_detail
-				+ ", ann_attach=" + ann_attach + "]";
+		return "NotiDTO [ann_seq=" + ann_seq + ", class_id=" + class_id + ", class_name=" + class_name + ", ann_title="
+				+ ann_title + ", ann_regi=" + ann_regi + ", ann_check=" + ann_check + ", ann_detail=" + ann_detail
+				+ ", ann_attach=" + ann_attach + ", lib_id=" + lib_id + "]";
 	}
 	
 }
