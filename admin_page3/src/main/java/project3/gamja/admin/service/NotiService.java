@@ -12,34 +12,27 @@ import project3.gamja.admin.dto.NotiDTO;
 public class NotiService {
 
     @Autowired
-    NotiDAO notiDAO; // 객체명은 소문자로 시작
+    NotiDAO notiDAO;
 
-    public List<NotiDTO> selectNoti() {
-        List<NotiDTO> list = notiDAO.selectNoti();
-        return list;
+    public List<NotiDTO> selectAnnouncement() {
+        return notiDAO.selectAnnouncement();
     }
-	public int insertNoti(NotiDTO dto){
-		int result = notiDAO.insertNoti(dto);
-		System.out.println("인설트 확인");
-		return result;
-	}
-	
 
-	public NotiDTO selectOne(NotiDTO dto) {
-		NotiDTO list = notiDAO.selectOne(dto);
-		
-		return list;
-	}
-	public int updateNotice(NotiDTO dto){
-		int result = notiDAO.updateNoti(dto);
-		return result;
-	}
-	public int deleteNotice(NotiDTO dto){
-		int result = notiDAO.deleteNoti(dto);
-		return result;
-	}
-    
-    
-    
+    public NotiDTO selectSeq(int annSeq) {
+        return notiDAO.selectSeq(annSeq);
+    }
+
+    public List<NotiDTO> selectAnnClass() {
+        return notiDAO.selectAnnClass();
+    }
+
+    public int updateNotice(NotiDTO dto) {
+        return notiDAO.updateNotice(dto);
+    }
+
+    public int deleteNotice(int noticeId) {
+        return notiDAO.deleteNotice(noticeId);
+    }
 }
+
 		

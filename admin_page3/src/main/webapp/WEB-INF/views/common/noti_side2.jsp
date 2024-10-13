@@ -19,7 +19,7 @@ header #menu #items #i2 {
 			<h2 id="title">정보광장</h2>
 			<div id="items">
 				<div class="item" id="i1">
-					<a href="noti"> <span>공지 사항 관리</span> <span
+					<a href="notice"> <span>공지 사항 관리</span> <span
 						class="material-symbols-outlined">arrow_forward_ios</span>
 					</a>
 				</div>
@@ -30,7 +30,7 @@ header #menu #items #i2 {
 					</a>
 				</div>
 				<div class="item" id="i3">
-					<a href="noti2"> <span>공지 사항 목록</span> <span
+					<a href="notice2"> <span>공지 사항 목록</span> <span
 						class="material-symbols-outlined">arrow_forward_ios</span>
 					</a>
 				</div>
