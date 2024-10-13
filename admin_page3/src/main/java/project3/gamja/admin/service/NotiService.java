@@ -25,19 +25,19 @@ public class NotiService {
 	}
 	
 
-//	public NotiDTO selectOne(NotiDTO dto) {
-//		NotiDTO list = notiDAO.selectOne(dto);
-//		
-//		return list;
-//	}
-//	public int updateNotice(NotiDTO dto){
-//		int result = notiDAO.updateNoti(dto);
-//		return result;
-//	}
-//	public int deleteNotice(NotiDTO dto){
-//		int result = notiDAO.deleteNoti(dto);
-//		return result;
-//	}
+	public NotiDTO selectOne(NotiDTO dto) {
+		NotiDTO list = notiDAO.selectOne(dto);
+		
+		return list;
+	}
+	public int updateNotice(NotiDTO dto){
+		int result = notiDAO.updateNoti(dto);
+		return result;
+	}
+	public int deleteNotice(NotiDTO dto){
+		int result = notiDAO.deleteNoti(dto);
+		return result;
+	}
     
     
     

@@ -42,7 +42,7 @@ public class NotiController {
 		
 		notiService.insertNoti(dto);
 		
-		return "redirect:notice1";
+		return "redirect:notice2";
 	}
 	
 	
