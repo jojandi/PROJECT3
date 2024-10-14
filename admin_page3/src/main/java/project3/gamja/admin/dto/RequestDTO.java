@@ -34,6 +34,26 @@ public class RequestDTO {
 	
 	private String lr_ing;
 	
+	private int[] lr_counts;
+	
+	private int[] lr_seqs;
+	
+	public int[] getLr_counts() {
+		return lr_counts;
+	}
+
+	public void setLr_counts(int[] lr_counts) {
+		this.lr_counts = lr_counts;
+	}
+
+	public int[] getLr_seqs() {
+		return lr_seqs;
+	}
+
+	public void setLr_seqs(int[] lr_seqs) {
+		this.lr_seqs = lr_seqs;
+	}
+
 	public String getLr_ing() {
 		return lr_ing;
 	}

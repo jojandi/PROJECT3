@@ -27,6 +27,23 @@
 			library 
 	</select>
 	
+	<!-- 도서 발주 -> 주문 현황 -->
+	<insert id="reqOrder" parameterType="requestDTO">
+		INSERT INTO orderstatus (os_id, os_date, lr_seq, bom_code, emp_id, buser_seq)
+	    VALUES 
+	        (os_seq.NEXTVAL, sysdate, #{lr_seq}, 0, 0, 0)
+	</insert>
+	
+	<update id="reqUpdate" parameterType="requestDTO">
+		UPDATE 
+			lib_request 
+		SET 
+			lr_count = #{lr_count},
+			lr_ing = '진행중'
+		WHERE 
+			lr_seq = #{lr_seq}
+	</update>
+	
 	<!-- 도서 신청 내역 -->
 	<select id="selectApply" resultType="applyDTO" parameterType="applyDTO">
 		SELECT * FROM(

@@ -51,8 +51,10 @@
 									<td><input type="hidden" name="bom_name"
 										value="${ list.bom_name }">${ list.bom_name }</td>
 									<td><select name="wo_process">	
-										<option value="포장공정">포장공정</option>
-										<option value="배송공정">배송공정</option>
+										<option value="포장공정"
+												${list.wo_status == '포장공정' ? 'selected' : ''}>포장공정</option>
+											<option value="배송공정"
+												${list.wo_status == '배송공정' ? 'selected' : ''}>배송공정</option>
 										</select></td>
 									<td><input type="hidden" name="wo_count"
 										value="${ list.wo_count }">${ list.wo_count }</td>

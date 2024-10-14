@@ -9,7 +9,12 @@
 		SELECT * FROM (
 			SELECT 
 			    o.os_id, 
-			    b.bom_name, 
+			    o.os_status,
+			    b.bom_name,
+			    l.lib_name,
+			    l.lib_id,
+			    a.app_book,
+			    lr.lr_count,
 			    t.user_id, 
 			    o.os_date, 
 			    e.emp_name,
@@ -17,13 +22,17 @@
                 d.ds_con
 			FROM 
    				orderstatus o
+            lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
+            lEFT OUTER JOIN application a ON a.app_seq = lr.app_seq
 		    LEFT OUTER JOIN bom b ON o.bom_code = b.bom_code
 		    LEFT OUTER JOIN bookflix_user f ON o.buser_seq = f.buser_seq
 		    LEFT OUTER JOIN employee e ON o.emp_id = e.emp_id
 		    LEFT OUTER JOIN tbl_user t ON f.user_seq = t.user_seq
 		    LEFT OUTER JOIN deliverystatus d ON f.buser_seq = d.buser_seq
+            left outer join mes_book k on k.mes_book_code = b.mes_book_code1
+            left outer join library l on l.lib_id = lr.lib_id
 				ORDER BY o.os_id DESC
-				 ) 
+				 )
 <!-- 			WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} -->
 	</select>
 	
@@ -87,5 +96,19 @@
 	<delete id="deletepf" parameterType="pfworkDTO">
 		delete orderstatus where os_id = #{os_id}
 	</delete>
+	
+	
+	<!-- 작업지시서 insert  -->
+	<insert id="pfinsertwo" parameterType="pfworkDTO">
+		INSERT INTO workorder (wo_id, bom_code, wo_process, wo_count, wo_status)
+		VALUES (wo_seq.NEXTVAL, #{lib_id}, '포장공정', #{lr_count}, '진행중')
+	</insert>
+	
+	<!-- 주문현황 작업지시서 생성버튼 클릭시 상태 update -->
+	<update id="pfupdatepf" parameterType="pfworkDTO">
+		update orderstatus
+			set os_status = '진행중'
+			where os_id = #{os_id}
+	</update>
 
 </mapper>

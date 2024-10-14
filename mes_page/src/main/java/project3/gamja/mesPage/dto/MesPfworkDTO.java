@@ -24,11 +24,23 @@ public class MesPfworkDTO {
 	
 	private String ds_con;
 	
+	private String lib_name;
+	
+	private String book_name;
+	
+	private String app_book;
+	
 	private int rnum;
 	
 	private int start;
 	
 	private int end;
+	
+	private int lr_count;
+	
+	private int lib_id;
+	
+	private String os_status;
 
 	
 	@Override
@@ -39,6 +51,78 @@ public class MesPfworkDTO {
 	}
 	
 	
+
+	public String getOs_status() {
+		return os_status;
+	}
+
+
+
+	public void setOs_status(String os_status) {
+		this.os_status = os_status;
+	}
+
+
+
+	public int getLib_id() {
+		return lib_id;
+	}
+
+
+
+	public void setLib_id(int lib_id) {
+		this.lib_id = lib_id;
+	}
+
+
+
+	public int getLr_count() {
+		return lr_count;
+	}
+
+
+
+	public void setLr_count(int lr_count) {
+		this.lr_count = lr_count;
+	}
+
+
+
+	public String getApp_book() {
+		return app_book;
+	}
+
+
+
+	public void setApp_book(String app_book) {
+		this.app_book = app_book;
+	}
+
+
+
+	public String getLib_name() {
+		return lib_name;
+	}
+
+
+
+	public void setLib_name(String lib_name) {
+		this.lib_name = lib_name;
+	}
+
+
+
+	public String getBook_name() {
+		return book_name;
+	}
+
+
+
+	public void setBook_name(String book_name) {
+		this.book_name = book_name;
+	}
+
+
 
 	public int getStart() {
 		return start;

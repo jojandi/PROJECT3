@@ -51,6 +51,10 @@ td {
     background: #fff;
 }
 
+td input {
+	width : 80%;
+}
+
 a {
     color: #73685d;
 }
