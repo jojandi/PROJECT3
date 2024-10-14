@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,7 +17,10 @@ public class LoginController {
 
 	@Autowired
 	LoginService loginService;
-
+	
+	// 암호화
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 		// 로그인 페이지 이동
 		@RequestMapping("/login")
@@ -37,17 +41,25 @@ public class LoginController {
 			UserDTO mes = loginService.selectLoginMes(userDTO);
 
 			if (user != null) {
-				// 일반 사용자 로그인 성공
-				System.out.println(user.getUser_name());
-				HttpSession session = req.getSession();
-				session.setMaxInactiveInterval(60 * 60 * 60); // 세션 타임아웃 설정
+			    boolean isPasswordMatch = passwordEncoder.matches(userDTO.getUser_pw(), user.getUser_pw());
+			    System.out.println("비밀번호 일치 여부: " + isPasswordMatch);
+			    System.out.println("사용자가 입력한 평문 비밀번호: " + userDTO.getUser_pw());
+			    System.out.println("DB에 저장된 암호화된 비밀번호: " + user.getUser_pw());
 
-				session.setAttribute("login", user);
-				session.setAttribute("isLogin", true);
+			    if (isPasswordMatch) {
+			        // 일반 사용자 로그인 성공
+			        System.out.println(user.getUser_name());
+			        HttpSession session = req.getSession();
+			        session.setMaxInactiveInterval(60 * 60 * 60); // 세션 타임아웃 설정
 
-				// 홈으로 이동
-				return "forward:/main";
-				
+			        session.setAttribute("login", user);
+			        session.setAttribute("isLogin", true);
+
+			        // 홈으로 이동
+			        return "redirect:/main";
+			    } else {
+			    	return "redirect:/login?code=LO01";
+			    }
 			} else if (admin != null) {
 				// 관리자 로그인 성공
 				HttpSession session = req.getSession();
@@ -57,7 +69,7 @@ public class LoginController {
 				session.setAttribute("isLogin", true);
 
 				// 관리자 메인 페이지로 이동
-				return "forward:/admin/main";
+				return "redirect:/admin/main";
 			} else if (mes != null) {
 				// MES 사용자 로그인 성공
 				HttpSession session = req.getSession();
@@ -67,10 +79,10 @@ public class LoginController {
 				session.setAttribute("isLogin", true);
 
 				// MES 메인 페이지로 이동
-				return "forward:/mesPage/main";
+				return "redirect:/mesPage/main";
 			} else {
 				// 로그인 실패 시 "LO01" 코드를 추가하여 로그인 페이지로 리다이렉트
-				return "forward:/login?code=LO01";
+				return "redirect:/login?code=LO01";
 			}
 	}
 		
