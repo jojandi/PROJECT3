@@ -22,4 +22,8 @@ public class BookflixService {
 	        }
 	        return list;
 	    }
+
+	    public int review(int userSeq, int buserSeq, int star, String text) {
+	        return bookflixDAO.bookflix_review(userSeq, buserSeq, star, text);
+	    }
 }
