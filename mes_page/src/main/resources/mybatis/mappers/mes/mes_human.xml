@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.gamja.mesPage.dao.HumanDAO">
+
+	<select id="selectHuman" resultType="humanDTO"
+		parameterType="humanDTO">
+		SELECT e.emp_id, e.emp_name, p.po_name, d.dept_name, e.emp_hp, e.emp_add,
+		e.emp_hiredate
+		FROM employee e
+		JOIN department d ON e.dept_id = d.dept_id
+		JOIN tbl_position p ON e.po_id = p.po_id
+		ORDER by emp_id
+	</select>
+
+	<insert id="insertHuman" parameterType="humanDTO">
+		INSERT INTO employee (emp_id, emp_name, dept_id, po_id, emp_hp, emp_add,
+		emp_hiredate)
+		SELECT emp_seq.nextval, #{emp_name}, d.dept_id, p.po_id, #{emp_hp}, #{emp_add},
+		#{emp_hiredate}
+		FROM department d, tbl_position p
+		WHERE d.dept_name = #{dept_name} AND p.po_name = #{po_name}
+	</insert>
+
+	<select id="selectOne" resultType="humanDTO"
+		parameterType="humanDTO">
+		SELECT e.emp_id, e.emp_name, p.po_name, d.dept_name, e.emp_hp, e.emp_add,
+		e.emp_hiredate
+		FROM employee e
+		JOIN department d ON e.dept_id = d.dept_id
+		JOIN tbl_position p ON e.po_id = p.po_id
+		WHERE e.emp_id = #{emp_id}
+	</select>
+
+	<!-- 직원 정보를 emp_id로 삭제하는 쿼리 -->
+	<delete id="deleteHuman" parameterType="humanDTO">
+		DELETE FROM employee
+		WHERE emp_id = #{emp_id}
+	</delete>
+
+
+		<update id="updateHuman" parameterType="humanDTO">
+		    UPDATE employee
+		    SET emp_name = #{emp_name},
+		        dept_id = #{dept_id},
+		        po_id = #{po_id},
+		        emp_hp = #{emp_hp},
+		        emp_add = #{emp_add},
+		        emp_hiredate = #{emp_hiredate}
+		    WHERE emp_id = #{emp_id}
+		</update>
+
+
+</mapper>

@@ -17,6 +17,7 @@
 <script src="./assets/js/click.js"></script>
 <link href="./assets/css/mes_workorder.css" rel="stylesheet">
 <link href="./assets/css/click.css" rel="stylesheet">
+<link href="./assets/css/modal.css" rel="stylesheet">
 </head>
 <body>
 

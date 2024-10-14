@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>사용자용 메인페이지</title>
 <link href="./assets/css/mes_mainPage.css" rel="stylesheet">
+ <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
 <link href="./assets/css/admin.css" rel="stylesheet">
 <link href="./assets/css/admin_table.css" rel="stylesheet">
 <link href="./assets/css/modal.css" rel="stylesheet">
@@ -20,202 +21,71 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <!-- JavaScript 파일 -->
-<script src="<%=request.getContextPath()%>/assets/js/mes_mainPage.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/mes_graph.js"></script>
 
 
 <style>
-#section1 {
-	width: 90vw;
-	height: 50vh;
-	text-align: center;
-	margin: auto;
+	#menu #items #i6 {
+	font-weight: 901;
+	text-decoration: underline;
 }
-
-#productionChart {
-	width: 90vw;
-	height: 80vh;
-	text-align: center;
-	margin: auto;
-}
-
 </style>
 </head>
 <body>
 
-
-	<div id="wrap">
-
-		<section class="section2">
-			<div class="all">
-				<div class="mini_title">
-					<h3>도서 수요 통계</h3>
-				</div>
-					<label for="yearSelectDemand">연도 선택: </label>
-					<select id="yearSelectDemand">
-						<option value="2023">2023년</option>
-						<option value="2022">2022년</option>
-						<option value="2021">2021년</option>
-						<option value="2020">2020년</option>
-						<option value="2019">2019년</option>
-						<option value="2018">2018년</option>
-						<!-- 다른 연도 선택 가능 -->
-					</select> 
-					<label for="monthSelectDemand">월 선택: </label>
-					<select id="monthSelectDemand">
-						<option value="1">1월</option>
-						<option value="2">2월</option>
-						<option value="3">3월</option>
-						<option value="4">4월</option>
-						<option value="5">5월</option>
-						<option value="6">6월</option>
-						<option value="7">7월</option>
-						<option value="8">8월</option>
-						<option value="9">9월</option>
-						<option value="10">10월</option>
-						<option value="11">11월</option>
-						<option value="12">12월</option>
-						<!-- 다른 월 선택 가능 -->
-					</select>
-					
-					<canvas id="demandStatisticsChart" width="400" height="200"></canvas>
-
-				
+	<section class="section1">
+		<div class="all">
+			<div class="mini_title">
+				<h3>도서 출고 통계 그래프</h3>
 			</div>
-		</section>
-
-		<section class="section3">
-			<div class="all">
-				<div class="mini_title">
-					<h3>도서 수요 예측 통계</h3>
-				</div>
-			     <label for="yearSelectForecast">연도 선택: </label>
-		        <select id="yearSelectForecast">
-		            <option value="2024">2024년</option>
-		        </select>
-		
-		        <label for="monthSelectForecast">월 선택: </label>
-		        <select id="monthSelectForecast">
-		            <option value="1">1월</option>
-		            <option value="2">2월</option>
-		            <option value="3">3월</option>
-		            <option value="4">4월</option>
-		            <option value="5">5월</option>
-		            <option value="6">6월</option>
-		            <option value="7">7월</option>
-		            <option value="8">8월</option>
-		            <option value="9">9월</option>
-		            <option value="10">10월</option>
-		            <option value="11">11월</option>
-		            <option value="12">12월</option>
-		        </select>
-		
-        <canvas id="forecastStatisticsChart" width="400" height="200"></canvas>
-         </div>
-       
 			
-		</section>
+			<!-- 연도 선택 드롭다운 -->
+			<label for="yearSelect">연도 선택: </label> 
+			<select id="yearSelect">
+				<option value="2023">2023년</option>
+				<option value="2022">2022년</option>
+				<option value="2021">2021년</option>
+				<option value="2020">2020년</option>
+				<option value="2019">2019년</option>
+			</select>
+	
+			<!-- 월 선택 드롭다운 -->
+			<label for="monthSelect">월 선택: </label> 
+			<select id="monthSelect">
+				<option value="1">1월</option>
+				<option value="2">2월</option>
+				<option value="3">3월</option>
+				<option value="4">4월</option>
+				<option value="5">5월</option>
+			</select>
+			
+			<!-- 컨테이너 안에 차트와 테이블을 나란히 배치 -->
+			<div class="container">
+				<!-- 그래프를 표시할 캔버스 -->
+				<div id="chartSection">
+					<canvas id="bookStatisticsChart" width="400" height="200"></canvas>
+				</div>
 
-		<!-- wrap -->
-	</div>
-
-	<!--<script>
-		// 페이지 로드 시 그래프 초기화
-		window.onload = function() {
-			console.log('Page loaded'); // 로드 확인
-			loadBookStatistics(); // 첫 번째 로드 시 기본 값을 로드
-		};
-	</script>-->
-
-
-
-
-	<!-- 가장 아래 고정 -->
-
-	<!-- 모달 -->
-	<!-- 
-	<div id="taskModal" class="modal">
-		<div class="modal-content">
-			<span class="close">&times;</span>
-			<h2>작업지시서</h2>
-			<div class="modal-body">
-				<p>
-					<strong>작업명:</strong> <span id="taskName"></span>
-				</p>
-				<p>
-					<strong>작업자:</strong> <span id="taskAssignee"></span>
-				</p>
-				<p>
-					<strong>진행상황:</strong> <span id="taskStatus"></span>
-				</p>
-				<p>
-					<strong>발생 일자:</strong> <span id="taskDate"></span>
-				</p>
-				<p>
-					<strong>위치:</strong> <span id="taskLocation"></span>
-				</p>
-				<p>
-					<strong>작업 세부사항:</strong>
-				</p>
-				<textarea id="taskDetails" rows="4" cols="50" readonly></textarea>
+				<!-- 테이블 섹션 -->
+				<div id="tableSection">
+					<h3>도서 출고 통계 테이블</h3>
+					<table id="bookStatisticsTable">
+						<thead>
+							<tr>
+								<th>장르</th>
+								<th>출고량</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- 데이터가 여기 추가됩니다 -->
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
-	</div> -->
-	<!-- 모달 창 -->
-	 <div id="bookStatisticsModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>도서 출고 통계 테이블</h2>
-            <table id="bookStatisticsTable">
-                <thead>
-                    <tr>
-                        <th>장르</th>
-                        <th>출고량</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- 데이터가 여기 추가됩니다 -->
-                </tbody>
-            </table>
-        </div>
-    </div>
+	</section>
 
-    <!-- 수요 통계 모달 -->
-    <div id="demandStatisticsModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>수요 통계 테이블</h2>
-            <table id="demandStatisticsTable">
-                <thead>
-                    <tr>
-                        <th>장르</th>
-                        <th>수요량</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- 데이터가 여기 추가됩니다 -->
-                </tbody>
-            </table>
-        </div>
-    </div>
 
-    <!-- 수요 예측 통계 모달 -->
-    <div id="forecastStatisticsModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>수요 예측 통계 테이블</h2>
-            <table id="forecastStatisticsTable">
-                <thead>
-                    <tr>
-                        <th>장르</th>
-                        <th>예측 수요량</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- 데이터가 여기 추가됩니다 -->
-                </tbody>
-            </table>
-        </div>
-    </div>
 
 <div>
 </div>

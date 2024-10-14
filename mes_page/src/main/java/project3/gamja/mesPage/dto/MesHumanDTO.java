@@ -9,30 +9,15 @@ public class MesHumanDTO {
 	private String emp_add;	//사원 주소
 	private Date emp_hiredate;//사원 입사일
 	private Integer dept_id;
-	private String dept_name0;
+	private String dept_name;
 	private Integer po_id;
-	private String po_name0;
-	
-	public Date getEmp_hiredate() {
-		return emp_hiredate;
+	private String po_name;
+	@Override
+	public String toString() {
+		return "MesHumanDTO [emp_id=" + emp_id + ", emp_name=" + emp_name + ", emp_hp=" + emp_hp + ", emp_add="
+				+ emp_add + ", emp_hiredate=" + emp_hiredate + ", dept_id=" + dept_id + ", dept_name=" + dept_name
+				+ ", po_id=" + po_id + ", po_name=" + po_name + "]";
 	}
-	public void setEmp_hiredate(Date emp_hiredate) {
-		this.emp_hiredate = emp_hiredate;
-	}
-	private String po_name; //직책이름
-	public String getPo_name() {
-		return po_name;
-	}
-	public void setPo_name(String po_name) {
-		this.po_name = po_name;
-	}
-	public String getDept_name() {
-		return dept_name0;
-	}
-	public void setDept_name(String dept_name) {
-		this.dept_name0 = dept_name;
-	}
-	private String dept_name; // 직급이름
 	public Integer getEmp_id() {
 		return emp_id;
 	}
@@ -57,17 +42,23 @@ public class MesHumanDTO {
 	public void setEmp_add(String emp_add) {
 		this.emp_add = emp_add;
 	}
+	public Date getEmp_hiredate() {
+		return emp_hiredate;
+	}
+	public void setEmp_hiredate(Date emp_hiredate) {
+		this.emp_hiredate = emp_hiredate;
+	}
 	public Integer getDept_id() {
 		return dept_id;
 	}
 	public void setDept_id(Integer dept_id) {
 		this.dept_id = dept_id;
 	}
-	public String getDept_name0() {
-		return dept_name0;
+	public String getDept_name() {
+		return dept_name;
 	}
-	public void setDept_name0(String dept_name0) {
-		this.dept_name0 = dept_name0;
+	public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
 	}
 	public Integer getPo_id() {
 		return po_id;
@@ -75,19 +66,11 @@ public class MesHumanDTO {
 	public void setPo_id(Integer po_id) {
 		this.po_id = po_id;
 	}
-	public String getPo_name0() {
-		return po_name0;
+	public String getPo_name() {
+		return po_name;
 	}
-	public void setPo_name0(String po_name0) {
-		this.po_name0 = po_name0;
-	}
-	@Override
-	public String toString() {
-		return "Try2DTO [emp_id=" + emp_id + ", emp_name=" + emp_name + ", emp_hp=" + emp_hp + ", emp_add="
-				+ emp_add + ", emp_hiredate=" + emp_hiredate + ", dept_id=" + dept_id + ", dept_name0=" + dept_name0
-				+ ", po_id=" + po_id + ", po_name0=" + po_name0 + ", po_name=" + po_name + ", dept_name=" + dept_name
-				+ "]";
+	public void setPo_name(String po_name) {
+		this.po_name = po_name;
 	}
 	
-	
-}
+	}

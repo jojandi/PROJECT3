@@ -30,6 +30,12 @@
 	<definition name="best" extends="baseLayout2">
 		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best.jsp"/>
 	</definition>
+	<definition name="bestInven" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best_inven.jsp"/>
+	</definition>
+	<definition name="bestInvenRes" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best_invenRes.jsp"/>
+	</definition>
 
 	<!-- 마이페이지 - 이용내역 - 예약 -->
 	<definition name="res" extends="baseLayout">
@@ -71,4 +77,39 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/user_lib_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/user/library/user_libraryInfo.jsp"/>
 	</definition>
+	
+	<!-- 정보광장 - 공지사항 -->
+	<definition name="notice" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/info/user_notice.jsp"/>
+	</definition>
+	
+		
+	<definition name="notice2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/info/user_notice2.jsp"/>
+	</definition>	
+		
+		
+	<definition name="notice3" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/info/user_notice3.jsp"/>
+	</definition>
+	
+	<!--도서신청  -->
+	<definition name="request" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/user_notice_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/user/info/user_request.jsp"/> 
+	</definition>
+	
+	 <!-- 로그인  -->
+	 <definition name="login" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/login/user_login.jsp"/> 
+	</definition>
+	
+	<!-- 회원가입  -->
+	<definition name="join" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/join/userjoin.jsp"/> 
+	</definition>
+	
 </tiles-definitions>

@@ -12,15 +12,22 @@ public class BestDTO {
 	private int book_loan_seq;
 	private boolean book_loan;
 	private boolean book_res;
+	private int lib_id;
+	private String lib_name;
 	
-	@Override
-	public String toString() {
-		return "BestDTO [book_code=" + book_code + ", li_book_info=" + li_book_info + ", book_ISBN=" + book_ISBN
-				+ ", book_name=" + book_name + ", book_author=" + book_author + ", book_img=" + book_img + ", book_pub="
-				+ book_pub + ", count=" + count + ", book_loan_seq=" + book_loan_seq + ", book_loan=" + book_loan
-				+ ", book_res=" + book_res + "]";
+	
+	public int getLib_id() {
+		return lib_id;
 	}
-	
+	public void setLib_id(int lib_id) {
+		this.lib_id = lib_id;
+	}
+	public String getLib_name() {
+		return lib_name;
+	}
+	public void setLib_name(String lib_name) {
+		this.lib_name = lib_name;
+	}
 	public int getBook_code() {
 		return book_code;
 	}

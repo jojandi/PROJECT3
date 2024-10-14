@@ -37,15 +37,9 @@
 	<select id="getMesPubId" resultType="stockDTO">
         SELECT pub_id FROM publisher
     </select>
-<<<<<<< HEAD
-	<!-- 부품 코드 셀렉트 -->
-=======
-
->>>>>>> ef3a74160f8b5717ef3e9f39607489c58de5706f
 	<select id="getMesBookCodes" resultType="stockDTO">
         SELECT mes_book_code FROM mes_book
     </select>
-	
 	<update id="updateOrder" parameterType="stockDTO">
 		UPDATE mes_book
 			SET book_count = book_count + #{order_count}

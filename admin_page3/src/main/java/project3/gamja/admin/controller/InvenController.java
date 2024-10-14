@@ -43,6 +43,28 @@ public class InvenController {
 		return "inven";
 	}
 	
+	// 실시간 재고현황 상세 페이지
+	@RequestMapping(value="/inven_", method=RequestMethod.GET)
+	public String readInven(Model model, InvenDTO invenDTO, String countPerPage, String page) {
+		// 페이징 기본값 설정
+		if(countPerPage == null) countPerPage = "10";
+		if(page == null) page = "1";
+		
+		int count = Integer.parseInt(countPerPage);
+		int pageNo = Integer.parseInt(page);
+		
+		System.out.println("isbn : " + invenDTO.getBook_ISBN());
+		System.out.println("lib_id : " + invenDTO.getLib_id());
+		
+		InvenDTO dto = invenService.readInven(invenDTO);
+		
+		model.addAttribute("dto", dto);
+		model.addAttribute("countPerPage", count);
+		model.addAttribute("page", pageNo);
+		
+		return "inven_";
+	}
+	
 	/////////////////////////////// 예약현황 페이지 ///////////////////////////////
 	// 예약 현황 페이지
 	@RequestMapping(value="/res", method=RequestMethod.GET)
@@ -106,5 +128,21 @@ public class InvenController {
 		model.addAttribute("page", pageNo);
 		
 		return "loan";
+	}
+	
+	// 반납 후 대출내역 업데이트 및 재고 업데이트
+	@RequestMapping(value="/loanReturn", method=RequestMethod.POST)
+	@ResponseBody
+	public int loanReturn(Model model,@RequestBody LoanResDTO loanResDTO, String countPerPage, String page) {
+
+		int laonUpdate = invenService.laonUpdate(loanResDTO);
+		int invenUpdate = invenService.invenUpdate(loanResDTO);
+		int overUserUpdate = invenService.overUserUpdate(loanResDTO);
+		
+		System.out.println("대출현황 업데이트 : " + laonUpdate);
+		System.out.println("재고 업데이트 : " + invenUpdate);
+		System.out.println("연체 업데이트 : " + overUserUpdate);
+		
+		return laonUpdate;
 	}
 }

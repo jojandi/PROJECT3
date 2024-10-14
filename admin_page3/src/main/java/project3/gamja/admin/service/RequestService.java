@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import project3.gamja.admin.dao.RequestDAO;
+import project3.gamja.admin.dto.ApplyDTO;
 import project3.gamja.admin.dto.RequestDTO;
 
 
@@ -17,6 +18,7 @@ public class RequestService {
 	@Autowired
 	RequestDAO reDAO;
 	
+	// 발주현황
 	public Map selectre(int count, int pageNo) {
 		// 시작 번호 : 이전 페이지까지 보여준 것 바로 다음 것
 		int start = ((pageNo - 1) * count) + 1;
@@ -38,25 +40,55 @@ public class RequestService {
 		return map;
 	}
 	
+	// 도서 신청 현황
 	public Map selectApply(int count, int pageNo) {
 		// 시작 번호 : 이전 페이지까지 보여준 것 바로 다음 것
 		int start = ((pageNo - 1) * count) + 1;
 		// 마지막 번호
 		int end = start + count - 1;
 		
-		RequestDTO dto = new RequestDTO();
-		dto.setStart(start);
-		dto.setEnd(end);
+		ApplyDTO applyDTO = new ApplyDTO();
+		applyDTO.setStart(start);
+		applyDTO.setEnd(end);
 		
-		List<RequestDTO> list = reDAO.selectApply(dto);
+		List<ApplyDTO> list = reDAO.selectApply(applyDTO);
 		
-		int totalCount = reDAO.totalApply(dto);
+		int totalCount = reDAO.totalApply(applyDTO);
 		
 		Map map = new HashMap();
 		map.put("list", list);
 		map.put("totalCount", totalCount);
 		
 		return map;
+	}
+	
+	public int applyDelete(ApplyDTO applyDTO) {
+		
+		int result = reDAO.applyDelete(applyDTO);
+		
+		return result;
+	}
+	
+	public int applyReq(ApplyDTO applyDTO) {
+		int result = 0;
+		
+		int[] checks = applyDTO.getChecks();
+		int[] lib_ids = applyDTO.getLib_ids();
+		
+		for(int i = 0; i < checks.length; i++) {
+			applyDTO.setApp_seq(checks[i]);
+			applyDTO.setLib_id(lib_ids[i]);
+			
+			result = reDAO.applyReq(applyDTO);
+		}
+		
+		return result;
+	}
+	
+	public int applyUpdate(ApplyDTO applyDTO) {
+		int result = reDAO.applyUpdate(applyDTO);
+		
+		return result;
 	}
 
 }

@@ -89,15 +89,36 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_bom.jsp"/>
 	</definition>
+	<!-- 생산관리 - BOM- Read -->
+	<definition name="mes_bom_read" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_bom_read.jsp"/>
+	</definition>
+	<!-- 생산관리 - BOMcreate- Read -->
+	<definition name="mes_bomcreate" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_bomcreate.jsp"/>
+	</definition>
 	
 	<!-- 생산 관리 - 작업지시서 - read -->
 	<definition name="mes_workorder1_read" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1_read.jsp"/>
 	</definition>
+	<!-- 도서출고 통계 -->
 	<definition name="mes_graph" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
+		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph.jsp"/>
+	</definition>
+	<!-- 도서수요 통계 -->
+	<definition name="mes_graph_2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph_2.jsp"/>
+	</definition>
+	<!-- 도서수요 예측 통계 -->
+	<definition name="mes_graph_3" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph_3.jsp"/>
 	</definition>
 
 	<!-- 게시판 - 공지사항 -->
@@ -120,23 +141,31 @@
 		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/notice/mes_noticeUpdate.jsp"/>
 	</definition>
-	<!-- 도서관 - 정보 -->
-	<definition name="user_libraryInfo" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/notice/user_libraryInfo.jsp"/>
-	</definition>
+
 	
+		
 		<!--직원 관리 -->
 	<definition name="mes_human" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/Human/human.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Human/mes_human.jsp"/>
 	</definition>
 	
 		<!--직원 관리 리드-->
-	<definition name="mes_human" extends="baseLayout">
+	<definition name="mes_read" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
+	</definition>
+		
+		<!-- 직원관리 업데이트  -->
+		<definition name="mes_humanUpdate" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
 	</definition>
 	
+		<!-- 직원관리 삭제  -->
+		<definition name="mes_humanDelete" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
+	</definition>
 	
 </tiles-definitions>

@@ -13,8 +13,21 @@ public class ApplyDTO {
 	private String lib_name;
 	private int start;
 	private int end;
+	private int[] checks;	
+	private int[] lib_ids;	
 	
-	
+	public int[] getLib_ids() {
+		return lib_ids;
+	}
+	public void setLib_ids(int[] lib_ids) {
+		this.lib_ids = lib_ids;
+	}
+	public int[] getChecks() {
+		return checks;
+	}
+	public void setChecks(int[] checks) {
+		this.checks = checks;
+	}
 	public String getBook_name() {
 		return book_name;
 	}

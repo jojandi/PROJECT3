@@ -26,10 +26,10 @@ public class BestService {
 		return list;
 	}
 	
-	// 도서관 정보
-	public List<LibraryDTO> selectLibrary(){
+	// 도서관 정보 + 도서관 재고
+	public List<LibraryDTO> selectLibrary(BestDTO bestDTO){
 		
-		List<LibraryDTO> list = bestDAO.selectLibrary();
+		List<LibraryDTO> list = bestDAO.selectLibCount(bestDTO);
 		
 		return list;
 	}

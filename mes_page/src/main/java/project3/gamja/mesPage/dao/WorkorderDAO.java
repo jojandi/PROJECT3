@@ -31,5 +31,16 @@ public interface WorkorderDAO {
 	// ----------------BOM 페이지입니다----------------------
 	List<MesWorkorderDTO> getList2();
 	
-
+	MesWorkorderDTO mesBomRead(MesWorkorderDTO dto);
+	
+	List<MesWorkorderDTO> bomSelect();
+	
+	int updatebom(MesWorkorderDTO DTO);
+	
+	int insertBom(MesWorkorderDTO dto);
+	
+	List<MesWorkorderDTO> getList3();
+	
+	int deleteBom(MesWorkorderDTO DTO);
+	
 }
