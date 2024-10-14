@@ -31,15 +31,18 @@ public class NotiService {
         return notiDAO.updateNotice(dto);
     }
     
-    // 공지사항 삭제 
-    public int deleteNotice(int noticeId) {
-        return notiDAO.deleteNotice(noticeId);
-    }
-    
     // 공지사항  추가 인서트 
     public int insertNotice(NotiDTO dto) {
     	return notiDAO.insertAnnouncement(dto);
     }
+
+    //  공지사항 삭제 딜리트 
+	public int deleteNotice(NotiDTO notiDTO) {
+		return notiDAO.deleteNotice(notiDTO);
+	}
+   
+
+
 }
 
 		
