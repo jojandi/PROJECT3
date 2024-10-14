@@ -55,28 +55,21 @@ public class NotiController {
 	}
 
 	// 공지사항 업데이트 (noticeDTO의 데이터를 받아서 업데이트)
-	@RequestMapping(value = "/notice2", method = RequestMethod.GET)
+	@RequestMapping(value = "/notice2", method = RequestMethod.POST)
 	public String updateNotice(NotiDTO dto) {
 		notiService.updateNotice(dto);
 		return "redirect:/notice2";
 	}
-
-	// // 공지사항 삭제 (아작스)
-	// @RequestMapping(value = "/notice2", method = RequestMethod.POST)
-	// public String deleteNotice(int noticeId) {
-	// notiService.deleteNotice(noticeId);
-	// return "redirect:/notice2";
-	// }
 	
 	//@RequestMapping 경로설정
     @RequestMapping(value = "/notice2", method = RequestMethod.DELETE)
     @ResponseBody  
-    public String delEmp(@RequestBody NotiDTO notiDTO) {
+    public int delEmp(@RequestBody NotiDTO notiDTO) {
     	System.out.println("삭제확인");
     	int delete = notiService.deleteNotice(notiDTO);
     	System.out.println("삭제 : " + delete);
     	
-        return "deleteNoti";
+        return delete;
     }
 			
 	

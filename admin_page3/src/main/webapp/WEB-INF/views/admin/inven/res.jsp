@@ -28,9 +28,10 @@
 								<col width="7%">
 								<col width="7%">
 								<col width="28%">
+								<col width="8%">
 								<col width="10%">
 								<col width="10%">
-								<col width="12%">
+								<col width="8%">
 								<col width="7%">
 							</colgroup>
 							<thead>
@@ -39,6 +40,7 @@
 									<th>예약번호</th>
 									<th>도서코드</th>
 									<th>도서명</th>
+									<th>도서관</th>
 									<th>예약일자</th>
 									<th>픽업일자</th>
 									<th>현황</th>
@@ -52,6 +54,7 @@
 										<td>${list.res_id}</td>
 										<td>${list.book_code}</td>
 										<td>${list.book_name}</td>
+										<td>${list.lib_name}</td>
 										<td>${list.res_day}</td>
 										<td>
 											<c:if test="${list.res_pick != null}">

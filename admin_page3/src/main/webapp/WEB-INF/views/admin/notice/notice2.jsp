@@ -97,11 +97,16 @@ button {
 		// 공지사항 삭제용 Ajax 함수
 		function deleteNotice(ann_seq) {
 			if (confirm('정말로 삭제하시겠습니까?')) {
-				const url = "/notice2"; // 삭제 URL
+				console.log(ann_seq)
+				const url = "notice2"; // 삭제 URL
 				const param = { "ann_seq": ann_seq }; // 삭제할 공지사항 번호
 				ajax(url, param, function(response) {
-					alert("공지사항이 삭제되었습니다.");
-					location.reload(); // 삭제 후 페이지 리로드
+					if(response > 0){
+						alert("공지사항이 삭제되었습니다.");
+						location.reload(); // 삭제 후 페이지 리로드
+					} else{
+						alert(" 다시 시도해주세요.");
+					}
 				}, "DELETE"); // DELETE 메서드로 호출
 			}
 		}
@@ -115,6 +120,7 @@ button {
 			const xhr = new XMLHttpRequest();
 			xhr.open(method, url);
 			xhr.setRequestHeader("Content-Type","application/json"); // json 보내줄 거임
+			console.log(JSON.stringify(param))
 			xhr.send(JSON.stringify(param));
 			
 			if(typeof cb == "function") {

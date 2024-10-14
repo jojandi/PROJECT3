@@ -68,7 +68,7 @@
 </update>
       
     <!-- 공지사항 삭제 -->
-    <delete id="deleteNoti" parameterType="int">
+    <delete id="deleteNotice" parameterType="int">
         DELETE FROM announcement WHERE ann_seq = #{ann_seq}
     </delete>
 
