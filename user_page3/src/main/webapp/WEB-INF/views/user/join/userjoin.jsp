@@ -18,7 +18,7 @@
 		</div>
 
 		<div>
-			<form method="post" action="join_insert" id="form">
+			<form method="post" action="join" id="form">
 				<div id="ess"><span>*</span> 는 필수입니다. </div>
 				<table border="1">
 					<tr>
@@ -161,7 +161,7 @@
 						<td class="label"><span>*</span> 아이디</td>
 						<td>
 							<div id="seob">
-								<input type="text" id="username" name="username" placeholder="아이디">
+								<input type="text" id="username" name="user_id" placeholder="아이디">
 								<div class="red" id="username-message">아이디를 적어주세요</div>
 							</div>
 							<div class="gaip">
@@ -176,14 +176,18 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="label"><span>*</span> 비밀번호</td>
-						<td><input type="password" id="password" name="user_pw" placeholder="비밀번호">
-							<div class="red" id="password-message">비밀번호를 적어주세요</div></td>
+					    <td class="label"><span>*</span> 비밀번호</td>
+					    <td>
+					        <input type="password" id="password" name="user_pw" placeholder="비밀번호" oninput="validatePassword()">
+					        <div class="red" id="password-message">비밀번호를 적어주세요</div>
+					    </td>
 					</tr>
 					<tr>
-						<td class="label">비밀번호 확인</td>
-						<td><input type="password" id="confirm-password" name="confirm" placeholder="비밀번호 재입력">
-							<div class="red" id="confirm-password-message">비밀번호가 일치하지 않습니다</div></td>
+					    <td class="label">비밀번호 확인</td>
+					    <td>
+					        <input type="password" id="confirm-password" name="confirm" placeholder="비밀번호 재입력" oninput="checkPasswordMatch()">
+					        <div class="red" id="confirm-password-message">비밀번호가 일치하지 않습니다</div>
+					    </td>
 					</tr>
 					<tr>
 						<td class="label"><span>*</span> 전화번호</td>
@@ -197,8 +201,8 @@
 								<input type="button" value="검색" onclick="execDaumPostcode()">
 							</div>
 							<br>
-							<input type="text" id="address" name="address" placeholder="기본주소 입력">
-							<input type="text" id="addressinfo" name="addressinfo" placeholder="상세주소 입력">
+							<input type="text" id="address" name="user_addr" placeholder="기본주소 입력">
+							<input type="text" id="addressinfo" name="user_addr_info" placeholder="상세주소 입력">
 						</td>
 					</tr>
 					<tr>
