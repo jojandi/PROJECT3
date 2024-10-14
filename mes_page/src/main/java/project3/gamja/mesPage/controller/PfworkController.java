@@ -51,7 +51,7 @@ public class PfworkController {
 		if(count == null) count = 7;
 		if(pageNo == null) pageNo = 1;
 		
-		Map map = pfService.selectpf(count, pageNo);
+		Map map = pfService.selectde(count, pageNo);
 		
 		model.addAttribute("map", map);
 		model.addAttribute("countPerPage", count);

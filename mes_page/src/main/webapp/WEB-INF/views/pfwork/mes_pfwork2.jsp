@@ -42,7 +42,7 @@
 								<tr>
 									<td>${ ds.os_id }</td>
 									<td>${ ds.ds_date }</td>
-									<td>${ ds.user_id }</td>
+									<td>${ ds.lib_name }</td>
 									<td>${ ds.bom_name }</td>
 									<td>${ ds.ds_con }</td>
 								</tr>

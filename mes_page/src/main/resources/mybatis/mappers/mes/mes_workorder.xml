@@ -6,11 +6,14 @@
 
 	<select id="selectwo" resultType="workorderDTO" parameterType="workorderDTO">
 		SELECT 
-			w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status
+		    w.wo_id, b.bom_code, o.os_id, b.bom_name, w.wo_process, wo_count, wo_status, l.lib_id
 		FROM 
-			workorder w, bom b
-		WHERE w.bom_code = b.bom_code
-			ORDER BY wo_id desc
+		    workorder w
+		LEFT OUTER JOIN bom b ON b.bom_code = w.bom_code
+		LEFT OUTER JOIN orderstatus o ON o.os_id = w.os_id
+		lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
+		left outer join library l on l.lib_id = lr.lib_id
+		    ORDER BY wo_id desc
 	</select>
 	
 	<!-- workorder paging -->
@@ -23,11 +26,14 @@
 	
 	<select id="selectOne" resultType="workorderDTO" parameterType="workorderDTO">
 		SELECT 
-		    w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status
+   			 w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status, o.os_id, l.lib_id
 		FROM 
 		    workorder w
 		left outer join bom b on w.bom_code = b.bom_code
-		where w.wo_id = #{wo_id}
+		left outer join orderstatus o on o.os_id = w.os_id
+		lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
+		left outer join library l on l.lib_id = lr.lib_id
+			where w.wo_id = #{wo_id}
 	</select>
 	
 	<delete id="deletewo" parameterType="workorderDTO">
@@ -47,14 +53,27 @@
 	</update>
 	
 	<insert id="insertwo" parameterType="workorderDTO">
-		INSERT INTO workorder (wo_id, bom_code, wo_process, wo_count, wo_status)
-		VALUES (wo_seq.NEXTVAL, #{bom_code}, #{wo_process}, #{wo_count}, '진행중')
+		INSERT INTO workorder (wo_id, bom_code, wo_process, wo_count, wo_status, os_id)
+		VALUES (wo_seq.NEXTVAL, #{bom_code}, #{wo_process}, #{wo_count}, '진행중', #{os_id})
 	</insert>
 	
 	<!-- workorder bom_code만 select -->
 	<select id="selectBom" resultType="workorderDTO">
 		SELECT bom_code, bom_name FROM bom
 	</select>
+	
+	<!-- 작업지시서 완료시 주문현황 delete -->
+	<delete id="deletepf" parameterType="workorderDTO">
+		delete orderstatus where os_id = #{os_id}
+	</delete>
+	
+	<!-- 작업지시서 완료시 출고현황 insert -->
+	<delete id="insertpf" parameterType="workorderDTO">
+		INSERT INTO deliverystatus (os_id, ds_date, ds_con)
+		VALUES (#{os_id}, sysdate, '완료')
+	</delete>
+	
+	<!-- //////////////////////// bom ////////////////////////// -->
 	
 	<!--BOM 페이지 입니다 -->
     <select id="getList2" resultType="workorderDTO">

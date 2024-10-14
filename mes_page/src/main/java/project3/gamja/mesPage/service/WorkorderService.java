@@ -74,6 +74,18 @@ public class WorkorderService {
 		return result;
 	}
 	
+	public int deletepf(MesWorkorderDTO woDTO) {
+		int result = woDAO.deletepf(woDTO);
+		
+		return result;
+	}
+	
+	public int insertpf(MesWorkorderDTO woDTO) {
+		int result = woDAO.insertpf(woDTO);
+		
+		return result;
+	}
+	
 //-----------------------BOM 페이지입니다------------------------
 	    public List<MesWorkorderDTO> getList2() {
 	        return woDAO.getList2();

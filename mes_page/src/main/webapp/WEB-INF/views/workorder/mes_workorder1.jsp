@@ -59,7 +59,9 @@
 									<td>${ list.wo_count }</td>
 									<td>${ list.wo_status }</td>
 									<td><form method="get" action="mes_workorder1_read">
+											<input type="hidden" name="lib_id" value="${list.lib_id }">
 											<input type="hidden" name="wo_id" value="${ list.wo_id }">
+											<input type="hidden" name="os_id" value="${ list.os_id }">
 											<input type="submit" value="수정">
 										</form></td>
 								</tr>
