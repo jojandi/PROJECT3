@@ -28,6 +28,9 @@ public interface WorkorderDAO {
 	// workorder bom_code select
 	List<MesWorkorderDTO> selectBom();
 	
+	// 포장공정에서 제조공정으로 바꾸는 update문
+	int updatewopro(MesWorkorderDTO woDTO);
+	
 	// ----------------BOM 페이지입니다----------------------
 	List<MesWorkorderDTO> getList2();
 	
