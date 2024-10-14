@@ -151,38 +151,33 @@ table .material-symbols-outlined {
 }  
 
 /*------------------------------------------------------------*/
-.new{
+.modal{
     margin: 0 auto;
-    background-color: white;
     border: 1px solid rgb(51, 51, 51);
     width: 500px;
     text-align: left;
-    position: fixed;
-    left: 50%; 
-    top: 50%; 
-    transform: translate(-50%, -50%);
     z-index: 100;
 }
 
-.new .invenLibrary{
+.modal .invenLibrary{
     padding: 15px;
     border-bottom: 1px solid #ccc;
 }
 
-.new .invenLibrary .library{
+.modal .invenLibrary .library{
     font-size: 18px;
     font-weight: 900;
 }
 
-.new .invenLibrary .addr,
-.new .invenLibrary .call{
+.modal .invenLibrary .addr,
+.modal .invenLibrary .call{
     font-size: 13px;
     color: gray;
     display: inline-block;
     margin-right: 7px;
 }
 
-.new .invenLibrary .material-symbols-outlined{
+.modal .invenLibrary .material-symbols-outlined{
     vertical-align: bottom;
     font-size: 13px;
     font-variation-settings:
@@ -192,26 +187,26 @@ table .material-symbols-outlined {
     'opsz' 24
 }
 
-.new .invenLibrary .realInven{
+.modal .invenLibrary .realInven{
    margin-top: 5px; 
    margin-left: 15px;
    font-size: 17px;
 }
 
-.new .invenLibrary .realInven span{
+.modal .invenLibrary .realInven span{
     font-size: 21px;
     margin-left: 3px;
     color: red;
     font-weight: 900;
 }
 
-.new .close{
+.modal .close{
     text-align: right;
     margin-top: 15px;
     margin-right: 15px;
 }
 
-.new .close .material-symbols-outlined{
+.modal .close .material-symbols-outlined{
     font-size: 26px;
     cursor: pointer;
     font-variation-settings:
@@ -221,19 +216,19 @@ table .material-symbols-outlined {
     'opsz' 24
 }
 
-.new .library_{
+.modal .library_{
     display: inline-block;
     width: 80%;
     /* border: 1px solid red; */
 }
 
-.new .btnbox{
+.modal .btnbox{
     display: inline-block;
     width: 15%;
     text-align: center;
 }
 
-.new .btnbox .realReserBnt{
+.modal .btnbox .realReserBnt{
     padding: 5px;
     width: 80px;
 }

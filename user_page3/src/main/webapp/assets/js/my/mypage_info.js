@@ -46,20 +46,4 @@ function logout(){
     })
 }
 
-function likeSet(){
-    let ri = [];
-    ri = document.getElementsByName("like");
-    let like = '${ login.like_id }';
-    console.log("like" + like);
-
-    for(let i = 0; i < ri.length; i++){
-        if(like == (i+1)){
-            console.log(ri[i+1]);
-            ri[i+1].setAttribute("checked","checked");
-        }
-    }
-
-}
-
 logout();
-likeSet();
