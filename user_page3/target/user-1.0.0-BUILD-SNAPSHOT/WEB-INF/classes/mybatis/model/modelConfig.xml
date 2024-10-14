@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!-- tag(또는 node)의 순서에 주의 -->
+
+
+	<!-- 전달인자로 null 줄 수 있음 -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	
+	<!-- mapper에서 사용할 타입이 길어서 짧게 별칭 지정 -->
+	<typeAliases>
+		<typeAlias type="project3.gamja.user.dto.LoanDTO" alias="loanDTO"/>
+		<typeAlias type="project3.gamja.user.dto.CartDTO" alias="cartDTO"/>
+		<typeAlias type="project3.gamja.user.dto.ApplyDTO" alias="applyDTO"/>
+		<typeAlias type="project3.gamja.user.dto.UserDTO" alias="userDTO"/>
+		<typeAlias type="project3.gamja.user.dto.BookflixDTO" alias="bookflixDTO"/>
+		<typeAlias type="project3.gamja.user.dto.BestDTO" alias="bestDTO"/>
+		<typeAlias type="project3.gamja.user.dto.LibraryDTO" alias="libraryDTO"/>
+		<typeAlias type="project3.gamja.user.dto.RequestDTO" alias="requestDTO"/>
+		<typeAlias type="project3.gamja.user.dto.NotiDTO" alias="notiDTO"/>
+		<typeAlias type="project3.gamja.user.dto.JoinDTO" alias="joinDTO"/>
+
+	</typeAliases> 
+
+</configuration>

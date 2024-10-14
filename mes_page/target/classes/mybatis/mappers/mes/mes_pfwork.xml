@@ -17,9 +17,7 @@
 			    lr.lr_count,
 			    t.user_id, 
 			    o.os_date, 
-			    e.emp_name,
-			    d.ds_date,
-                d.ds_con
+			    e.emp_name
 			FROM 
    				orderstatus o
             lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
@@ -28,12 +26,22 @@
 		    LEFT OUTER JOIN bookflix_user f ON o.buser_seq = f.buser_seq
 		    LEFT OUTER JOIN employee e ON o.emp_id = e.emp_id
 		    LEFT OUTER JOIN tbl_user t ON f.user_seq = t.user_seq
-		    LEFT OUTER JOIN deliverystatus d ON f.buser_seq = d.buser_seq
             left outer join mes_book k on k.mes_book_code = b.mes_book_code1
             left outer join library l on l.lib_id = lr.lib_id
 				ORDER BY o.os_id DESC
 				 )
 <!-- 			WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} -->
+	</select>
+	
+	<select id="selectde" resultType="pfworkDTO" parameterType="pfworkDTO">
+		select 
+		    d.os_id, d.ds_date, l.lib_name, d.ds_con, b.bom_name
+		FROM 
+		    deliverystatus d
+		left outer join orderstatus o on o.os_id = d.os_id
+		lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
+		left outer join library l on l.lib_id = lr.lib_id
+		left outer join bom b on b.bom_code = o.bom_code
 	</select>
 	
 	<!-- pfwork paging -->
@@ -52,16 +60,13 @@
 			    b.bom_name, 
 			    t.user_id, 
 			    o.os_date, 
-			    e.emp_name,
-			    d.ds_date,
-                d.ds_con
+			    e.emp_name
 			FROM 
    				orderstatus o
 		    LEFT OUTER JOIN bom b ON o.bom_code = b.bom_code
 		    LEFT OUTER JOIN bookflix_user f ON o.buser_seq = f.buser_seq
 		    LEFT OUTER JOIN employee e ON o.emp_id = e.emp_id
 		    LEFT OUTER JOIN tbl_user t ON f.user_seq = t.user_seq
-		    LEFT OUTER JOIN deliverystatus d ON f.buser_seq = d.buser_seq
 				ORDER BY o.os_id DESC
 				 )  where os_id = #{ os_id }
 	</select>
@@ -100,8 +105,8 @@
 	
 	<!-- 작업지시서 insert  -->
 	<insert id="pfinsertwo" parameterType="pfworkDTO">
-		INSERT INTO workorder (wo_id, bom_code, wo_process, wo_count, wo_status)
-		VALUES (wo_seq.NEXTVAL, #{lib_id}, '포장공정', #{lr_count}, '진행중')
+		INSERT INTO workorder (wo_id, bom_code, wo_process, wo_count, wo_status, os_id)
+		VALUES (wo_seq.NEXTVAL, #{lib_id}, '포장공정', #{lr_count}, '진행중', #{os_id})
 	</insert>
 	
 	<!-- 주문현황 작업지시서 생성버튼 클릭시 상태 update -->

@@ -9,9 +9,12 @@ import project3.gamja.mesPage.dto.MesPfworkDTO;
 @Mapper
 public interface PfworkDAO {
 	
-	// 주문현황, 출고현황 select
+	// 주문현황 select
 	List<MesPfworkDTO> selectpf(MesPfworkDTO pfDTO);
 	int totalpf(MesPfworkDTO pfDTO);
+	
+	// 출고현황 select
+	List<MesPfworkDTO> selectde(MesPfworkDTO pfDTO);
 	
 	// 주문현황 Read
 	MesPfworkDTO selectOne(MesPfworkDTO pfDTO);

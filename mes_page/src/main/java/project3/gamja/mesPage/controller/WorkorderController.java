@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import project3.gamja.mesPage.dto.MesNoticeDTO;
 import project3.gamja.mesPage.dto.MesWorkorderDTO;
 import project3.gamja.mesPage.service.WorkorderService;
 
@@ -22,7 +21,7 @@ public class WorkorderController {
 	
 	
 	@RequestMapping(value="mes_workorder1", method=RequestMethod.GET)
-	public String workorder1(Model model, Integer seq, Integer count, Integer pageNo) {
+	public String workorder1(Model model,Integer os_id, Integer seq, Integer count, Integer pageNo) {
 		
 		// 페이징 기본값 설정
 		if(count == null) count = 7;
@@ -30,6 +29,10 @@ public class WorkorderController {
 		
 		Map map = woService.selectwo(count, pageNo);
 		List<MesWorkorderDTO> bom_code = woService.selectBom();
+		
+		MesWorkorderDTO dto = new MesWorkorderDTO();
+		dto.setOs_id(os_id);
+		
 		
 		model.addAttribute("map", map);
 		model.addAttribute("countPerPage", count);
@@ -40,11 +43,12 @@ public class WorkorderController {
 	}
 	
 	@RequestMapping(value="mes_workorder1_read", method=RequestMethod.GET)
-	public String workorderRead(int wo_id, Model model) {
+	public String workorderRead(int wo_id, int os_id, Model model) {
 		
 		MesWorkorderDTO dto = new MesWorkorderDTO();
 		
 		dto.setWo_id(wo_id);
+		dto.setOs_id(os_id);
 		
 		MesWorkorderDTO list = woService.selectOne(dto);
 		
@@ -57,15 +61,22 @@ public class WorkorderController {
    public String workorderUpdate(MesWorkorderDTO dto) {
       
 	System.out.println("update 실행 ");
+	System.out.println("////////////////////////////// : " + dto.getOs_id());
 	
        try {
            if ("완료".equals(dto.getWo_status())) {
                // 1. tbl_order 테이블에서 해당 주문 삭제
         	   woService.deletewo(dto);
+        	   
+        	   // 2. pfwork 테이블에서 주문현황 삭제
+        	   woService.deletepf(dto);
                
-               // 2. mes_book 테이블에서 book_count 업데이트 (수량 추가)
+               // 3. mes_book 테이블에서 book_count 업데이트 (수량 추가)
         	   woService.updatewo(dto);
-        	   System.out.println(dto.getWo_count());
+
+        	   // 4. pfwork 테이블에서 출고현황 insert
+        	   woService.insertpf(dto);
+        	   
            }
            if("배송공정".equals(dto.getWo_process())) {
         	   woService.updatewopro(dto);

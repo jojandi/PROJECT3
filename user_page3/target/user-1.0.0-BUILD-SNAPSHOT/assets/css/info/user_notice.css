@@ -1,0 +1,140 @@
+@charset "UTF-8";
+aside #items #i1 .material-symbols-outlined{
+        background: rgb(165, 224, 144);
+}
+
+#section .name{
+    text-align: center;
+    font-size: 22px;
+    border: 1px solid #ccc;
+    padding: 17px;
+    box-sizing: border-box;
+    margin-top: 22px;
+}
+
+#section #table{
+    text-align: center;
+    font-size: 17px;
+}
+
+#section #search{
+    text-align: center;
+    margin-bottom: 110px;
+    font-size: 0;
+}
+
+#section #search select{
+    height: 25px;
+    margin-right: 5px;
+}
+#section #search #searchInput{
+    height: 25px;
+}
+
+/* 페이지 이동 */
+#movepage{
+    /* border: 1px solid red; */
+    margin: 30px 0;
+    text-align: center;
+}
+
+#movepage span{
+    vertical-align: top;
+    color: #666666;
+    /* border: 1px solid red; */
+}
+
+#movepage .chap{
+    display: inline-block;
+    font-size: 16px;
+    width: 20px;
+    color: #1b1b1b;
+}
+
+#movepage #one{
+    border-bottom: 1px solid #1b1b1b;
+}
+
+#movepage .material-symbols-outlined{
+    font-size: 21px;
+} 
+
+#section>div {
+    margin-bottom: 20px;
+}
+        
+table.report {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+    font-size: 15px;
+}
+
+table.report th,
+table.report td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+table.report th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+table.report tr:hover {
+    background-color: #f1f1f1;
+}
+
+.report .retitle{
+    text-align: left;
+}
+
+input[type="button"] {
+    vertical-align: bottom;
+    padding: 4px 16px;
+    margin-right: 10px;
+    background-color: rgb(165, 224, 144);
+    color: rgb(19, 2, 2);
+    border: none;
+    /* border-radius: 4px; */
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #70c964;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-bar select,
+.search-bar input[type="search"],
+.search-bar input[type="button"].search {
+    margin-right: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.search-bar input[type="button"].search {
+    background-color: #a2f796;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar input[type="button"].search:hover {
+    background-color: #a2f796b3;
+}
+
+
+/*일단 다 복붙  */
+
+

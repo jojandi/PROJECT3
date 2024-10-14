@@ -64,7 +64,11 @@
 											<option value="완료"
 												${list.wo_status == '완료' ? 'selected' : ''}>완료</option>
 									</select></td>
-									<td><input type="submit" value="완료"></td>
+									<td>
+										<input type="hidden" name="lib_id" value="${list.lib_id }">
+										<input type="hidden" name="os_id" value="${list.os_id }">
+										<input type="submit" value="완료">
+									</td>
 								</tr>
 							</tbody>
 						</table>

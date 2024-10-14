@@ -1,0 +1,235 @@
+@charset "UTF-8";
+#wrap{
+    font-size: 0;
+    padding: 30px 150px;
+    text-align: center;
+    margin-bottom: 50px;
+	/* border: 1px solid red; */
+}
+
+#wrap section {
+	width: 90%;
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-left: 30px;
+    /* border: 1px solid red; */
+}
+
+section #show_box_ h1{
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    padding: 17px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#in_top {
+    background-color: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
+    padding: 3px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+
+table{
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border-collapse: collapse;
+    width: 95%;
+    border-bottom: 2px solid #ccc;
+    padding: 0 15px;
+}
+
+table td{
+	padding: 5px 12px;
+    text-align: left;
+    height: 40px;
+}
+
+
+table .bookBnt{
+    text-align: center;
+    width: 130px;
+    padding-top: 130px;
+}
+
+table .imge{
+    width: 170px;
+}
+
+table img{
+    width: 100%;
+}
+
+[type=submit],
+[type=button]{
+    font-size: 18px;
+    padding: 7px 15px;
+    margin: 5px 0;
+    border-radius: 5%;
+    background: white;
+    border: 1px solid rgb(106, 170, 82);
+    cursor: pointer;
+}
+
+table .bookBnt .reserBnt{
+    background: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
+}
+
+table .best{
+    vertical-align: bottom;
+    width: 580px;
+}
+
+table .best span{
+    border: 2px solid rgb(106, 170, 82);
+    color: rgb(99, 109, 95);
+    border-radius: 10%;
+    padding: 3px 6px;
+    font-size: 14px;
+}
+
+table .bookTitle{
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 20px;
+    height: 10px;
+}
+
+table .information{
+    height: 100px;
+    vertical-align: top;
+}
+
+table .information .wirter{
+    color: gray;
+    font-size: 15px;
+    line-height: 25px;
+}
+
+table .information .review{
+	color: rgb(65, 65, 65);
+    margin-top: 10px;
+}
+
+table .bookInfo{
+    padding: 0 10px 10px 0;
+}
+
+table .material-symbols-outlined {
+    vertical-align: top;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+
+.realInven{
+   font-size: 15px;
+}
+
+.realInven span{
+    font-size: 21px;
+    margin-left: 3px;
+    color: rgb(106, 170, 82);
+    font-weight: 900;
+}
+
+#menu #items #i2{
+    font-weight: 900;
+    text-decoration: underline;
+}  
+
+/*------------------------------------------------------------*/
+.modal{
+    margin: 0 auto;
+    border: 1px solid rgb(51, 51, 51);
+    width: 500px;
+    text-align: left;
+    z-index: 100;
+}
+
+.modal .invenLibrary{
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.modal .invenLibrary .library{
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.modal .invenLibrary .addr,
+.modal .invenLibrary .call{
+    font-size: 13px;
+    color: gray;
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.modal .invenLibrary .material-symbols-outlined{
+    vertical-align: middle;
+    font-size: 13px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+.modal .invenLibrary .realInven{
+   margin-top: 5px; 
+   margin-left: 15px;
+   font-size: 17px;
+}
+
+.modal .invenLibrary .realInven span{
+    font-size: 21px;
+    margin-left: 3px;
+    color: red;
+    font-weight: 900;
+}
+
+.modal .close{
+    text-align: right;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.modal .close .material-symbols-outlined{
+    font-size: 26px;
+    cursor: pointer;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+.modal .library_{
+    display: inline-block;
+    width: 80%;
+    /* border: 1px solid red; */
+}
+
+.modal .btnbox{
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+}
+
+.modal .btnbox .realReserBnt,
+.modal .btnbox .noneReserBnt{
+    padding: 5px;
+    width: 80px;
+}

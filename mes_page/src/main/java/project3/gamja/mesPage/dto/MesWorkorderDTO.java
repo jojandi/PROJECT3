@@ -29,11 +29,44 @@ public class MesWorkorderDTO {
 	
 	private String wo_status;
 	
+	private Integer os_id;
+	
+	private java.sql.Date ds_date;
+	
+	private String ds_con;
+	
+	private Integer lib_id;
+	
 	private int start;
 	
 	private int end;
 	
 	
+	
+	public Integer getLib_id() {
+		return lib_id;
+	}
+	public void setLib_id(Integer lib_id) {
+		this.lib_id = lib_id;
+	}
+	public java.sql.Date getDs_date() {
+		return ds_date;
+	}
+	public void setDs_date(java.sql.Date ds_date) {
+		this.ds_date = ds_date;
+	}
+	public String getDs_con() {
+		return ds_con;
+	}
+	public void setDs_con(String ds_con) {
+		this.ds_con = ds_con;
+	}
+	public Integer getOs_id() {
+		return os_id;
+	}
+	public void setOs_id(Integer os_id) {
+		this.os_id = os_id;
+	}
 	public int getStart() {
 		return start;
 	}

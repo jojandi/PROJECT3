@@ -37,6 +37,7 @@
                     <thead> 
                         <tr>
                             <td class="bnameall">도서명</td>
+                            <td>도서관</td>
                             <td>대출일자</td>
                             <td>대출현황</td>
                             <td>반납예정일</td>
@@ -48,6 +49,7 @@
                     	<c:forEach var="list" items="${map.list}">
 	                        <tr>
 	                            <td class="bname">${list.book_name}</td>
+	                            <td>${list.lib_name}</td>
 	                            <td>${list.loan_date}</td>
 	                            <td class="ing">
 	                            	<c:if test="${list.loan_ing == true}">
