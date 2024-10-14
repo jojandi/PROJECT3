@@ -40,6 +40,12 @@
 		  WHERE bom_code = #{bom_code}
 	</update>
 	
+	<update id="updatewopro" parameterType="workorderDTO">
+		UPDATE workorder
+		  SET wo_process = '배송공정'
+		  WHERE wo_id = #{wo_id}
+	</update>
+	
 	<insert id="insertwo" parameterType="workorderDTO">
 		INSERT INTO workorder (wo_id, bom_code, wo_process, wo_count, wo_status)
 		VALUES (wo_seq.NEXTVAL, #{bom_code}, #{wo_process}, #{wo_count}, '진행중')

@@ -68,6 +68,12 @@ public class WorkorderService {
 		return list;
 	}
 	
+	public int updatewopro(MesWorkorderDTO woDTO) {
+		int result = woDAO.updatewopro(woDTO);
+		
+		return result;
+	}
+	
 //-----------------------BOM 페이지입니다------------------------
 	    public List<MesWorkorderDTO> getList2() {
 	        return woDAO.getList2();

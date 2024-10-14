@@ -39,7 +39,6 @@
 								<th>제품명</th>
 								<th>회원ID</th>
 								<th>주문날짜</th>
-								<th>담당자</th>
 								<th>상태</th>
 							</tr>
 						</thead>
@@ -47,11 +46,32 @@
 							<c:forEach var="work" items="${ map.list }">
 								<tr>
 									<td class="sortable">${ work.os_id }</td>
-									<td>${ work.bom_name }</td>
-									<td>${ work.user_id }</td>
+									<c:if test="${ work.bom_name eq null }">
+										<td>${ work.app_book }</td>
+									</c:if>
+									<c:if test="${ work.bom_name != null }">
+										<td>${ work.bom_name }</td>
+									</c:if>
+									<c:if test="${ work.bom_name eq null }">
+										<td>${ work.lib_name }</td>
+									</c:if>
+									<c:if test="${ work.bom_name != null }">
+										<td>${ work.user_id }</td>
+									</c:if>
 									<td>${ work.os_date }</td>
-									<td>${ work.emp_name }</td>
-									<td>진행중</td>
+									<td id="createwo">
+										<form method="post" action="pfinsertwo">
+											<input type="hidden" name="lib_id" value="${work.lib_id }">
+											<input type="hidden" name="lr_count" value="${work.lr_count }"> 
+											<input type="hidden" name="os_id" value="${work.os_id }">
+											<c:if test="${empty work.os_status }">
+												<input type="submit" value="작업지시서 생성">
+											</c:if>
+											<c:if test="${not empty work.os_status }">
+												${work.os_status }
+											</c:if>
+										</form>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -60,7 +80,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<!-- script -->
 	<script src="./assets/js/mes_pfwork.js"></script>
 

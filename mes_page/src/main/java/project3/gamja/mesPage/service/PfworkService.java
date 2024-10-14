@@ -81,4 +81,16 @@ public class PfworkService {
 		return result;
 	}
 	
+	public int pfinsertwo(MesPfworkDTO pfDTO) {
+		int result = pfDAO.pfinsertwo(pfDTO);
+		
+		return result;
+	}
+	
+	public int pfupdatepf(MesPfworkDTO pfDTO) {
+		int result = pfDAO.pfupdatepf(pfDTO);
+		
+		return result;
+	}
+	
 }

@@ -61,35 +61,33 @@ button {
 			</thead>
 			<tbody>
 				<!-- 공지사항 목록을 동적으로 표시 -->
-				<c:forEach var="notice3" items="${notices}">
+				<c:forEach var="notice" items="${noticeList}">
 					<tr>
-						<td>${notice3.ann_seq}</td>
+						<td>${notice.ann_seq}</td>
 						<!-- 공지사항 번호 -->
-						<td>${notice3.class_id}</td>
+						<td>${notice.class_id}</td>
 						<!-- 분류 ID -->
-						<td>${notice3.lib_id}</td>
+						<td>${notice.lib_id}</td>
 						<!-- 도서관 -->
 						<td><a
-							href="${pageContext.request.contextPath}/notice3?ann_seq=${notice3.ann_seq}">
-								${notice3.ann_title}</a></td>
+							href="notice3_${notice.ann_seq}">
+								${notice.ann_title}</a></td>
 						<!-- 제목 클릭하면 세부 정보로 이동 -->
-						<td>${notice3.ann_regi}</td>
+						<td>${notice.ann_regi}</td>
 						<!-- 등록일 -->
-						<td>${notice3.ann_check}</td>
+						<td>${notice.ann_check}</td>
 						<!-- 조회수 -->
-						<td>${notice3.ann_attach}</td>
+						<td>${notice.ann_attach}</td>
 						<!-- 첨부파일 -->
 						<td>
-							<form action="${pageContext.request.contextPath}/notice/delete"
-								method="post">
-								<input type="hidden" name="ann_seq" value="${notice3.ann_seq}" />
+							<form action="${pageContext.request.contextPath}/notice2" method="post" onsubmit="return confirm('정말로  삭제하시겠습니까?');">
+								<input type="hidden" name="ann_seq" value="${notice.ann_seq}" />
 								<button type="submit">삭제</button>
 							</form>
 						</td>
 						<td>
-							<form action="${pageContext.request.contextPath}/notice/update"
-								method="post">
-								<input type="hidden" name="ann_seq" value="${notice3.ann_seq}" />
+							<form action="${pageContext.request.contextPath}/notice2"" method="post" onsubmit="return confirm('정말로  수정하시겠습니까?');">
+								<input type="hidden" name="ann_seq" value="${notice.ann_seq}" />
 								<button type="submit">수정</button>
 							</form>
 						</td>

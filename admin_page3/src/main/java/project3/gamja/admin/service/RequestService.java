@@ -40,6 +40,36 @@ public class RequestService {
 		return map;
 	}
 	
+	public int reqUpdate(RequestDTO reqDTO) {
+		int result = 0;
+		
+		int[] lr_seqs = reqDTO.getLr_seqs();
+		int[] lr_counts = reqDTO.getLr_counts();
+		
+		for(int i = 0; i < lr_seqs.length; i++) {
+			reqDTO.setLr_seq(lr_seqs[i]);
+			reqDTO.setLr_count(lr_counts[i]);
+			
+			result = reDAO.reqUpdate(reqDTO);
+		}
+		
+		return result;
+	}
+	
+	public int reqOrder(RequestDTO reqDTO) {
+		int result = 0;
+		
+		int[] lr_seqs = reqDTO.getLr_seqs();
+		
+		for(int i = 0; i < lr_seqs.length; i++) {
+			reqDTO.setLr_seq(lr_seqs[i]);
+			
+			result = reDAO.reqOrder(reqDTO);
+		}
+		
+		return result;
+	}
+	
 	// 도서 신청 현황
 	public Map selectApply(int count, int pageNo) {
 		// 시작 번호 : 이전 페이지까지 보여준 것 바로 다음 것

@@ -29,5 +29,11 @@ public interface PfworkDAO {
 	
 	// 주문현황 delete
 	int deletepf(MesPfworkDTO pfDTO);
+	
+	// 주문현황 -> 작업지시서 insert
+	int pfinsertwo(MesPfworkDTO pfDTO);
+	
+	// 작업지시서 생성버튼시 update
+	int pfupdatepf(MesPfworkDTO pfDTO);
 
 }

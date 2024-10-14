@@ -67,6 +67,9 @@ public class WorkorderController {
         	   woService.updatewo(dto);
         	   System.out.println(dto.getWo_count());
            }
+           if("배송공정".equals(dto.getWo_process())) {
+        	   woService.updatewopro(dto);
+           }
            
        } catch (Exception e) {
            // 예외 발생 시 에러 로그 출력

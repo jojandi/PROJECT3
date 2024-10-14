@@ -14,6 +14,7 @@ public class NotiService {
     @Autowired
     NotiDAO notiDAO;
 
+    // 공지사항 목록 조회 
     public List<NotiDTO> selectAnnouncement() {
         return notiDAO.selectAnnouncement();
     }
@@ -32,6 +33,11 @@ public class NotiService {
 
     public int deleteNotice(int noticeId) {
         return notiDAO.deleteNotice(noticeId);
+    }
+    
+    // 공지사항  추사 인서트 
+    public int insertNotice(NotiDTO dto) {
+    	return notiDAO.insertAnnouncement(dto);
     }
 }
 
