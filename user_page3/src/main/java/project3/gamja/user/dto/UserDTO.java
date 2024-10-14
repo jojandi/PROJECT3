@@ -9,15 +9,12 @@ public class UserDTO {
 	private String user_name;
 	private java.sql.Date user_birth; 
 	private String user_tel;
-<<<<<<< HEAD
 	private String user_addr1;
 	private String user_addr2;
 	private String user_email;
 
-=======
 	private String user_addr;
 	private String user_addr_info;
->>>>>>> 99514aeaa3acebd22998b019e0a66853c3ba197c
 	private String user_email1;
 	private String user_email2;
 	private String user_sub;
@@ -25,10 +22,7 @@ public class UserDTO {
 	private String user_over;
 	private int user_loan;
 	private String user_admin;
-<<<<<<< HEAD
-=======
-	private String user_email;
->>>>>>> 99514aeaa3acebd22998b019e0a66853c3ba197c
+
 	public int getLike_id() {
 		return like_id;
 	}
@@ -119,7 +113,6 @@ public class UserDTO {
 	public void setUser_pass(java.sql.Date user_pass) {
 		this.user_pass = user_pass;
 	}
-<<<<<<< HEAD
 	public String getUser_over() {
 		return user_over;
 	}
@@ -148,7 +141,6 @@ public class UserDTO {
 				+ user_admin + "]";
 	}
 
-=======
 	public boolean isUser_over() {
 		return user_over;
 	}
@@ -174,7 +166,4 @@ public class UserDTO {
 		this.user_email = user_email;
 	}
 
-	
-	
->>>>>>> 99514aeaa3acebd22998b019e0a66853c3ba197c
 }
