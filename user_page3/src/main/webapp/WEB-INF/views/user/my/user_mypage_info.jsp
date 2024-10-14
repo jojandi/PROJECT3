@@ -158,20 +158,9 @@
                             <tr>
                                 <td class="center">이메일</td>
                                 <td>
-                                	<% 
-	                            		String email = dto.getUser_email();
-                                		System.out.println("이메일 : " + email);
-                                		String[] emailArr = email.split("@");
-                                		
-                                		System.out.println("이메일 : " + emailArr[0]);
-                                		System.out.println("이메일 : " + emailArr[1]);
-                                		
-                                		String mail = emailArr[0];
-                                		String domain = emailArr[1];
-                                	%>
-                                    <input class="email-input" type="text" value=<%=mail%> id="email-user" name="user_email1">
+                                    <input class="email-input" type="text" value="${login.user_email}" id="email-user" name="user_email1">
 									<span class="email-domain">@</span>
-									<input class="email-input" type="text" value=<%=domain%> id="email-domain" name="user_email2">
+									<input class="email-input" type="text" value="${login.domail}" id="email-domain" name="user_email2">
                                 </td>
                             </tr>
                             <tr>

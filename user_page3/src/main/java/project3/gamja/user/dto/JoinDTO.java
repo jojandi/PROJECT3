@@ -20,6 +20,33 @@ public class JoinDTO {
 	private String user_admin;
 	
 	
+	public String getUser_addr() {
+		return user_addr;
+	}
+	public void setUser_addr(String user_addr) {
+		this.user_addr = user_addr;
+	}
+	public String getUser_addr_info() {
+		return user_addr_info;
+	}
+	public void setUser_addr_info(String user_addr_info) {
+		this.user_addr_info = user_addr_info;
+	}
+	public String getDomain() {
+		return domain;
+	}
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+	public String getUser_sub() {
+		return user_sub;
+	}
+	public String getUser_over() {
+		return user_over;
+	}
+	public String getUser_admin() {
+		return user_admin;
+	}
 	public String isUser_over() {
 		return user_over;
 	}
