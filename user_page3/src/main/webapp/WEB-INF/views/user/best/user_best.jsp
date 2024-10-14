@@ -123,6 +123,18 @@
 					}
 				}
 	            
+	         	// 전화번호 변환 함수
+	            function formatNum(call) {
+	            	// call이 문자열인지 확인하고, 그렇지 않으면 문자열로 변환
+	                if (typeof call !== 'string') {
+	                    call = String(call);
+	                }
+	                const call1 = call.substring(0, 2); 
+	                const call2 = call.substring(2, 5);
+	                const call3 = call.substring(5, 9);
+	                return "0" + call1 + "-" + call2 + "-" + call3;
+	            }
+	            
 	         	// 재고현황 클릭 이벤트
 	           	const invenBnt = document.querySelectorAll(".invenBnt"); // 재고현황 버튼
 				function invenOn(){
@@ -142,6 +154,10 @@
 				            		let invenContent = '';
 				            		result = JSON.parse(result);
 					            	result.forEach(lib => { // 아작스에서 받아온 결과를 토대로 html 생성
+					            		
+					            		const num = formatNum(lib.lib_call)
+					            		console.log(num)
+					            		
 					                    invenContent += `
 					                    	<div class="invenLibrary">
 						                        <div class="library">\${lib.lib_name}</div>
@@ -151,7 +167,7 @@
 						                        </div>
 						                        <div class="call">
 						                            <span class="material-symbols-outlined">call</span>
-						                            \${lib.lib_call}
+						                            \${num}
 						                        </div>
 						                        <div class="realInven">재고 <span>\${lib.count}</span> 권</div>
 						                    </div>
@@ -163,6 +179,7 @@
 					                $('#invenModal').modal('show');
 				            	}catch(e){
 									console.log("josn 아님");
+									console.log(e);
 								}
 				            }, "post")
 				            
@@ -180,13 +197,16 @@
 				            const bookISBN = this.getAttribute('data-isbn'); // data-isbn 속성에서 ISBN 값 가져오기				            
 				            console.log("bookISBN :", bookISBN);
 				            const data = {
-				            		'bookISBN' : bookISBN
+				            		'book_ISBN' : bookISBN
 				            };
 				            
 				            ajax("bestInven", data, function(result){
-				            	let content = '';
+				            	let invenContent = '';
 			            		result = JSON.parse(result);
 				            	result.forEach(lib => { // 아작스에서 받아온 결과를 토대로 html 생성
+				            		
+				            		const num = formatNum(lib.lib_call)
+				            		
 				                    invenContent += `
 				                    	<div class="invenLibrary">
 						                    	<div class="library_">
@@ -197,23 +217,22 @@
 					                            </div>
 					                            <div class="call">
 					                                <span class="material-symbols-outlined">call</span>
-					                                \${lib.lib_add}													
+					                                \${num}													
 					                            </div>
-					                            <div class="realInven">재고 <span>${lib.count}</span> 권</div>
+					                            <div class="realInven">재고 <span>\${lib.count}</span> 권</div>
 					                        </div>
 					
 					                        <div class="btnbox">
-					                        	<c:if test="\${lib.count == 0 or empty list.count}">
+					                        	\${lib.count == 0 ? `
 					                        		<input type="button" class="noneReserBnt" value="예약">
-					                        	</c:if>
-					                        	<c:if test="\${lib.count > 0}">
+					                        	` : `
 						                        	<form action="bestRes" method="post">
 						                        		<input type="hidden" name="user_seq" value="\${login.user_seq}" class="user">
-						                        		<input type="hidden" name="book_code" value="\${list.book_code}">
+						                        		<input type="hidden" name="book_code" value="\${lib.book_code}">
 						                        		<input type="hidden" name="lib_id" value="\${lib.lib_id}">
 							                            <input type="submit" class="realReserBnt" value="예약">
 						                        	</form>
-					                        	</c:if>
+						                        `}
 					                        </div>
 				                        </div>
 				                    `;
