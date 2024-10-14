@@ -99,3 +99,7 @@ span{
     box-sizing: border-box;
 
 }
+#username-message, #password-message {
+    display: none;
+    color: red;
+}

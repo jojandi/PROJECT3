@@ -9,7 +9,6 @@
 		FROM tbl_user 
 		WHERE
 			user_id = #{user_id}
-			AND user_pw = #{user_pw}
 			AND user_admin='N'
 	</select>
 	<select id="selectLoginAdmin" resultType="userDTO"  parameterType="userDTO" >
@@ -17,15 +16,14 @@
 		FROM tbl_user 
 		WHERE
 			user_id = #{user_id}
-			AND user_pw = #{user_pw}
 			AND user_admin='Y'
 	</select>
+	
 	<select id="selectLoginMes" resultType="userDTO"  parameterType="userDTO" >
 		SELECT *
 		FROM tbl_user 
 		WHERE
 			user_id = #{user_id}
-			AND user_pw = #{user_pw}
 			AND user_admin='M'
 	</select>
 	
