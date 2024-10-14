@@ -73,16 +73,22 @@ public class NotiController {
     }
     
     
- // 공지사항 수정 컨트롤러
-//    @RequestMapping(value = "", method = RequestMethod.PUT)
-//    @ResponseBody
-//    public String updateNotice(@RequestBody NotiDTO notiDTO) {
-//        System.out.println("수정 확인");
-//        int update = notiService.updateNotice(notiDTO);
-//        System.out.println("수정 : " + update);
-//
-//        return "notice2";
-//    }
+ // 공지사항 수정 요청을 처리하는 메소드 (PUT 메서드)
+    @RequestMapping(value = "/notice2", method = RequestMethod.PUT)
+    @ResponseBody
+    public int updateNotice(@RequestBody NotiDTO notiDTO) {
+        int result = -1;
+
+        try {
+            // 공지사항 수정 로직 호출
+            result = notiService.updateNotice(notiDTO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("수정 결과 : " + result);
+
+        return result;
+    }
 			
 	
 
