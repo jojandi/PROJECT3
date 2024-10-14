@@ -54,12 +54,12 @@ public class NotiController {
 		return "redirect:/notice2";
 	}
 
-	// 공지사항 업데이트 (noticeDTO의 데이터를 받아서 업데이트)
-	@RequestMapping(value = "/notice2", method = RequestMethod.POST)
-	public String updateNotice(NotiDTO dto) {
-		notiService.updateNotice(dto);
-		return "redirect:/notice2";
-	}
+//	// 공지사항 업데이트 (noticeDTO의 데이터를 받아서 업데이트)
+//	@RequestMapping(value = "/notice2", method = RequestMethod.POST)
+//	public String updateNotice(NotiDTO dto) {
+//		notiService.updateNotice(dto);
+//		return "redirect:/notice2";
+//	}
 	
 	//@RequestMapping 경로설정
     @RequestMapping(value = "/notice2", method = RequestMethod.DELETE)
@@ -71,6 +71,18 @@ public class NotiController {
     	
         return delete;
     }
+    
+    
+ // 공지사항 수정 컨트롤러
+//    @RequestMapping(value = "", method = RequestMethod.PUT)
+//    @ResponseBody
+//    public String updateNotice(@RequestBody NotiDTO notiDTO) {
+//        System.out.println("수정 확인");
+//        int update = notiService.updateNotice(notiDTO);
+//        System.out.println("수정 : " + update);
+//
+//        return "notice2";
+//    }
 			
 	
 

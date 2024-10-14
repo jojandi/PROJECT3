@@ -6,9 +6,9 @@
 
 	<insert id="insertJoin" parameterType="joinDTO">
 		INSERT into tbl_user
-		    (user_seq, user_name, user_birth, user_id, user_pw, user_tel, user_addr, user_addr_info, user_email, like_id, user_sub, user_admin)
+		    (user_seq, user_name, user_birth, user_id, user_pw, user_tel, user_addr, user_addr_info, user_email, like_id, user_sub, user_admin, domain)
 		VALUES 
-		    (user_seq.nextval, #{user_name}, #{user_birth}, #{user_id}, #{user_pw}, #{user_tel}, #{user_addr}, #{user_addr_info}, #{user_email}, #{like_id}, 'N', 'N')
+		    (user_seq.nextval, #{user_name}, #{user_birth}, #{user_id}, #{user_pw}, #{user_tel}, #{user_addr}, #{user_addr_info}, #{user_email}, #{like_id}, 'N', 'N', #{domain})
 
 	</insert>
 

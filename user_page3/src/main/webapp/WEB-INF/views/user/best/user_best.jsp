@@ -9,12 +9,15 @@
 <head>
 <meta charset="UTF-8">
 <title>베스트 도서</title>
-<link href="./assets/css/best/user_best.css" rel="stylesheet">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+	a:hover { color: inherit; text-decoration: none; }
+</style>
+<link href="./assets/css/best/user_best.css" rel="stylesheet">
 </head>
 <body>
 	<div id="wrap">
@@ -35,7 +38,7 @@
 	                        	<c:if test="${not empty login.user_seq}">
 		                        	<form method="post" action="bestCart">
 			                        	<input type="hidden" name="book_code" value="${list.book_code}" class="code">
-			                        	<input type="hidden" name="user" value="${login.user_seq}" class="user">
+			                        	<input type="hidden" name="user_seq" value="${login.user_seq}" class="user">
 			                            <input type="submit" class="cartBnt" value="장바구니">
 		                        	</form>
 	                        	</c:if>
@@ -148,7 +151,7 @@
 				            		'book_ISBN' : bookISBN
 				            };
 				            
-				            ajax("bestInven", data, function(result){
+				            ajax("cartInven", data, function(result){
 				            	console.log(result)
 				            	try{
 				            		let invenContent = '';

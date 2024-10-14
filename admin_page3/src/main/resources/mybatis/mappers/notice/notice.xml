@@ -33,6 +33,7 @@
         ann_Title,
         ann_Regi,
         ann_Check,
+        ann_detail,
         lib_id
         ) VALUES(
         #{class_id},
@@ -40,6 +41,7 @@
         #{ann_title},
         #{ann_regi},
         #{ann_check},
+        #{ann_detail},
         #{lib_id}
         )
     </insert>

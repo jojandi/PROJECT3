@@ -23,6 +23,7 @@ public interface MyDAO {
 	
 	// 장바구니
 	List<CartDTO> selectCart(int user_seq);
+	List<CartDTO> selectLibCount(CartDTO cartDTO);
 	int insertAllCart(LoanDTO loanDTO);
 	int deleteChkCart(CartDTO cartDTO);
 	int updateInvenRes(LoanDTO loanDTO);
