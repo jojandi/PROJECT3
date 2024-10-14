@@ -60,7 +60,7 @@
 
 				<c:if test="${login.user_seq != null}">
 	                <div id="top_box">
-		                <form method="post" action="sub">
+		                <form method="post" action="bookflix_sub">
 		                	<input type="hidden" name="seq" value="${login.user_seq}">
 		                    <input type="submit" value="구독 서비스 신청하기" id="fixed-button">
 		                </form>

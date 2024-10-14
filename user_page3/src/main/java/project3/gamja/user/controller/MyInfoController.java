@@ -33,7 +33,7 @@ public class MyInfoController {
 	@RequestMapping(value="/infoEdit", method=RequestMethod.POST)
 	public String reschk(Model model, UserDTO userDTO) {
 		
-		String email = userDTO.getUser_email1() + userDTO.getUser_email2();
+		String email = userDTO.getUser_email() + userDTO.getDomain();
 		
 		userDTO.setUser_email(email);
 		System.out.println("이메일 : " + email);

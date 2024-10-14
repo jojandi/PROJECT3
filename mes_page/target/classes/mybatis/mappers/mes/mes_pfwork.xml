@@ -73,7 +73,7 @@
 	
 	<!-- 주문현황 bom_code만 select -->
 	<select id="selectBom" resultType="pfworkDTO">
-		SELECT bom_code FROM bom
+		SELECT bom_code, bom_name FROM bom
 	</select>
 	
 	<!-- 주문현황 buser_seq만 select -->
@@ -84,7 +84,7 @@
 	<!-- 주문현황 insert -->
 	<insert id="insertpf" parameterType="pfworkDTO">
 		INSERT INTO orderstatus (os_id, bom_code, emp_id, os_date, buser_seq)
-		VALUES (os_seq.NEXTVAL, #{bom_code}, #{emp_id}, #{os_date}, #{buser_seq})
+		VALUES (os_seq.NEXTVAL, #{bom_code}, #{emp_id}, sysdate, #{buser_seq})
 	</insert>
 	
 	<update id="updatepf" parameterType="pfworkDTO">
