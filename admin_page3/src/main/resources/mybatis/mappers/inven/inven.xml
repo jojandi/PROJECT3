@@ -143,7 +143,7 @@
 	<insert id="inseResLoan" parameterType="loanResDTO">
 		INSERT INTO 
 			user_loan
-			(loan_seq, book_code, user_seq, loan_date, loan_ing, loan_ex, loan_overn, lib_id)
+			(loan_seq, book_code, user_seq, loan_date, loan_ing, loan_ex, loan_over, lib_id)
 		VALUES 
 			(user_loan_seq.nextval, #{book_code}, #{user_seq}, sysdate, 'Y', sysdate + 7, 'N', #{lib_id})
 	</insert>
