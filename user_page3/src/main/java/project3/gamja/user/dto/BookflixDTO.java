@@ -19,55 +19,6 @@ public class BookflixDTO {
 	private boolean user_sub;
 	private java.util.Date buser_date;
 	private java.util.Date buser_end;
-	
-	public int getBuser_seq() {
-		return buser_seq;
-	}
-	public void setBuser_seq(int buser_seq) {
-		this.buser_seq = buser_seq;
-	}
-	public java.util.Date getBuser_date() {
-		return buser_date;
-	}
-	public void setBuser_date(java.util.Date buser_date) {
-		this.buser_date = buser_date;
-	}
-	public java.util.Date getBuser_end() {
-		return buser_end;
-	}
-	public void setBuser_end(java.util.Date buser_end) {
-		this.buser_end = buser_end;
-	}
-	public String getLi_book_info() {
-		return li_book_info;
-	}
-	public void setLi_book_info(String li_book_info) {
-		this.li_book_info = li_book_info;
-	}
-	public int getLike_id() {
-		return like_id;
-	}
-	public void setLike_id(int like_id) {
-		this.like_id = like_id;
-	}
-	public int getUser_seq() {
-		return user_seq;
-	}
-	public void setUser_seq(int user_seq) {
-		this.user_seq = user_seq;
-	}
-	public String getUser_name() {
-		return user_name;
-	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
-	}
-	public boolean isUser_sub() {
-		return user_sub;
-	}
-	public void setUser_sub(boolean user_sub) {
-		this.user_sub = user_sub;
-	}
 	public long getBook_isbn() {
 		return book_isbn;
 	}
@@ -98,6 +49,12 @@ public class BookflixDTO {
 	public void setBook_img(String book_img) {
 		this.book_img = book_img;
 	}
+	public String getLi_book_info() {
+		return li_book_info;
+	}
+	public void setLi_book_info(String li_book_info) {
+		this.li_book_info = li_book_info;
+	}
 	public long getBom_code() {
 		return bom_code;
 	}
@@ -115,6 +72,48 @@ public class BookflixDTO {
 	}
 	public void setMes_book_code(long mes_book_code) {
 		this.mes_book_code = mes_book_code;
+	}
+	public int getLike_id() {
+		return like_id;
+	}
+	public void setLike_id(int like_id) {
+		this.like_id = like_id;
+	}
+	public int getUser_seq() {
+		return user_seq;
+	}
+	public void setUser_seq(int user_seq) {
+		this.user_seq = user_seq;
+	}
+	public int getBuser_seq() {
+		return buser_seq;
+	}
+	public void setBuser_seq(int buser_seq) {
+		this.buser_seq = buser_seq;
+	}
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+	public boolean isUser_sub() {
+		return user_sub;
+	}
+	public void setUser_sub(boolean user_sub) {
+		this.user_sub = user_sub;
+	}
+	public java.util.Date getBuser_date() {
+		return buser_date;
+	}
+	public void setBuser_date(java.util.Date buser_date) {
+		this.buser_date = buser_date;
+	}
+	public java.util.Date getBuser_end() {
+		return buser_end;
+	}
+	public void setBuser_end(java.util.Date buser_end) {
+		this.buser_end = buser_end;
 	}
 	@Override
 	public String toString() {
