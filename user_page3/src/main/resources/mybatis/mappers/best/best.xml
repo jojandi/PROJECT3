@@ -35,7 +35,7 @@
 	</select>
 	
 	<!-- 도서관별 재고 -->
-	<select id="selectLibCount" resultType="libraryDTO" parameterType="bestDTO">
+	<select id="selectLibCount" resultType="bestDTO" parameterType="bestDTO">
 		SELECT 
 		    b.book_name, b.book_author, b.book_pub, b.book_isbn, 
 		    MAX(CASE WHEN lb.book_loan = 'N' AND lb.book_res = 'N' THEN lb.book_code END) AS book_code, 
@@ -53,11 +53,6 @@
 		    b.book_name, b.book_author, b.book_pub, b.book_isbn, b.book_img, l.lib_id, l.lib_name,lb.li_book_info, l.lib_call, l.lib_add
 		ORDER BY 
 		    l.lib_id
-	</select>
-	
-	<!-- 도서관 정보 -->
-	<select id="selectLibrary" resultType="libraryDTO">
-		SELECT * FROM library
 	</select>
 	
 	<!-- 장바구니 담기 -->

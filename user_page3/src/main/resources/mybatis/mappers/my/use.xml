@@ -7,14 +7,15 @@
 	<select id="selectUseRes" resultType="loanDTO" parameterType="loanDTO">
 		SELECT * FROM (
 			SELECT 
-				rownum as rnum, book_code, res_id, res_day, res_pick, user_seq, book_name, res_ing  
+				rownum as rnum, book_code, res_id, res_day, res_pick, user_seq, book_name, res_ing, lib_name
 			FROM ( 
 				SELECT 
-					book_code, res_id, res_day, res_pick, user_seq, book_name, (res_pick - res_day) as res_ing  
+					book_code, res_id, res_day, res_pick, user_seq, book_name, (res_pick - res_day) as res_ing, l.lib_name
 				FROM
-					user_res 
+					user_res r
 				JOIN li_book USING(book_code) 
 				JOIN book USING(book_isbn) 
+                LEFT OUTER JOIN library l ON l.lib_id = r.lib_id
 				WHERE 
 					user_seq = #{user_seq}
 				ORDER BY 
@@ -38,13 +39,14 @@
 	<select id="selectUseLoan" resultType="loanDTO" parameterType="loanDTO">
 		SELECT * FROM( 
 			SELECT 
-				rownum as rnum, loan_seq, book_code, user_seq, book_name, loan_date, loan_ing, loan_return, loan_ex, isOver  
+				rownum as rnum, loan_seq, book_code, user_seq, book_name, loan_date, loan_ing, loan_return, loan_ex, isOver, lib_name
 		FROM (  
 			SELECT 
-				loan_seq, book_code, user_seq, book_name, loan_date, loan_ing, loan_return, loan_ex, (loan_ex - loan_return) as isOver 
-			FROM user_loan 
+				loan_seq, book_code, user_seq, book_name, loan_date, loan_ing, loan_return, loan_ex, (loan_ex - loan_return) as isOver, l.lib_name 
+			FROM user_loan u
 			JOIN li_book USING(book_code) 
 			JOIN book USING(book_isbn) 
+			LEFT OUTER JOIN library l ON l.lib_id = u.lib_id
 			WHERE 
 				user_seq = #{user_seq}
 			ORDER BY 
@@ -67,12 +69,14 @@
 	<!-- 이용내역 - 연체내역 -->
 	<select id="selectUseOver" resultType="loanDTO" parameterType="loanDTO">
 		SELECT * FROM( 
-			SELECT rownum as rnum, loan_seq, book_code, user_seq, book_name, loan_date, loan_return, over_date, user_pass 
+			SELECT rownum as rnum, loan_seq, book_code, user_seq, book_name, loan_date, loan_return, over_date, user_pass, lib_name
 			FROM ( 
 				SELECT loan_seq, book_code, user_seq, book_name, loan_date, loan_return, (loan_return - loan_ex) as over_date,
-					   loan_return + (loan_return - loan_ex) as user_pass 
-				FROM user_loan join li_book using(book_code) 
+					   loan_return + (loan_return - loan_ex) as user_pass, l.lib_name
+				FROM user_loan u
+				JOIN li_book USING(book_code) 
 				JOIN book USING(book_isbn) 
+				LEFT OUTER JOIN library l ON l.lib_id = u.lib_id
 				WHERE 
 					loan_return - loan_ex > 0 AND
 					user_seq = #{user_seq}

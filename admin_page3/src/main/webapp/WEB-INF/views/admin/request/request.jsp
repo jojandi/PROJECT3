@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>도서발주</title>
-<link href="./assets/css/inven/inven.css" rel="stylesheet">
+<link href="./assets/css/request/request.css" rel="stylesheet">
 <style>
 aside #items #i2 .material-symbols-outlined {
 	background: rgb(165, 224, 144);
@@ -27,10 +27,11 @@ aside #items #i2 .material-symbols-outlined {
 						<colgroup>
 							<col width="7%">
 							<col width="25%">
-							<col width="5%">
+							<col width="8%">
 							<col width="12%">
 							<col width="8%">
 							<col width="12%">
+							<col width="8%">
 							<col width="8%">
 						</colgroup>
 						<thead>
@@ -41,6 +42,7 @@ aside #items #i2 .material-symbols-outlined {
 								<th>출판사</th>
 								<th>도서관</th>
 								<th>발주일자</th>
+								<th>수량</th>
 								<th>상태</th>
 							</tr>
 						</thead>
@@ -53,6 +55,14 @@ aside #items #i2 .material-symbols-outlined {
 									<td>${list.app_pub}</td>
 									<td>${list.lib_name}</td>
 									<td>${list.lr_date}</td>
+									<c:if test="${empty list.lr_ing}">								
+										<td>
+											<input type="text" name="lr_count" data-lr_seq="${list.lr_seq}">
+										</td>
+									</c:if>
+									<c:if test="${not empty list.lr_ing}">								
+										<td>${list.lr_count}</td>
+									</c:if>
 									<c:if test="${empty list.lr_ing}">								
 										<td>-</td>
 									</c:if>
@@ -169,32 +179,37 @@ aside #items #i2 .material-symbols-outlined {
 		
 		// 발주 이벤트
 		document.querySelector("#applyReq").addEventListener('click', function(){
-			//jQuery로 for문 돌면서 check 된값 배열에 담는다
-		    let app_seqs = [];
-		    let lib_ids = [];
-		    $("input[name='check']:checked").each(function(i){   
-		    	app_seqs.push($(this).val());
+			//jQuery로 for문 돌면서 input type text의 value를 담는다
+		    let lr_count = []; // lib_request 테이블에 수량 인서트
+		    let lr_seq = []; // orderstatus 테이블에 인서트
+		    $("input[name='lr_count']").each(function(i){ 
+		    	console.log($(this), this);
+		    	lr_count.push($(this).val());
 		    });
 
-		    $("input[name='check']:checked").each(function(i){   
-		    	lib_ids.push($(this).attr('data-lib_id'));
+		    $("input[name='lr_count']").each(function(i){   
+		    	lr_seq.push($(this).attr('data-lr_seq'));
 		    });
 		    
-		    if(app_seqs.length <= 0){
-		    	alert("도서를 선택해주세요. "); 
+		    console.log(lr_count);
+		    console.log(lr_seq);
+		    
+		    if(lr_seq.length <= 0){
+		    	alert("발주할 도서가 없습니다. "); 
 		    } else{
-		    	console.log("발주 체크 :", app_seqs);
+		    	console.log("발주 수량 :", lr_count);
+		    	console.log("발주 번호 :", lr_seq);
 			    
 			    data = {
-			    		"checks" : app_seqs,
-			    		"lib_ids" : lib_ids
+			    		"lr_counts" : lr_count,
+			    		"lr_seqs" : lr_seq
 			    }
 			    
-			    ajax("applyReq", data, function(result){
+			    ajax("reqOrder", data, function(result){
 			    	console.log(result);
 			    	if(result > 0){
 			    		alert("완료되었습니다. ");
-			    		location.href="apply";
+			    		location.href="request";
 			    	} else{
 			    		alert("다시 시도해주세요. ");
 			    	}

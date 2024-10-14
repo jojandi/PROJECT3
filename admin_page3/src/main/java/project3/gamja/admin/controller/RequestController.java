@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import project3.gamja.admin.dto.ApplyDTO;
+import project3.gamja.admin.dto.RequestDTO;
 import project3.gamja.admin.service.RequestService;
 
 @Controller
@@ -19,6 +20,7 @@ public class RequestController {
 	@Autowired
 	RequestService reService;
 	
+	///////////////////////////// 도서 발주 /////////////////////////////
 	@RequestMapping("request")
 	public String request(Model model, Integer seq, Integer count, Integer pageNo) {
 		// 페이징 기본값 설정
@@ -32,6 +34,27 @@ public class RequestController {
 		model.addAttribute("page", pageNo);
 		
 		return "request";
+	}
+	
+	// 신청 내역 발주로 이동
+	@RequestMapping(value="reqOrder", method=RequestMethod.POST)
+	@ResponseBody
+	public int reqOrder(@RequestBody RequestDTO requestDTO) {
+		int[] lr_seqs = requestDTO.getLr_seqs();
+		int[] lr_counts = requestDTO.getLr_counts();
+		for(int check : lr_seqs) {
+			System.out.println("발주번호 : " + check);
+		}
+		for(int lib_id : lr_counts) {
+			System.out.println("발주수량 : " + lib_id);
+		}
+		
+		int update = reService.reqUpdate(requestDTO); // 발주에 수량 update
+		int result = reService.reqOrder(requestDTO); // 발주 -> mes 주문현황
+		System.out.println("수량 update : " + update);
+		System.out.println("발주 -> mes 주문현황 : " + result);
+		
+		return result;
 	}
 	
 	///////////////////////////// 도서 신청 내역 /////////////////////////////

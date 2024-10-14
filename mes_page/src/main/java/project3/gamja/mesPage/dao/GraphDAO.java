@@ -16,4 +16,12 @@ public interface GraphDAO {
 
     // 도서출고통계 그래프
     List<MesGraphDTO> getStatisticsByGenre(@Param("year") int year, @Param("month") int month);
+
+    List<MesGraphDTO> selectAll_demand();
+    // 도서수요통계 그래프
+    List<MesGraphDTO> getStatisticsByGenreForDemand(@Param("year") int year, @Param("month") int month);
+   
+    List<MesGraphDTO> selectAll_total();
+    // 도서수요예측통계 그래프
+    List<MesGraphDTO> getForecastData(@Param("year") int year, @Param("month") int month);
 }

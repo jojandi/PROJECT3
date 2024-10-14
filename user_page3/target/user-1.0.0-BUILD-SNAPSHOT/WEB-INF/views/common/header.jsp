@@ -18,11 +18,12 @@
                	<a href="bookflix_info" class="item" id="i0">북플릭스</a>
                </c:if>
            	<c:if test="${ login.user_sub == true }">
-               	<a href="bookflix_use?seq=${login.user_seq}" class="item" id="i0">북플릭스</a>
+               	<a href="bookflix_user?seq=${login.user_seq}" class="item" id="i0">북플릭스</a>
                </c:if>
            	<c:if test="${ login.user_sub == false }">
                	<a href="bookflix_info" class="item" id="i0">북플릭스</a>
                </c:if>
+               <a href="user_libraryInfo?lib_id=7000" class="item" id="i20">도서관 정보</a>
                <a href="best" class="item" id="i2">베스트</a>
                <a href="notice" class="item" id="i3">정보광장</a>
               	<a href="res?seq=${ login.user_seq }" class="item" id="i4">마이페이지</a>

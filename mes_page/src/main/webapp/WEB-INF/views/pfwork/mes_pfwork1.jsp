@@ -39,7 +39,6 @@
 								<th>제품명</th>
 								<th>회원ID</th>
 								<th>주문날짜</th>
-								<th>담당자</th>
 								<th>상태</th>
 							</tr>
 						</thead>
@@ -47,20 +46,89 @@
 							<c:forEach var="work" items="${ map.list }">
 								<tr>
 									<td class="sortable">${ work.os_id }</td>
-									<td>${ work.bom_name }</td>
-									<td>${ work.user_id }</td>
+									<c:if test="${ work.bom_name eq null }">
+										<td>${ work.app_book }</td>
+									</c:if>
+									<c:if test="${ work.bom_name != null }">
+										<td>${ work.bom_name }</td>
+									</c:if>
+									<c:if test="${ work.bom_name eq null }">
+										<td>${ work.lib_name }</td>
+									</c:if>
+									<c:if test="${ work.bom_name != null }">
+										<td>${ work.user_id }</td>
+									</c:if>
 									<td>${ work.os_date }</td>
-									<td>${ work.emp_name }</td>
-									<td>진행중</td>
+									<td id="createwo">
+										<form method="post" action="pfinsertwo">
+											<input type="hidden" name="lib_id" value="${work.lib_id }">
+											<input type="hidden" name="lr_count" value="${work.lr_count }"> 
+											<input type="hidden" name="os_id" value="${work.os_id }">
+											<c:if test="${empty work.os_status }">
+												<input type="submit" value="작업지시서 생성">
+											</c:if>
+											<c:if test="${not empty work.os_status }">
+												${work.os_status }
+											</c:if>
+										</form>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 				</div>
+				<br>
+				<div id="pfworkpush">
+						<input type="button" id="addpf" value="주문추가">
+					</div>
 			</div>
 		</div>
 	</section>
 	
+	<!-- //////////////////////////// 첫번째 모달 ////////////////////////////////////// -->
+	<div id="modal_2" class="modal_2">
+		<div class="close_2">
+			<span class="material-symbols-outlined"> close </span>
+		</div>
+		<div class="modal-content_2">
+			<div id="daylist_2"></div>
+			<div id="modal-content-divs_2">
+				<h2>&lt;주문추가&gt;</h2>
+				<div class="modal-div_">
+					<span class="red">*</span> 필수
+				</div>
+				<form method="post" action="pfwork_insert">
+					<div id="table">
+						<table>
+							<tr class="modal-div_2">
+								<td><span class="red">*</span> <span class="modal-item">제품명</span>
+								</td>
+								<td><select name="bom_code">
+										<c:forEach var="code" items="${bom_code}">
+											<option value="${code.bom_code}">${code.bom_name}</option>
+										</c:forEach>
+								</select></td>
+							</tr>
+							<tr class="modal-div_2">
+								<td><span class="red">*</span> <span class="modal-item">회원ID</span>
+								</td>
+								<td><select name="buser_seq">
+										<c:forEach var="code" items="${buser_seq}">
+											<option value="${code.buser_seq}">${code.buser_seq}</option>
+										</c:forEach>
+								</select></td>
+							</tr>
+						</table>
+					</div>
+					<div class="modal-div_3" style="text-align: right;">
+						<input class="inpa" type="submit" value="생성">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- //////////////////////////// 첫번째 모달 ////////////////////////////////////// -->
+
 	<!-- script -->
 	<script src="./assets/js/mes_pfwork.js"></script>
 

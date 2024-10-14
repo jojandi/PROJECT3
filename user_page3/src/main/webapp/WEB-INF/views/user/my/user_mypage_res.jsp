@@ -36,6 +36,7 @@
                 <table>
                 	<colgroup>
 					    <col width="30%"/>
+					    <col width="10%"/>
 					    <col width="15%"/>
 					    <col width="15%"/>
 					    <col width="10%"/>
@@ -44,6 +45,7 @@
                     <thead> 
                         <tr>
                             <td class="bnameall">도서명</td>
+                            <td>도서관</td>
                             <td class="day1">예약일자</td>
                             <td class="day1">픽업일자</td>
                             <td>예약번호</td>
@@ -55,6 +57,7 @@
                        	<c:forEach var="list" items="${map.list}">
 	                       <tr>
 	                            <td class="bname">${list.book_name}</td>
+	                            <td>${list.lib_name}</td>
 	                            <td>${list.res_day}</td>
 	                            <td>
 	                            	<c:if test="${list.res_pick != null}">

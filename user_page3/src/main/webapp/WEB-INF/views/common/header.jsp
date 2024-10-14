@@ -18,7 +18,7 @@
                	<a href="bookflix_info" class="item" id="i0">북플릭스</a>
                </c:if>
            	<c:if test="${ login.user_sub == true }">
-               	<a href="bookflix_use?seq=${login.user_seq}" class="item" id="i0">북플릭스</a>
+               	<a href="bookflix_user?seq=${login.user_seq}" class="item" id="i0">북플릭스</a>
                </c:if>
            	<c:if test="${ login.user_sub == false }">
                	<a href="bookflix_info" class="item" id="i0">북플릭스</a>
@@ -31,7 +31,9 @@
            
 			<c:if test="${ not empty login }">
 				<div class="right" id="userall">
-					<span class="inb" id="user">${ login.user_name }님</span>
+					<a href="logout">
+						<span class="inb" id="user">${ login.user_name }님</span>
+					</a>
 	                <span class="material-symbols-outlined">person</span>
 				</div>
 			</c:if>

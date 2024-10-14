@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-				<%-- <c:if test="${ login.user_sub == true }"> --%>
+				<c:if test="${ login.user_sub == true }">
 	               <div id="booksub">
 	                   <div id="booklogo">
 	                       <img src="./assets/img/bookflix.png">
@@ -67,7 +67,7 @@
 	                   </div>
 	                  
 	               </div>
-                <%-- </c:if> --%>
+                </c:if>
 
                 <!-- 정보수정 -->
                 <div id="infoedit">
@@ -146,34 +146,21 @@
                                 	UserDTO dto = (UserDTO)session.getAttribute("login");
                                		String tel = dto.getUser_tel();
                                		System.out.println("전화번호 : " + tel);
-                               		String[] telArr = tel.split("-");
                                		
-                               		System.out.println("전화번호 : " + telArr[0]);
-                               		System.out.println("전화번호 : " + telArr[1]);
-                               		System.out.println("전화번호 : " + telArr[2]);
-                               		
-                               		String num = telArr[0] + telArr[1] + telArr[2];
+                               		String call1 = tel.substring(0, 2);
+							        String call2 = tel.substring(2, 6);
+							        String call3 = tel.substring(6, 10);
+							        String num = 0 + call1 + "-" + call2  + "-" +  call3;
                                 	%>
-                                    <input type="number" id=tel name="user_tel" placeholder="숫자만 입력해주세요. " value="<%=num%>">
+                                    <input type="text" id=tel name="user_tel" placeholder="숫자만 입력해주세요. " value="<%=num%>">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="center">이메일</td>
                                 <td>
-                                	<% 
-	                            		String email = dto.getUser_email();
-                                		System.out.println("이메일 : " + email);
-                                		String[] emailArr = email.split("@");
-                                		
-                                		System.out.println("이메일 : " + emailArr[0]);
-                                		System.out.println("이메일 : " + emailArr[1]);
-                                		
-                                		String mail = emailArr[0];
-                                		String domain = emailArr[1];
-                                	%>
-                                    <input class="email-input" type="text" value=<%=mail%> id="email-user" name="user_email1">
+                                    <input class="email-input" type="text" value="${login.user_email}" id="email-user" name="user_email1">
 									<span class="email-domain">@</span>
-									<input class="email-input" type="text" value=<%=domain%> id="email-domain" name="user_email2">
+									<input class="email-input" type="text" value="${login.domain}" id="email-domain" name="user_email2">
                                 </td>
                             </tr>
                             <tr>
@@ -183,8 +170,8 @@
                                     	<input type="text" id="addressnum" name="addressnum" placeholder="우편번호">
 										<input type="button" value="검색" onclick="execDaumPostcode()">
 									</div>
-									<input type="text" id="address" name="user_addr1" value="${ login.user_addr1 }">
-									<input type="text" id="addressinfo" name="addressinfo" value="${ login.user_addr2 }">
+									<input type="text" id="address" name="user_addr1" value="${ login.user_addr }">
+									<input type="text" id="addressinfo" name="addressinfo" value="${ login.user_addr_info }">
                                 </td>
                             </tr>
                             <tr>
@@ -224,14 +211,19 @@
         </section>
         
         <script>
+	        window.addEventListener("load",function(){
+	        	likeSet();
+	        })
+	        
 	        function likeSet(){
 	            let ri = [];
-	            ri = document.getElementsByName("like");
-	            let like = '${ login.like_id }';
-	            console.log("like" + like);
+	            ri = document.getElementsByName("like_id");
+	            const like = '${ login.like_id }';
+	            console.log(ri);
+	            console.log("like : ", like);
 	
 	            for(let i = 1; i < ri.length; i++){
-	                if(like == (i)){
+	                if(like == i){
 	                    console.log(ri[i-1]);
 	                    ri[i-1].setAttribute("checked","checked");
 	                }
@@ -255,6 +247,6 @@
 		        }).open();
 		    }
 		</script>
-        <script src="../assets/js/my/mypage_info.js"></script>
+        <script src="./assets/js/my/mypage_info.js"></script>
 </body>
 </html>

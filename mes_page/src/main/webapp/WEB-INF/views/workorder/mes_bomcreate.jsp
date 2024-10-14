@@ -1,40 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="java.util.*"%>
-       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
 <link href="./assets/css/admin_table.css" rel="stylesheet">
-    <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
-    <link href="./assets/css/admin.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="./assets/js/click.js"></script>
-    <link href="./assets/css/mes_workorder.css" rel="stylesheet">
-    <link href="./assets/css/click.css" rel="stylesheet">
+<link href="./assets/css/00.user_side_base.css" rel="stylesheet">
+<link href="./assets/css/admin.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="./assets/js/click.js"></script>
+<link href="./assets/css/mes_workorder.css" rel="stylesheet">
+<link href="./assets/css/click.css" rel="stylesheet">
 </head>
 <body>
-	
-		<aside class="clearfix" id="side">
-            <div id="sideleft">
-                <h2 id="title">생산 관리</h2>
-                <div id="items">
-                    <a href="workorder"><div class="item" id="i1">
-                        <span>작업지시서</span>
-                        <span class="material-symbols-outlined">arrow_forward_ios</span>
-                    </div></a>
-                    <a href="bom"><div class="item" id="i2">
-                        <span>BOM</span>
-                        <span class="material-symbols-outlined active">arrow_forward_ios</span>
-                    </div></a>
-                </div>
-            </div>
-        </aside>
 		<section>
 			<div class="main_page" id="main_page_1">
 				<h3>BOM 생성</h3>
@@ -59,7 +43,6 @@
 								 <c:forEach var="dto" items="${list}">
 				                <tr>
 				                    <td><input type="checkbox" class="bom_checkbox"></td>				                     
-									<td>${dto.mes_book_code}</td>
 									<td id = "book_code">${dto.mes_book_code}</td>
 									<td>${dto.book_name}</td>
 				                    <td>${dto.book_isbn}</td>
@@ -98,20 +81,20 @@
                 </div>
 	            <div id="table">
                 	
-                	 <form id="bomForm" action="register" method="post">
-		                <input type="hidden" name="mes_book_code1" id="mes_book_code1">
-		                <input type="hidden" name="mes_book_code2" id="mes_book_code2">
-		                <input type="hidden" name="mes_book_code3" id="mes_book_code3">
-		                <p>
-		                    <label for="bom_code">BOM 코드:</label>
-		                    <input type="text" id="bomCode" name="bom_code" required>
-		                </p>
-		                <p>
-		                    <label for="bom_name">BOM 이름:</label>
-		                    <input type="text" id="bomName" name="bom_name" required>
-		                </p>
-		                <button type="submit">등록</button>
-            		</form>
+                	<form id="bomForm" action="insertBom" method="post">
+				    <input type="hidden" name="mes_book_code1" id="mes_book_code1">
+				    <input type="hidden" name="mes_book_code2" id="mes_book_code2">
+				    <input type="hidden" name="mes_book_code3" id="mes_book_code3">
+				    <p>
+				        <label for="bom_code">BOM 코드입력: </label>
+				        <input type="text" id="bomCode" name="bom_code" required>
+				    </p>
+				    <p>
+				        <label for="bom_name">BOM 이름입력:</label>
+				        <input type="text" id="bomName" name="bom_name" required>
+				    </p>
+				    <button type="submit">등록</button>
+					</form>
                 </div>
                
             </div>

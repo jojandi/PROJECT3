@@ -4,6 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project3.gamja.user.dao.BestDAO">
 	
+	<!-- 베스트 도서 5권 select -->
 	<select id="selectBest" resultType="bestDTO">
 		WITH RandomBooks AS (
 			SELECT 
@@ -22,9 +23,7 @@
 					MAX(
 						CASE WHEN book_loan = 'N'  and book_res = 'N' AND rn = 1 THEN book_code END
 					) AS book_code,
-					COUNT(
-						CASE WHEN book_loan = 'N' AND book_res = 'N' THEN book_code END
-					) AS count, book_img, li_book_info
+					book_img, li_book_info
 				FROM 
 					RandomBooks b
 				GROUP BY 
@@ -35,9 +34,25 @@
 		WHERE rownum <![CDATA[ <= ]]> 5
 	</select>
 	
-	<!-- 도서관 정보 -->
-	<select id="selectLibrary" resultType="libraryDTO">
-		SELECT * FROM library
+	<!-- 도서관별 재고 -->
+	<select id="selectLibCount" resultType="bestDTO" parameterType="bestDTO">
+		SELECT 
+		    b.book_name, b.book_author, b.book_pub, b.book_isbn, 
+		    MAX(CASE WHEN lb.book_loan = 'N' AND lb.book_res = 'N' THEN lb.book_code END) AS book_code, 
+		    b.book_img, lb.li_book_info, MAX(lb.book_loan_seq) AS book_loan_seq, l.lib_id, l.lib_name, l.lib_call, l.lib_add,
+		    COALESCE(SUM(CASE WHEN lb.book_loan = 'N' AND lb.book_res = 'N' THEN 1 ELSE 0 END), 0) AS count
+		FROM 
+		    library l
+		LEFT OUTER JOIN 
+		    li_book lb ON l.lib_id = lb.lib_id AND lb.book_isbn = #{book_ISBN} 
+		LEFT OUTER JOIN 
+		    book b ON lb.book_isbn = b.book_isbn
+		WHERE 
+		    l.lib_id IS NOT NULL
+		GROUP BY 
+		    b.book_name, b.book_author, b.book_pub, b.book_isbn, b.book_img, l.lib_id, l.lib_name,lb.li_book_info, l.lib_call, l.lib_add
+		ORDER BY 
+		    l.lib_id
 	</select>
 	
 	<!-- 장바구니 담기 -->
@@ -51,9 +66,9 @@
 	<!-- 예약하기 -->
 	<insert id="insertRes" parameterType="loanDTO">
 		INSERT INTO 
-			user_res(res_id, book_code, user_seq, res_day, res_ing)
+			user_res(res_id, book_code, user_seq, res_day, res_ing, lib_id)
 		VALUES 
-			(user_res_seq.nextval, #{book_code}, #{user_seq}, sysdate, 'Y')
+			(user_res_seq.nextval, #{book_code}, #{user_seq}, sysdate, 'Y', #{lib_id})
 	</insert>
 	
 	<!-- 예약 후 재고에 예약중 표시 -->

@@ -106,4 +106,19 @@
 	 <definition name="login" extends="baseLayout2">
 		<put-attribute name="content" value="/WEB-INF/views/user/login/user_login.jsp"/> 
 	</definition>
+	
+	<!-- 회원가입  -->
+	<definition name="join" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/join/userjoin.jsp"/> 
+	</definition>
+	
+	<!-- 북플릭스 비회원용 페이지 -->
+	<definition name="bookflix_info" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/views/user/bookflix/user_bookflix_info.jsp"/>
+	</definition>
+		<!-- 북플릭스 회원용 페이지 -->
+	<definition name="bookflix_user" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/views/user/bookflix/user_bookflix_use.jsp"/>
+	</definition>
+	
 </tiles-definitions>

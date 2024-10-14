@@ -6,17 +6,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<link href="./assets/css/admin_table.css" rel="stylesheet">
-<link href="./assets/css/00.user_side_base.css" rel="stylesheet">
-<link href="./assets/css/admin.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<script src="./assets/js/click.js"></script>
-<link href="./assets/css/mes_workorder.css" rel="stylesheet">
-<link href="./assets/css/click.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>BOM 수정</title>
+    <link href="./assets/css/admin_table.css" rel="stylesheet">
+    <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
+    <link href="./assets/css/admin.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <script src="./assets/js/click.js"></script>
+    <link href="./assets/css/mes_workorder.css" rel="stylesheet">
+    <link href="./assets/css/click.css" rel="stylesheet">
 </head>
 <body>
 
@@ -55,7 +53,7 @@
 						</table>
 					</div>
 					<div class="bot_btn">
-						<a href="bom"><input type="button" id="addbom" value="BOM 생성"></a>
+						<a href="http://localhost:8080/mesPage/mes_bomcreate"><input type="button" id="addbom" value="BOM 생성"></a>
 					</div>
 				</div>
 			</div>

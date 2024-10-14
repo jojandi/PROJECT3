@@ -1,0 +1,187 @@
+@charset "UTF-8";
+#wrap{
+    font-size: 0;
+    padding: 30px 150px;
+    text-align: center;
+    margin-bottom: 50px;
+	/* border: 1px solid red; */
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    border-radius: 5%;
+    background: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#menu #items #i0{
+    font-weight: 900;
+    text-decoration: underline;
+}  
+
+#parent{
+    width: 100%;
+    margin-top: 30px;
+}
+
+#top_logo{
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    
+}
+#top_logo_img{
+    width:200px;
+    height: 150px;
+
+}
+
+#top_box {
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    margin: 0 auto;
+    padding: 15px 0;
+    text-align: center;
+    font-size :16px;
+    width: 50%;
+    margin-top: 20px;
+}
+
+.book_name{
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
+.top_for_you{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(109, 153, 93);
+}
+
+#top_in_for_you{
+    margin-top: 20px;
+    font-size : 18px;
+    color: rgb(83, 83, 83);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 400px;
+    font-size: 15px;
+}
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.popup-header h2 {
+  margin: 0 auto;
+}
+.popup-close {
+  cursor: pointer;
+  font-size: 30px;
+}
+
+#bookall{
+  margin: 0 auto;
+  width: 85%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  text-align: center;    
+  align-items: baseline;
+}
+
+.book{
+	width: 320px;
+}
+
+.book img{
+  margin-bottom: 15px;
+  width: 200px;
+}
+
+.book .btn{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#reviewPopup{
+  display: none;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  width: 300px;
+  background-color: white;
+  padding: 0 15px 15px 15px;
+}
+
+#reviewPopup .close{
+	text-align: right;
+}
+
+#review textarea{
+  margin: 10px 0;
+  width: 100%;
+  height: 320px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+#review{
+	margin-top: 60px;
+	border-top: 1px solid #ccc;
+	padding-top: 15px;
+	font-size: 20px;	
+}
+
+#review #reviewBnt{	
+	margin-top: 20px;
+}
+
+/* 별점 */
+.star-rating {
+  	display: flex;
+  	align-items: baseline;
+}
+
+.star {
+  	appearance: none;
+  	padding: 1px;
+}
+
+.star::after {
+	content: '☆';
+  	color: hsl(60, 80%, 45%);
+  	font-size: 25px;
+}
+
+.star:checked::after,
+.star:has(~ .star:checked)::after {
+  	content: '★';
+}
+
+.star-rating span{
+	font-size: 15px;
+	
+}
+

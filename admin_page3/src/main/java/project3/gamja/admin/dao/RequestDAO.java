@@ -13,6 +13,10 @@ public interface RequestDAO {
 	List<RequestDTO> selectre(RequestDTO reDTO);
 	int totalre(RequestDTO reDTO);
 	
+	int reqUpdate(RequestDTO reqDTO);
+	
+	int reqOrder(RequestDTO reqDTO);
+	
 	List<ApplyDTO> selectApply(ApplyDTO reDTO);
 	int totalApply(ApplyDTO reDTO);
 

@@ -28,6 +28,15 @@ public interface WorkorderDAO {
 	// workorder bom_code select
 	List<MesWorkorderDTO> selectBom();
 	
+	// 포장공정에서 제조공정으로 바꾸는 update문
+	int updatewopro(MesWorkorderDTO woDTO);
+	
+	// 완료버튼시 주문현황 delete
+	int deletepf(MesWorkorderDTO woDTO);
+	
+	// 완료버튼시 출고현황 insert
+	int insertpf(MesWorkorderDTO woDTO);
+	
 	// ----------------BOM 페이지입니다----------------------
 	List<MesWorkorderDTO> getList2();
 	
@@ -36,4 +45,11 @@ public interface WorkorderDAO {
 	List<MesWorkorderDTO> bomSelect();
 	
 	int updatebom(MesWorkorderDTO DTO);
+	
+	int insertBom(MesWorkorderDTO dto);
+	
+	List<MesWorkorderDTO> getList3();
+	
+	int deleteBom(MesWorkorderDTO DTO);
+	
 }

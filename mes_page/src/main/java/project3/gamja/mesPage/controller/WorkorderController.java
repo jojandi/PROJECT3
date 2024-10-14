@@ -21,7 +21,7 @@ public class WorkorderController {
 	
 	
 	@RequestMapping(value="mes_workorder1", method=RequestMethod.GET)
-	public String workorder1(Model model, Integer seq, Integer count, Integer pageNo) {
+	public String workorder1(Model model,Integer os_id, Integer seq, Integer count, Integer pageNo) {
 		
 		// 페이징 기본값 설정
 		if(count == null) count = 7;
@@ -29,6 +29,10 @@ public class WorkorderController {
 		
 		Map map = woService.selectwo(count, pageNo);
 		List<MesWorkorderDTO> bom_code = woService.selectBom();
+		
+		MesWorkorderDTO dto = new MesWorkorderDTO();
+		dto.setOs_id(os_id);
+		
 		
 		model.addAttribute("map", map);
 		model.addAttribute("countPerPage", count);
@@ -39,11 +43,12 @@ public class WorkorderController {
 	}
 	
 	@RequestMapping(value="mes_workorder1_read", method=RequestMethod.GET)
-	public String workorderRead(int wo_id, Model model) {
+	public String workorderRead(int wo_id, int os_id, Model model) {
 		
 		MesWorkorderDTO dto = new MesWorkorderDTO();
 		
 		dto.setWo_id(wo_id);
+		dto.setOs_id(os_id);
 		
 		MesWorkorderDTO list = woService.selectOne(dto);
 		
@@ -56,15 +61,25 @@ public class WorkorderController {
    public String workorderUpdate(MesWorkorderDTO dto) {
       
 	System.out.println("update 실행 ");
+	System.out.println("////////////////////////////// : " + dto.getOs_id());
 	
        try {
            if ("완료".equals(dto.getWo_status())) {
                // 1. tbl_order 테이블에서 해당 주문 삭제
         	   woService.deletewo(dto);
+        	   
+        	   // 2. pfwork 테이블에서 주문현황 삭제
+        	   woService.deletepf(dto);
                
-               // 2. mes_book 테이블에서 book_count 업데이트 (수량 추가)
+               // 3. mes_book 테이블에서 book_count 업데이트 (수량 추가)
         	   woService.updatewo(dto);
-        	   System.out.println(dto.getWo_count());
+
+        	   // 4. pfwork 테이블에서 출고현황 insert
+        	   woService.insertpf(dto);
+        	   
+           }
+           if("배송공정".equals(dto.getWo_process())) {
+        	   woService.updatewopro(dto);
            }
            
        } catch (Exception e) {
@@ -118,32 +133,51 @@ public class WorkorderController {
 	    }
 	    
 	    @RequestMapping(value = "/updateBom", method = RequestMethod.POST)
-	    public String updateBom(
-	            @RequestParam("bom_code") String strBomCode,
-	            @RequestParam("bom_name") String bomName,
-	            @RequestParam("mes_book_code1") String mesBookCode1,
-	            @RequestParam("mes_book_code2") String mesBookCode2,
-	            @RequestParam("mes_book_code3") String mesBookCode3) {
-	        
+	    public String updateBom(MesWorkorderDTO orderDTO) {
+
 	        System.out.println("updateBom 실행");
 
-	        // 파라미터 처리
-	        int bomCode = Integer.parseInt(strBomCode);
-
-	        // DTO 생성 후 값 설정
-	        MesWorkorderDTO orderDTO = new MesWorkorderDTO();
-	        orderDTO.setBom_code(bomCode);
-	        orderDTO.setBom_name(bomName);
-	        orderDTO.setMes_book_code1(Integer.parseInt(mesBookCode1));
-	        orderDTO.setMes_book_code2(Integer.parseInt(mesBookCode2));
-	        orderDTO.setMes_book_code3(Integer.parseInt(mesBookCode3));
-
-	        // 서비스 호출하여 업데이트
 	        int result = woService.updateBom(orderDTO);
 	        System.out.println("update 결과 : " + result);
 
-	        // 업데이트 후 리다이렉트
-	        return "redirect:mes_bom";
+	        return "redirect:/mes_bom";
 	    }
+	    @RequestMapping(value="/insertBom", method=RequestMethod.POST)
+		public String insertBom(MesWorkorderDTO dto) {
+			int result = -1;
+			
+			try {
+				result = woService.insertBom(dto);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			System.out.println("insert : " + result);
+			
+			return "redirect:mes_bom";
+		}
+	    //BOM create  Read 페이지
+	    @RequestMapping(value = "/mes_bomcreate", method = RequestMethod.GET)
+	    public String mesBomCreate(Model model) {
+	        System.out.println("Bomcreate 실행!");
+
+	        List<MesWorkorderDTO> list = woService.getList3();
+
+	        model.addAttribute("list", list);
+
+	        return "mes_bomcreate";
+	    }
+	    @RequestMapping(value="/mes_bomdelete", method=RequestMethod.POST)
+		public String mesBomDelete(MesWorkorderDTO dto, @RequestParam Integer bom_code) {
+			
+			try {
+				woService.deleteBom(dto);
+				
+			}catch (Exception e) {
+				System.out.println(e);
+			}
+			
+			
+			return "redirect:mes_bom";
+		}
 	}
 

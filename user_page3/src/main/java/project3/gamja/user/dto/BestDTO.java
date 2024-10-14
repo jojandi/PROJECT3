@@ -14,8 +14,22 @@ public class BestDTO {
 	private boolean book_res;
 	private int lib_id;
 	private String lib_name;
+	private String lib_add;
+	private Integer lib_call;
 	
 	
+	public String getLib_add() {
+		return lib_add;
+	}
+	public void setLib_add(String lib_add) {
+		this.lib_add = lib_add;
+	}
+	public Integer getLib_call() {
+		return lib_call;
+	}
+	public void setLib_call(Integer lib_call) {
+		this.lib_call = lib_call;
+	}
 	public int getLib_id() {
 		return lib_id;
 	}

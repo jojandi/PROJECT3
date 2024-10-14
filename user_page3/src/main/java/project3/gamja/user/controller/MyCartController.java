@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import project3.gamja.user.dto.BestDTO;
 import project3.gamja.user.dto.CartDTO;
+import project3.gamja.user.dto.LibraryDTO;
+import project3.gamja.user.dto.LoanDTO;
 import project3.gamja.user.service.MyCartService;
 
 @Controller
@@ -61,6 +64,36 @@ public class MyCartController {
     	int res = cartService.delAll(carts, user);
 		
 		return res;
+	}
+	
+	// 하나 삭제
+	@RequestMapping(value="/cart_del", method=RequestMethod.POST)
+	public String delCart(CartDTO cartDTO) {
+		
+		int delete = cartService.delCart(cartDTO);
+		System.out.println("삭제 : " + delete);
+		
+		return "redirect:/cart?seq="+cartDTO.getUser_seq();
+	}
+	
+	// 하나 예약
+	@RequestMapping(value="/cart_res", method=RequestMethod.POST)
+	public String resCart(LoanDTO loanDTO) {
+		
+		int insert = cartService.resCart(loanDTO);
+		System.out.println("예약 : " +insert);
+		
+		return "redirect:/res?seq=" + loanDTO.getUser_seq();
+	}
+	
+	// 예약 시 재고 현황 모달
+	@RequestMapping(value="/cartInven", method=RequestMethod.POST)
+	@ResponseBody
+	public List<CartDTO> selectLibrary(Model model, @RequestBody CartDTO cartDTO) {
+		
+		List<CartDTO> lib = cartService.selectLibrary(cartDTO);
+		
+		return lib;
 	}
 	
 }

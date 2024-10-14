@@ -57,4 +57,39 @@
 		<put-attribute name="content" value="/WEB-INF/views/admin/request/apply.jsp"/>
 	</definition>
 	
+	
+	<!--공지사항1-->
+		<definition name="notice" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice.jsp"/>
+	</definition>
+	
+	<!--공지사항 2-->
+		<definition name="notice2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice2.jsp"/>
+	</definition>
+	
+		<!--공지사항 3-->
+		<definition name="notice3" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice3.jsp"/>
+	</definition>
+	
+	
+	
+	
+	<!-- 회원 관리 - 회원관리 -->
+	<definition name="member1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/member_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/member/mem.jsp"/>
+	</definition>
+	
+	<!-- 회원 관리 - 상세정보 -->
+	<definition name="member2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/member_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/member/mem_read.jsp"/>
+	</definition>
+	
+	
 </tiles-definitions>

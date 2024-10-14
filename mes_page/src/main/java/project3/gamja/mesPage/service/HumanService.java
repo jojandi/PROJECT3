@@ -39,6 +39,13 @@ public class HumanService {
 		return result;
 	}
 
+	
+    public int insertHuman(MesHumanDTO dto){
+        int result = HumanDAO.insertHuman(dto);
+        return result;
+    }
+    
+    
 	}
 
 	
