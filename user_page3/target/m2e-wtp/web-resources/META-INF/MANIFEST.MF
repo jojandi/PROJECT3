@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: admin
 Build-Jdk: 11
@@ -46,11 +47,14 @@ Created-By: Maven Integration for Eclipse
 >>>>>>> 99514aeaa3acebd22998b019e0a66853c3ba197c
 >>>>>>> 97892d119d6b04e526c46b6d31172589d8b7a60f
 >>>>>>> e3c44c13d8a91edb3180a1efb71a89bfa956722e
+=======
+>>>>>>> c773d3243aa1ce20b5924922464c720bf9439b09
 Manifest-Version: 1.0
 Built-By: human
 Build-Jdk: 11
 Created-By: Maven Integration for Eclipse
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -71,3 +75,5 @@ Created-By: Maven Integration for Eclipse
 >>>>>>> c30a1bc40fb3e01b9282e08e497f85b4edc83f69
 >>>>>>> e3c44c13d8a91edb3180a1efb71a89bfa956722e
 >>>>>>> 91e17057f70410c4f6897f4ed593937178eee764
+=======
+>>>>>>> c773d3243aa1ce20b5924922464c720bf9439b09
