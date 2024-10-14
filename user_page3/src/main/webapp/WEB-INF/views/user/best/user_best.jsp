@@ -227,7 +227,7 @@
 					                        		<input type="button" class="noneReserBnt" value="예약">
 					                        	` : `
 						                        	<form action="bestRes" method="post">
-						                        		<input type="hidden" name="user_seq" value="\${login.user_seq}" class="user">
+						                        		<input type="hidden" name="user_seq" value="\${login.user_seq}">
 						                        		<input type="hidden" name="book_code" value="\${lib.book_code}">
 						                        		<input type="hidden" name="lib_id" value="\${lib.lib_id}">
 							                            <input type="submit" class="realReserBnt" value="예약">
