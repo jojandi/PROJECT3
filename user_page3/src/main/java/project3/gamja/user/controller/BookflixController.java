@@ -38,8 +38,9 @@ public class BookflixController {
         }
         model.addAttribute("list", list);  // 리스트 데이터를 JSP로 전달
       
-        return "bookflix_user";  // Tiles 템플릿 이름 반환
+        return "bookflix_user";  
     }
+    
 /*
     // POST 요청 처리 - 북플릭스 탈퇴 처리
     @PostMapping("/user/bookflix_use")
@@ -56,5 +57,32 @@ public class BookflixController {
         return "redirect:main";  // 탈퇴 후 메인 페이지로 리다이렉트
     }
     */
+    @PostMapping("/bookflix_review")
+    public String postReview(@RequestParam("user") int user,
+                             @RequestParam("buser") int buser,
+                             @RequestParam("review_text") String reviewText,
+                             @RequestParam(value = "star", required = false) String[] stars,
+                             Model model) {
+        System.out.println("POST 요청이 컨트롤러에 도달했습니다.");
+
+        // 별점 처리
+        int star = 0;
+        if (stars != null) {
+            for (String s : stars) {
+                star += Integer.parseInt(s);
+            }
+        }
+
+        System.out.println("유저: " + user);
+        System.out.println("북플릭스 유저: " + buser);
+        System.out.println("리뷰: " + reviewText);
+        System.out.println("별점: " + star);
+
+        // 리뷰 저장
+        int result = bookflixService.review(user, buser, star, reviewText);
+        System.out.println("리뷰 작성 완료: " + result);
+
+        return "redirect:/bookflix_user?seq=" + user;
+    }
 }
 

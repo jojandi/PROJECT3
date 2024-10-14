@@ -12,7 +12,6 @@ public class UserDTO {
 	private String user_addr1;
 	private String user_addr2;
 	private String user_email;
-
 	private String user_addr;
 	private String user_addr_info;
 	private String user_email1;
@@ -22,7 +21,6 @@ public class UserDTO {
 	private String user_over;
 	private int user_loan;
 	private String user_admin;
-
 	public int getLike_id() {
 		return like_id;
 	}
@@ -71,6 +69,24 @@ public class UserDTO {
 	public void setUser_tel(String user_tel) {
 		this.user_tel = user_tel;
 	}
+	public String getUser_addr1() {
+		return user_addr1;
+	}
+	public void setUser_addr1(String user_addr1) {
+		this.user_addr1 = user_addr1;
+	}
+	public String getUser_addr2() {
+		return user_addr2;
+	}
+	public void setUser_addr2(String user_addr2) {
+		this.user_addr2 = user_addr2;
+	}
+	public String getUser_email() {
+		return user_email;
+	}
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
 	public String getUser_addr() {
 		return user_addr;
 	}
@@ -82,12 +98,6 @@ public class UserDTO {
 	}
 	public void setUser_addr_info(String user_addr_info) {
 		this.user_addr_info = user_addr_info;
-	}
-	public String getUser_email() {
-		return user_email;
-	}
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
 	}
 	public String getUser_email1() {
 		return user_email1;
@@ -136,34 +146,10 @@ public class UserDTO {
 		return "UserDTO [like_id=" + like_id + ", like=" + like + ", user_seq=" + user_seq + ", user_id=" + user_id
 				+ ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_birth=" + user_birth + ", user_tel="
 				+ user_tel + ", user_addr1=" + user_addr1 + ", user_addr2=" + user_addr2 + ", user_email=" + user_email
-				+ ", user_email1=" + user_email1 + ", user_email2=" + user_email2 + ", user_sub=" + user_sub
-				+ ", user_pass=" + user_pass + ", user_over=" + user_over + ", user_loan=" + user_loan + ", user_admin="
-				+ user_admin + "]";
+				+ ", user_addr=" + user_addr + ", user_addr_info=" + user_addr_info + ", user_email1=" + user_email1
+				+ ", user_email2=" + user_email2 + ", user_sub=" + user_sub + ", user_pass=" + user_pass
+				+ ", user_over=" + user_over + ", user_loan=" + user_loan + ", user_admin=" + user_admin + "]";
 	}
 
-	public boolean isUser_over() {
-		return user_over;
-	}
-	public void setUser_over(boolean user_over) {
-		this.user_over = user_over;
-	}
-	public int getUser_loan() {
-		return user_loan;
-	}
-	public void setUser_loan(int user_loan) {
-		this.user_loan = user_loan;
-	}
-	public String getUser_admin() {
-		return user_admin;
-	}
-	public void setUser_admin(String user_admin) {
-		this.user_admin = user_admin;
-	}
-	public String getUser_email() {
-		return user_email;
-	}
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
-	}
-
+	
 }
