@@ -122,4 +122,25 @@ public class PfworkController {
 		return result;
 	}
 	
+	//////////////////////// 주문현황 -> 작업지시서 insert //////////////////////////
+	@RequestMapping(value="pfinsertwo", method=RequestMethod.POST)
+	public String pfinsertwo(MesPfworkDTO pfDTO) {
+		int result = -1;
+		
+		System.out.println(pfDTO.getLib_id());
+		
+		try {
+			result = pfService.pfinsertwo(pfDTO);
+			if(null == pfDTO.getOs_status()) {
+				pfService.pfupdatepf(pfDTO);
+				System.out.println("os_status : " + pfDTO.getOs_status());
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("insert : " + result);
+		
+		return "redirect:mes_workorder1";
+	}
+	
 }

@@ -70,6 +70,12 @@
 		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice2.jsp"/>
 	</definition>
 	
+		<!--공지사항 3-->
+		<definition name="notice3" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice3.jsp"/>
+	</definition>
+	
 	
 	
 	

@@ -2,8 +2,10 @@ package project3.gamja.admin.dao;
 
 import java.util.List;
 
-import project3.gamja.admin.dto.NotiDTO;
+import org.apache.ibatis.annotations.Mapper;
 
+import project3.gamja.admin.dto.NotiDTO;
+@Mapper
 public interface NotiDAO {
 
     // 공지사항 목록 조회
@@ -20,4 +22,7 @@ public interface NotiDAO {
 
     // 공지사항 삭제
     int deleteNotice(int noticeId);
+    
+    // 공지사항 추가 인서트 
+    int insertAnnouncement(NotiDTO dto);
 }
