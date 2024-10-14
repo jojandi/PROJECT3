@@ -17,50 +17,56 @@ public class NotiController {
     @Autowired
     NotiService notiService;
 
-    // 공지사항 목록 조회
+    // 인설트 폼으로 들어감 
     @RequestMapping("/notice")
     public String notice(Model model) {
-        List<NotiDTO> list = notiService.selectAnnouncement();
-        model.addAttribute("noticeList", list);
         return "notice";
     }
     
+    // 공지사항2 셀렉트 
     @RequestMapping("/notice2")
     public String notice2(Model model) {
         List<NotiDTO> list = notiService.selectAnnouncement();
+        System.out.println("list: "+ list);
         model.addAttribute("noticeList", list);
         return "notice2";
     }
 
     // 공지사항 세부 조회 (ann_seq로 조회)
-    @RequestMapping("/notice/{ann_seq}")
+    //http://localhost:8080/admin/notice3/4
+    @RequestMapping("/notice3_{ann_seq}")
     public String noticeDetail(@PathVariable("ann_seq") int annSeq, Model model) {
         NotiDTO notice = notiService.selectSeq(annSeq);
+        
         model.addAttribute("notice", notice);
-        return "noticeDetail";
+        return "notice3";
     }
 
-    // 공지사항 클래스 조회
-    @RequestMapping("/notice/class")
-    public String noticeClass(Model model) {
-        List<NotiDTO> classList = notiService.selectAnnClass();
-        model.addAttribute("classList", classList);
-        return "noticeClass";
+    
+    // 공지사항 인서트
+    @RequestMapping(value = "/insertNoti", method = RequestMethod.POST)
+    public String insertNotice(NotiDTO dto) {
+    	System.out.println("dto "+ dto);
+    	notiService.insertNotice(dto);
+    	return "redirect:/notice2";
     }
+    
+
 
     // 공지사항 업데이트 (noticeDTO의 데이터를 받아서 업데이트)
-    @RequestMapping(value = "/notice/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/notice2", method = RequestMethod.PUT)
     public String updateNotice(NotiDTO dto) {
         notiService.updateNotice(dto);
-        return "redirect:/notice";
+        return "redirect:/notice2";
     }
 
-    // 공지사항 삭제 (notice_id로 삭제)
-    @RequestMapping(value = "/notice/delete/{notice_id}", method = RequestMethod.POST)
-    public String deleteNotice(@PathVariable("notice_id") int noticeId) {
+    // 공지사항 삭제
+    @RequestMapping(value = "/notice2", method = RequestMethod.DELETE)
+    public String deleteNotice(int noticeId) {
         notiService.deleteNotice(noticeId);
-        return "redirect:/notice";
+        return "redirect:/notice2";
     }
+
 }
 
 	
