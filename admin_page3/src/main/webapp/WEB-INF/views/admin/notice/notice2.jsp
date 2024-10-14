@@ -82,11 +82,8 @@ button {
 							<button type="button" onclick="deleteNotice(${notice.ann_seq})">삭제</button>
 						</td>
 						<td>
-							<form action="${pageContext.request.contextPath}/notice2"
-								method="post" onsubmit="return confirm('정말로  수정하시겠습니까?');">
-								<input type="hidden" name="ann_seq" value="${notice.ann_seq}" />
-								<button type="submit">수정</button>
-							</form>
+							<!-- Ajax로 수정 요청 전송 -->
+							<button type="button" onclick="updateNotice(${notice.ann_seq}, '${notice.ann_title}')">수정</button>
 						</td>
 					</tr>
 				</c:forEach>
@@ -97,38 +94,45 @@ button {
 		// 공지사항 삭제용 Ajax 함수
 		function deleteNotice(ann_seq) {
 			if (confirm('정말로 삭제하시겠습니까?')) {
-				console.log(ann_seq)
-				const url = "notice2"; // 삭제 URL
+				const url = "${pageContext.request.contextPath}/notice2"; // 삭제 URL
 				const param = { "ann_seq": ann_seq }; // 삭제할 공지사항 번호
 				ajax(url, param, function(response) {
-					if(response > 0){
-						alert("공지사항이 삭제되었습니다.");
-						location.reload(); // 삭제 후 페이지 리로드
-					} else{
-						alert(" 다시 시도해주세요.");
-					}
+					alert("공지사항이 삭제되었습니다.");
+					location.reload(); // 삭제 후 페이지 리로드
 				}, "DELETE"); // DELETE 메서드로 호출
 			}
 		}
 
-		// 아작스 실행 
+		// 공지사항 수정용 Ajax 함수
+ 		function updateNotice(ann_seq, currentTitle) {
+			// 새로운 제목을 입력받는 prompt 창 표시
+			const newTitle = prompt('새로운 제목을 입력하세요:', currentTitle);
+			if (newTitle && newTitle !== currentTitle) {
+				const url = "${pageContext.request.contextPath}/notice2"; // 수정 URL
+				const param = { "ann_seq": ann_seq, "ann_title": newTitle }; // 수정할 공지사항 번호 및 새 제목
+				ajax(url, param, function(response) {
+					alert("공지사항이 수정되었습니다.");
+					location.reload(); // 수정 후 페이지 리로드
+				}, "PUT"); // PUT 메서드로 호출
+			}
+		} 
+
+		// 공통 Ajax 실행 함수
 		function ajax(url, param, cb, method) {
-			// javascript에서 false는 null, undefined, 0
-			// true는 false가 아닌 것으로 정의되어 있음
-			if(!method) method = "get";
-			
+			if (!method) method = "GET"; // 기본값 설정
 			const xhr = new XMLHttpRequest();
 			xhr.open(method, url);
-			xhr.setRequestHeader("Content-Type","application/json"); // json 보내줄 거임
-			console.log(JSON.stringify(param))
-			xhr.send(JSON.stringify(param));
-			
-			if(typeof cb == "function") {
-				xhr.onload = function(){
-					cb(xhr.responseText)
-				}
+			xhr.setRequestHeader("Content-Type", "application/json");
+			const strData = JSON.stringify(param);
+			console.log("strData : " + strData);
+			xhr.send(strData); // 최종 전송
+
+			if (typeof cb === "function") {
+				xhr.onload = function() {
+					cb(xhr.responseText); // 콜백 함수로 응답 처리
+				};
 			}
-		}	
+		}
 	</script>
 </body>
 </html>
