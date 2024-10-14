@@ -3,6 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project3.gamja.user.dao.BookflixDAO">
+    <!--  북플릭스 회원용 페이지입니다 -->
 	 <select id="bookflix_user" resultType="project3.gamja.user.dto.BookflixDTO">
        SELECT b.mes_book_code1, b.mes_book_code2, b.mes_book_code3, u.like_id, u.user_seq,
        u.user_name, b.bom_name, bk.book_name, bk.book_img, li.li_book_info, 
@@ -21,6 +22,20 @@
          bk.book_pub, bk.book_author, bu.buser_date, bu.buser_end, bu.buser_seq
 
     </select>
+    <!--  북플릭스 리뷰입니다 -->
+    <insert id="bookflix_review" parameterType="map">
+    	INSERT INTO bf_review (review_seq, buser_seq, review_name, review_contents, review_date, review_score)
+    	VALUES (
+        review_seq.nextval,
+        #{buser_seq},
+        (SELECT bom_name FROM bom b
+         LEFT JOIN tbl_user u ON b.bom_code = (u.like_id + 1000)
+         WHERE u.user_seq = #{user_seq}) || ' 후기',
+        #{review_contents},
+        SYSDATE,
+        #{review_score}
+    )
+	</insert>
 	
 	
 </mapper>
