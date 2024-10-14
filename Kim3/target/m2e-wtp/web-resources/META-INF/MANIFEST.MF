@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 Built-By: admin
 Build-Jdk: 11
 =======
@@ -19,5 +20,9 @@ Build-Jdk: 11
 >>>>>>> 49ba29785e943b9fd222efe07d38b86b89924791
 >>>>>>> e2609d09d1518480cd288e93a65f21541d874bb2
 >>>>>>> 91e17057f70410c4f6897f4ed593937178eee764
+=======
+Built-By: macbook
+Build-Jdk: 11.0.22
+>>>>>>> 54a54df7dc5f2b97b7b2e845e4325b6fdcd433b1
 Created-By: Maven Integration for Eclipse
 
