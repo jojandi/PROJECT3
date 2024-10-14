@@ -94,10 +94,10 @@
 	<select id="selectRes" resultType="loanResDTO" parameterType="loanResDTO">
 		SELECT * FROM( 
 			SELECT 
-				rownum AS rnum, book_code, res_id, res_day, res_pick, user_seq, book_name, res_ing, lib_name
+				rownum AS rnum, book_code, res_id, res_day, res_pick, user_seq, book_name, res_ing, l.lib_name, r.lib_id
 			FROM 
-				user_res 
-				JOIN library USING(lib_id)
+				user_res r
+				LEFT OUTER JOIN library l ON r.lib_id = l.lib_id
 		        JOIN li_book USING(book_code) 
 		        JOIN book USING(book_isbn)
 			ORDER BY book_res DESC, res_id DESC
@@ -189,13 +189,13 @@
 	<select id="selectLoan" resultType="loanResDTO" parameterType="loanResDTO">
 		SELECT * FROM (
 		    SELECT 
-		        rownum as rnum, ul.loan_seq, ul.book_code, ul.user_seq, b.book_name, ul.loan_date, ul.loan_ing, ul.loan_return, ul.loan_ex, 
-		        (ul.loan_ex - ul.loan_return) as isOver, l.lib_name, ul.lib_id
-		    FROM 
-		        user_loan ul
-		        LEFT OUTER JOIN library l ON ul.lib_id = l.lib_id
-		        LEFT OUTER JOIN li_book lb ON l.lib_id = lb.lib_id
-		        LEFT OUTER JOIN book b ON lb.book_isbn = b.book_isbn
+			    rownum as rnum, ul.loan_seq, ul.book_code, ul.user_seq, b.book_name, ul.loan_date, ul.loan_ing, ul.loan_return, ul.loan_ex, 
+			    (ul.loan_ex - ul.loan_return) as isOver, l.lib_name, ul.lib_id
+			FROM 
+			    user_loan ul
+			    LEFT JOIN library l ON ul.lib_id = l.lib_id
+			    LEFT JOIN li_book lb ON ul.book_code = lb.book_code
+			    LEFT JOIN book b ON lb.book_isbn = b.book_isbn
 	        <where>
 				<if test="searchType != null and searchType != '' 
 						and keyword != null and keyword != ''">
@@ -210,7 +210,8 @@
 					</choose>
 				</if>
 			</where>
-			ORDER BY book_loan DESC, loan_date DESC
+			ORDER BY 
+			    ul.loan_seq, ul.loan_date DESC
 		) WHERE 
 			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
 	</select>

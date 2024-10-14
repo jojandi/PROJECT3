@@ -37,7 +37,17 @@ public class RequestDTO {
 	private int[] lr_counts;
 	
 	private int[] lr_seqs;
+
+	private int[] lib_ids;
 	
+	public int[] getLib_ids() {
+		return lib_ids;
+	}
+
+	public void setLib_ids(int[] lib_ids) {
+		this.lib_ids = lib_ids;
+	}
+
 	public int[] getLr_counts() {
 		return lr_counts;
 	}

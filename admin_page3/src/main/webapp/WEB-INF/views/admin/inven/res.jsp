@@ -77,6 +77,7 @@
 										</td>
 										<td>
 											<c:if test="${list.res_pick == null}">
+												<input type="hidden" value=${list.lib_id } class="lib_id">
 												<input type="hidden" value=${list.book_code } class="book_code">
 												<input type="hidden" value=${list.user_seq } class="user_seq">
 												<input type="hidden" value=${list.res_id } class="res_id">
@@ -195,14 +196,17 @@
 		    	const book_code = document.querySelectorAll(".book_code");
 				const res_id = document.querySelectorAll(".res_id");
 				const user_seq = document.querySelectorAll(".user_seq");
+				const lib_id = document.querySelectorAll(".lib_id");
 		    	console.log("book_code : " + book_code[i].value);
 			    console.log("res_id : " + res_id[i].value);
 			    console.log("user_seq : " + user_seq[i].value);
+			    console.log("lib_id : " + lib_id[i].value);
 			    
 			    const data = {
 			    		"book_code" : book_code[i].value,
 			    		"res_id" : res_id[i].value,
-			    		"user_seq" : user_seq[i].value
+			    		"user_seq" : user_seq[i].value,
+			    		"lib_id" : lib_id[i].value
 			    }
 			    const page = '${param.page}';
 			    

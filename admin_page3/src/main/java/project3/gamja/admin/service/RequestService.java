@@ -60,9 +60,11 @@ public class RequestService {
 		int result = 0;
 		
 		int[] lr_seqs = reqDTO.getLr_seqs();
+		int[] lib_id = reqDTO.getLib_ids();
 		
 		for(int i = 0; i < lr_seqs.length; i++) {
 			reqDTO.setLr_seq(lr_seqs[i]);
+			reqDTO.setLib_id(lib_id[i]);
 			
 			result = reDAO.reqOrder(reqDTO);
 		}
