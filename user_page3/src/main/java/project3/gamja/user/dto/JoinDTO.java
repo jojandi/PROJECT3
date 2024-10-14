@@ -18,53 +18,6 @@ public class JoinDTO {
 	private String user_over;
 	private Integer user_loan;
 	private String user_admin;
-	
-	
-	public String getUser_addr() {
-		return user_addr;
-	}
-	public void setUser_addr(String user_addr) {
-		this.user_addr = user_addr;
-	}
-	public String getUser_addr_info() {
-		return user_addr_info;
-	}
-	public void setUser_addr_info(String user_addr_info) {
-		this.user_addr_info = user_addr_info;
-	}
-	public String getDomain() {
-		return domain;
-	}
-	public void setDomain(String domain) {
-		this.domain = domain;
-	}
-	public String getUser_sub() {
-		return user_sub;
-	}
-	public String getUser_over() {
-		return user_over;
-	}
-	public String getUser_admin() {
-		return user_admin;
-	}
-	public String isUser_over() {
-		return user_over;
-	}
-	public void setUser_over(String user_over) {
-		this.user_over = user_over;
-	}
-	public Integer getUser_loan() {
-		return user_loan;
-	}
-	public void setUser_loan(Integer user_loan) {
-		this.user_loan = user_loan;
-	}
-	public String isUser_admin() {
-		return user_admin;
-	}
-	public void setUser_admin(String user_admin) {
-		this.user_admin = user_admin;
-	}
 	public Integer getLike_id() {
 		return like_id;
 	}
@@ -113,16 +66,16 @@ public class JoinDTO {
 	public void setUser_tel(String user_tel) {
 		this.user_tel = user_tel;
 	}
-	public String getuser_addr() {
+	public String getUser_addr() {
 		return user_addr;
 	}
-	public void setuser_addr(String user_addr) {
+	public void setUser_addr(String user_addr) {
 		this.user_addr = user_addr;
 	}
-	public String getuser_addr_info() {
+	public String getUser_addr_info() {
 		return user_addr_info;
 	}
-	public void setuser_addr_info(String user_addr_info) {
+	public void setUser_addr_info(String user_addr_info) {
 		this.user_addr_info = user_addr_info;
 	}
 	public String getUser_email() {
@@ -131,7 +84,13 @@ public class JoinDTO {
 	public void setUser_email(String user_email) {
 		this.user_email = user_email;
 	}
-	public String isUser_sub() {
+	public String getDomain() {
+		return domain;
+	}
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+	public String getUser_sub() {
 		return user_sub;
 	}
 	public void setUser_sub(String user_sub) {
@@ -143,14 +102,31 @@ public class JoinDTO {
 	public void setUser_pass(java.sql.Date user_pass) {
 		this.user_pass = user_pass;
 	}
-	
-	
+	public String getUser_over() {
+		return user_over;
+	}
+	public void setUser_over(String user_over) {
+		this.user_over = user_over;
+	}
+	public Integer getUser_loan() {
+		return user_loan;
+	}
+	public void setUser_loan(Integer user_loan) {
+		this.user_loan = user_loan;
+	}
+	public String getUser_admin() {
+		return user_admin;
+	}
+	public void setUser_admin(String user_admin) {
+		this.user_admin = user_admin;
+	}
 	@Override
 	public String toString() {
-		return "MemberDTO [like_id=" + like_id + ", like=" + like + ", user_seq=" + user_seq + ", user_id=" + user_id
+		return "JoinDTO [like_id=" + like_id + ", like=" + like + ", user_seq=" + user_seq + ", user_id=" + user_id
 				+ ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_birth=" + user_birth + ", user_tel="
-				+ user_tel + ", user_addr=" + user_addr + ", user_addr_info=" + user_addr_info + ", user_email=" + user_email
-				+ ", user_sub=" + user_sub + ", user_pass=" + user_pass + ", user_over=" + user_over + ", user_loan="
-				+ user_loan + ", user_admin=" + user_admin + "]";
+				+ user_tel + ", user_addr=" + user_addr + ", user_addr_info=" + user_addr_info + ", user_email="
+				+ user_email + ", domain=" + domain + ", user_sub=" + user_sub + ", user_pass=" + user_pass
+				+ ", user_over=" + user_over + ", user_loan=" + user_loan + ", user_admin=" + user_admin + "]";
 	}
+	
 }
