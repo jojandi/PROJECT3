@@ -23,6 +23,11 @@
 		<typeAlias type="project3.gamja.user.dto.LibraryDTO" alias="libraryDTO"/>
 		<typeAlias type="project3.gamja.user.dto.RequestDTO" alias="requestDTO"/>
 		<typeAlias type="project3.gamja.user.dto.NotiDTO" alias="notiDTO"/>
+<<<<<<< HEAD
+		<typeAlias type="project3.gamja.user.dto.JoinDTO" alias="joinDTO"/>
+=======
+
+>>>>>>> 99514aeaa3acebd22998b019e0a66853c3ba197c
 	</typeAliases> 
 
 </configuration>
