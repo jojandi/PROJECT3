@@ -36,6 +36,26 @@
         #{review_score}
     )
 	</insert>
+	  <!-- 북플릭스 가입 처리 -->
+    <update id="bookflix_sub">
+        UPDATE tbl_user SET user_sub = 'Y' WHERE user_seq = #{userSeq}
+    </update>
+
+    <!-- 북플릭스 유저 인서트 -->
+    <insert id="bookflix_subInsert">
+        INSERT INTO bookflix_user (buser_seq, user_seq, buser_date, buser_end)
+        VALUES (buser_seq.nextval, #{userSeq}, sysdate, add_months(sysdate, 1))
+    </insert>
+
+    <!-- 북플릭스 유저 삭제 -->
+    <delete id="bookflix_del">
+        DELETE FROM bookflix_user WHERE buser_seq = #{buserSeq}
+    </delete>
+
+    <!-- 북플릭스 탈퇴 처리 -->
+    <update id="bookflix_out">
+        UPDATE tbl_user SET user_sub = 'N' WHERE user_seq = #{userSeq}
+    </update>
 	
 	
 </mapper>

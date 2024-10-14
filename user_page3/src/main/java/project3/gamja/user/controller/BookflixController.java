@@ -15,6 +15,7 @@ import project3.gamja.user.dto.BookflixDTO;
 import project3.gamja.user.service.BookflixService;
 
 
+
 @Controller
 public class BookflixController {
 
@@ -41,9 +42,9 @@ public class BookflixController {
         return "bookflix_user";  
     }
     
-/*
+
     // POST 요청 처리 - 북플릭스 탈퇴 처리
-    @PostMapping("/user/bookflix_use")
+    @RequestMapping(value = "/bookflix_user", method=RequestMethod.POST)
     public String deleteUserBookflix(@RequestParam("bseq") int bseq, @RequestParam("user") int user) {
         System.out.println("사용자용 북플릭스 탈퇴 POST 실행!");
         System.out.println("북플릭스 유저 seq : " + bseq);
@@ -56,8 +57,8 @@ public class BookflixController {
 
         return "redirect:main";  // 탈퇴 후 메인 페이지로 리다이렉트
     }
-    */
-    @PostMapping("/bookflix_review")
+   
+    @RequestMapping(value = "/bookflix_review", method=RequestMethod.POST)
     public String postReview(@RequestParam("user") int user,
                              @RequestParam("buser") int buser,
                              @RequestParam("review_text") String reviewText,
@@ -82,6 +83,20 @@ public class BookflixController {
         int result = bookflixService.review(user, buser, star, reviewText);
         System.out.println("리뷰 작성 완료: " + result);
 
+        return "redirect:/bookflix_user?seq=" + user;
+    }
+    @RequestMapping(value = "/bookflix_sub", method=RequestMethod.POST)
+    public String postSubscription(@RequestParam("seq") int user) {
+        System.out.println("사용자용 북플릭스 구독 POST 실행!");
+
+        // 구독 처리
+        int resultUser = bookflixService.sub(user);
+        int resultBuser = bookflixService.subInsert(user);
+        
+        System.out.println("구독 완료! " + resultUser);
+        System.out.println("구독 진짜 완료! " + resultBuser);
+
+        // 리다이렉트
         return "redirect:/bookflix_user?seq=" + user;
     }
 }

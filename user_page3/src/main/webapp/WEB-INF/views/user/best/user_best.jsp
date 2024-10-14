@@ -15,6 +15,9 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+	a:hover { color: inherit; text-decoration: none; }
+</style>
 </head>
 <body>
 	<div id="wrap">
@@ -35,7 +38,7 @@
 	                        	<c:if test="${not empty login.user_seq}">
 		                        	<form method="post" action="bestCart">
 			                        	<input type="hidden" name="book_code" value="${list.book_code}" class="code">
-			                        	<input type="hidden" name="user" value="${login.user_seq}" class="user">
+			                        	<input type="hidden" name="user_seq" value="${login.user_seq}" class="user">
 			                            <input type="submit" class="cartBnt" value="장바구니">
 		                        	</form>
 	                        	</c:if>
@@ -101,6 +104,7 @@
 	            	reserOn();
 	            	cartOn();
 	            })
+	            const user_seq = '${login.user_seq}'
 	            
 	            // ajax 실행 메소드 
 				function ajax(url, param, cb, method){	// cb : callback 함수
@@ -148,7 +152,7 @@
 				            		'book_ISBN' : bookISBN
 				            };
 				            
-				            ajax("bestInven", data, function(result){
+				            ajax("cartInven", data, function(result){
 				            	console.log(result)
 				            	try{
 				            		let invenContent = '';
@@ -227,7 +231,7 @@
 					                        		<input type="button" class="noneReserBnt" value="예약">
 					                        	` : `
 						                        	<form action="bestRes" method="post">
-						                        		<input type="hidden" name="user_seq" value="\${login.user_seq}">
+						                        		<input type="hidden" name="user_seq" value="\${user_seq}">
 						                        		<input type="hidden" name="book_code" value="\${lib.book_code}">
 						                        		<input type="hidden" name="lib_id" value="\${lib.lib_id}">
 							                            <input type="submit" class="realReserBnt" value="예약">

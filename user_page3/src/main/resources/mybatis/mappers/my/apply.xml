@@ -12,7 +12,7 @@
 		        SELECT 
 		        	user_seq, app_book, app_date, purchased from application
 		        WHERE 
-		        	user_seq = 43
+		        	user_seq = #{user_seq}
 		    ))
 		WHERE 
 			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}

@@ -31,7 +31,9 @@
            
 			<c:if test="${ not empty login }">
 				<div class="right" id="userall">
-					<span class="inb" id="user">${ login.user_name }님</span>
+					<a href="logout">
+						<span class="inb" id="user">${ login.user_name }님</span>
+					</a>
 	                <span class="material-symbols-outlined">person</span>
 				</div>
 			</c:if>

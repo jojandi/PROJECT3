@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-				<%-- <c:if test="${ login.user_sub == true }"> --%>
+				<c:if test="${ login.user_sub == true }">
 	               <div id="booksub">
 	                   <div id="booklogo">
 	                       <img src="./assets/img/bookflix.png">
@@ -67,7 +67,7 @@
 	                   </div>
 	                  
 	               </div>
-                <%-- </c:if> --%>
+                </c:if>
 
                 <!-- 정보수정 -->
                 <div id="infoedit">
@@ -158,20 +158,9 @@
                             <tr>
                                 <td class="center">이메일</td>
                                 <td>
-                                	<% 
-	                            		String email = dto.getUser_email();
-                                		System.out.println("이메일 : " + email);
-                                		String[] emailArr = email.split("@");
-                                		
-                                		System.out.println("이메일 : " + emailArr[0]);
-                                		System.out.println("이메일 : " + emailArr[1]);
-                                		
-                                		String mail = emailArr[0];
-                                		String domain = emailArr[1];
-                                	%>
-                                    <input class="email-input" type="text" value=<%=mail%> id="email-user" name="user_email1">
+                                    <input class="email-input" type="text" value="${login.user_email}" id="email-user" name="user_email1">
 									<span class="email-domain">@</span>
-									<input class="email-input" type="text" value=<%=domain%> id="email-domain" name="user_email2">
+									<input class="email-input" type="text" value="${login.domain}" id="email-domain" name="user_email2">
                                 </td>
                             </tr>
                             <tr>
