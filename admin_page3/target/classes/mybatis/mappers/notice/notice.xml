@@ -55,6 +55,17 @@
         (ann_seq, class_id, ann_title, ann_regi, ann_check, ann_detail, ann_attach, lib_id)
         VALUES (ann_seq.nextval, #{class_id}, #{ann_title}, sysdate, #{ann_check}, #{ann_detail}, #{ann_attach}, #{lib_id});
     </insert>
+    
+    <update id="updateNotice" parameterType="NotiDTO">
+    UPDATE announcement
+    SET
+        class_id = #{class_id},
+        ann_Title = #{ann_title},
+        ann_Regi = #{ann_regi},
+        ann_Check = #{ann_check},
+        lib_id = #{lib_id}
+    WHERE ann_Seq = #{ann_seq}
+</update>
       
     <!-- 공지사항 삭제 -->
     <delete id="deleteNoti" parameterType="int">

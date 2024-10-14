@@ -21,7 +21,7 @@ public interface NotiDAO {
     int updateNotice(NotiDTO dto);
 
     // 공지사항 삭제
-    int deleteNotice(int noticeId);
+    int deleteNotice(NotiDTO notiDTO);
     
     // 공지사항 추가 인서트 
     int insertAnnouncement(NotiDTO dto);
