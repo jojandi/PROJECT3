@@ -9,16 +9,20 @@ public class UserDTO {
 	private String user_name;
 	private java.sql.Date user_birth; 
 	private String user_tel;
+	private String user_addr1;
+	private String user_addr2;
+	private String user_email;
+
 	private String user_addr;
 	private String user_addr_info;
 	private String user_email1;
 	private String user_email2;
-	private boolean user_sub;
+	private String user_sub;
 	private java.sql.Date user_pass;
-	private boolean user_over;
+	private String user_over;
 	private int user_loan;
 	private String user_admin;
-	private String user_email;
+
 	public int getLike_id() {
 		return like_id;
 	}
@@ -79,6 +83,12 @@ public class UserDTO {
 	public void setUser_addr_info(String user_addr_info) {
 		this.user_addr_info = user_addr_info;
 	}
+	public String getUser_email() {
+		return user_email;
+	}
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
 	public String getUser_email1() {
 		return user_email1;
 	}
@@ -91,10 +101,10 @@ public class UserDTO {
 	public void setUser_email2(String user_email2) {
 		this.user_email2 = user_email2;
 	}
-	public boolean isUser_sub() {
+	public String getUser_sub() {
 		return user_sub;
 	}
-	public void setUser_sub(boolean user_sub) {
+	public void setUser_sub(String user_sub) {
 		this.user_sub = user_sub;
 	}
 	public java.sql.Date getUser_pass() {
@@ -103,6 +113,34 @@ public class UserDTO {
 	public void setUser_pass(java.sql.Date user_pass) {
 		this.user_pass = user_pass;
 	}
+	public String getUser_over() {
+		return user_over;
+	}
+	public void setUser_over(String user_over) {
+		this.user_over = user_over;
+	}
+	public int getUser_loan() {
+		return user_loan;
+	}
+	public void setUser_loan(int user_loan) {
+		this.user_loan = user_loan;
+	}
+	public String getUser_admin() {
+		return user_admin;
+	}
+	public void setUser_admin(String user_admin) {
+		this.user_admin = user_admin;
+	}
+	@Override
+	public String toString() {
+		return "UserDTO [like_id=" + like_id + ", like=" + like + ", user_seq=" + user_seq + ", user_id=" + user_id
+				+ ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_birth=" + user_birth + ", user_tel="
+				+ user_tel + ", user_addr1=" + user_addr1 + ", user_addr2=" + user_addr2 + ", user_email=" + user_email
+				+ ", user_email1=" + user_email1 + ", user_email2=" + user_email2 + ", user_sub=" + user_sub
+				+ ", user_pass=" + user_pass + ", user_over=" + user_over + ", user_loan=" + user_loan + ", user_admin="
+				+ user_admin + "]";
+	}
+
 	public boolean isUser_over() {
 		return user_over;
 	}
@@ -128,6 +166,4 @@ public class UserDTO {
 		this.user_email = user_email;
 	}
 
-	
-	
 }

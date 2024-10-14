@@ -68,8 +68,8 @@ table img{
     width: 100%;
 }
 
-table .bookBnt [type=submit],
-table .bookBnt [type=button]{
+[type=submit],
+[type=button]{
     font-size: 18px;
     padding: 7px 15px;
     margin: 5px 0;
@@ -178,7 +178,7 @@ table .material-symbols-outlined {
 }
 
 .modal .invenLibrary .material-symbols-outlined{
-    vertical-align: bottom;
+    vertical-align: middle;
     font-size: 13px;
     font-variation-settings:
     'FILL' 0,
@@ -228,7 +228,8 @@ table .material-symbols-outlined {
     text-align: center;
 }
 
-.modal .btnbox .realReserBnt{
+.modal .btnbox .realReserBnt,
+.modal .btnbox .noneReserBnt{
     padding: 5px;
     width: 80px;
 }
