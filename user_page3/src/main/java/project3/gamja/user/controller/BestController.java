@@ -53,7 +53,7 @@ public class BestController {
 	}
 	
 	// 예약하기
-	@RequestMapping(value="/bestRes", method=RequestMethod.POST)
+	@RequestMapping(value="/bestRes")
 	public String insertRes(LoanDTO loanDTO) {
 		int insert = bestService.insertRes(loanDTO);
 		int update = bestService.updateRes(loanDTO);
@@ -61,7 +61,7 @@ public class BestController {
 		System.out.println("예약 : " + insert);
 		System.out.println("재고 업데이트 : " + update);
 		
-		return "redirect:/cart?seq=" + loanDTO.getUser_seq();
+		return "redirect:/res?seq=" + loanDTO.getUser_seq();
 	}
 	
 }

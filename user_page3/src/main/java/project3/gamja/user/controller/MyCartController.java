@@ -83,7 +83,7 @@ public class MyCartController {
 		int insert = cartService.resCart(loanDTO);
 		System.out.println("예약 : " +insert);
 		
-		return "redirect:/cart?seq="+loanDTO.getUser_seq();
+		return "redirect:/res?seq=" + loanDTO.getUser_seq();
 	}
 	
 	// 예약 시 재고 현황 모달

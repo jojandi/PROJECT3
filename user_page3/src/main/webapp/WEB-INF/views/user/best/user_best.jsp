@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>베스트 도서</title>
+<link href="./assets/css/best/user_best.css" rel="stylesheet">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -17,7 +18,6 @@
 <style>
 	a:hover { color: inherit; text-decoration: none; }
 </style>
-<link href="./assets/css/best/user_best.css" rel="stylesheet">
 </head>
 <body>
 	<div id="wrap">
@@ -104,6 +104,7 @@
 	            	reserOn();
 	            	cartOn();
 	            })
+	            const user_seq = '${login.user_seq}'
 	            
 	            // ajax 실행 메소드 
 				function ajax(url, param, cb, method){	// cb : callback 함수
@@ -230,7 +231,7 @@
 					                        		<input type="button" class="noneReserBnt" value="예약">
 					                        	` : `
 						                        	<form action="bestRes" method="post">
-						                        		<input type="hidden" name="user_seq" value="\${login.user_seq}">
+						                        		<input type="hidden" name="user_seq" value="\${user_seq}">
 						                        		<input type="hidden" name="book_code" value="\${lib.book_code}">
 						                        		<input type="hidden" name="lib_id" value="\${lib.lib_id}">
 							                            <input type="submit" class="realReserBnt" value="예약">

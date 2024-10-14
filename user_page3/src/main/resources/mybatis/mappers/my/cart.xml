@@ -61,7 +61,7 @@
 			book_res = 
 				CASE WHEN  
 					(SELECT res_pick FROM li_book JOIN user_res USING(book_code) 
-					WHERE res_pick IS NULL AND book_code=?) 
+					WHERE res_pick IS NULL AND book_code=#{book_code}) 
 					= 'null'  THEN 'N' ELSE 'Y' END  
 		WHERE 
 			book_code= #{book_code}

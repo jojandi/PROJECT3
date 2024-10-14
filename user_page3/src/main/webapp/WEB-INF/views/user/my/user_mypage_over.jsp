@@ -34,6 +34,7 @@
                 <table>
                 	<colgroup>
 					    <col width="30%"/>
+					    <col width="10%"/>
 					    <col width="15%"/>
 					    <col width="15%"/>
 					    <col width="10%"/>
@@ -42,6 +43,7 @@
                     <thead> 
                         <tr>
                             <td class="bnameall">도서명</td>
+                            <td>도서관</td>
                             <td class="day1">대출일자</td>
                             <td class="day1">반납일자</td>
                             <td id="day">연체일</td>
@@ -53,6 +55,7 @@
                        	<c:forEach var="list" items="${map.list}">
     	                    <tr>
 	                            <td class="bname">${list.book_name}</td>
+	                            <td>${list.lib_name}</td>
 	                            <td>${list.loan_date}</td>
 	                            <td class="ing">${list.loan_return}</td>
 	                            <td>${list.over}일</td>
