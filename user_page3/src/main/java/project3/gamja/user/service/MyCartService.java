@@ -24,6 +24,14 @@ public class MyCartService {
 		return list;
 	}
 	
+	// 도서관 정보 + 도서관 재고
+	public List<CartDTO> selectLibrary(CartDTO cartDTO){
+		
+		List<CartDTO> list = myDAO.selectLibCount(cartDTO);
+		
+		return list;
+	}
+	
 	// 여러개 예약 및 삭제
 	public int resAll(String[] codes, String[] cart, int user) {
 		int result = 0;
@@ -81,6 +89,24 @@ public class MyCartService {
 		return delete;
 	}
 	
+	// 한 개 삭제
+	public int delCart(CartDTO cartDTO) {
+				
+		int delete = myDAO.deleteChkCart(cartDTO);
+
+		return delete;
+	}
+
+	// 한 개 예약
+	public int resCart(LoanDTO loanDTO) {
+		
+		int insert = myDAO.insertAllCart(loanDTO);
+		int update = myDAO.updateInvenRes(loanDTO);
+		System.out.println("재고 업데이트 : " + update);
+		
+		return insert;
+	}
+	
 	// 재고에 예약 중 표시
 	public int updateInvenRes(String[] codes) {
 		int result = 0;
@@ -92,7 +118,7 @@ public class MyCartService {
 				
 				dto.setBook_code(code);
 				
-				result += myDAO.insertAllCart(dto);
+				result += myDAO.updateInvenRes(dto);
 				System.out.println("재고 업데이트" + i + " : " + result);
 			}
 		}catch (Exception e) {

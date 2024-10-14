@@ -12,8 +12,57 @@ public class CartDTO {
 	private String[] book_codes;
 	private String[] cart_seqs;
 	private int lib_id;
+	private long book_ISBN;
 	private String lib_name;
+	private int count;
+	private int book_loan_seq;
+	private boolean book_loan;
+	private boolean book_res;
+	private String lib_add;
+	private Integer lib_call;
 	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public int getBook_loan_seq() {
+		return book_loan_seq;
+	}
+	public void setBook_loan_seq(int book_loan_seq) {
+		this.book_loan_seq = book_loan_seq;
+	}
+	public boolean isBook_loan() {
+		return book_loan;
+	}
+	public void setBook_loan(boolean book_loan) {
+		this.book_loan = book_loan;
+	}
+	public boolean isBook_res() {
+		return book_res;
+	}
+	public void setBook_res(boolean book_res) {
+		this.book_res = book_res;
+	}
+	public String getLib_add() {
+		return lib_add;
+	}
+	public void setLib_add(String lib_add) {
+		this.lib_add = lib_add;
+	}
+	public Integer getLib_call() {
+		return lib_call;
+	}
+	public void setLib_call(Integer lib_call) {
+		this.lib_call = lib_call;
+	}
+	public long getBook_ISBN() {
+		return book_ISBN;
+	}
+	public void setBook_ISBN(long book_ISBN) {
+		this.book_ISBN = book_ISBN;
+	}
 	public int getLib_id() {
 		return lib_id;
 	}

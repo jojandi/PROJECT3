@@ -46,4 +46,5 @@ public class BookflixService {
 	    public int out(int userSeq) {
 	        return bookflixDAO.bookflix_out(userSeq);
 	    }
+	   
 }

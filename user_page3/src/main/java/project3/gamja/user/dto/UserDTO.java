@@ -128,6 +128,4 @@ public class UserDTO {
 				+ user_email + ", domain=" + domain + ", user_sub=" + user_sub + ", user_pass=" + user_pass
 				+ ", user_over=" + user_over + ", user_loan=" + user_loan + ", user_admin=" + user_admin + "]";
 	}
-	
-	
 }

@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-				<%-- <c:if test="${ login.user_sub == true }"> --%>
+				<c:if test="${ login.user_sub == true }">
 	               <div id="booksub">
 	                   <div id="booklogo">
 	                       <img src="./assets/img/bookflix.png">
@@ -67,7 +67,7 @@
 	                   </div>
 	                  
 	               </div>
-                <%-- </c:if> --%>
+                </c:if>
 
                 <!-- 정보수정 -->
                 <div id="infoedit">
@@ -160,7 +160,7 @@
                                 <td>
                                     <input class="email-input" type="text" value="${login.user_email}" id="email-user" name="user_email1">
 									<span class="email-domain">@</span>
-									<input class="email-input" type="text" value="${login.domail}" id="email-domain" name="user_email2">
+									<input class="email-input" type="text" value="${login.domain}" id="email-domain" name="user_email2">
                                 </td>
                             </tr>
                             <tr>

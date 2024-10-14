@@ -21,8 +21,15 @@ public class LoanDTO {
 	private int end;
 	private int lib_id;
 	private String lib_name;
+	private int[] lib_ids;
 	
 	
+	public int[] getLib_ids() {
+		return lib_ids;
+	}
+	public void setLib_ids(int[] lib_ids) {
+		this.lib_ids = lib_ids;
+	}
 	public int getLib_id() {
 		return lib_id;
 	}
