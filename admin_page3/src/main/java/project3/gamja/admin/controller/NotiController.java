@@ -54,14 +54,14 @@ public class NotiController {
 
 
     // 공지사항 업데이트 (noticeDTO의 데이터를 받아서 업데이트)
-    @RequestMapping(value = "/notice2", method = RequestMethod.PUT)
+    @RequestMapping(value = "/notice2", method = RequestMethod.GET)
     public String updateNotice(NotiDTO dto) {
         notiService.updateNotice(dto);
         return "redirect:/notice2";
     }
 
     // 공지사항 삭제
-    @RequestMapping(value = "/notice2", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/notice2", method = RequestMethod.POST)
     public String deleteNotice(int noticeId) {
         notiService.deleteNotice(noticeId);
         return "redirect:/notice2";
