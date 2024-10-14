@@ -90,10 +90,9 @@ label {
     display: block; 
     margin-bottom: 5px; 
     
-    }
-    #modalUpdateButton{
+}
+#modalUpdateButton{
     width : 100px;
-    }
 }
 </style>
 </head>
@@ -121,22 +120,29 @@ label {
                     <tr>
                         <td>${notice.ann_seq}</td>
                         <!-- 공지사항 번호 -->
-                        <td>${notice.class_id}</td>
+                        <c:if test="${notice.class_id eq 5001}">
+                        	<td>공지</td>
+                        </c:if>
+                        <c:if test="${notice.class_id eq 5002}">
+                        	<td>안내</td>
+                        </c:if>
+                        
+                        
                         <!-- 분류 ID -->
-                        <c:if test = "${notice.lib_id eq 7000}" >
-                        <td>두정도서관</td>
+                        <c:if test="${notice.lib_id eq 7000}">
+                            <td>두정도서관</td>
                         </c:if>
-                        <c:if test = "${notice.lib_id eq 7001}" >
-                        <td>신방도서관</td>
+                        <c:if test="${notice.lib_id eq 7001}">
+                            <td>신방도서관</td>
                         </c:if>
-                        <c:if test = "${notice.lib_id eq 7002}" >
-                        <td>쌍용도서관</td>
+                        <c:if test="${notice.lib_id eq 7002}">
+                            <td>쌍용도서관</td>
                         </c:if>
-                        <c:if test = "${notice.lib_id eq 7003}" >
-                        <td>중앙도서관</td>
+                        <c:if test="${notice.lib_id eq 7003}">
+                            <td>중앙도서관</td>
                         </c:if>
-                        <c:if test = "${notice.lib_id eq 7004}" >
-                        <td>청수도서관</td>
+                        <c:if test="${notice.lib_id eq 7004}">
+                            <td>청수도서관</td>
                         </c:if>
                         <!-- 도서관 -->
                         <td><a href="notice3_${notice.ann_seq}">${notice.ann_title}</a></td>
@@ -178,6 +184,10 @@ label {
                 <label for="modalAnnTitle">제목</label>
                 <input type="text" id="modalAnnTitle" />
                 <label for="modalAnnRegi">등록일</label>
+                <input type="text" id="modalAnnRegi" /><br> <!-- 수정: modalAnnRegi -->
+                <label for="modalAnnCheck">조회수</label>
+                <input type="text" id="modalAnnCheck" /><br> <!-- 추가: modalAnnCheck -->
+                <label for="modalAnnAttach">첨부파일</label>
                 <input type="text" id="modalAnnAttach" /><br>
                 <button type="button" id="modalUpdateButton">수정하기</button>
             </form>

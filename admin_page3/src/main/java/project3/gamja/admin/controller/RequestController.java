@@ -42,10 +42,14 @@ public class RequestController {
 	public int reqOrder(@RequestBody RequestDTO requestDTO) {
 		int[] lr_seqs = requestDTO.getLr_seqs();
 		int[] lr_counts = requestDTO.getLr_counts();
+		int[] lib_ids = requestDTO.getLib_ids();
 		for(int check : lr_seqs) {
 			System.out.println("발주번호 : " + check);
 		}
 		for(int lib_id : lr_counts) {
+			System.out.println("발주수량 : " + lib_id);
+		}
+		for(int lib_id : lib_ids) {
 			System.out.println("발주수량 : " + lib_id);
 		}
 		

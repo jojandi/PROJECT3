@@ -1,5 +1,11 @@
 Manifest-Version: 1.0
 <<<<<<< HEAD
+Built-By: ￬ﾡﾰ￫ﾯﾼ￬ﾠﾕ
+=======
+<<<<<<< HEAD
+Built-By: user
+=======
+<<<<<<< HEAD
 Built-By: kshh6
 =======
 <<<<<<< HEAD
@@ -16,6 +22,8 @@ Built-By: user
 >>>>>>> 9661f12a9249a2f0e9ad778cf01704363aea94b5
 >>>>>>> a8ce7d5f281e19de75c6a64c0e835f1d195a8b10
 >>>>>>> 3a2754c46682a27d7f165d81b5c98a3c6bd9c16d
+>>>>>>> 68bb2b2a6d67fe9876a09f5fd3771be5e5f93373
+>>>>>>> c2d87db266ca657f45fe4a2688a24ea3009842bd
 Build-Jdk: 11
 Created-By: Maven Integration for Eclipse
 

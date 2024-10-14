@@ -75,6 +75,7 @@
 										</td>
 										<td>
 											<c:if test="${list.loan_ing == true}">
+												<input type="hidden" value=${list.lib_id } class="lib_id">
 												<input type="hidden" value="${list.user_seq}" class="user_seq">
 												<input type="hidden" value="${list.book_code}" class="book_code">
 												<input type="hidden" value="${list.loan_seq}" class="loan_seq">

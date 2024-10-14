@@ -57,7 +57,7 @@ aside #items #i2 .material-symbols-outlined {
 									<td>${list.lr_date}</td>
 									<c:if test="${empty list.lr_ing}">								
 										<td>
-											<input type="text" name="lr_count" data-lr_seq="${list.lr_seq}">
+											<input type="text" name="lr_count" data-lr_seq="${list.lr_seq}" data-lib_id="${list.lib_id}">
 										</td>
 									</c:if>
 									<c:if test="${not empty list.lr_ing}">								
@@ -182,13 +182,12 @@ aside #items #i2 .material-symbols-outlined {
 			//jQuery로 for문 돌면서 input type text의 value를 담는다
 		    let lr_count = []; // lib_request 테이블에 수량 인서트
 		    let lr_seq = []; // orderstatus 테이블에 인서트
+		    let lib_id = [];
 		    $("input[name='lr_count']").each(function(i){ 
 		    	console.log($(this), this);
 		    	lr_count.push($(this).val());
-		    });
-
-		    $("input[name='lr_count']").each(function(i){   
 		    	lr_seq.push($(this).attr('data-lr_seq'));
+		    	lib_id.push($(this).attr('data-lib_id'));
 		    });
 		    
 		    console.log(lr_count);
@@ -202,7 +201,8 @@ aside #items #i2 .material-symbols-outlined {
 			    
 			    data = {
 			    		"lr_counts" : lr_count,
-			    		"lr_seqs" : lr_seq
+			    		"lr_seqs" : lr_seq,
+			    		"lib_ids" : lib_id
 			    }
 			    
 			    ajax("reqOrder", data, function(result){
