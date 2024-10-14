@@ -52,12 +52,12 @@
 									<c:if test="${ work.bom_name != null }">
 										<td>${ work.bom_name }</td>
 									</c:if>
-									<c:if test="${ work.bom_name eq null }">
+									<c:if test="${ work.bom_name != null }">
 										<td>${ work.lib_name }</td>
 									</c:if>
-									<c:if test="${ work.bom_name != null }">
-										<td>${ work.user_id }</td>
-									</c:if>
+<%-- 									<c:if test="${ work.bom_name != null }"> --%>
+<%-- 										<td>${ work.user_id }</td> --%>
+<%-- 									</c:if> --%>
 									<td>${ work.os_date }</td>
 									<td id="createwo">
 										<form method="post" action="pfinsertwo">
