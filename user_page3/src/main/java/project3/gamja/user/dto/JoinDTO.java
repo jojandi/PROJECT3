@@ -18,9 +18,12 @@ public class JoinDTO {
 	private String user_over;
 	private Integer user_loan;
 	private String user_admin;
+<<<<<<< HEAD
 	
 	
 	
+=======
+>>>>>>> 9fd7a569f3fcb9aa00c082d171a45b23cc6238a7
 	public Integer getLike_id() {
 		return like_id;
 	}
@@ -114,6 +117,7 @@ public class JoinDTO {
 	public void setUser_tel(String user_tel) {
 		this.user_tel = user_tel;
 	}
+<<<<<<< HEAD
 
 
 
@@ -135,6 +139,17 @@ public class JoinDTO {
 
 
 
+=======
+	public String getUser_addr() {
+		return user_addr;
+	}
+	public void setUser_addr(String user_addr) {
+		this.user_addr = user_addr;
+	}
+	public String getUser_addr_info() {
+		return user_addr_info;
+	}
+>>>>>>> 9fd7a569f3fcb9aa00c082d171a45b23cc6238a7
 	public void setUser_addr_info(String user_addr_info) {
 		this.user_addr_info = user_addr_info;
 	}
@@ -150,6 +165,7 @@ public class JoinDTO {
 	public void setUser_email(String user_email) {
 		this.user_email = user_email;
 	}
+<<<<<<< HEAD
 
 
 
@@ -165,6 +181,14 @@ public class JoinDTO {
 
 
 
+=======
+	public String getDomain() {
+		return domain;
+	}
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+>>>>>>> 9fd7a569f3fcb9aa00c082d171a45b23cc6238a7
 	public String getUser_sub() {
 		return user_sub;
 	}
@@ -186,6 +210,7 @@ public class JoinDTO {
 	public void setUser_pass(java.sql.Date user_pass) {
 		this.user_pass = user_pass;
 	}
+<<<<<<< HEAD
 
 
 
@@ -225,12 +250,33 @@ public class JoinDTO {
 
 
 
+=======
+	public String getUser_over() {
+		return user_over;
+	}
+	public void setUser_over(String user_over) {
+		this.user_over = user_over;
+	}
+	public Integer getUser_loan() {
+		return user_loan;
+	}
+	public void setUser_loan(Integer user_loan) {
+		this.user_loan = user_loan;
+	}
+	public String getUser_admin() {
+		return user_admin;
+	}
+	public void setUser_admin(String user_admin) {
+		this.user_admin = user_admin;
+	}
+>>>>>>> 9fd7a569f3fcb9aa00c082d171a45b23cc6238a7
 	@Override
 	public String toString() {
-		return "MemberDTO [like_id=" + like_id + ", like=" + like + ", user_seq=" + user_seq + ", user_id=" + user_id
+		return "JoinDTO [like_id=" + like_id + ", like=" + like + ", user_seq=" + user_seq + ", user_id=" + user_id
 				+ ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_birth=" + user_birth + ", user_tel="
-				+ user_tel + ", user_addr=" + user_addr + ", user_addr_info=" + user_addr_info + ", user_email=" + user_email
-				+ ", user_sub=" + user_sub + ", user_pass=" + user_pass + ", user_over=" + user_over + ", user_loan="
-				+ user_loan + ", user_admin=" + user_admin + "]";
+				+ user_tel + ", user_addr=" + user_addr + ", user_addr_info=" + user_addr_info + ", user_email="
+				+ user_email + ", domain=" + domain + ", user_sub=" + user_sub + ", user_pass=" + user_pass
+				+ ", user_over=" + user_over + ", user_loan=" + user_loan + ", user_admin=" + user_admin + "]";
 	}
+	
 }

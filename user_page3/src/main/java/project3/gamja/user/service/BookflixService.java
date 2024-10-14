@@ -26,4 +26,24 @@ public class BookflixService {
 	    public int review(int userSeq, int buserSeq, int star, String text) {
 	        return bookflixDAO.bookflix_review(userSeq, buserSeq, star, text);
 	    }
+	    
+	    // 북플릭스 가입 처리
+	    public int sub(int userSeq) {
+	        return bookflixDAO.bookflix_sub(userSeq);
+	    }
+
+	    // 북플릭스 유저 인서트
+	    public int subInsert(int userSeq) {
+	        return bookflixDAO.bookflix_subInsert(userSeq);
+	    }
+
+	    // 북플릭스 유저 삭제 (탈퇴)
+	    public int bookflixDel(int buserSeq) {
+	        return bookflixDAO.bookflix_del(buserSeq);
+	    }
+
+	    // 북플릭스 탈퇴 처리
+	    public int out(int userSeq) {
+	        return bookflixDAO.bookflix_out(userSeq);
+	    }
 }

@@ -23,12 +23,6 @@ header #menu #items #i3 {
 						class="material-symbols-outlined">arrow_forward_ios</span>
 					</a>
 				</div>
-
-				<div class="item" id="i2">
-					<a href="app"> <span>도서 신청 관리</span> <span
-						class="material-symbols-outlined">arrow_forward_ios</span>
-					</a>
-				</div>
 				<div class="item" id="i3">
 					<a href="notice2"> <span>공지 사항 목록</span> <span
 						class="material-symbols-outlined">arrow_forward_ios</span>
