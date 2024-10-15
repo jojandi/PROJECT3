@@ -21,6 +21,11 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
 	</definition>
 	
+	<!-- 메인페이지 -->
+	<definition name="main" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/admin/main/main.jsp"/>
+	</definition>
+	
 	<!-- 재고현황 - 실시간 재고 현황 -->
 	<definition name="inven" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/inven_side.jsp"/>
