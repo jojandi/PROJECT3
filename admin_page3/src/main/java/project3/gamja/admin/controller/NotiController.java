@@ -104,8 +104,20 @@ public class NotiController {
 		            // 파일을 해당 경로에 전송 (저장)
 		            mf.transferTo(file);
 
+<<<<<<< HEAD
 		            // 저장된 파일명 또는 경로를 DTO에 설정
 		            dto.setAnn_attach(safeFileName); // 파일 경로를 DTO에 저장
+=======
+
+		            // 저장된 파일명 또는 경로를 DTO에 설정
+		            dto.setAnn_attach(safeFileName); // 파일 경로를 DTO에 저장
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+>>>>>>> 987955e9eb2a01cb55ed6a5d56452457d6045ce5
 
 		    // 공지사항 서비스에 공지사항 정보 저장 로직 호출
 		    notiService.insertNotice(dto);
