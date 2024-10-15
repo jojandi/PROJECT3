@@ -14,7 +14,6 @@ public interface BestDAO {
 
 	List<BestDTO> selectBest();
 	List<LibraryDTO> selectLibCount(BestDTO bestDTO);
-	// List<LibraryDTO> selectLibrary();
 	int insertCart(CartDTO cartDTO);
 	int insertRes(LoanDTO loanDTO);
 	int updateRes(LoanDTO loanDTO);

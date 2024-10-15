@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import project3.gamja.mesPage.dao.WorkorderDAO;
+import project3.gamja.mesPage.dto.MesPfworkDTO;
 import project3.gamja.mesPage.dto.MesWorkorderDTO;
 
 @Service
@@ -74,14 +75,20 @@ public class WorkorderService {
 		return result;
 	}
 	
-	public int deletepf(MesWorkorderDTO woDTO) {
-		int result = woDAO.deletepf(woDTO);
+	public int updatepf(MesWorkorderDTO woDTO) {
+		int result = woDAO.updatepf(woDTO);
 		
 		return result;
 	}
 	
 	public int insertpf(MesWorkorderDTO woDTO) {
 		int result = woDAO.insertpf(woDTO);
+		
+		return result;
+	}
+	
+	public int requestpf(MesWorkorderDTO woDTO) {
+		int result = woDAO.requestpf(woDTO);
 		
 		return result;
 	}

@@ -19,7 +19,7 @@
 				WHERE 
 					user_seq = #{user_seq}
 				ORDER BY 
-					res_id 
+					res_id desc
 		)) 
 		WHERE 
 			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}

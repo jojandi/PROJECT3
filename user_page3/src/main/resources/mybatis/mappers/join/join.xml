@@ -11,5 +11,10 @@
 		    (user_seq.nextval, #{user_name}, #{user_birth}, #{user_id}, #{user_pw}, #{user_tel}, #{user_addr}, #{user_addr_info}, #{user_email}, #{like_id}, 'N', 'N', #{domain})
 
 	</insert>
+	<select id="checkUserIdExists" parameterType="joinDTO" resultType="int">
+		SELECT COUNT(*)
+		FROM tbl_user
+		WHERE user_id = #{user_id}
+	</select>
 
 </mapper>

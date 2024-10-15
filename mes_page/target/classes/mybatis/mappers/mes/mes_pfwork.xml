@@ -7,30 +7,34 @@
 	<!-- pfwork select -->
 	<select id="selectpf" resultType="pfworkDTO" parameterType="pfworkDTO">
 		SELECT * FROM (
-			SELECT 
-			    o.os_id, 
-			    o.os_status,
-			    b.bom_name,
-			    l.lib_name,
-			    l.lib_id,
-			    a.app_book,
-			    lr.lr_count,
-			    t.user_id, 
-			    o.os_date, 
-			    e.emp_name
-			FROM 
-   				orderstatus o
-            lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
-            lEFT OUTER JOIN application a ON a.app_seq = lr.app_seq
-		    LEFT OUTER JOIN bom b ON o.bom_code = b.bom_code
-		    LEFT OUTER JOIN bookflix_user f ON o.buser_seq = f.buser_seq
-		    LEFT OUTER JOIN employee e ON o.emp_id = e.emp_id
-		    LEFT OUTER JOIN tbl_user t ON f.user_seq = t.user_seq
-            left outer join mes_book k on k.mes_book_code = b.mes_book_code1
-            left outer join library l on l.lib_id = lr.lib_id
-				ORDER BY o.os_id DESC
-				 )
-<!-- 			WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} -->
+			select rownum AS rnum, a.*  FROM(
+				SELECT 
+				    o.os_id, 
+				    o.os_status,
+				    b.bom_name,
+				    l.lib_name,
+				    l.lib_id,
+				    a.app_book,
+				    lr.lr_count,
+				    t.user_id, 
+				    o.os_date, 
+				    e.emp_name,
+				    lr.lr_seq
+				FROM 
+	   				orderstatus o
+	            lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
+	            lEFT OUTER JOIN application a ON a.app_seq = lr.app_seq
+			    LEFT OUTER JOIN bom b ON o.bom_code = b.bom_code
+			    LEFT OUTER JOIN bookflix_user f ON o.buser_seq = f.buser_seq
+			    LEFT OUTER JOIN employee e ON o.emp_id = e.emp_id
+			    LEFT OUTER JOIN tbl_user t ON f.user_seq = t.user_seq
+	            left outer join mes_book k on k.mes_book_code = b.mes_book_code1
+	            left outer join library l on l.lib_id = lr.lib_id
+	            WHERE os_status = '진행중' OR os_status IS NULL
+					ORDER BY o.os_id DESC
+			) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
 	</select>
 	
 	<select id="selectde" resultType="pfworkDTO" parameterType="pfworkDTO">
@@ -42,6 +46,7 @@
 		lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
 		left outer join library l on l.lib_id = lr.lib_id
 		left outer join bom b on b.bom_code = o.bom_code
+		order by os_id desc
 	</select>
 	
 	<!-- pfwork paging -->
@@ -50,6 +55,7 @@
 			count(*) cnt 
 		FROM 
 			orderstatus 
+		WHERE os_status = '진행중' OR os_status IS NULL
 	</select>
 	
 	<!-- pfwork read -->
@@ -115,5 +121,7 @@
 			set os_status = '진행중'
 			where os_id = #{os_id}
 	</update>
+	
+	
 
 </mapper>

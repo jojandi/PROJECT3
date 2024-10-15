@@ -7,13 +7,16 @@
 	<!-- 도서발주 페이지 select -->
 	<select id="selectre" resultType="requestDTO" parameterType="requestDTO">
 		SELECT * FROM (
-			SELECT 
-			    rownum AS rnum, r.lr_seq, r.lr_count, r.lr_date, r.app_seq, a.app_book, a.app_name, a.app_pub, 
-			    r.lib_id, l.lib_name, r.lr_ing
-			FROM 
-			    lib_request r
-			    LEFT OUTER JOIN library l ON r.lib_id = l.lib_id
-			    LEFT OUTER JOIN  application a ON r.app_seq = a.app_seq
+			SELECT rownum AS rnum, a.* FROM(
+		        SELECT 
+		            r.lr_seq, r.lr_count, r.lr_date, r.app_seq, a.app_book, a.app_name, a.app_pub, 
+		            r.lib_id, l.lib_name, r.lr_ing
+		        FROM 
+		            lib_request r
+		            LEFT OUTER JOIN library l ON r.lib_id = l.lib_id
+		            LEFT OUTER JOIN  application a ON r.app_seq = a.app_seq
+		        order by lr_ing desc,lr_seq desc
+		    ) a
 		)
 		WHERE 
 			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
@@ -24,14 +27,14 @@
 		SELECT 
 			count(*) cnt 
 		FROM 
-			library 
+			lib_request 
 	</select>
 	
 	<!-- 도서 발주 -> 주문 현황 -->
 	<insert id="reqOrder" parameterType="requestDTO">
 		INSERT INTO orderstatus (os_id, os_date, lr_seq, bom_code, emp_id, buser_seq)
 	    VALUES 
-	        (os_seq.NEXTVAL, sysdate, #{lr_seq}, 0, 0, 0)
+	        (os_seq.NEXTVAL, sysdate, #{lr_seq}, #{lib_id}, 0, 0)
 	</insert>
 	
 	<update id="reqUpdate" parameterType="requestDTO">

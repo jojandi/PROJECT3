@@ -12,33 +12,11 @@
 aside #items #i3 .material-symbols-outlined {
     background-color: rgb(165, 224, 144);
 }
-
-h1 {
-    border: 1px solid #ccc;
-    width: 100%;
-    text-align: center;
-    font-size: 22px;
-    padding: 17px;
-    box-sizing: border-box;
+header #menu #items #i2 {
+    font-weight: 900;
+    text-decoration: underline;
 }
 
-section h1 {
-    border: 1px solid #ccc;
-    width: 100%;
-    text-align: center;
-    font-size: 22px;
-    padding: 17px;
-    box-sizing: border-box;
-}
-
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-}
-
-button {
-    width: 50px;
-}
 
 /* 모달창 스타일 */
 .modal {
@@ -184,9 +162,9 @@ label {
                 <label for="modalAnnTitle">제목</label>
                 <input type="text" id="modalAnnTitle" />
                 <label for="modalAnnRegi">등록일</label>
-                <input type="text" id="modalAnnRegi" /><br> <!-- 수정: modalAnnRegi -->
-                <label for="modalAnnCheck">조회수</label>
-                <input type="text" id="modalAnnCheck" /><br> <!-- 추가: modalAnnCheck -->
+                <input type="text" id="modalAnnRegi" /><br>
+				<label for="modalAnnCheck">조회수</label>
+                <input type="text" id="modalAnnCheck" /><br>
                 <label for="modalAnnAttach">첨부파일</label>
                 <input type="text" id="modalAnnAttach" /><br>
                 <button type="button" id="modalUpdateButton">수정하기</button>

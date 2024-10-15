@@ -29,11 +29,12 @@
         INSERT INTO
         announcement (
         class_id,
-        ann_Seq,
-        ann_Title,
-        ann_Regi,
-        ann_Check,
+        ann_seq,
+        ann_title,
+        ann_regi,
+        ann_check,
         ann_detail,
+        ann_attach,
         lib_id
         ) VALUES(
         #{class_id},
@@ -42,6 +43,7 @@
         #{ann_regi},
         #{ann_check},
         #{ann_detail},
+         #{ann_attach},
         #{lib_id}
         )
     </insert>
