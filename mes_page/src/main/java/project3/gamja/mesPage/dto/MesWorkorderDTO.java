@@ -37,12 +37,28 @@ public class MesWorkorderDTO {
 	
 	private Integer lib_id;
 	
+	private Integer app_seq;
+	
+	private Integer lr_seq;
+	
 	private int start;
 	
 	private int end;
 	
 	
 	
+	public Integer getLr_seq() {
+		return lr_seq;
+	}
+	public void setLr_seq(Integer lr_seq) {
+		this.lr_seq = lr_seq;
+	}
+	public Integer getApp_seq() {
+		return app_seq;
+	}
+	public void setApp_seq(Integer app_seq) {
+		this.app_seq = app_seq;
+	}
 	public Integer getLib_id() {
 		return lib_id;
 	}

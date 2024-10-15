@@ -67,7 +67,10 @@
 											<c:if test="${empty work.os_status }">
 												<input type="submit" value="작업지시서 생성">
 											</c:if>
-											<c:if test="${not empty work.os_status }">
+											<c:if test="${'진행중' eq work.os_status }">
+												${work.os_status }
+											</c:if>
+											<c:if test="${'완료' eq work.os_status }">
 												${work.os_status }
 											</c:if>
 										</form>

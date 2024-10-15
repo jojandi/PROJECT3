@@ -66,7 +66,10 @@ aside #items #i2 .material-symbols-outlined {
 									<c:if test="${empty list.lr_ing}">								
 										<td>-</td>
 									</c:if>
-									<c:if test="${not empty list.lr_ing}">								
+									<c:if test="${'진행중' eq list.lr_ing}">								
+										<td>${list.lr_ing}</td>
+									</c:if>
+									<c:if test="${'완료' eq list.lr_ing}">								
 										<td>${list.lr_ing}</td>
 									</c:if>
 								</tr>
