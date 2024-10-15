@@ -161,11 +161,11 @@
 						<td class="label"><span>*</span> 아이디</td>
 						<td>
 							<div id="seob">
-								<input type="text" id="username" name="user_id" placeholder="아이디">
+								<input type="text" id="user_id" name="user_id" placeholder="아이디">
 								<div class="red" id="username-message">아이디를 적어주세요</div>
 							</div>
 							<div class="gaip">
-								<input type="button" value="아이디 중복확인" id="check-username">
+								<input type="button" value="아이디 중복확인" id="check_username">
 									<span id="LO01">
 										사용가능한 아이디입니다. 
 									</span>
@@ -216,18 +216,18 @@
 					<tr>
 						<td class="label"><span>*</span> 선호도 조사</td>
 						<td>
-							<input type="radio" id="hre1" name="like" value="1">언론
-							<input type="radio" id="hre2" name="like" value="2">소설
-							<input type="radio" id="hre3" name="like" value="3">역사
-							<input type="radio" id="hre4" name="like" value="4">인문학
-							<input type="radio" id="hre5" name="like" value="5">자기계발
-							<input type="radio" id="hre6" name="like" value="6">무협
+							<input type="radio" id="hre1" name="like_id" value="1">언론
+							<input type="radio" id="hre2" name="like_id" value="2">소설
+							<input type="radio" id="hre3" name="like_id" value="3">역사
+							<input type="radio" id="hre4" name="like_id" value="4">인문학
+							<input type="radio" id="hre5" name="like_id" value="5">자기계발
+							<input type="radio" id="hre6" name="like_id" value="6">무협
 							<br>
-							<input type="radio" id="hre7" name="like" value="7">만화
-							<input type="radio" id="hre8" name="like" value="8">판타지
-							<input type="radio" id="hre9" name="like" value="9">로맨스
-							<input type="radio" id="hre10" name="like" value="10">추리
-							<input type="radio" id="hre11" name="like" value="11">스릴러
+							<input type="radio" id="hre7" name="like_id" value="7">만화
+							<input type="radio" id="hre8" name="like_id" value="8">판타지
+							<input type="radio" id="hre9" name="like_id" value="9">로맨스
+							<input type="radio" id="hre10" name="like_id" value="10">추리
+							<input type="radio" id="hre11" name="like_id" value="11">스릴러
 						</td>
 					</tr>
 				</table>

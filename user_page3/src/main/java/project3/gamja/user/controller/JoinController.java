@@ -5,9 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import project3.gamja.user.dto.JoinDTO;
 import project3.gamja.user.service.JoinService;
@@ -45,6 +46,22 @@ public class JoinController {
 		joinService.insertJoin(dto);
 		
 		return "redirect:login";
+	}
+	
+	@RequestMapping(value="/check_username", method=RequestMethod.POST)
+	@ResponseBody
+	public String checkUsername(@RequestBody JoinDTO dto) {
+	    try {
+	        int result = joinService.checkUserIdExists(dto);
+	        if (result > 0) {
+	            return "exists";
+	        } else {
+	            return "available";
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();  // 서버 로그에 예외를 기록
+	        return "error";  // 클라이언트에 오류 메시지 반환
+	    }
 	}
 	
 	

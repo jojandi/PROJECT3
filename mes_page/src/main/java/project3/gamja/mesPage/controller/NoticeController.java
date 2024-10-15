@@ -82,8 +82,11 @@ public class NoticeController {
 	}
 	@RequestMapping(value="/mes_noticeDelete", method=RequestMethod.GET)
 	public String noticeDelete(MesNoticeDTO dto, @RequestParam Integer notice_id) {
-		
+			
+			
 		try {
+			dto.setNotice_id(notice_id);
+			System.out.println("@@@@@@@@@@@@delete dto :" + dto);
 			noticeService.deleteNotice(dto);
 			
 		}catch (Exception e) {
