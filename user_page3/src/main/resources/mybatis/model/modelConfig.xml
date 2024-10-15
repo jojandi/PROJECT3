@@ -25,6 +25,7 @@
 		<typeAlias type="project3.gamja.user.dto.NotiDTO" alias="notiDTO"/>
 		<typeAlias type="project3.gamja.user.dto.JoinDTO" alias="joinDTO"/>
 		<typeAlias type="project3.gamja.user.dto.SearchDTO" alias="searchDTO"/>
+		<typeAlias type="project3.gamja.user.dto.ReviewDTO" alias="reviewDTO"/>
 
 	</typeAliases> 
 

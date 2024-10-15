@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- template : 기본 틀 -->
+	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="side" value=""/>
+		<put-attribute name="content" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition>
+	
+	<!-- template : 기본 틀2 -->
+	<definition name="baseLayout2" template="/WEB-INF/views/common/layout2.jsp">
+		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="content" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition>
+	
+	<!-- 메인페이지 -->
+	<definition name="main" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/admin/main/main.jsp"/>
+	</definition>
+	
+	<!-- 재고현황 - 실시간 재고 현황 -->
+	<definition name="inven" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/inven_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/inven/inventory.jsp"/>
+	</definition>
+
+	<!-- 재고현황 - 실시간 재고 현황 상세내역 -->
+	<definition name="inven_" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/inven_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/inven/inventory_.jsp"/>
+	</definition>
+	
+	<!-- 재고현황 - 도서 예약 현황 -->
+	<definition name="res" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/inven_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/inven/res.jsp"/>
+	</definition>
+	
+	<!-- 재고현황 - 도서 대출 현황 -->
+	<definition name="loan" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/inven_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/inven/loan.jsp"/>
+	</definition>
+	
+	<!-- 도서 발주 신청 - 도서 발주 -->
+	<definition name="request" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/request_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/request/request.jsp"/>
+	</definition>
+	
+	<!-- 도서 발주 신청 - 도서 신청 내역 -->
+	<definition name="apply" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/request_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/request/apply.jsp"/>
+	</definition>
+	
+	
+	<!--공지사항1-->
+		<definition name="notice" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice.jsp"/>
+	</definition>
+	
+	<!--공지사항 2-->
+		<definition name="notice2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice2.jsp"/>
+	</definition>
+	
+		<!--공지사항 3-->
+		<definition name="notice3" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice3.jsp"/>
+	</definition>
+	
+	
+	
+	
+	<!-- 회원 관리 - 회원관리 -->
+	<definition name="member1" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/member_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/member/mem.jsp"/>
+	</definition>
+	
+	<!-- 회원 관리 - 상세정보 -->
+	<definition name="member2" extends="baseLayout">
+		<put-attribute name="side" value="/WEB-INF/views/common/member_side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/member/mem_read.jsp"/>
+	</definition>
+	
+	
+</tiles-definitions>

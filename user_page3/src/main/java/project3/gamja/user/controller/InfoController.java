@@ -57,7 +57,7 @@ public class InfoController {
 	@RequestMapping(value="/notice", method=RequestMethod.GET)
 	public String slelctInven(Model model, NotiDTO invenDTO, String countPerPage, String page) {
 		// 페이징 기본값 설정
-		if(countPerPage == null) countPerPage = "5";
+		if(countPerPage == null) countPerPage = "10";
 		if(page == null) page = "1";
 		
 		int count = Integer.parseInt(countPerPage);
@@ -93,7 +93,7 @@ public class InfoController {
 		return "request";
 	}
 	// insert
-	@RequestMapping("/request/insert")
+	@RequestMapping("/requestInsert")
 	public String insreq(Model model, @ModelAttribute RequestDTO dto) {
 		int result = InfoService.insertApplication(dto);
 		System.out.println("dto = " + dto);
@@ -101,7 +101,7 @@ public class InfoController {
 		return "redirect:/request";
 	}
 	// 업데이트
-	@RequestMapping("/request/update")
+	@RequestMapping("/requestUpdate")
 	public String updatereq(Model model, @ModelAttribute RequestDTO dto) {
 		int result = InfoService.editApplication(dto);
 		System.out.println("dto = " + dto);

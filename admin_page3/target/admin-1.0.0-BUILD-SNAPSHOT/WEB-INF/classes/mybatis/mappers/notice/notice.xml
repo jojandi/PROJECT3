@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project3.gamja.admin.dao.NotiDAO">
+
+<!--     <select id="totalnoti" resultType="int">
+        SELECT
+        count(*) cnt
+        FROM
+        li_book
+    </select>   -->
+
+    <!-- 공지사항 목록 조회 -->
+    <select id="selectAnnouncement" resultType="NotiDTO">
+        SELECT * FROM announcement
+    </select>
+
+    <!-- 공지사항 세부 조회 (ann_seq 조건 추가) -->
+    <select id="selectSeq" resultType="NotiDTO" parameterType="int">
+        SELECT * FROM announcement
+        WHERE ann_seq = #{ann_seq}
+    </select>
+
+    
+    <!-- 공지사항 추가 인서트 -->
+    <insert id="insertAnnouncement" parameterType="NotiDTO">
+        INSERT INTO
+        announcement (
+        class_id,
+        ann_seq,
+        ann_title,
+        ann_regi,
+        ann_check,
+        ann_detail,
+        lib_id
+        ) VALUES(
+        #{class_id},
+        ann_seq.nextval,
+        #{ann_title},
+        #{ann_regi},
+        #{ann_check},
+        #{ann_detail},
+        #{lib_id}
+        )
+    </insert>
+    
+    <!-- 공지, 안내 -->
+    <select id="selectAnnClass" resultType="NotiDTO" parameterType="int">
+        SELECT * FROM ann_class
+    </select>
+    
+    <!-- 공지사항 추가 -->
+    <insert id="insertNotice" parameterType="NotiDTO">
+        INSERT INTO announcement 
+        (ann_seq, class_id, ann_title, ann_regi, ann_check, ann_detail, ann_attach, lib_id)
+        VALUES (ann_seq.nextval, #{class_id}, #{ann_title}, sysdate, #{ann_check}, #{ann_detail}, #{ann_attach}, #{lib_id});
+    </insert>
+    
+    <update id="updateNotice" parameterType="NotiDTO">
+    UPDATE announcement
+    SET
+        class_id = #{class_id},
+        ann_Title = #{ann_title},
+        ann_Regi = #{ann_regi},
+        ann_Check = #{ann_check},
+        lib_id = #{lib_id}
+    WHERE ann_Seq = #{ann_seq}
+</update>
+      
+    <!-- 공지사항 삭제 -->
+    <delete id="deleteNotice" parameterType="int">
+        DELETE FROM announcement WHERE ann_seq = #{ann_seq}
+    </delete>
+
+</mapper>

@@ -42,7 +42,12 @@ a:hover {
 		<div class="searchEnd">
 
 			<div class="books" id="b1">
-
+				<c:if test="${empty list}">
+					<h4> 도서 검색 결과가 없습니다. </h4>
+					<a href="request">
+						도서 신청하러 가기...
+					</a>
+				</c:if>
 				<c:forEach var="list" items="${list}">
 					<table>
 						<tr>
