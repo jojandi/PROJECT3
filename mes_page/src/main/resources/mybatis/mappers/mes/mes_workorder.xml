@@ -6,7 +6,7 @@
 
 	<select id="selectwo" resultType="workorderDTO" parameterType="workorderDTO">
 		SELECT 
-		    w.wo_id, b.bom_code, o.os_id, b.bom_name, w.wo_process, wo_count, wo_status, l.lib_id
+		    w.wo_id, b.bom_code, o.os_id, b.bom_name, w.wo_process, wo_count, wo_status, l.lib_id, lr.lr_seq
 		FROM 
 		    workorder w
 		LEFT OUTER JOIN bom b ON b.bom_code = w.bom_code
@@ -26,7 +26,7 @@
 	
 	<select id="selectOne" resultType="workorderDTO" parameterType="workorderDTO">
 		SELECT 
-   			 w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status, o.os_id, l.lib_id
+   			 w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status, o.os_id, l.lib_id, lr.lr_seq
 		FROM 
 		    workorder w
 		left outer join bom b on w.bom_code = b.bom_code
@@ -62,9 +62,11 @@
 		SELECT bom_code, bom_name FROM bom
 	</select>
 	
-	<!-- 작업지시서 완료시 주문현황 delete -->
-	<delete id="deletepf" parameterType="workorderDTO">
-		delete orderstatus where os_id = #{os_id}
+	<!-- 작업지시서 완료시 주문현황 update -->
+	<delete id="updatepf" parameterType="workorderDTO">
+		update orderstatus 
+		set os_status = '완료'
+		where os_id = #{os_id}
 	</delete>
 	
 	<!-- 작업지시서 완료시 출고현황 insert -->
@@ -72,6 +74,16 @@
 		INSERT INTO deliverystatus (os_id, ds_date, ds_con)
 		VALUES (#{os_id}, sysdate, '완료')
 	</delete>
+	
+	<!-- 작업지시서 완료시 도서발주 페이지 update -->
+	<update id="requestpf" parameterType="workorderDTO">
+		UPDATE 
+			lib_request 
+		SET 
+			lr_ing = '완료'
+		WHERE 
+			lr_seq = #{lr_seq}
+	</update>
 	
 	<!-- //////////////////////// bom ////////////////////////// -->
 	

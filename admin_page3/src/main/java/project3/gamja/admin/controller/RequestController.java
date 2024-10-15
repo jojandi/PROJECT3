@@ -22,16 +22,16 @@ public class RequestController {
 	
 	///////////////////////////// 도서 발주 /////////////////////////////
 	@RequestMapping("request")
-	public String request(Model model, Integer seq, Integer count, Integer pageNo) {
+	public String request(Model model, Integer seq, Integer count, Integer page) {
 		// 페이징 기본값 설정
 		if(count == null) count = 10;
-		if(pageNo == null) pageNo = 1;
+		if(page == null) page = 1;
 		
-		Map map = reService.selectre(count, pageNo);
+		Map map = reService.selectre(count, page);
 		
 		model.addAttribute("map", map);
 		model.addAttribute("countPerPage", count);
-		model.addAttribute("page", pageNo);
+		model.addAttribute("page", page);
 		
 		return "request";
 	}
