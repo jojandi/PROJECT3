@@ -68,14 +68,17 @@ public class WorkorderController {
                // 1. tbl_order 테이블에서 해당 주문 삭제
         	   woService.deletewo(dto);
         	   
-        	   // 2. pfwork 테이블에서 주문현황 삭제
-        	   woService.deletepf(dto);
+        	   // 2. pfwork 테이블에서 주문현황 상태 update
+        	   woService.updatepf(dto);
                
                // 3. mes_book 테이블에서 book_count 업데이트 (수량 추가)
         	   woService.updatewo(dto);
 
         	   // 4. pfwork 테이블에서 출고현황 insert
         	   woService.insertpf(dto);
+        	   
+        	   // 5. admin request 테이블에서 상태 update
+        	   woService.requestpf(dto);
         	   
            }
            if("배송공정".equals(dto.getWo_process())) {

@@ -60,6 +60,7 @@
 									<td>${ list.wo_count }</td>
 									<td>${ list.wo_status }</td>
 									<td><form method="get" action="mes_workorder1_read">
+											<input type="hidden" name="lr_seq" value="${list.lr_seq }">
 											<input type="hidden" name="lib_id" value="${list.lib_id }">
 											<input type="hidden" name="wo_id" value="${ list.wo_id }">
 											<input type="hidden" name="os_id" value="${ list.os_id }">
@@ -168,9 +169,8 @@
 								<td><span class="red">*</span> <span class="modal-item">공정</span>
 								</td>
 								<td><select name="wo_process">
-										<option value="A공정">A공정</option>
-										<option value="B공정">B공정</option>
-										<option value="C공정">C공정</option>
+										<option value="포장공정">포장공정</option>
+										<option value="배송공정">배송공정</option>
 								</select></td>
 							</tr>
 							<tr class="modal-div_2">

@@ -104,8 +104,15 @@ public class NotiController {
 		            // 파일을 해당 경로에 전송 (저장)
 		            mf.transferTo(file);
 
+<<<<<<< HEAD
 		            // 저장된 파일명 또는 경로를 DTO에 설정
 		            dto.setAnn_attach(safeFileName); // 파일 경로를 DTO에 저장
+=======
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
+>>>>>>> 51d2227e53799345408ca81779d17e5082bde321
 
 		        } catch (IllegalStateException | IOException e) {
 		            e.printStackTrace();
