@@ -30,11 +30,10 @@
 	<definition name="best" extends="baseLayout2">
 		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best.jsp"/>
 	</definition>
-	<definition name="bestInven" extends="baseLayout2">
-		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best_inven.jsp"/>
-	</definition>
-	<definition name="bestInvenRes" extends="baseLayout2">
-		<put-attribute name="content" value="/WEB-INF/views/user/best/user_best_invenRes.jsp"/>
+	
+	<!-- 검색 페이지 -->
+	<definition name="search" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/user/search/search.jsp"/>
 	</definition>
 
 	<!-- 마이페이지 - 이용내역 - 예약 -->
