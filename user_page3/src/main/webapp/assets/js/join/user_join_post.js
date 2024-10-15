@@ -1,47 +1,32 @@
-document.querySelector("#check-username").addEventListener('click', function(){
-    ajax();
-})
-
-let id = document.querySelector("#username");
-
-function ajax() {
-
-    console.log(id.value);
-
-    let url = 'join';
-    
-    // ajax
-    let xhr = new XMLHttpRequest();
-    
-    xhr.open("post", url);
-
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
-
-    xhr.send( "username=" + id.value );
-
-    xhr.onload = function(){
-    	if(xhr.status===200){    //status = response 상태 코드 반환 : 200 정상응답
-        console.log(xhr.responseText);
-    	}
-    }
-    
-    xhr.onload = function(){
-    	if(xhr.status===200){    //status = response 상태 코드 반환 : 200 정상응답
-        	console.log("controller" + xhr.responseText); // controller에서 보내준 거 받기
-        	
-        	let LO01 = document.querySelector("#LO01");
-        	let LO02 = document.querySelector("#LO02");
-        	
-        	if(xhr.responseText == "code=LO01"){
-				console.log("사용가능");
-        		LO01.style.display="block";
-        		LO02.style.display="none";
-        	} else if(xhr.responseText == "code=LO02"){
-				console.log("사용불가능");
-        		LO01.style.display="none";
-        		LO02.style.display="block";
-        	}
-    	}
-    }
-    
+function ajax(url, param, cb, method) {
+	// javascript에서 false는 null, undefined, 0
+	// true는 false가 아닌 것으로 정의되어 있음
+	if(!method) method = "get";
+	
+	const xhr = new XMLHttpRequest();
+	xhr.open(method, url);
+	xhr.setRequestHeader("Content-Type","application/json"); // json 보내줄 거임
+	xhr.send(JSON.stringify(param));
+	console.log(JSON.stringify(param));
+	if(typeof cb == "function") {
+		xhr.onload = function(){
+			cb(xhr.responseText)
+		}
+	}
 }
+document.querySelector("#check_username").addEventListener("click", function(){
+	const user_id = document.querySelector("#user_id").value;
+	
+	const data = {
+			"user_id" : user_id
+	}
+	ajax("check_username", data, function(result) {
+        if (result === "exists") {
+            alert("사용할 수 없는 아이디입니다. 이미 존재하는 아이디입니다.");
+        } else if (result === "available") {
+            alert("사용 가능한 아이디입니다.");
+        } else {
+            alert("서버 오류가 발생했습니다. 다시 시도해주세요.");
+        }
+    }, "post");
+})

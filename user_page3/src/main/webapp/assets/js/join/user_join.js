@@ -1,8 +1,8 @@
-document.getElementById("check-username").addEventListener("click", function() {
-    const username = document.getElementById("username").value;
-    if (username === "") {
+document.getElementById("check_username").addEventListener("click", function() {
+    const user_id = document.getElementById("user_id").value;
+    if (user_id === "") {
         alert("아이디를 입력하세요.");
-        document.getElementById("username").focus();
+        document.getElementById("user_id").focus();
     }
 });
 
@@ -10,7 +10,7 @@ document.getElementById("gaip_1").addEventListener("click", function(e) {
     e.preventDefault();
 
     const name = document.getElementById("name_").value;
-    const username = document.getElementById("username").value;
+    const user_id = document.getElementById("user_id").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm-password").value;
     const phone = document.getElementById("phone").value;
@@ -20,7 +20,7 @@ document.getElementById("gaip_1").addEventListener("click", function(e) {
     const address = document.getElementById("address").value;
     const addressinfo = document.getElementById("addressinfo").value;
 
-    if (!name || !username || !password || !confirmPassword || !phone || !emailUser || !emailDomain || !addressnum || !address || !addressinfo) {
+    if (!name || !user_id || !password || !confirmPassword || !phone || !emailUser || !emailDomain || !addressnum || !address || !addressinfo) {
         alert("모든 필드를 입력하세요.");
         return;
     }
@@ -36,13 +36,13 @@ document.getElementById("gaip_1").addEventListener("click", function(e) {
 });
 
 function msg() {
-    let idmsg = document.querySelector("#username-message");
+    let idmsg = document.querySelector("#user_id-message");
     let pwmsg = document.querySelector("#password-message");
     let pw = document.querySelector("#password");
 
     pw.addEventListener("input", function() {
-        let username = document.querySelector("#username").value;
-        if (username === "") {
+        let user_id = document.querySelector("#user_id").value;
+        if (user_id === "") {
             idmsg.style.display = "block";  // 아이디가 없을 때 메시지 표시
         } else {
             idmsg.style.display = "none";   // 아이디가 있으면 메시지 숨김

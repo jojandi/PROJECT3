@@ -22,7 +22,8 @@
 		    u.user_email, 
 		    u.user_addr, 
 		    u.user_addr_info, 
-		    lk.like_like, 
+		    lk.like_like,
+		    u.domain,
 		    u.user_pass, 
 		    COUNT(CASE WHEN loan_return - loan_ex > 0 THEN user_pass END) AS count 
 		FROM 
@@ -42,7 +43,8 @@
 		    u.user_email, 
 		    u.user_addr, 
 		    u.user_addr_info, 
-		    lk.like_like, 
+		    lk.like_like,
+		    u.domain,
 		    u.user_pass
 	</select>
 
