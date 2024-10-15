@@ -8,11 +8,12 @@ import project3.gamja.user.dto.BestDTO;
 import project3.gamja.user.dto.CartDTO;
 import project3.gamja.user.dto.LibraryDTO;
 import project3.gamja.user.dto.LoanDTO;
+import project3.gamja.user.dto.SearchDTO;
 
 @Mapper
-public interface BestDAO {
+public interface SearchDAO {
 
-	List<BestDTO> selectBest();
+	List<SearchDTO> selectSearch(String book_name);
 	List<LibraryDTO> selectLibCount(BestDTO bestDTO);
 	int insertCart(CartDTO cartDTO);
 	int insertRes(LoanDTO loanDTO);
