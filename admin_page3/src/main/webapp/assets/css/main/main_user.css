@@ -78,13 +78,18 @@
     width: 30px;
     height: 30px;
 }
+
 .section1 #calendar #dates .toDay:after{
     font-size: 10px;
     content:"TODAY";
     position: relative;
     top: 19px;
-    left: -15px;
+    left: -22px;
     color: black;
+}
+
+.section1 #calendar #dates .red{
+	color: red;
 }
 
 .section1 #calendar #dates .hu_1,
@@ -303,7 +308,7 @@
 }
 
 .section3 img{
-    width: 80%;
+    width: 70%;
 }
 
 .section3 #booksubInfoTitle{
