@@ -47,23 +47,37 @@
 								</tr>
 								<tr>
 									<th>이메일</th>
-									<td>${dto.user_email}</td>
+									<td>${dto.user_email}${dto.domain}</td>
 								</tr>
 								<tr>
 									<th>주소</th>
-									<td>${dto.user_addr1} ${dto.user_addr2}</td>
+									<td>${dto.user_addr} ${dto.user_addr_info}</td>
 								</tr>
 								<tr>
 									<th>선호도</th>
-									<td>${dto.like}</td>
+									<td>${dto.like_like}</td>
 								</tr>
 								<tr>
 									<th>대여수</th>
-									<td>${dto2.loan_seq}</td>
+									<td>
+										<c:if test="${dto.loan_seq != null}">
+											${dto.loan_seq}
+										</c:if> 
+										<c:if test="${dto.loan_seq == null}">
+											0
+										</c:if>
+									</td>
 								</tr>
 								<tr>
 									<th>연체횟수</th>
-									<td>${dto.over_count}</td>
+									<td>
+										<c:if test="${dto.over_count != null}">
+											${dto.over_count}
+										</c:if> 
+										<c:if test="${dto.over_count == null}">
+											0
+										</c:if>
+									</td>
 								</tr>
 								<tr>
 									<th>비고</th>
