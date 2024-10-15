@@ -22,6 +22,13 @@
          bk.book_pub, bk.book_author, bu.buser_date, bu.buser_end, bu.buser_seq
 
     </select>
+    
+	 <select id="selectReviewsByStar" resultType="ReviewDTO">
+    SELECT * 
+    FROM bf_review
+       
+	</select>
+    
     <!--  북플릭스 리뷰입니다 -->
     <insert id="bookflix_review" parameterType="map">
     	INSERT INTO bf_review (review_seq, buser_seq, review_name, review_contents, review_date, review_score)
@@ -56,6 +63,6 @@
     <update id="bookflix_out">
         UPDATE tbl_user SET user_sub = 'N' WHERE user_seq = #{userSeq}
     </update>
-	
+    
 	
 </mapper>

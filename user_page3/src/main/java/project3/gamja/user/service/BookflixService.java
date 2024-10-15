@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import project3.gamja.user.dao.BookflixDAO;
 import project3.gamja.user.dto.BookflixDTO;
+import project3.gamja.user.dto.ReviewDTO;
 
 @Service
 public class BookflixService {
@@ -45,6 +46,10 @@ public class BookflixService {
 	    // 북플릭스 탈퇴 처리
 	    public int out(int userSeq) {
 	        return bookflixDAO.bookflix_out(userSeq);
+	    }
+	    // 리뷰 5개 가져오기 (별점 순으로)
+	    public List<ReviewDTO> getTopFiveReviews() {
+	        return bookflixDAO.selectReviewsByStar();
 	    }
 	   
 }
