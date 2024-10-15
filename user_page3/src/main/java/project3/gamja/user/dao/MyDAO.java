@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import project3.gamja.user.dto.ApplyDTO;
 import project3.gamja.user.dto.BookflixDTO;
 import project3.gamja.user.dto.CartDTO;
+import project3.gamja.user.dto.JoinDTO;
 import project3.gamja.user.dto.LoanDTO;
 import project3.gamja.user.dto.UserDTO;
 
@@ -35,6 +36,8 @@ public interface MyDAO {
 	// 내정보
 	int updateInfo(UserDTO userDTO);
 	int deleteUser(UserDTO userDTO);
+	int checkUserId(JoinDTO joinDTO);
+	UserDTO selectUser(UserDTO userDTO);
 	List<BookflixDTO> bookflixSelect(String seq);
 	int deleteBuser(BookflixDTO bookflixDTO);
 	int updateBuser(BookflixDTO bookflixDTO);

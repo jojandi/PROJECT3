@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-				<c:if test="${ login.user_sub == true }">
+				<c:if test="${ login.user_sub == 'Y' }">
 	               <div id="booksub">
 	                   <div id="booklogo">
 	                       <img src="./assets/img/bookflix.png">
@@ -78,36 +78,6 @@
                         <input type="submit" id="pwBnt" value="확인">
                         <div id="pwerror">비밀번호를 확인해주세요</div>
                     </div>
-                    
-                    <script>
-	                    window.addEventListener("load",function(){
-	                    	info1On();
-	    	            })
-	                    function info1On(){
-	
-	                        pwIn.addEventListener('keyup', function(event){
-	                            if(event.keyCode == 13){
-	                                pwBnt.click();
-	                            }
-	                        })
-	
-	                        pwBnt.addEventListener('click', function(){
-	
-	                            let pwIn = document.querySelector("#pwIn").value;
-	                            let pw = '${ login.user_pw }';
-	                            
-	                            console.log(pw)
-	                            console.log('비밀번호 확인 클릭!!!');
-	                            console.log(pwIn);
-	                            if(pwIn == pw){
-	                                info2.style.display = "block";
-	                                info1.style.display = "none";
-	                            } else{
-	                                pwerror.style.display = "block";
-	                            }
-	                        })
-	                    }
-                    </script>
 
                     <div id="info2">
                     <form method="post" action="infoEdit">
@@ -124,19 +94,7 @@
                                     <input type="text" id="username" name="user_id" value="${ login.user_id }">
                                     <span>
 										<input type="button" value="아이디 중복확인" id="check-username">
-										<span id="LO01">
-											사용가능한 아이디입니다. 
-										</span>
-										<span id="LO02">
-											이미 존재하는 아이디입니다. 
-										</span>
 									</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="center">비밀번호</td>
-                                <td id="pwedit">
-                                    <input type="password" name="user_pw" id="pweditIn" value="${ login.user_pw }">
                                 </td>
                             </tr>
                             <tr>
@@ -158,9 +116,9 @@
                             <tr>
                                 <td class="center">이메일</td>
                                 <td>
-                                    <input class="email-input" type="text" value="${login.user_email}" id="email-user" name="user_email1">
+                                    <input class="email-input" type="text" value="${login.user_email}" id="email-user" name="user_email">
 									<span class="email-domain">@</span>
-									<input class="email-input" type="text" value="${login.domain}" id="email-domain" name="user_email2">
+									<input class="email-input" type="text" value="${login.domain}" id="email-domain" name="domain">
                                 </td>
                             </tr>
                             <tr>
@@ -170,8 +128,8 @@
                                     	<input type="text" id="addressnum" name="addressnum" placeholder="우편번호">
 										<input type="button" value="검색" onclick="execDaumPostcode()">
 									</div>
-									<input type="text" id="address" name="user_addr1" value="${ login.user_addr }">
-									<input type="text" id="addressinfo" name="addressinfo" value="${ login.user_addr_info }">
+									<input type="text" id="address" name="user_addr" value="${ login.user_addr }">
+									<input type="text" id="addressinfo" name="user_addr_info" value="${ login.user_addr_info }">
                                 </td>
                             </tr>
                             <tr>
@@ -210,9 +168,13 @@
 
         </section>
         
+        
+        
         <script>
 	        window.addEventListener("load",function(){
 	        	likeSet();
+	        	info1On();
+	        	idCheck();
 	        })
 	        
 	        function likeSet(){
@@ -222,7 +184,7 @@
 	            console.log(ri);
 	            console.log("like : ", like);
 	
-	            for(let i = 1; i < ri.length; i++){
+	            for(let i = 1; i <= ri.length; i++){
 	                if(like == i){
 	                    console.log(ri[i-1]);
 	                    ri[i-1].setAttribute("checked","checked");
@@ -231,7 +193,67 @@
 	
 	        }
 	        
-	        likeSet();
+	        function ajax(url, param, cb, method) {
+	        	if(!method) method = "get";
+	        	
+	        	const xhr = new XMLHttpRequest();
+	        	xhr.open(method, url);
+	        	xhr.setRequestHeader("Content-Type","application/json"); // json 보내줄 거임
+	        	xhr.send(JSON.stringify(param));
+	        	console.log(JSON.stringify(param));
+	        	if(typeof cb == "function") {
+	        		xhr.onload = function(){
+	        			cb(xhr.responseText)
+	        		}
+	        	}
+	        }
+	        
+	        function info1On(){
+	             pwIn.addEventListener('keyup', function(event){
+	                 if(event.keyCode == 13){
+	                     pwBnt.click();
+	                 }
+	             })
+	
+	             pwBnt.addEventListener('click', function(){
+	                const pwIn = document.querySelector("#pwIn").value;
+	             	const id = '${login.user_id}';
+	             	
+	             	const xhr = new XMLHttpRequest();
+	             	const data = {
+	             			"user_id" : id,
+	             			"user_pw" : pwIn
+	             	};
+	             	
+	             	ajax("infoEditPw", data, function(result){
+            			if(result){
+            				info2.style.display = "block";
+                         	info1.style.display = "none";
+            			} else{
+            				pwerror.style.display = "block";
+            			}
+	             	}, "post")
+	          	})
+	       	}
+	        
+	        function idCheck(){
+		        document.querySelector("#check-username").addEventListener("click", function(){
+		        	const user_id = document.querySelector("#username").value;
+		        	
+		        	const data = {
+		        			"user_id" : user_id
+		        	}
+		        	ajax("checkUserId", data, function(result) {
+		                if (result === "exists") {
+		                    alert("사용할 수 없는 아이디입니다. 이미 존재하는 아이디입니다.");
+		                } else if (result === "available") {
+		                    alert("사용 가능한 아이디입니다.");
+		                } else {
+		                    alert("서버 오류가 발생했습니다. 다시 시도해주세요.");
+		                }
+		            }, "post");
+		        })
+	        }
         </script>
 
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
