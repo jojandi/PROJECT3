@@ -12,33 +12,11 @@
 aside #items #i3 .material-symbols-outlined {
     background-color: rgb(165, 224, 144);
 }
-
-h1 {
-    border: 1px solid #ccc;
-    width: 100%;
-    text-align: center;
-    font-size: 22px;
-    padding: 17px;
-    box-sizing: border-box;
+header #menu #items #i2 {
+    font-weight: 900;
+    text-decoration: underline;
 }
 
-section h1 {
-    border: 1px solid #ccc;
-    width: 100%;
-    text-align: center;
-    font-size: 22px;
-    padding: 17px;
-    box-sizing: border-box;
-}
-
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-}
-
-button {
-    width: 50px;
-}
 
 /* 모달창 스타일 */
 .modal {

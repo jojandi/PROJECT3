@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <style>
 
-header #menu #items #i3 {
+header #menu #items #i2 {
     font-weight: 900;
     text-decoration: underline;
 

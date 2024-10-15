@@ -1,5 +1,7 @@
 package project3.gamja.admin.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import project3.gamja.admin.dto.NotiDTO;
 import project3.gamja.admin.service.NotiService;
@@ -48,8 +52,44 @@ public class NotiController {
 
 	// 공지사항 인서트
 	@RequestMapping(value = "/insertNoti", method = RequestMethod.POST)
-	public String insertNotice(NotiDTO dto) {
+	public String insertNotice(NotiDTO dto,MultipartHttpServletRequest req) {
 		System.out.println("dto " + dto);
+
+		String title = req.getParameter("title");
+		String content = req.getParameter("content");
+		System.out.println("title: "+ title);
+		System.out.println("content: "+ content);
+		
+		// 파일 처리
+		MultipartFile mf = req.getFile("file1");
+		
+		long fileSize = mf.getSize();
+		System.out.println("fileSize: "+ fileSize);
+		
+		String fileName = mf.getOriginalFilename();
+		System.out.println("fileName: "+ fileName);
+		
+		try {
+			String path = "C:\\temp\\upload";
+			String safeFileName = path +"\\"+ System.currentTimeMillis() +"_"+ fileName;
+			System.out.println("safeFileName: "+ safeFileName);
+			File file = new File(safeFileName);
+			
+			// 실제 파일이 저장 
+			mf.transferTo( file );
+			
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
 		notiService.insertNotice(dto);
 		return "redirect:/notice2";
 	}
@@ -89,6 +129,8 @@ public class NotiController {
 
         return result;
     }
+    
+
 			
 	
 
