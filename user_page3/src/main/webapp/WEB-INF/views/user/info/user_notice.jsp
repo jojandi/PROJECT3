@@ -26,13 +26,24 @@ aside #items #i1 .material-symbols-outlined {
 
 		<div id="table">
 			<table class="report" id="reportTable">
-				<tr>
-					<th>번호</th>
-					<th>분류</th>
-					<th>제목</th>
-					<th>등록일</th>
-					<th>조회</th>
-				</tr>
+				<colgroup>
+				    <col width="5%"/>
+				    <col width="7%"/>
+				    <col width="7%"/>
+				    <col width="30%"/>
+				    <col width="8%"/>
+				    <col width="5%"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<td>번호</td>
+						<td>분류</td>
+						<td>도서관</td>
+						<td>제목</td>
+						<td>등록일</td>
+						<td>조회</td>
+					</tr>
+				</thead>
 
 				<c:choose>
 					<c:when test="${map.list != null && !map.list.isEmpty()}">
@@ -49,6 +60,9 @@ aside #items #i1 .material-symbols-outlined {
 											안내
 										</c:otherwise>
 									</c:choose></td>
+								<td>
+									${noti.lib_id }
+								</td>
 								<!--상대주소-->
 								<td class="retitle"><a
 									href="notice3?ann_seq=${noti.ann_Seq}"> ${noti.ann_Title}</a></td>

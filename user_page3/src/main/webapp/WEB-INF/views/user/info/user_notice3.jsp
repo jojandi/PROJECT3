@@ -43,7 +43,7 @@
 					<div class="bookTitle book">${notice.ann_Detail}</div>
 
 					<div id="back">
-						<a href="/kim/notice"> <input type="button"
+						<a href="notice"> <input type="button"
 							value="목록">
 						</a>
 					</div>

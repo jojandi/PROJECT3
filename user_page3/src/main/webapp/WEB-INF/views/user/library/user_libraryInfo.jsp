@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="project3.gamja.user.dto.LibraryDTO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -24,33 +25,42 @@
             <div id="info">
                 <ul style="line-height:200%;">
                     <li>
-                    <strong>위치</strong>
+                    <strong>위치 : </strong>
                     ${selectLibrary.lib_add}
                     </li> 
                     
                     <li>
-                    <strong>주차면수</strong>
+                    <strong>주차면수 : </strong>
                     ${selectLibrary.lib_parking}
                     </li> 
                     
                     <li>
-                    <strong>좌석수</strong>
+                    <strong>좌석수 : </strong>
                     ${selectLibrary.lib_seat }
                     </li> 
                     
                     <li>
-                    <strong>개관일</strong>
+                    <strong>개관일 : </strong>
                     ${selectLibrary.lib_open }
                     </li> 
                 
                     <li>
-                    <strong>주요시설</strong>
+                    <strong>주요시설 : </strong>
                     ${selectLibrary.lib_facil }
                     </li> 
                     
                     <li>
-                    <strong>전화번호</strong>
-                    ${selectLibrary.lib_call }
+                    <strong>전화번호 : </strong>
+                    	<%
+                    	LibraryDTO dto = (LibraryDTO)request.getAttribute("selectLibrary");
+                		String call = dto.getLib_call().toString();
+                		String call1 = call.substring(0, 2);
+                		String call2 = call.substring(2, 5);
+                		String call3 = call.substring(5, 9);
+                		
+                		String num = 0 + call1 + "-" +call2 + "-" +call3;
+                    	%>
+                    <%=num %>
                     </li> 
 
                 </ul>

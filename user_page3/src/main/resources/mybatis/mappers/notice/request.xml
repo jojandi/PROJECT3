@@ -15,13 +15,17 @@
 			app_name, 
 			app_pub,
 			app_seq,
-			user_seq
+			user_seq,
+			lib_id,
+			add_date
 		) VALUES(
 			#{app_book}, 
 			#{app_name}, 
 			#{app_pub},
 			app_seq.NEXTVAL,
-			41
+			#{user_seq},
+			#{lib_id},
+			sysdate
 		)
 	</insert>	
 	
