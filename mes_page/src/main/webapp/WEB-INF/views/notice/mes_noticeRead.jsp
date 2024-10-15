@@ -30,6 +30,7 @@
 <body>
         <section>
          <div class="main_page">
+         			<h3>notice_id : ${noticeRead.notice_id} </h3>
 	                <h3>${ noticeRead.notice_name }</h3>
 	        	<div id="content_all">
 					<div class="name">

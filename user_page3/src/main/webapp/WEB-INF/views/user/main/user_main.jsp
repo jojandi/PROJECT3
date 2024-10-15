@@ -62,7 +62,7 @@
             <div id="search">
             	<form action="search" method="get">
 	                <h2 id="searchText">자료 검색</h2><br>
-	                <input type="text" id="searchIn" name="book" placeholder=" 검색어를 입력해주세요. ">
+	                <input type="text" id="searchIn" name="book_name" placeholder=" 검색어를 입력해주세요. ">
 	                <!-- <input type="button" id="searchBnt" value="⌕"> -->
 	                
 	                <input type="submit" id="searchBnt" value="⌕">

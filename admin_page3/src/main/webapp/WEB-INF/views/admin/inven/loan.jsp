@@ -91,10 +91,10 @@
 						</table>
 					</div>
 					<div class="bot_btn">
-						<form action="inven" method="get">
+						<form action="loan" method="get">
 							<div class="search-container">
 								<select name="searchType">
-									<option value="1" ${param.searchType == 1 or param.searchType == null ? "selected='selected'" : ""}>도서명</option>
+									<option value="1" ${param.searchType == 1 or param.searchType == null ? "selected='selected'" : ""}>도서코드</option>
 									<option value="2" ${param.searchType == 2 ? "selected='selected'" : ""}>도서관</option>
 								</select>
 								<input type="text" id="searchInput" name="keyword" value="${param.keyword}" placeholder="검색어를 입력하시오. "> 

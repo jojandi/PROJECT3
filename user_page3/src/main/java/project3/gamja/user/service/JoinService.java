@@ -16,4 +16,8 @@ public class JoinService {
 		int result = joinDAO.insertJoin(dto);
 		return result;
 	}
+	public int checkUserIdExists(JoinDTO dto){
+		int result = joinDAO.checkUserIdExists(dto);
+		return result;
+	}
 }

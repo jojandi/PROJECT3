@@ -93,14 +93,30 @@
 	<!-- 도서 예약 현황 -->
 	<select id="selectRes" resultType="loanResDTO" parameterType="loanResDTO">
 		SELECT * FROM( 
-			SELECT 
-				rownum AS rnum, book_code, res_id, res_day, res_pick, user_seq, book_name, res_ing, l.lib_name, r.lib_id
-			FROM 
-				user_res r
-				LEFT OUTER JOIN library l ON r.lib_id = l.lib_id
-		        JOIN li_book USING(book_code) 
-		        JOIN book USING(book_isbn)
-			ORDER BY book_res DESC, res_id DESC
+			select rownum AS rnum, a.* from (
+                SELECT 
+                    book_code, res_id, res_day, res_pick, user_seq, book_name, res_ing, l.lib_name, r.lib_id
+                FROM 
+                    user_res r
+                    LEFT OUTER JOIN library l ON r.lib_id = l.lib_id
+                    JOIN li_book USING(book_code) 
+                    JOIN book USING(book_isbn)
+                <where>
+					<if test="searchType != null and searchType != '' 
+							and keyword != null and keyword != ''">
+						<!-- choose문 ( otherwise 사용 가능 ) -->
+						<choose>
+							<when test="searchType == 1">
+								AND LOWER(res_id) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+							<when test="searchType == 2">
+								AND LOWER(l.lib_name) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+						</choose>
+					</if>
+				</where>
+                ORDER BY book_res DESC, res_id DESC
+            ) a
 		) WHERE 
 			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
 	</select>
@@ -118,7 +134,7 @@
 				<!-- choose문 ( otherwise 사용 가능 ) -->
 				<choose>
 					<when test="searchType == 1">
-						AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
+						AND LOWER(res_id) LIKE LOWER('%' || #{keyword} || '%')
 					</when>
 					<when test="searchType == 2">
 						AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
@@ -189,29 +205,34 @@
 	<select id="selectLoan" resultType="loanResDTO" parameterType="loanResDTO">
 		SELECT * FROM (
 		    SELECT 
-			    rownum as rnum, ul.loan_seq, ul.book_code, ul.user_seq, b.book_name, ul.loan_date, ul.loan_ing, ul.loan_return, ul.loan_ex, 
-			    (ul.loan_ex - ul.loan_return) as isOver, l.lib_name, ul.lib_id
-			FROM 
-			    user_loan ul
-			    LEFT JOIN library l ON ul.lib_id = l.lib_id
-			    LEFT JOIN li_book lb ON ul.book_code = lb.book_code
-			    LEFT JOIN book b ON lb.book_isbn = b.book_isbn
-	        <where>
-				<if test="searchType != null and searchType != '' 
-						and keyword != null and keyword != ''">
-					<!-- choose문 ( otherwise 사용 가능 ) -->
-					<choose>
-						<when test="searchType == 1">
-							AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
-						</when>
-						<when test="searchType == 2">
-							AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
-						</when>
-					</choose>
-				</if>
-			</where>
-			ORDER BY 
-			    ul.loan_seq, ul.loan_date DESC
+		    	rownum as rnum, a.* 
+		    FROM (
+                SELECT 
+                    ul.loan_seq, ul.book_code, ul.user_seq, b.book_name, ul.loan_date, ul.loan_ing, ul.loan_return, ul.loan_ex, 
+                    (ul.loan_ex - ul.loan_return) as isOver, l.lib_name, ul.lib_id
+                FROM 
+                    user_loan ul
+                    LEFT JOIN library l ON ul.lib_id = l.lib_id
+                    LEFT JOIN li_book lb ON ul.book_code = lb.book_code
+                    LEFT JOIN book b ON lb.book_isbn = b.book_isbn
+                  
+		      	<where>
+					<if test="searchType != null and searchType != '' 
+							and keyword != null and keyword != ''">
+						<!-- choose문 ( otherwise 사용 가능 ) -->
+						<choose>
+							<when test="searchType == 1">
+								AND LOWER(ul.book_code) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+							<when test="searchType == 2">
+								AND LOWER(l.lib_name) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+						</choose>
+					</if>
+				</where>
+                ORDER BY 
+                    ul.loan_seq DESC, ul.loan_ing DESC
+           ) a
 		) WHERE 
 			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
 	</select>
@@ -229,7 +250,7 @@
 				<!-- choose문 ( otherwise 사용 가능 ) -->
 				<choose>
 					<when test="searchType == 1">
-						AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
+						AND LOWER(book_code) LIKE LOWER('%' || #{keyword} || '%')
 					</when>
 					<when test="searchType == 2">
 						AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')

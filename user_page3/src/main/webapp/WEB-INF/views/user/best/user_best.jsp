@@ -152,7 +152,7 @@
 				            		'book_ISBN' : bookISBN
 				            };
 				            
-				            ajax("cartInven", data, function(result){
+				            ajax("bestInven", data, function(result){
 				            	console.log(result)
 				            	try{
 				            		let invenContent = '';
