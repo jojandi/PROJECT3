@@ -51,47 +51,73 @@ public class NotiController {
 	}
 
 	// 공지사항 인서트
+	// 공지사항 인서트 및 파일 업로드 처리
 	@RequestMapping(value = "/insertNoti", method = RequestMethod.POST)
-	public String insertNotice(NotiDTO dto,MultipartHttpServletRequest req) {
-		System.out.println("dto " + dto);
+	public String insertNotice(MultipartHttpServletRequest req) {
+	    // 공지사항 정보 출력
+		NotiDTO dto = new NotiDTO();	    
+	    // MultipartHttpServletRequest로부터 'title' 및 'content' 파라미터 가져오기
+	    String ann_seq = req.getParameter("ann_seq");
+	    String class_id = req.getParameter("class_id");
+	    String lib_id = req.getParameter("lib_id");
+	    String ann_title = req.getParameter("ann_title");
+	    String ann_regi = req.getParameter("ann_regi");
+	    String ann_check = req.getParameter("ann_check");
+	    String ann_attach = req.getParameter("ann_attach");
+	    
+	    
+	    System.out.println("ann_seq: " + ann_seq);
+	    System.out.println("class_id: " + class_id);
+	    System.out.println("lib_id: " + lib_id);
+	    System.out.println("ann_title: " + ann_title);
+	    System.out.println("ann_regi: " + ann_regi);
+	    System.out.println("ann_check: " + ann_check);
+	    System.out.println("ann_attach: " + ann_attach);
+	    
+	    dto.setAnn_title(ann_seq);
+	    dto.setAnn_title(class_id);
+	    dto.setAnn_title(lib_id);
+	    dto.setAnn_title(ann_title);
+	    dto.setAnn_title(ann_regi);
+	    dto.setAnn_title(ann_check);
+	    dto.setAnn_title(ann_attach);
+	    
+	    // 공지사항의 파일 처리 (단일 파일 처리)
+	    MultipartFile mf = req.getFile("ann_attach"); // 'ann_attach'는 HTML 폼의 파일 필드 이름
 
-		String title = req.getParameter("title");
-		String content = req.getParameter("content");
-		System.out.println("title: "+ title);
-		System.out.println("content: "+ content);
-		
-		// 파일 처리
-		MultipartFile mf = req.getFile("file1");
-		
-		long fileSize = mf.getSize();
-		System.out.println("fileSize: "+ fileSize);
-		
-		String fileName = mf.getOriginalFilename();
-		System.out.println("fileName: "+ fileName);
-		
-		try {
-			String path = "C:\\temp\\upload";
-			String safeFileName = path +"\\"+ System.currentTimeMillis() +"_"+ fileName;
-			System.out.println("safeFileName: "+ safeFileName);
-			File file = new File(safeFileName);
-			
-			// 실제 파일이 저장 
-			mf.transferTo( file );
-			
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		
-		
-		
-		notiService.insertNotice(dto);
-		return "redirect:/notice2";
+	    // 파일 저장 경로 설정
+	    String path = "C:\\temp\\upload"; // 서버 환경에 맞게 변경 필요
+
+	    if (mf != null && !mf.isEmpty()) {
+	        long fileSize = mf.getSize();
+	        String fileName = mf.getOriginalFilename();
+	        System.out.println("fileSize: " + fileSize);
+	        System.out.println("fileName: " + fileName);
+
+	        try {
+	            // 안전한 파일 이름 생성 (현재 시간 기반)
+	            String safeFileName = path + "\\" + System.currentTimeMillis() + "_" + fileName;
+	            System.out.println("safeFileName: " + safeFileName);
+
+	            // 파일 저장 경로에 파일 객체 생성
+	            File file = new File(safeFileName);
+
+	            // 파일을 해당 경로에 전송 (저장)
+	            mf.transferTo(file);
+
+	            // 저장된 파일명 또는 경로를 DTO에 설정
+	            dto.setAnn_attach(safeFileName); // 파일 경로를 DTO에 저장
+
+	        } catch (IllegalStateException | IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    // 공지사항 서비스에 공지사항 정보 저장 로직 호출
+	    notiService.insertNotice(dto);
+
+	    // 공지사항 목록 페이지로 리다이렉트
+	    return "redirect:/notice2";
 	}
 
 //	// 공지사항 업데이트 (noticeDTO의 데이터를 받아서 업데이트)
@@ -129,8 +155,6 @@ public class NotiController {
 
         return result;
     }
-    
-
 			
 	
 
