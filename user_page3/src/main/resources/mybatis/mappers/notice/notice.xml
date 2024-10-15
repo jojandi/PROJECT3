@@ -13,9 +13,10 @@
     <select id="selectAnnouncement" resultType="NotiDTO">
         SELECT * FROM (
         SELECT ROWNUM AS rnum, a.* FROM (
-        SELECT ann_seq, class, ann_title, ann_regi, ann_detail, ann_check
+        SELECT ann_seq, class, lib_id, lib_name, ann_title, ann_regi, ann_detail, ann_check
         FROM announcement
         JOIN ann_class USING(class_id)
+        join library using(lib_id)
         ORDER BY ann_regi DESC
         ) a
         ) WHERE rnum BETWEEN #{start} AND #{end}

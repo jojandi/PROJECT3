@@ -8,9 +8,22 @@ public class NotiDTO {
     private String class_name;  //
     private int ann_Check; // 조회수 
     private String ann_Detail; // 공지사항 내용
-   
+    private int lib_id;
+    private String lib_name;
     
-    private int count;
+    public int getLib_id() {
+		return lib_id;
+	}
+	public void setLib_id(int lib_id) {
+		this.lib_id = lib_id;
+	}
+	public String getLib_name() {
+		return lib_name;
+	}
+	public void setLib_name(String lib_name) {
+		this.lib_name = lib_name;
+	}
+	private int count;
 	public int getCount() {
 		return count;
 	}

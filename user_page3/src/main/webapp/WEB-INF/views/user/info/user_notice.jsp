@@ -119,6 +119,7 @@ label {
                             <td>안내</td>
                         </c:if>
 
+<<<<<<< HEAD
                         <c:if test="${notice.lib_id eq 7000}">
                             <td>두정도서관</td>
                         </c:if>
@@ -151,6 +152,28 @@ label {
                 </c:forEach>
             </tbody>
         </table>
+=======
+		<div id="table">
+			<table class="report" id="reportTable">
+				<colgroup>
+				    <col width="5%"/>
+				    <col width="7%"/>
+				    <col width="7%"/>
+				    <col width="30%"/>
+				    <col width="8%"/>
+				    <col width="5%"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<td>번호</td>
+						<td>분류</td>
+						<td>도서관</td>
+						<td>제목</td>
+						<td>등록일</td>
+						<td>조회</td>
+					</tr>
+				</thead>
+>>>>>>> aa7cb053581398617b70e9671a9accc1b355ced5
 
         <!-- 페이징 처리를 위한 코드 추가 -->
         <%
@@ -158,8 +181,39 @@ label {
         System.out.println("totalCount : " + map.get("totalCount"));
         int totalCount = Integer.parseInt(map.get("totalCount").toString());
 
+<<<<<<< HEAD
         System.out.println("countPerPage : " + request.getAttribute("countPerPage"));
         System.out.println("page : " + request.getAttribute("page"));
+=======
+								<!-- 분류 표시 -->
+								<td><c:choose>
+										<c:when test="${noti.class_Id == 5002}">
+											공지
+										</c:when>
+										<c:otherwise>
+											안내
+										</c:otherwise>
+									</c:choose></td>
+								<td>
+									${noti.lib_id }
+								</td>
+								<!--상대주소-->
+								<td class="retitle"><a
+									href="notice3?ann_seq=${noti.ann_Seq}"> ${noti.ann_Title}</a></td>
+								<td>${noti.ann_Regi}</td>
+								<td>${noti.ann_Check}</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan="5">공지사항이 없습니다.</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
+			</table>
+		</div>
+>>>>>>> aa7cb053581398617b70e9671a9accc1b355ced5
 
         String str_countPerPage = request.getAttribute("countPerPage").toString();
         int countPerPage = Integer.parseInt(str_countPerPage);
