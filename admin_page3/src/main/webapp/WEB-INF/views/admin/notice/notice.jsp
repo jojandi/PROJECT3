@@ -19,8 +19,9 @@
 				<!-- 			<form action="noti2" method="post" enctype="multipart/form-data"> -->
 					<input type="hidden" name="action" value="create">
 
-
-					<form action="insertNoti" method="post" >
+		
+					<form action="insertNoti" method="post" enctype="multipart/form-data"
+					accept-charset="utf-8" >
 						<div id="con">
 							<select id="notice_category" name="class_id">
 								<option value="5001">공지</option>
