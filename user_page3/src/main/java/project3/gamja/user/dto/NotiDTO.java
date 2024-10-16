@@ -10,8 +10,15 @@ public class NotiDTO {
     private String ann_Detail; // 공지사항 내용
     private int lib_id;
     private String lib_name;
+    private int viewCount; // 조회수 증가 
     
-    public int getLib_id() {
+    public int getViewCount() {
+		return viewCount;
+	}
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
+	public int getLib_id() {
 		return lib_id;
 	}
 	public void setLib_id(int lib_id) {
@@ -95,8 +102,10 @@ public class NotiDTO {
 		return "NotiDTO [ann_Seq=" + ann_Seq + ", class_Id=" + class_Id
 				+ ", ann_Title=" + ann_Title + ", ann_Regi=" + ann_Regi
 				+ ", class_name=" + class_name + ", ann_Check=" + ann_Check
-				+ ", ann_Detail=" + ann_Detail + ", count=" + count + ", start="
-				+ start + ", end=" + end + "]";
+				+ ", ann_Detail=" + ann_Detail + ", lib_id=" + lib_id
+				+ ", lib_name=" + lib_name + ", viewCount=" + viewCount
+				+ ", count=" + count + ", start=" + start + ", end=" + end
+				+ "]";
 	}
   
     

@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: human
 Build-Jdk: 11
 Created-By: Maven Integration for Eclipse
 
+=======
+Manifest-Version: 1.0
+Built-By: admin
+Build-Jdk: 11
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 890c1ccbc9f18be24e3db8c66f18887d4f4425fe

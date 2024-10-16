@@ -27,9 +27,10 @@ public class InfoService {
 	}
 	
 	public NotiDTO selectSeq(int seq) {
+		// 공지사항 조회와 함께 조회 수 증가 
 		
 		NotiDTO result = InfoDAO.selectSeq(seq);
-		
+		InfoDAO.updateViewCount(seq); // 조회수 증가 호줄 
 		return result;
 	}
 	
@@ -71,6 +72,7 @@ public class InfoService {
 
 	    return resultMap;
 	}
+	
 		
 //	도서신청
 	public List<RequestDTO> listreq() {
