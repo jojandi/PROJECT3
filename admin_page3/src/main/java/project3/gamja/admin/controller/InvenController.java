@@ -96,12 +96,12 @@ public class InvenController {
 		int updateRes = invenService.updateRes(loanResDTO);
 		int inseResLoan = invenService.inseResLoan(loanResDTO);
 		int invenLoan = invenService.invenLoan(loanResDTO);
-		int invenRes = invenService.invenRes(loanResDTO);
+//		int invenRes = invenService.invenRes(loanResDTO);
 		
 		System.out.println("예약현황 업데이트 : " + updateRes);
 		System.out.println("예약 -> 대출 : " + inseResLoan);
 		System.out.println("재고현황 - 대출중 : " + invenLoan);
-		System.out.println("재고현황 - 예약중 해체 : " + invenRes);
+//		System.out.println("재고현황 - 예약중 해체 : " + invenRes);
 		
 		return updateRes;
 	}
