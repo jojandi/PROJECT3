@@ -162,16 +162,16 @@ label {
                 <label for="modalAnnTitle">제목</label>
                 <input type="text" id="modalAnnTitle" />
                 <label for="modalAnnRegi">등록일</label>
-                <input type="text" id="modalAnnRegi" /><br> <!-- 수정: modalAnnRegi -->
-                <label for="modalAnnCheck">조회수</label>
-                <input type="text" id="modalAnnCheck" /><br> <!-- 추가: modalAnnCheck -->
+                <input type="text" id="modalAnnRegi" /><br>
+				<label for="modalAnnCheck">조회수</label>
+                <input type="text" id="modalAnnCheck" /><br>
                 <label for="modalAnnAttach">첨부파일</label>
                 <input type="text" id="modalAnnAttach" /><br>
                 <button type="button" id="modalUpdateButton">수정하기</button>
             </form>
         </div>
     </div>
-
+	
     <script>
         // 공지사항 삭제용 Ajax 함수
         function deleteNotice(ann_seq) {
