@@ -73,11 +73,7 @@ public class InfoController {
 		System.out.println("page : " + pageNo);
 		
 		return "notice";
-	}
-	
-	
-	
-	
+	}	
 	
 	
 	// 도서신청
