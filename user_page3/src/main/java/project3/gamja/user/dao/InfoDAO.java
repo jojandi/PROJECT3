@@ -24,12 +24,22 @@ public interface InfoDAO {
     
     int totalnoti();  // 총 공지사항 개수
     
+
+    
+    
+    
+    
+    
+    
     // 도서 신청 관련
     List<RequestDTO> selectapplication();  // 도서 신청 조회
     
     int insertapplication(RequestDTO requestDTO);  // 도서 신청 추가
     
     int updateapplication(RequestDTO requestDTO);  // 도서 신청 업데이트
+    
+    
+    
 }
 	
 	
