@@ -100,17 +100,7 @@
                             <tr>
                                 <td class="center">전화번호</td>
                                 <td>
-                                	<%
-                                	UserDTO dto = (UserDTO)session.getAttribute("login");
-                               		String tel = dto.getUser_tel();
-                               		System.out.println("전화번호 : " + tel);
-                               		
-                               		String call1 = tel.substring(0, 2);
-							        String call2 = tel.substring(2, 6);
-							        String call3 = tel.substring(6, 10);
-							        String num = 0 + call1 + "-" + call2  + "-" +  call3;
-                                	%>
-                                    <input type="text" id=tel name="user_tel" placeholder="숫자만 입력해주세요. " value="<%=num%>">
+                                    <input type="text" id=tel name="user_tel" placeholder="숫자만 입력해주세요. " value="${login.user_tel}">
                                 </td>
                             </tr>
                             <tr>
@@ -150,6 +140,7 @@
                                 </td>
                             </tr>
                         </table>
+                        <input type="hidden" name="user_pw" value="${ login.user_pw }">
                         <input type="hidden" name="user_seq" value="${ login.user_seq }">
                         <div id=update>
 	                        <input type="submit" value="변경하기">

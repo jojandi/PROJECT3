@@ -69,10 +69,6 @@ aside #items .item a:visited{
 
 
 /*------------------------------------------------------*/
-#section {
-	padding: 30px;
-}
-
 #section>div {
 	margin-bottom: 20px;
 }
@@ -83,48 +79,9 @@ aside #items .item a:visited{
 	margin-bottom: 20px;
 }
 
-table.report {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-table.report th, table.report td {
-	border: 1px solid #ddd;
-	padding: 12px;
-	text-align: center;
-}
-
-table.report th {
-	background-color: #f2f2f2;
-	font-weight: bold;
-}
-
-table.report tr:nth-child(even) {
-	background-color: #f9f9f9;
-}
-
 table.report tr:hover {
 	background-color: #f1f1f1;
 }
-
-input[type="checkbox"] {
-	margin-right: 10px;
-}
-
-input[type="button"] {
-	padding: 8px 16px;
-	margin-right: 10px;
-	background-color: #a2f796;
-	color: rgb(19, 2, 2);
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-}
-
-input[type="button"]:hover {
-	background-color: #a2f796;
-}
-
 .pagination {
 	display: flex;
 	justify-content: center;
@@ -268,43 +225,6 @@ input[type="button"]:hover {
 	margin-left: 50apx;
 }
 
-#admin_controls {
-	margin: 10px;
-	padding: 30px;
-	max-width: 900px;
-	background-color: #fff;
-	border-radius: 8px;
-	width: 500px;
-}
-
-#admin_controls input, #admin_controls textarea {
-	width: 500px;
-	padding: 20px;
-	margin-bottom: 10px;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-}
-
-#admin_controls button {
-	padding: 10px;
-	border: none;
-	background-color: #5cb85c;
-	color: white;
-	border-radius: 4px;
-	cursor: pointer;
-	font-size: 16px;
-}
-
-#admin_controls button:hover {
-	background-color: #4cae4c;
-}
-
-#wrap {
-	font-size: 0;
-	/* border: 1px solid red; */
-	padding: 90px 150px;
-}
-
 .name {
 	display: flex;
 	justify-content: center;
@@ -316,32 +236,22 @@ input[type="button"]:hover {
 #admin_controls {
 	margin: 20px auto;
 	padding: 20px;
-	max-width: 800px;
-	background-color: #fff;
-	border-radius: 8px;
 }
 
-#admin_controls input, #admin_controls textarea {
-	width: 100%;
+#admin_controls input, 
+#admin_controls textarea {
+	width: 885px;
 	padding: 10px;
 	margin-bottom: 10px;
 	border: 1px solid #ddd;
 	border-radius: 4px;
+	font-size: 14px;
 }
 
-#admin_controls button {
-	padding: 10px 10px;
-	border: none;
-	background-color: #5cb85c;
-	color: white;
-	border-radius: 4px;
-	cursor: pointer;
-	font-size: 16px;
+#admin_controls textarea {
+	height: 270px;
 }
 
-#admin_controls button:hover {
-	background-color: #4cae4c;
-}
 #con{
 	 text-align: right;
 }
@@ -349,7 +259,6 @@ header #menu #items #i2 {
     font-weight: 900;
     text-decoration: underline;
 }
-
 
 /*공지사항*/
 
@@ -360,17 +269,6 @@ header #menu #items #i2 {
     padding: 17px;
     box-sizing: border-box;
 }
-
-#wrap #section {
-    width: 80%;
-    font-size: 14px;
-    display: inline-block;
-    box-sizing: border-box;
-    vertical-align: top;
-    padding-left: 30px;
-    /* border: 1px solid red; */
-}
-
 #wrap #section #content_all{
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
@@ -446,34 +344,53 @@ aside #items #i1 .material-symbols-outlined{
     font-size: 15px;
 }
 
-  .form-group {
-        margin-bottom: 20px;
-    }
+label {
+	font-weight: bold;
+	margin-bottom: 10px;
+	display: block;
+}
 
-    label {
-        font-weight: bold;
-        margin-bottom: 10px;
-        display: block;
-    }
+select {
+	width: 10%;
+	padding: 8px;
+	font-size: 14px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+	appearance: none; /* 기본 셀렉트 박스 화살표 제거 */
+	-webkit-appearance: none; /* 크롬에서 기본 셀렉트 화살표 제거 */
+	-moz-appearance: none; /* 파이어폭스에서 기본 셀렉트 화살표 제거 */
+	background-image:
+		url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4z" fill="%23777889" /></svg>');
+	background-repeat: no-repeat;
+	background-position: right 10px top 50%;
+	background-size: 12px;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
 
-    .library-select {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        background-color: #f9f9f9;
-        appearance: none; /* 기본 셀렉트 박스 화살표 제거 */
-        -webkit-appearance: none; /* 크롬에서 기본 셀렉트 화살표 제거 */
-        -moz-appearance: none; /* 파이어폭스에서 기본 셀렉트 화살표 제거 */
-        background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4z" fill="%23777889" /></svg>');
-        background-repeat: no-repeat;
-        background-position: right 10px top 50%;
-        background-size: 12px;
-        cursor: pointer;
-    }
+.library-select:focus {
+	border-color: #999;
+	outline: none;
+}
 
-    .library-select:focus {
-        border-color: #999;
-        outline: none;
-    }
+button[type=button],
+button[type=submit]{
+    font-size: 18px;
+    padding: 7px 15px;
+    margin: 5px 0;
+    border-radius: 5%;
+    background: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+section h3{
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    padding: 17px;
+    box-sizing: border-box;
+}

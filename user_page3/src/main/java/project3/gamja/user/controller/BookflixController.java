@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import project3.gamja.user.dto.BookflixDTO;
+import project3.gamja.user.dto.ReviewDTO;
 import project3.gamja.user.service.BookflixService;
 
 
@@ -19,12 +20,23 @@ import project3.gamja.user.service.BookflixService;
 @Controller
 public class BookflixController {
 
-	//비회원용 북플릭스 페이지
-    @RequestMapping(value = "/bookflix_info", method=RequestMethod.GET)
-    public String BookflixInfo() {
-        System.out.println("사용자용 북플릭스 설명 doGet 실행!");
-        return "bookflix_info";
-    }
+	@RequestMapping(value = "/bookflix_info", method=RequestMethod.GET)
+	public String getBookflixInfoWithReviews(Model model) {
+	    // Bookflix 설명 부분 로그
+	    System.out.println("사용자용 북플릭스 설명 doGet 실행!");
+
+	    // 리뷰 조회
+	    List<ReviewDTO> topReviews = bookflixService.getTopFiveReviews();
+	    if (topReviews == null || topReviews.isEmpty()) {
+	        model.addAttribute("message", "조회된 리뷰가 없습니다.");
+	    } else {
+	        model.addAttribute("topReviews", topReviews);
+	    }
+
+	    // bookflix_info 페이지로 이동
+	    return "bookflix_info";
+	}
+
     @Autowired
     private BookflixService bookflixService;
 
@@ -99,5 +111,6 @@ public class BookflixController {
         // 리다이렉트
         return "redirect:/bookflix_user?seq=" + user;
     }
+  
 }
 

@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import project3.gamja.user.dto.BookflixDTO;
+import project3.gamja.user.dto.ReviewDTO;
+
 @Mapper
 public interface BookflixDAO {
     List<BookflixDTO> bookflix_user(@Param("seq") int seq);
@@ -26,5 +28,11 @@ public interface BookflixDAO {
 
     // 북플릭스 탈퇴 처리
     int bookflix_out(@Param("userSeq") int userSeq);
+    // 별점이 5점 이하인 리뷰만 가져오기
+    List<BookflixDTO> getUserBookflix(int seq);
+
+    // 상위 5개의 리뷰를 가져오는 쿼리
+    List<ReviewDTO> selectReviewsByStar();
 }
+
 
