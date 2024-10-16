@@ -11,11 +11,11 @@ import project3.gamja.user.dto.RequestDTO;
 @Mapper
 public interface InfoDAO {
 
-	  // 공지사항 관련
+	 // 공지사항 관련
     List<NotiDTO> selectAnnouncement();  // 모든 공지사항 조회
     
     int insertAnnouncements(NotiDTO notiDTO);  // 공지사항 추가
-    
+
     NotiDTO selectSeq(int seq);  // 공지사항 번호로 조회 (조회수 증가 포함)
     
     int updateViewCount(int annSeq);  // 조회수 업데이트 메서드 추가
@@ -23,6 +23,9 @@ public interface InfoDAO {
     List<NotiDTO> selectAnnouncement(NotiDTO invenDTO);  // 조건에 따른 공지사항 조회
     
     int totalnoti();  // 총 공지사항 개수
+
+    // 새로 추가된 메서드: 공지사항 저장
+    int insertNoti(NotiDTO dto);  // 공지사항 추가용 메서드
     
 
     
