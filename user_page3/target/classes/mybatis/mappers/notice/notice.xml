@@ -6,14 +6,14 @@
 
     <!-- 공지사항 총 개수 -->
     <select id="totalnoti" resultType="int">
-        SELECT count(*) cnt FROM li_book
+        SELECT count(*) cnt FROM announcement
     </select>
 
     <!-- 공지사항 목록 조회 -->
     <select id="selectAnnouncement" resultType="NotiDTO">
         SELECT * FROM (
         SELECT ROWNUM AS rnum, a.* FROM (
-        SELECT ann_seq, class, lib_id, lib_name, ann_title, ann_regi, ann_detail, ann_check
+        SELECT ann_seq, class_id, lib_id, lib_name, ann_title, ann_regi, ann_detail, ann_check
         FROM announcement
         JOIN ann_class USING(class_id)
         join library using(lib_id)

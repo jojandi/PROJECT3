@@ -26,29 +26,51 @@ aside #items #i1 .material-symbols-outlined {
 
 		<div id="table">
 			<table class="report" id="reportTable">
-				<tr>
-					<th>번호</th>
-					<th>분류</th>
-					<th>제목</th>
-					<th>등록일</th>
-					<th>조회</th>
-				</tr>
+				<colgroup>
+				    <col width="5%"/>
+				    <col width="10%"/>
+				    <col width="20%"/>
+				    <col width="10%"/>
+				    <col width="5%"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<td>번호</td>
+						<td>분류</td>
+						<td>제목</td>
+						<td>등록일</td>
+						<td>조회</td>
+					</tr>
+				</thead>
 
 				<c:choose>
 					<c:when test="${map.list != null && !map.list.isEmpty()}">
 						<c:forEach var="noti" items="${map.list}">
 							<tr>
 								<td>${noti.ann_Seq}</td>
-
-								<!-- 분류 표시 -->
-								<td><c:choose>
-										<c:when test="${noti.class_Id == 5002}">
-											공지
+								<!-- c:set -> request.getAttribute를 하기 위해 request 영역에 변수 선언 -->				
+								<c:set var="libarary" value="${noti.lib_name}" scope="request"/>
+								<%
+									String l = "a";
+									if(request.getAttribute("libarary") == null){
+										System.out.println("null임!!!");
+									} else{
+										String lib = request.getAttribute("libarary").toString();
+										System.out.println("도서관 : " + lib);
+										l = lib.substring(0,2);
+									}
+								
+								%>
+								<td>
+									<c:choose>
+										<c:when test="${noti.class_Id == 5001}">
+											공지 - <%=l %> <!-- 자바 영역에 있는 변수 l의 값을 가져올 수 있음 -->
 										</c:when>
 										<c:otherwise>
-											안내
+											안내 - <%=l %>
 										</c:otherwise>
-									</c:choose></td>
+									</c:choose>
+								</td>
 								<!--상대주소-->
 								<td class="retitle"><a
 									href="notice3?ann_seq=${noti.ann_Seq}"> ${noti.ann_Title}</a></td>
@@ -57,6 +79,7 @@ aside #items #i1 .material-symbols-outlined {
 							</tr>
 						</c:forEach>
 					</c:when>
+					
 					<c:otherwise>
 						<tr>
 							<td colspan="5">공지사항이 없습니다.</td>
