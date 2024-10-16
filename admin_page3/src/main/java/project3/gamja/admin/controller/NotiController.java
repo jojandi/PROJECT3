@@ -28,7 +28,9 @@ public class NotiController {
 
 	// 인설트 폼으로 들어감
 	@RequestMapping("/notice")
-	public String notice(Model model) {
+	public String notice(Model model, String cmd) {
+		
+		model.addAttribute("cmd", cmd);
 		return "notice";
 	}
 
@@ -59,6 +61,17 @@ public class NotiController {
 
 		model.addAttribute("notice", notice);
 		return "notice3";
+	}
+	
+	// 공지사항 세부 조회 (업데이트 시 조회)
+	@RequestMapping("/notice_{ann_seq}")
+	public String noticeUpdateForm(@PathVariable("ann_seq") int annSeq,
+			Model model, String cmd) {
+		NotiDTO notice = notiService.selectSeq(annSeq);
+		
+		model.addAttribute("cmd", cmd);
+		model.addAttribute("notice", notice);
+		return "notice";
 	}
 
 			// 공지사항 인서트

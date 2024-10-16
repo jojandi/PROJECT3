@@ -14,7 +14,11 @@
 
     <!-- 공지사항 목록 조회 -->
     <select id="selectAnnouncement" resultType="NotiDTO">
-        SELECT * FROM announcement
+        SELECT 
+        	* 
+        FROM 
+        	announcement
+        	join library using(lib_id)
     </select>
 
     <!-- 공지사항 세부 조회 (ann_seq 조건 추가) -->
