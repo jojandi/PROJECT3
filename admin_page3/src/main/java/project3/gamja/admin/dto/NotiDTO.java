@@ -11,8 +11,19 @@ public class NotiDTO {
 	private String ann_detail;// 내용
 	private String ann_attach;// 첨부파일
 	private String lib_id; // 도서관 
+	private String lib_name; // 도서관 
 
 	
+	public String getLib_name() {
+		return lib_name;
+	}
+
+
+	public void setLib_name(String lib_name) {
+		this.lib_name = lib_name;
+	}
+
+
 	public int getAnn_seq() {
 		return ann_seq;
 	}
