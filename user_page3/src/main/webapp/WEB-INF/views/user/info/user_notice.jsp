@@ -32,7 +32,6 @@ aside #items #i1 .material-symbols-outlined {
 					<col width="20%" />
 					<col width="10%" />
 					<col width="5%" />
-					<col width="5%" />
 					<!-- 조회수 컬럼 추가 -->
 				</colgroup>
 				<thead>
@@ -155,11 +154,13 @@ aside #items #i1 .material-symbols-outlined {
 			<div id="search">
 				<select name="period">
 					<option value="분류">분류</option>
-				</select> <select name="type">
+				</select>
+				 <select name="type">
 					<option value="제목">제목</option>
-				</select> <input type="search" id="searchInput" name="keyword"
-					placeholder="검색어를 입력해주세요"> <input type="button" value="검색"
-					class="search" onclick="filterTable()">
+				</select> 
+				<input type="search" id="searchInput" name="keyword"placeholder="검색어를 입력해주세요">
+					 <input type="button" value="검색"class="search" onclick="filterTable()">
+					
 			</div>
 		</form>
 	</div>

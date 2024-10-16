@@ -72,6 +72,7 @@ public class InfoService {
 
 	    return resultMap;
 	}
+	
 		
 //	도서신청
 	public List<RequestDTO> listreq() {
