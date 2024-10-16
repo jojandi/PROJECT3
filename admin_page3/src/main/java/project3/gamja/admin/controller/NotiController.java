@@ -3,6 +3,7 @@ package project3.gamja.admin.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -45,6 +47,7 @@ public class NotiController {
 			notiService.insertNotice(dto);
 			return "redirect:/notice2";
 		}
+		  
 	
 
 	// 공지사항 세부 조회 (ann_seq로 조회)
@@ -104,20 +107,15 @@ public class NotiController {
 		            // 파일을 해당 경로에 전송 (저장)
 		            mf.transferTo(file);
 
-<<<<<<< HEAD
 		            // 저장된 파일명 또는 경로를 DTO에 설정
 		            dto.setAnn_attach(safeFileName); // 파일 경로를 DTO에 저장
-=======
 
-		            // 저장된 파일명 또는 경로를 DTO에 설정
-		            dto.setAnn_attach(safeFileName); // 파일 경로를 DTO에 저장
 
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
 	    }
 
->>>>>>> 987955e9eb2a01cb55ed6a5d56452457d6045ce5
 
 		    // 공지사항 서비스에 공지사항 정보 저장 로직 호출
 		    notiService.insertNotice(dto);
@@ -127,7 +125,7 @@ public class NotiController {
 		       
 		        }
 		        
-		    }
+
 //	// 공지사항 업데이트 (noticeDTO의 데이터를 받아서 업데이트)
 //	@RequestMapping(value = "/notice2", method = RequestMethod.POST)
 //	public String updateNotice(NotiDTO dto) {

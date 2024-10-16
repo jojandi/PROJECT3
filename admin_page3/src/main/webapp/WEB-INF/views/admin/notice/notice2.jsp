@@ -171,7 +171,7 @@ label {
             </form>
         </div>
     </div>
-
+	
     <script>
         // 공지사항 삭제용 Ajax 함수
         function deleteNotice(ann_seq) {
