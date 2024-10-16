@@ -27,21 +27,22 @@ aside #items #i1 .material-symbols-outlined {
 		<div id="table">
 			<table class="report" id="reportTable">
 				<colgroup>
-				    <col width="5%"/>
-				    <col width="7%"/>
-				    <col width="7%"/>
-				    <col width="30%"/>
-				    <col width="8%"/>
-				    <col width="5%"/>
+					<col width="5%" />
+					<col width="10%" />
+					<col width="20%" />
+					<col width="10%" />
+					<col width="5%" />
+					<col width="5%" />
+					<!-- 조회수 컬럼 추가 -->
 				</colgroup>
 				<thead>
 					<tr>
 						<td>번호</td>
 						<td>분류</td>
-						<td>도서관</td>
 						<td>제목</td>
 						<td>등록일</td>
-						<td>조회</td>
+						<!-- <td>조회</td> -->
+						<td>조회수</td>
 					</tr>
 				</thead>
 
@@ -50,36 +51,47 @@ aside #items #i1 .material-symbols-outlined {
 						<c:forEach var="noti" items="${map.list}">
 							<tr>
 								<td>${noti.ann_Seq}</td>
-
-								<!-- 분류 표시 -->
+								<!-- c:set -> request.getAttribute를 하기 위해 request 영역에 변수 선언 -->
+								<c:set var="libarary" value="${noti.lib_name}" scope="request" />
+								<%
+								String l = "a";
+								if (request.getAttribute("libarary") == null) {
+									System.out.println("null임!!!");
+								} else {
+									String lib = request.getAttribute("libarary").toString();
+									System.out.println("도서관 : " + lib);
+									l = lib.substring(0, 2);
+								}
+								%>
 								<td><c:choose>
-										<c:when test="${noti.class_Id == 5002}">
-											공지
+										<c:when test="${noti.class_Id == 5001}">
+                                            공지 - <%=l%>
+											<!-- 자바 영역에 있는 변수 l의 값을 가져올 수 있음 -->
 										</c:when>
 										<c:otherwise>
-											안내
+                                            안내 - <%=l%>
 										</c:otherwise>
 									</c:choose></td>
-								<td>
-									${noti.lib_id }
-								</td>
 								<!--상대주소-->
 								<td class="retitle"><a
 									href="notice3?ann_seq=${noti.ann_Seq}"> ${noti.ann_Title}</a></td>
 								<td>${noti.ann_Regi}</td>
-								<td>${noti.ann_Check}</td>
+								<%-- <td>${noti.ann_Check}</td> --%>
+								<td>${noti.viewCount}</td>
+								<!-- 조회수 추가 -->
 							</tr>
 						</c:forEach>
 					</c:when>
+
 					<c:otherwise>
 						<tr>
-							<td colspan="5">공지사항이 없습니다.</td>
+							<td colspan="6">공지사항이 없습니다.</td>
+							<!-- 컬럼 갯수 맞춤 -->
 						</tr>
 					</c:otherwise>
 				</c:choose>
 			</table>
 		</div>
-
 		<%
 		Map map = (Map) request.getAttribute("map");
 		System.out.println("totalCount : " + map.get("totalCount"));
@@ -151,6 +163,7 @@ aside #items #i1 .material-symbols-outlined {
 			</div>
 		</form>
 	</div>
+
 	<script src="./assets/js/info/user_notice.js"></script>
 </body>
 </html>

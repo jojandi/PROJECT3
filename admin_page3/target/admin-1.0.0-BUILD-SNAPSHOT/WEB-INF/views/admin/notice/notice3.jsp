@@ -22,7 +22,8 @@
 				<div id="content">
 					<div id="file">
 						<div>
-							<span>첨부파일 </span> <span class="material-symbols-outlined">folder</span>
+							<span>첨부파일 </span> 
+							<span class="material-symbols-outlined">folder</span>
 						</div>
 					</div>
 					<div class="bookTitle book">${notice.ann_detail }</div>
