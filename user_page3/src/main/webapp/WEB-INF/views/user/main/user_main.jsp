@@ -16,7 +16,8 @@
 
     <div id="wrap">
 
-        <section class="section1">
+	<section id="section">
+        <div class="section1">
 
             <div id="hukwan">
             
@@ -55,9 +56,9 @@
 
             </div>
 
-        </section>
+        </div>
 
-        <section class="section1">
+        <div class="section1">
 
             <div id="search">
             	<form action="search" method="get">
@@ -89,11 +90,11 @@
                     </div>
                     <div>
                         <div class="page" id="p3">
-							<c:if test="${ login.user_sub == true }">
+							<c:if test="${ login.user_sub == 'Y' }">
 	                            <span class="material-symbols-outlined">sync_saved_locally</span>
 								<a href="bookflix_use?seq=${login.user_seq}"></a>
 							</c:if>
-							<c:if test="${ login.user_sub == false }">
+							<c:if test="${ login.user_sub == 'N' }">
 	                            <span class="material-symbols-outlined">sync_saved_locally</span>
 								<a href="bookflix_info"></a>
 							</c:if>
@@ -149,7 +150,8 @@
 
                 <script src="./assets/js/main/box.js"></script>
             </div>
-        </section>
+        </div>
+	</section>
 
 
         <section class="section2">
@@ -183,16 +185,23 @@
 
         <section class="section3">
             <div id="booksub">
-                <img src="./assets/img/bookflix.png">
-                <div id="booksubInfoTitle">
-                    취향 맞춤 도서 추천 서비스!
-                </div>
-                <div id="booksubInfo">
-                    매달 2권씩 당신의 취향에 맞는 책을 <br>추천해드립니다.
-                </div>
-                <a href="bookflix_info">
-                    <input type="button" id="booksubBnt" value="더 알아보기">
-                </a>
+            	<div id="img">
+	                <img src="./assets/img/bookflix.png">
+            	</div>
+            	<div id="mineSection">
+	                <div id="booksubInfoTitle">
+	                    취향 맞춤 도서 추천 서비스!
+	                </div>
+	                <div id="booksubInfo">
+	                    매달 2권씩 당신의 취향에 맞는 
+	                    <div>
+		                    책을 추천해드립니다.
+	                    </div>
+	                </div>
+	                <a href="bookflix_info">
+	                    <input type="button" id="booksubBnt" value="더 알아보기">
+	                </a>
+            	</div>
             </div>
             
         </section>
