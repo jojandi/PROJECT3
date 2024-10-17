@@ -22,7 +22,8 @@
 	<!-- 도서관별 대출 총합 -->
 	<select id="selectLoanSeq" resultType="invenDTO">
 		SELECT 
-		    sum(book_loan_seq) as book_loan_seq, lib_id, lib_name, sum(book_return_seq) as book_return_seq
+		    sum(book_loan_seq) as book_loan_seq, lib_id, lib_name, sum(book_return_seq) as book_return_seq,
+		    sum(book_res_seq) as book_res_seq
 		FROM 
 		    li_book 
 		    JOIN library USING(lib_id)

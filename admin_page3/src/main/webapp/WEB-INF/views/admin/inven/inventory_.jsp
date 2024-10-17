@@ -59,9 +59,16 @@ aside #items #i1 .material-symbols-outlined {
 			</table>
 		</div>
 		<div class="bot_btn">
-			<a href="inven?page=${param.page}">
-				<input type="button" value="목록">
-			</a>
+			<c:if test="${empty param.page}">
+				<a href="inven">
+					<input type="button" value="목록">
+				</a>
+			</c:if>
+			<c:if test="${not empty param.page}">
+				<a href="inven?page=${param.page}">
+					<input type="button" value="목록">
+				</a>
+			</c:if>
 		</div>
 	</section>
 </body>

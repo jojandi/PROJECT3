@@ -62,7 +62,8 @@
 		UPDATE 
 			li_book 
 		SET 
-			book_res = 'Y'
+			book_res = 'Y',
+			book_res_seq = book_res_seq + 1
 		WHERE
 			book_code = #{book_code}
 	</update>
