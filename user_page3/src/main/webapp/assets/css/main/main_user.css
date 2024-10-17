@@ -19,6 +19,12 @@
     /* height: 510px; */
 }
 
+#section {
+    display: flex; 
+    justify-content: space-between;
+    width: 100%;
+}
+
 /* ------------------------------------------------------------------ */
 /* 휴관일 */
 .section1 #hukwan{
@@ -381,6 +387,12 @@
 	#wrap .section3 {
 		width: 100%;
 		padding: 20px 0;
+	}
+	
+	#section {
+	    display: flex; 
+	    width: 100%;
+	    flex-direction: column;
 	}
 	
 	/* 달력 */
