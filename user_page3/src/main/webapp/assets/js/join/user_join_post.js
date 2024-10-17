@@ -23,6 +23,7 @@ document.querySelector("#check_username").addEventListener("click", function(){
 	ajax("check_username", data, function(result) {
         if (result === "exists") {
             alert("사용할 수 없는 아이디입니다. 이미 존재하는 아이디입니다.");
+            document.querySelector("#user_id").value = "";
         } else if (result === "available") {
             alert("사용 가능한 아이디입니다.");
         } else {

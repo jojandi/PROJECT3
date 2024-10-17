@@ -20,16 +20,28 @@ document.getElementById("gaip_1").addEventListener("click", function(e) {
     const address = document.getElementById("address").value;
     const addressinfo = document.getElementById("addressinfo").value;
 
+    // 비밀번호 메시지 element 가져오기
+    const messageElement = document.getElementById("password-message");
+
+    // 모든 필드가 입력되었는지 확인
     if (!name || !user_id || !password || !confirmPassword || !phone || !emailUser || !emailDomain || !addressnum || !address || !addressinfo) {
         alert("모든 필드를 입력하세요.");
         return;
     }
 
+    // 비밀번호와 비밀번호 확인이 일치하는지 확인
     if (password !== confirmPassword) {
         alert("비밀번호가 일치하지 않습니다.");
         return;
     }
 
+    // 비밀번호 규격을 만족하지 않을 때 (메시지가 표시되어 있는 경우) 회원가입 방지
+    if (messageElement.style.display !== "none") {
+        alert("비밀번호가 규격에 맞지 않습니다. 다시 확인하세요.");
+        return;
+    }
+
+    // 모든 조건이 충족되었을 때 폼 제출
     const form = document.querySelector("form");
     alert("회원가입이 완료되었습니다.");
     form.submit();
