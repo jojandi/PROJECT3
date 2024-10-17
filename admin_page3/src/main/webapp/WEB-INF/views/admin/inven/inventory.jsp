@@ -50,7 +50,12 @@ aside #items #i1 .material-symbols-outlined {
 									<tr>
 										<td><input type="checkbox" class="p1_main_chack"></td>
 										<td class="bname2">
-											<a href="inven_?book_ISBN=${list.book_ISBN}&lib_id=${list.lib_id}&page=${param.page}">${list.book_name}</a>
+											<c:if test="${empty param.page}">
+												<a href="inven_?book_ISBN=${list.book_ISBN}&lib_id=${list.lib_id}">${list.book_name}</a>
+											</c:if>
+											<c:if test="${not empty param.page}">
+												<a href="inven_?book_ISBN=${list.book_ISBN}&lib_id=${list.lib_id}&page=${param.page}">${list.book_name}</a>
+											</c:if>
 										</td>
 										<td>${list.book_author}</td>
 										<td>${list.book_pub}</td>
@@ -101,7 +106,7 @@ aside #items #i1 .material-symbols-outlined {
 			// 마지막 페이지 구하기 -> 전체 페이지수 / 페이지당 개수 -> 올림처리
 			int lastPage = (int) Math.ceil((double) totalCount / countPerPage);
 
-			int countPerSection = 5; // 한 번에 보여줄 페이지의 개수
+			int countPerSection = 10; // 한 번에 보여줄 페이지의 개수
 			// 몇 번째 섹션인지 -> 현재페이지 / 한 번에 보여줄 페이지의 개수 -> 올림처리
 			int position = (int) Math.ceil((double) pageNo / countPerSection);
 
