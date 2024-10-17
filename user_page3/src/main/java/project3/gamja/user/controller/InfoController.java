@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -21,7 +22,7 @@ import project3.gamja.user.service.InfoService;
 
 @Controller
 public class InfoController {
-
+ 
 	@Autowired
 	InfoService InfoService;
 
@@ -188,5 +189,32 @@ public class InfoController {
 	            return "error";  // 실패 시 에러 페이지로 이동
 	        }
 	    }
+	
+	 // 검색 기능 처리
+    @RequestMapping(value = "/searchNoti", method = RequestMethod.GET)
+    public String searchNoti(@RequestParam("keyword") String keyword, Model model,String countPerPage, String page) {
+    	
+    	// 페이징 기본값 설정
+    			if(countPerPage == null) countPerPage = "10";
+    			if(page == null) page = "1";
+    			
+    			int count = Integer.parseInt(countPerPage);
+    			int pageNo = Integer.parseInt(page);
+    			
+    			Map map = InfoService.searchAnnouncement(count, pageNo,keyword);
+    			
+    			model.addAttribute("map", map);
+    			model.addAttribute("countPerPage", count);
+    			model.addAttribute("page", pageNo);
+//    			System.out.println("totalCount : " + map.get("totalCount"));
+    			System.out.println("countPerPage : " + count);
+    			System.out.println("page : " + pageNo);
+    	
+    	
+    	
+//        List<NotiDTO> searchResults = InfoService.searchAnnouncement(count, pageNo,keyword);
+//        model.addAttribute("list", searchResults);
+        return "notice";  // 검색 결과를 공지사항 페이지로 전달
+    }
 	
 }
