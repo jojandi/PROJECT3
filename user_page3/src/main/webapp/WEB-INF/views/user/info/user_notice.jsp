@@ -74,9 +74,7 @@ aside #items #i1 .material-symbols-outlined {
 								<td>${noti.viewCount}</td>
 								<td><c:choose>
 										<c:when test="${noti.ann_attach != null}">
-											<a
-												href="${pageContext.request.contextPath}/download?filePath=${noti.ann_attach}">파일
-												다운로드</a>
+										<a  target="_blank" href="${pageContext.request.contextPath}/download?fileName=${notice.ann_attach}">파일 다운로드</a>
 										</c:when>
 										<c:otherwise>
                                         없음
