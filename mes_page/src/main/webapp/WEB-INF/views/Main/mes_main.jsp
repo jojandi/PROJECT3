@@ -85,7 +85,7 @@
 		<section class="section1">
 			<div class="all">
 				<div class="mini_title">
-					<h3>도서 출고 통계</h3>
+					<h3>도서 출고 모니터링</h3>
 				</div>
 				<!-- 연도 선택 드롭다운 -->
 				<label for="yearSelect">연도 선택: </label> <select id="yearSelect">
@@ -127,34 +127,9 @@
 		<section class="section2">
 			<div class="all">
 				<div class="mini_title">
-					<h3>도서 수요 통계</h3>
+					<h3>공지사항</h3>
 				</div>
-					<label for="yearSelectDemand">연도 선택: </label>
-					<select id="yearSelectDemand">
-						<option value="2023">2023년</option>
-						<option value="2022">2022년</option>
-						<option value="2021">2021년</option>
-						<option value="2020">2020년</option>
-						<option value="2019">2019년</option>
-						<option value="2018">2018년</option>
-						<!-- 다른 연도 선택 가능 -->
-					</select> 
-					<label for="monthSelectDemand">월 선택: </label>
-					<select id="monthSelectDemand">
-						<option value="1">1월</option>
-						<option value="2">2월</option>
-						<option value="3">3월</option>
-						<option value="4">4월</option>
-						<option value="5">5월</option>
-						<option value="6">6월</option>
-						<option value="7">7월</option>
-						<option value="8">8월</option>
-						<option value="9">9월</option>
-						<option value="10">10월</option>
-						<option value="11">11월</option>
-						<option value="12">12월</option>
-						<!-- 다른 월 선택 가능 -->
-					</select>
+				
 					
 					<canvas id="demandStatisticsChart" width="400" height="200"></canvas>
 
@@ -165,7 +140,7 @@
 		<section class="section3">
 			<div class="all">
 				<div class="mini_title">
-					<h3>도서 수요 예측 통계</h3>
+					<h3>작업자 로그</h3>
 				</div>
 			     <label for="yearSelectForecast">연도 선택: </label>
 		        <select id="yearSelectForecast">

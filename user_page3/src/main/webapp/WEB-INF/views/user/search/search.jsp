@@ -32,7 +32,7 @@ a:hover {
 				<span>검색 결과</span>
 			</div>
 			<form action="search" method="get">
-				<input type="text" id="searchIn" name="book"
+				<input type="text" id="searchIn" name="book_name"
 					value="${param.book_name}" placeholder=" 검색어를 입력해주세요. "> <input
 					type="submit" id="searchBnt" value="⌕">
 			</form>

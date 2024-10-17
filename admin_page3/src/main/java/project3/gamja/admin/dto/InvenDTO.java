@@ -11,6 +11,7 @@ public class InvenDTO {
 	private int count;
 	private int book_loan_seq;
 	private int book_return_seq;
+	private int book_res_seq;
 	private boolean book_loan;
 	private boolean book_res;
 	private String keyword;
@@ -21,6 +22,12 @@ public class InvenDTO {
 	private int end;
 
 
+	public int getBook_res_seq() {
+		return book_res_seq;
+	}
+	public void setBook_res_seq(int book_res_seq) {
+		this.book_res_seq = book_res_seq;
+	}
 	public int getBook_return_seq() {
 		return book_return_seq;
 	}

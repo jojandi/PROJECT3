@@ -145,10 +145,10 @@ footer #logoall #logo{
     width: 90px;
     height: 70px;
 
-    background-image: url("https://cdn.discordapp.com/attachments/1263360143756759099/1267275014273634415/KakaoTalk_20240729_090859720-removebg-preview_3.png?ex=66a83154&is=66a6dfd4&hm=4f6d706e06b34db529815a64763136b9f3f073d06fbc4513dd57c737077310f0&");
+    background-image: url("../../img/logo.png");
     background-size: 100%;
     background-position: 50%;
-    opacity: 0.6;
+    opacity: 0.8;
 }
     
 footer #logoall #name{
@@ -166,3 +166,7 @@ footer #footerinfo{
     font-size: 13px;
 }
 
+/* 반응형 웹 - 모바일 */
+@media (max-width: 767px){
+	
+}
