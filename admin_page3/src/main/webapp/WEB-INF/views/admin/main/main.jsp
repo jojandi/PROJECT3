@@ -58,7 +58,7 @@
         </section>
 
         <section class="section1">
-			<div id="chartName">2024년 10월 대출 / 반납 현황</div>
+			<div id="chartName">도서관 별 대출 / 반납 현황</div>
 			<canvas id="myChart" height="175"></canvas>
             
         </section>
@@ -66,12 +66,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
         <script>
 	        let myCt = document.getElementById('myChart');
-	        
-	        const lib0 = '${lib[0].book_loan_seq}';
-	        const lib1 = '${lib[1].book_loan_seq}';
-	        const lib2 = '${lib[2].book_loan_seq}';
-	        const lib3 = '${lib[3].book_loan_seq}';
-	        const lib4 = '${lib[4].book_loan_seq}';
 	
 	        let myChart = new Chart(myCt, {
 	          type: 'bar',
@@ -84,16 +78,20 @@
 	            datasets: [ // 데이터 속성
 	              {
 	                label: '대출', // 축의 제목
-	                data: [lib0, lib1, lib2, lib3, lib4], // 각 도서관 별 값
+	                data: [${lib[0].book_loan_seq}, 
+	                	${lib[1].book_loan_seq}, 
+	                	${lib[2].book_loan_seq}, 
+	                	${lib[3].book_loan_seq}, 
+	                	${lib[4].book_loan_seq}], // 각 도서관 별 값
 	                backgroundColor: 'rgb(165, 224, 144)' // 배경색
 	              },
 	              {
 	                label: '반납',
-	                data: [Math.floor(lib0 * 0.8),
-	                	Math.floor(lib1 * 0.79),
-	                	Math.floor(lib2 * 0.81),
-	                	Math.floor(lib3 * 0.75),
-	                	Math.floor(lib4 * 0.73)
+	                data: [${lib[0].book_return_seq},
+	                	${lib[1].book_return_seq},
+	                	${lib[2].book_return_seq},
+	                	${lib[3].book_return_seq},
+	                	${lib[4].book_return_seq}
 	                	],
 	                backgroundColor: 'rgba(172, 229, 151, 0.637)'
 	              }

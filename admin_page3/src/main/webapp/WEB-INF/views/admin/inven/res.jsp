@@ -213,7 +213,7 @@
 			    ajax("resLoan", data, function(result){
 			    	if(result > 0){
 				    	alert("수정되었습니다. ");
-				    	if(page){
+				    	if(page == ''){
 					    	location.href="res";
 				    	} else{
 					    	location.href="res?page="+page;
