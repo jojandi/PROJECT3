@@ -84,11 +84,11 @@ public class InvenService {
 		return result;
 	}
 	
-	public int invenRes(LoanResDTO loanResDTO) {
-		int result = invenDAO.invenRes(loanResDTO);
-		
-		return result;
-	}
+//	public int invenRes(LoanResDTO loanResDTO) {
+//		int result = invenDAO.invenRes(loanResDTO);
+//		
+//		return result;
+//	}
 	
 	// 대출현황 select
 	public Map selectLoan(LoanResDTO loanResDTO, int count, int pageNo){

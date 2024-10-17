@@ -164,7 +164,7 @@
 			(user_loan_seq.nextval, #{book_code}, #{user_seq}, sysdate, 'Y', sysdate + 7, 'N', #{lib_id})
 	</insert>
 	
-	<!-- 픽업 시 재고에 대출 중 표시 -->
+	<!-- 픽업 시 재고에 대출 중 표시 및 대출 시퀀스 업데이트 -->
 	<update id="invenLoan" parameterType="loanResDTO">
 		UPDATE 
 			li_book
@@ -177,16 +177,7 @@
 					JOIN user_loan USING(book_code)
 				WHERE 
 					loan_ing = 'Y' and book_code= #{book_code}
-			) = 'Y'  THEN 'Y' ELSE 'N' END  
-		 WHERE 
-		 	book_code= #{book_code}
-	</update>
-	
-	<!-- 픽업 시 재고에 예약 중 표시 해제 -->
-	<update id="invenRes" parameterType="loanResDTO">
-		UPDATE 
-			li_book
-		SET 
+			) = 'Y'  THEN 'Y' ELSE 'N' END,
 			book_res = CASE WHEN (
 				SELECT 
 					res_ing 
@@ -195,7 +186,8 @@
 					JOIN user_res USING(book_code) 
 				WHERE 
 					res_ing = 'Y' AND book_code= #{book_code}
-			) = 'N'  THEN 'Y' ELSE 'N' END  
+			) = 'N'  THEN 'Y' ELSE 'N' END ,
+			book_loan_seq = book_loan_seq + 1
 		 WHERE 
 		 	book_code= #{book_code}
 	</update>
@@ -291,7 +283,8 @@
 					JOIN user_loan USING(book_code)
 				WHERE 
 					loan_ing='Y' AND book_code = #{book_code}
-				) = 'Y'  THEN 'Y' ELSE 'N' END 
+				) = 'Y'  THEN 'Y' ELSE 'N' END,
+				book_return_seq = book_return_seq + 1
 		WHERE book_code= #{book_code}
 	</update>
 	

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import project3.gamja.user.dto.BookflixDTO;
 import project3.gamja.user.dto.ReviewDTO;
+
 @Mapper
 public interface BookflixDAO {
     List<BookflixDTO> bookflix_user(@Param("seq") int seq);
