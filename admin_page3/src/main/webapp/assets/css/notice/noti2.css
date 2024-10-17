@@ -161,6 +161,11 @@ aside #title{
     border-bottom: 1px solid #666666;
 }
 
+    aside #items #i3 .material-symbols-outlined{
+	background-color: rgb(165, 224, 144);	
+	
+	}
+
 aside #items .item{
     font-size: 16px;
     padding: 10px 0;

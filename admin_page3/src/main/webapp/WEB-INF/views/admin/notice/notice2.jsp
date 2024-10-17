@@ -66,8 +66,8 @@ aside #items #i2.material-symbols-outlined {
                         <td>
                             <c:choose>
                                 <c:when test="${notice.ann_attach != null}">
-                                    <a  target="_blank" href="${pageContext.request.contextPath}/download?filePath=${notice.ann_attach}">파일 다운로드</a>
-                                   <%-- <img src="http://localhost:8080/admin/download?fileName=${notice.ann_attach}"/> --%>
+                                    <a  target="_blank" href="${pageContext.request.contextPath}/download?fileName=${notice.ann_attach}">파일 다운로드</a>
+<%--                                    <img src="http://localhost:8080/admin/download?fileName=${notice.ann_attach}"/> --%>
                                 </c:when>
                                 <c:otherwise>
                                     없음

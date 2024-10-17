@@ -12,6 +12,7 @@ public class NotiDTO {
     private String lib_name;
     private int viewCount; // 조회수 증가 
     private String ann_attach;// 첨부파일
+    private String searchTerm;  
     
     public int getViewCount() {
 		return viewCount;
@@ -113,6 +114,12 @@ public class NotiDTO {
 				+ ", lib_name=" + lib_name + ", viewCount=" + viewCount
 				+ ", ann_attach=" + ann_attach + ", count=" + count + ", start="
 				+ start + ", end=" + end + "]";
+	}
+	public String getSearchTerm() {
+		return searchTerm;
+	}
+	public void setSearchTerm(String searchTerm) {
+		this.searchTerm = searchTerm;
 	}
   
     

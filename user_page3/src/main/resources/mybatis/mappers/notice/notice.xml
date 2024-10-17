@@ -53,6 +53,23 @@
         WHERE ann_seq = #{_parameter}
     </update>
     
-    
+
+    <!-- 공지사항 검색   -->
+    <select id="searchAnnouncement" parameterType="NotiDTO" resultType="NotiDTO">
+ 
+       
+       SELECT * FROM (
+        SELECT ROWNUM AS rnum, a.* FROM (
+            SELECT ann_seq, class_id, lib_id, lib_name, ann_title, ann_regi, ann_detail, ann_check AS viewCount, ann_attach
+            FROM announcement
+            JOIN ann_class USING(class_id)
+            JOIN library USING(lib_id)
+            WHERE ann_title LIKE '%' ||  #{searchTerm} ||'%'
+       OR ann_detail LIKE '%' ||  #{searchTerm} ||'%'
+            ORDER BY ann_regi DESC
+        ) a
+    ) WHERE rnum BETWEEN #{start} AND #{end}
+       
+	</select>
 
 </mapper>
