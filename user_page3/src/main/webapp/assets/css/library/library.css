@@ -25,9 +25,14 @@
 	text-align: left;
 }
 
-#infor_top_box h1{
+section h1{
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
     font-size: 22px;
-    margin: 0;
+    padding: 17px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 #infor_top_box {

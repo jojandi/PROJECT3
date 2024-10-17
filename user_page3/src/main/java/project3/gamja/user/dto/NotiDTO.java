@@ -8,9 +8,36 @@ public class NotiDTO {
     private String class_name;  //
     private int ann_Check; // 조회수 
     private String ann_Detail; // 공지사항 내용
-   
+    private int lib_id;
+    private String lib_name;
+    private int viewCount; // 조회수 증가 
+    private String ann_attach;// 첨부파일
     
-    private int count;
+    public int getViewCount() {
+		return viewCount;
+	}
+	public String getAnn_attach() {
+		return ann_attach;
+	}
+	public void setAnn_attach(String ann_attach) {
+		this.ann_attach = ann_attach;
+	}
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
+	public int getLib_id() {
+		return lib_id;
+	}
+	public void setLib_id(int lib_id) {
+		this.lib_id = lib_id;
+	}
+	public String getLib_name() {
+		return lib_name;
+	}
+	public void setLib_name(String lib_name) {
+		this.lib_name = lib_name;
+	}
+	private int count;
 	public int getCount() {
 		return count;
 	}
@@ -82,7 +109,9 @@ public class NotiDTO {
 		return "NotiDTO [ann_Seq=" + ann_Seq + ", class_Id=" + class_Id
 				+ ", ann_Title=" + ann_Title + ", ann_Regi=" + ann_Regi
 				+ ", class_name=" + class_name + ", ann_Check=" + ann_Check
-				+ ", ann_Detail=" + ann_Detail + ", count=" + count + ", start="
+				+ ", ann_Detail=" + ann_Detail + ", lib_id=" + lib_id
+				+ ", lib_name=" + lib_name + ", viewCount=" + viewCount
+				+ ", ann_attach=" + ann_attach + ", count=" + count + ", start="
 				+ start + ", end=" + end + "]";
 	}
   

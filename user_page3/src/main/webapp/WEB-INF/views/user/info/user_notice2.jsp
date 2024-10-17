@@ -23,13 +23,20 @@ aside #items #i3 .material-symbols-outlined {
 
             <div id="table">
                 <table class="report" id="reportTable">
-
+				<colgroup>
+				    <col width="20%"/>
+				    <col width="12%"/>
+				    <col width="12%"/>
+				    <col width="15%"/>
+				    <col width="8%"/>
+				</colgroup>
                 <thead>
                     <tr>
-                        <th>도서관 명</th>
-                        <th>평일 이용시간</th>
-                        <th>주말 이용시간</th>
-                        <th>휴관일</th>
+                        <td>도서관</td>
+                        <td>평일 이용시간</td>
+                        <td>주말 이용시간</td>
+                        <td>휴관일</td>
+                        <td>비고</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,25 +44,36 @@ aside #items #i3 .material-symbols-outlined {
                         <td> 중앙도서관</td>
                         <td>09:00 - 21:00</td>
                         <td>09:00 - 18:00</td>
-                        <td> 매주 월요일</td>
-                    </tr>
-                    <tr>
-                        <td>신방도서관</td>
-                        <td>09:00 - 20:00</td>
-                        <td>09:00 - 17:00</td>
-                        <td>매주 화요일</td>
-                    </tr>
-                    <tr>
-                        <td>청수도서관</td>
-                        <td>09:00 - 22:00</td>
-                        <td>09:00 - 18:00</td>
-                        <td>매주 화요일</td>
+                        <td>매달 홀수주 월요일</td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td>쌍용도서관</td>
                         <td>09:00 - 21:00</td>
                         <td>09:00 - 17:00</td>
-                        <td>매주 월요일</td>
+                        <td>매달 짝수주 월요일</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>두정도서관</td>
+                        <td>09:00 - 21:00</td>
+                        <td>09:00 - 17:00</td>
+                        <td>매달 홀수주 월요일</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>신방도서관</td>
+                        <td>09:00 - 20:00</td>
+                        <td>09:00 - 17:00</td>
+                        <td>매달 짝수주 화요일</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>청수도서관</td>
+                        <td>09:00 - 22:00</td>
+                        <td>09:00 - 18:00</td>
+                        <td>매달 짝수주 화요일</td>
+                        <td>-</td>
                     </tr>
                   
                 </tbody>

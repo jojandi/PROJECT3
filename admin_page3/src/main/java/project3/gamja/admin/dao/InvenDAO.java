@@ -19,7 +19,7 @@ public interface InvenDAO {
 	int updateRes(LoanResDTO loanResDTO);
 	int inseResLoan(LoanResDTO loanResDTO);
 	int invenLoan(LoanResDTO loanResDTO);
-	int invenRes(LoanResDTO loanResDTO);
+//	int invenRes(LoanResDTO loanResDTO);
 	
 	List<LoanResDTO> selectLoan(LoanResDTO loanResDTO);
 	int totalLoan(LoanResDTO loanResDTO);

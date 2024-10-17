@@ -58,98 +58,56 @@
         </section>
 
         <section class="section1">
-
-            <div id="search">
-            	<form action="search" method="get">
-	                <h2 id="searchText">자료 검색</h2><br>
-	                <input type="text" id="searchIn" name="book_name" placeholder=" 검색어를 입력해주세요. ">
-	                <!-- <input type="button" id="searchBnt" value="⌕"> -->
-	                
-	                <input type="submit" id="searchBnt" value="⌕">
-            	</form>
-            </div>
-
-            <div id="pageall">
-
-                <div class="pages">
-
-                    <div>
-                        <div class="page" id="p1">
-                            <span class="material-symbols-outlined">home</span>
-                            <a href="user_libraryInfo?lib_id=7000"></a>
-                        </div>
-                        <div class="pname">도서관소개</div>
-                    </div>
-                    <div>
-                        <div class="page" id="p2">
-                            <span class="material-symbols-outlined">kid_star</span>
-                            <a href="best"></a>
-                        </div>
-                        <div class="pname">베스트도서</div>
-                    </div>
-                    <div>
-                        <div class="page" id="p3">
-							<c:if test="${ login.user_sub == true }">
-	                            <span class="material-symbols-outlined">sync_saved_locally</span>
-								<a href="bookflix_use?seq=${login.user_seq}"></a>
-							</c:if>
-							<c:if test="${ login.user_sub == false }">
-	                            <span class="material-symbols-outlined">sync_saved_locally</span>
-								<a href="bookflix_info"></a>
-							</c:if>
-							<c:if test="${ empty login }">
-	                            <span class="material-symbols-outlined">sync_saved_locally</span>
-                            	<a href="bookflix_info"></a>
-                            </c:if>
-                        </div>
-                        <div class="pname">북플릭스</div>
-                    </div>
-                    <div>
-                        <div class="page" id="p4">
-                            <span class="material-symbols-outlined">assignment_add</span>
-                            <a href="request"></a>
-                        </div>
-                        <div class="pname">도서 신청</div>
-                    </div>
-                    
-                </div>
-
-                <div class="pages">
-
-                    <div>
-                        <div class="page" id="p5">
-                            <span class="material-symbols-outlined">shopping_cart</span>
-                            <a href="cart?seq=${login.user_seq}"></a>
-                        </div>
-                        <div class="pname">장바구니</div>
-                    </div>
-                    <div>
-                        <div class="page" id="p6">
-                            <span class="material-symbols-outlined">person_edit</span>
-                            <a href="res?seq=${login.user_seq}"></a>
-                        </div>
-                        <div class="pname">내 이용정보</div>
-                    </div>
-                    <div>
-                        <div class="page" id="p7">
-                            <span class="material-symbols-outlined">full_coverage</span>
-                            <a href="notice"></a>
-                        </div>
-                        <div class="pname">정보광장</div>
-                    </div>
-                    <div>
-                        <div class="page" id="p8">
-                            <span class="material-symbols-outlined">lightbulb</span>
-                            <a href="notice2"></a>
-                        </div>
-                        <div class="pname">이용안내</div>
-                    </div>
-                    
-                </div>
-
-                <script src="./assets/js/main/box.js"></script>
-            </div>
+			<div id="chartName">도서관 별 대출 / 반납 현황</div>
+			<canvas id="myChart" height="175"></canvas>
+            
         </section>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+        <script>
+	        let myCt = document.getElementById('myChart');
+	
+	        let myChart = new Chart(myCt, {
+	          type: 'bar',
+	          data: {
+	            labels: ['${lib[0].lib_name}', 
+	            	'${lib[1].lib_name}', 
+	            	'${lib[2].lib_name}', 
+	            	'${lib[3].lib_name}', 
+	            	'${lib[4].lib_name}'], // 도서관 이름
+	            datasets: [ // 데이터 속성
+	              {
+	                label: '대출', // 축의 제목
+	                data: [${lib[0].book_loan_seq}, 
+	                	${lib[1].book_loan_seq}, 
+	                	${lib[2].book_loan_seq}, 
+	                	${lib[3].book_loan_seq}, 
+	                	${lib[4].book_loan_seq}], // 각 도서관 별 값
+	                backgroundColor: 'rgb(165, 224, 144)' // 배경색
+	              },
+	              {
+	                label: '반납',
+	                data: [${lib[0].book_return_seq},
+	                	${lib[1].book_return_seq},
+	                	${lib[2].book_return_seq},
+	                	${lib[3].book_return_seq},
+	                	${lib[4].book_return_seq}
+	                	],
+	                backgroundColor: 'rgba(172, 229, 151, 0.637)'
+	              }
+	            ]
+	          },
+	          options: {
+	                      plugins: {
+	                          legend: { // 범례 스타일링
+	                              display: true, // 범례 활성화 (기본값 true)
+					  	position: 'top', // 범례를 상단에 위치
+					    align: 'end' // 오른쪽으로 정렬
+	                          },
+	                      }
+	                  }
+	        });
+        </script>
 
 
         <section class="section2">
@@ -181,22 +139,7 @@
 
         </section>
 
-        <section class="section3">
-            <div id="booksub">
-                <img src="./assets/img/bookflix.png">
-                <div id="booksubInfoTitle">
-                    취향 맞춤 도서 추천 서비스!
-                </div>
-                <div id="booksubInfo">
-                    매달 2권씩 당신의 취향에 맞는 책을 <br>추천해드립니다.
-                </div>
-                <a href="bookflix_info">
-                    <input type="button" id="booksubBnt" value="더 알아보기">
-                </a>
-            </div>
-            
-        </section>
-
+        
 
     <!-- wrap -->
     </div> 

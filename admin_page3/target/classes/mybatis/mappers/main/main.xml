@@ -4,6 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project3.gamja.admin.dao.MainDAO">
 
+	<!-- 공지사항 상위 3개 -->
 	<select id="selectNoti" resultType="notiDTO">
 		SELECT * FROM (
 			SELECT 
@@ -16,6 +17,17 @@
 		)
 		WHERE 
 			rnum BETWEEN 1 AND 3
+	</select>
+	
+	<!-- 도서관별 대출 총합 -->
+	<select id="selectLoanSeq" resultType="invenDTO">
+		SELECT 
+		    sum(book_loan_seq) as book_loan_seq, lib_id, lib_name, sum(book_return_seq) as book_return_seq
+		FROM 
+		    li_book 
+		    JOIN library USING(lib_id)
+		GROUP BY 
+			lib_id, lib_name
 	</select>
 
 </mapper>

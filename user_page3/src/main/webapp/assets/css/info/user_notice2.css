@@ -15,7 +15,7 @@
 }
 
 #section #search{
-    text-align: center;
+    text-align: right;
     margin-bottom: 110px;
     font-size: 0;
 }
@@ -28,80 +28,73 @@
     height: 25px;
 }
 
-/* 페이지 이동 */
-#movepage{
-    /* border: 1px solid red; */
-    margin: 30px 0;
-    text-align: center;
-}
-
-#movepage span{
-    vertical-align: top;
-    color: #666666;
-    /* border: 1px solid red; */
-}
-
-#movepage .chap{
-    display: inline-block;
-    font-size: 16px;
-    width: 20px;
-    color: #1b1b1b;
-}
-
-#movepage #one{
-    border-bottom: 1px solid #1b1b1b;
-}
-
-#movepage .material-symbols-outlined{
-    font-size: 21px;
-} 
-
 #section>div {
     margin-bottom: 20px;
 }
         
-table.report {
+/* 테이블 */
+#section .table{
+    /* border: 1px solid red; */
+    border-bottom: 1px solid #ccc;
     width: 100%;
-    border-collapse: collapse;
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 8px;
-    font-size: 15px;
+    height: 550px;
 }
 
-table.report th,
-table.report td {
-    border: 1px solid #ddd;
-    padding: 10px;
+#section table{
+    table-layout:fixed;
+    border-collapse: collapse;
+    font-size: 14px;
+    width: 100%;
+}
+
+#section table thead{
     text-align: center;
+    border-bottom: 2px solid #ccc;
 }
 
-table.report th {
-    background-color: #f2f2f2;
-    font-weight: bold;
+#section table thead td{
+    /* border: 1px solid red; */
+    font-size: 15px;
+    font-weight: 900;
+    padding: 15px 0;
+    box-sizing: border-box;
 }
 
-table.report tr:hover {
-    background-color: #f1f1f1;
+#section table thead #bnameall{
+    width: 40%;
+}
+
+#section table tbody td{
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+    height: 18px;
+    box-sizing: border-box;
+
+    text-overflow: ellipsis; /* 말줄임표(...) 적용 */
+    overflow: hidden; /* 넘어가는 부분 안 보이게 */
+    white-space: nowrap; /* 줄바꿈 X */
+}
+
+#section table tbody .retitle{
+    padding-left: 10px !important;
+}
+
+#section table tbody .minbnt{
+    border: 1px solid black;
+    padding: 5px;
 }
 
 .report .retitle{
     text-align: left;
 }
 
-input[type="button"] {
-    vertical-align: bottom;
-    padding: 4px 16px;
-    margin-right: 10px;
-    background-color: rgb(165, 224, 144);
-    color: rgb(19, 2, 2);
-    border: none;
-    /* border-radius: 4px; */
+input[type=button]{
+    padding: 4px 10px;
+    margin: 5px 0;
+    border-radius: 5%;
+    background: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
     cursor: pointer;
-}
-
-input[type="button"]:hover {
-    background-color: #70c964;
 }
 
 .search-bar {
