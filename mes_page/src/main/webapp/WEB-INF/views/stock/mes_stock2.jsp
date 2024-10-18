@@ -16,11 +16,17 @@
 <link href="./assets/css/admin.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link href="./assets/css/click.css" rel="stylesheet">
+<!-- <link href="./assets/css/click.css" rel="stylesheet"> -->
 <link href="./assets/css/mes_stock.css" rel="stylesheet">
 
 <!-- <script src="./assets/js/admin_stock.js"></script> -->
 <script src="./assets/js/mes_stock_search.js"></script>
+<style>
+	#i2 .material-symbols-outlined {
+		background-color: rgb(165, 224, 144);
+	}
+</style>
+
 </head>
 <body>
 	<section>

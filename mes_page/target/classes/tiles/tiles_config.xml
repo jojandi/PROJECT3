@@ -47,7 +47,7 @@
 	</definition>
 	<!-- 북플릭스 - 회원관리 -->
 	<definition name="mes_buser" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/buser_side.jsp"/>
+		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Bookflix/mes_buser.jsp"/>
 	</definition>
 

@@ -15,8 +15,8 @@
 <link href="./assets/css/admin_table.css" rel="stylesheet">
 <link href="./assets/css/modal.css" rel="stylesheet">
 <script src="./assets/js/modal.js"></script>
-<script src="./assets/js/click.js"></script>
-<link href="./assets/css/click.css" rel="stylesheet">
+<!-- <script src="./assets/js/click.js"></script> -->
+<!-- <link href="./assets/css/click.css" rel="stylesheet"> -->
 <!-- Chart.js CDN 포함 -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -28,6 +28,9 @@
 #menu #items #i6 {
 	font-weight: 901;
 	text-decoration: underline;
+}
+#i3 .material-symbols-outlined {
+		background-color: rgb(165, 224, 144);
 }
 
 </style>

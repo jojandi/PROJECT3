@@ -12,9 +12,16 @@
     <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
     <link href="./assets/css/admin.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-    <script src="./assets/js/click.js"></script>
+<!--     <script src="./assets/js/click.js"></script> -->
     <link href="./assets/css/mes_workorder.css" rel="stylesheet">
-    <link href="./assets/css/click.css" rel="stylesheet">
+<!--     <link href="./assets/css/click.css" rel="stylesheet"> -->
+
+<style>
+	#i2 .material-symbols-outlined {
+		background-color: rgb(165, 224, 144);
+	}
+</style>
+
 </head>
 <body>
 
