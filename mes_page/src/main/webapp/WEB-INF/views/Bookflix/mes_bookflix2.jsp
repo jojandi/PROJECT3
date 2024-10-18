@@ -18,18 +18,16 @@
 <link href="./assets/css/admin_table.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<script src="./assets/js/click.js"></script>
-<link href="./assets/css/click.css" rel="stylesheet">
+<!-- <script src="./assets/js/click.js"></script> -->
+<!-- <link href="./assets/css/click.css" rel="stylesheet"> -->
 <style>
-
+	#i2 .material-symbols-outlined {
+		background-color: rgb(165, 224, 144);
+	}
 /* -------------------------------관리자 직원관리------------------------------ */
 #menu #items #i5 {
 	font-weight: 901;
 	text-decoration: underline;
-}
-
-#i_1 {
-	background-color: rgb(165, 224, 144);
 }
 
 .clickable {

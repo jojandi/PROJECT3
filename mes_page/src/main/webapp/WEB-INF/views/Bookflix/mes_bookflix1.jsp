@@ -19,8 +19,10 @@
 <link href="./assets/css/admin_table.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<script src="./assets/js/click.js"></script>
-<link href="./assets/css/click.css" rel="stylesheet">
+<!-- <script src="./assets/js/click.js"></script> -->
+<!-- <link href="./assets/css/click.css" rel="stylesheet"> -->
+
+
 <style>
 
 /* -------------------------------관리자 직원관리------------------------------ */
@@ -39,6 +41,12 @@
 }
 
 /* ------------------------------------------------------------------ */
+	#i1 .material-symbols-outlined {
+		background-color: rgb(165, 224, 144);
+	}
+
+
+
 </style>
 
 
