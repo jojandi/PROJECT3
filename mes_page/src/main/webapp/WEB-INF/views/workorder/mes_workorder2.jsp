@@ -12,9 +12,16 @@
     <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
     <link href="./assets/css/admin.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-    <script src="./assets/js/click.js"></script>
+<!--     <script src="./assets/js/click.js"></script> -->
     <link href="./assets/css/mes_workorder.css" rel="stylesheet">
-    <link href="./assets/css/click.css" rel="stylesheet">
+<!--     <link href="./assets/css/click.css" rel="stylesheet"> -->
+
+<style>
+	#i2 .material-symbols-outlined {
+		background-color: rgb(165, 224, 144);
+	}
+</style>
+
 </head>
 <body>
 
@@ -42,7 +49,7 @@
 									<tr>
 										<td><input type="checkbox" class="bom_checkbox"></td>
 										<td><a
-											href="http://localhost:8080/mesPage/mes_bom_read?bom_code=${dto.bom_code}">${dto.bom_code}</a></td>
+											href="http://localhost:8080/mesPage/mes_workorder2_read?bom_code=${dto.bom_code}">${dto.bom_code}</a></td>
 										<td>${dto.bom_name}</td>
 										<td>${dto.mes_book_code1}</td>
 										<td>${dto.mes_book_code2}</td>
@@ -53,7 +60,7 @@
 						</table>
 					</div>
 					<div class="bot_btn">
-						<a href="http://localhost:8080/mesPage/mes_bomcreate"><input type="button" id="addbom" value="BOM 생성"></a>
+						<a href="http://localhost:8080/mesPage/mes_workorder2_create"><input type="button" id="addbom" value="BOM 생성"></a>
 					</div>
 				</div>
 			</div>

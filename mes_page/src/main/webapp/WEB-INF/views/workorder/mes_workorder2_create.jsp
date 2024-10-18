@@ -88,7 +88,7 @@
 				    <p>
 				        <label for="bom_code">BOM 코드입력: </label>
 				        <input type="text" id="bomCode" name="bom_code" required>
-				    </p>
+				    
 				    <p>
 				        <label for="bom_name">BOM 이름입력:</label>
 				        <input type="text" id="bomName" name="bom_name" required>
