@@ -79,27 +79,67 @@ public class InfoService {
         return resultMap;
     }
 
+    
+    // 공지사항 게시물 검색 
+	/*
+	 * public List<NotiDTO> searchAnnouncement(String searchTerm) { return
+	 * InfoDAO.searchAnnouncement(searchTerm); }
+	 */
+    
+    public Map<String, Object> searchAnnouncement(int count, int pageNo,String searchTerm) {
+        // 페이지 번호나 보여줄 개수가 유효한지 체크
+        if (count <= 0) {
+            count = 10; // 기본값 설정 (필요에 따라 다르게 설정 가능)
+        }
+        if (pageNo <= 0) {
+            pageNo = 1; // 기본값 설정
+        }
+
+        // 시작 번호 : 이전 페이지까지 보여준 것 바로 다음 것
+        int start = ((pageNo - 1) * count) + 1;
+        // 마지막 번호
+        int end = start + count - 1;
+
+        // DTO에 start와 end 설정
+        NotiDTO dto = new NotiDTO();
+        dto.setStart(start);
+        dto.setEnd(end);
+        dto.setSearchTerm(searchTerm);
+
+        // DAO를 통해 공지사항 목록 조회
+        List<NotiDTO> list = InfoDAO.searchAnnouncement(dto);
         
+        // 전체 공지사항 개수 조회
+        int totalCount = InfoDAO.totalnoti();
+
+        // 결과를 담을 Map 생성 (Generics 사용)
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("list", list);
+        resultMap.put("totalCount", totalCount); // 전체 목록 개수
+
+        return resultMap;
+    }
+    
     // 도서 신청
     public List<RequestDTO> listreq() {
-
-        List<RequestDTO> list = InfoDAO.selectapplication();
-
-        return list;
-
+    	
+    	List<RequestDTO> list = InfoDAO.selectapplication();
+    	
+    	return list;
+    	
     }
-
+    
     // 인설트
     public int insertApplication(RequestDTO requestDTO) {
-        int result = InfoDAO.insertapplication(requestDTO);
-        
-        return result;
+    	int result = InfoDAO.insertapplication(requestDTO);
+    	
+    	return result;
     }
-
+    
     // 업데이트 
     public int editApplication(RequestDTO requestDTO) {
-        int result = InfoDAO.updateapplication(requestDTO);
-        
-        return result;
+    	int result = InfoDAO.updateapplication(requestDTO);
+    	
+    	return result;
     }
 }

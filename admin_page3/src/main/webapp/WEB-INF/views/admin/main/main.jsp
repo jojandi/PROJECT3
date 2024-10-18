@@ -58,7 +58,7 @@
         </section>
 
         <section class="section1">
-			<div id="chartName">도서관 별 대출 / 반납 현황</div>
+			<div id="chartName">도서관 별 예약 / 대출 / 반납 현황</div>
 			<canvas id="myChart" height="175"></canvas>
             
         </section>
@@ -94,6 +94,16 @@
 	                	${lib[4].book_return_seq}
 	                	],
 	                backgroundColor: 'rgba(172, 229, 151, 0.637)'
+	              },
+	              {
+	                label: '예약',
+	                data: [${lib[0].book_res_seq},
+	                	${lib[1].book_res_seq},
+	                	${lib[2].book_res_seq},
+	                	${lib[3].book_res_seq},
+	                	${lib[4].book_res_seq}
+	                	],
+	                backgroundColor: 'rgb(189 231 174)'
 	              }
 	            ]
 	          },
@@ -127,7 +137,7 @@
 	                        <li class="notice" id="n1">
 	                            <div class="nbox joong">${noti.class_name}</div>
 	                            <div class="noticeTD">
-	                                <a class="title" href="notice3?ann_seq=${noti.ann_seq}">${noti.ann_title}</a>
+	                                <a class="title" href="notice3_${noti.ann_seq}">${noti.ann_title}</a>
 	                                <div class="update">${noti.ann_regi}</div>
 	                            </div>
 	                        </li>

@@ -19,6 +19,12 @@
     /* height: 510px; */
 }
 
+#section {
+    display: flex; 
+    justify-content: space-between;
+    width: 100%;
+}
+
 /* ------------------------------------------------------------------ */
 /* 휴관일 */
 .section1 #hukwan{
@@ -147,7 +153,7 @@
 .section1 #search #searchIn{
     font-size: 18px;
     height: 50px;
-    width: 85%;
+    width: 84%;
     padding-left: 5px;
 }
 
@@ -155,7 +161,7 @@
     display: inline-block;
     vertical-align: bottom;
     box-sizing: border-box;
-    height: 56px;
+    height: 55px;
     width: 55px;
     border: none;
     font-size: 40px;
@@ -329,4 +335,94 @@
     background: rgb(165, 224, 144);
     border: 1px solid rgb(106, 170, 82);
     cursor: pointer;
+}
+
+/* 반응형 웹 - 테블릿 세로 */
+@media (min-width: 768px) and (max-width: 991px) {
+	#wrap {
+		font-size: 0;
+    	padding: 50px 20px;
+	}
+	
+	#section {
+	    display: flex; 
+	    justify-content: space-between;
+	    width: 100%;
+	}
+
+	
+	/* 달력 */
+	.section1 #librarys {
+		width: 72px;
+	    margin-right: 5px;
+	}
+	
+	/* 검색 및 박스 */
+	.section1 #search #searchIn {
+	    font-size: 18px;
+	    height: 50px;
+	    width: 82%;
+	    padding-left: 5px;
+	}
+	
+}
+
+/* 반응형 웹 - 테블릿 가로 */
+@media (min-width: 992px) and (max-width: 1199px) {
+	#wrap {
+		font-size: 0;
+    	padding: 50px 30px;
+	}
+}
+
+/* 반응형 웹 - 모바일 */
+@media (max-width: 767px){
+	#wrap {
+		font-size: 0;
+    	padding: 50px 80px;
+	}
+	
+	#wrap .section1,
+	#wrap .section2, 
+	#wrap .section3 {
+		width: 100%;
+		padding: 20px 0;
+	}
+	
+	#section {
+	    display: flex; 
+	    width: 100%;
+	    flex-direction: column;
+	}
+	
+	/* 달력 */
+	.section1 #librarys {
+		width: 70px;
+	    margin-right: 5px;
+	}
+	
+	/* 검색 및 박스 */
+	.section1 #pageall .pages {
+	    justify-content: space-between;
+	}
+	
+	/* 북플릭스 홍보 */
+	#wrap .section3 {
+		height: 180px;
+	}
+	
+	#wrap .section3 img{
+		width: 95%;
+	}
+	
+	#wrap .section3 #img{
+		display: inline-block;
+		width: 38%;
+	}
+		
+	#wrap .section3 #mineSection {
+		width: 60%;
+		display: inline-block;
+	}
+
 }

@@ -90,6 +90,7 @@
 					    <!-- 파일 첨부 입력 -->
 					    <input type='file' id='ann_attach' name='ann_attach' value="${notice.ann_attach}">
 					    <input type='hidden' id='ann_seq' name='ann_seq' value="${notice.ann_seq}">
+					    
 					
 					    <button type="button" id="modalUpdateButton">공지사항 수정</button>
 	

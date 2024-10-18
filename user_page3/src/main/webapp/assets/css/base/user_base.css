@@ -27,6 +27,11 @@ body .right{
     float:right;
 }
 
+ul, li{
+	list-style: none;
+	padding-left: 0;
+}
+
 header #logoall #logo{
     margin: 5px 5px 0 40px;
     /* border: 1px solid red; */
@@ -145,10 +150,10 @@ footer #logoall #logo{
     width: 90px;
     height: 70px;
 
-    background-image: url("https://cdn.discordapp.com/attachments/1263360143756759099/1267275014273634415/KakaoTalk_20240729_090859720-removebg-preview_3.png?ex=66a83154&is=66a6dfd4&hm=4f6d706e06b34db529815a64763136b9f3f073d06fbc4513dd57c737077310f0&");
+    background-image: url("../../img/logo.png");
     background-size: 100%;
     background-position: 50%;
-    opacity: 0.6;
+    opacity: 0.8;
 }
     
 footer #logoall #name{
@@ -166,3 +171,69 @@ footer #footerinfo{
     font-size: 13px;
 }
 
+/* 햄버거 메뉴 스타일 설정 */
+#hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-top: -6px;
+}
+
+.bar {
+    border-radius: 5px;
+    width: 25px;
+    height: 4px;
+    background-color: #333;
+}
+
+/* 반응형 웹 - 모바일 */
+@media (max-width: 767px){
+	header #menu #items,
+	header #menu #userall {
+		display: block;
+		z-index: 1000;
+	}
+	
+	header #logoall #logo {
+		margin: 5px 5px 0 15px;
+	}
+	
+	/* 메뉴 클릭 시 화면 블러 처리 */
+	.overlay {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background: rgba(0, 0, 0, 0.5); /* 반투명 검정색 */
+	    display: none; /* 기본적으로 숨김 */
+	    z-index: 999; /* 메뉴보다 위에 표시 */
+	}
+	
+	#hamburger-menu {
+	    display: flex;
+	    flex-direction: column;
+	    gap: 5px;
+	    cursor: pointer;
+	    padding: 10px;
+	    border-radius: 5px;
+	    margin-right: 10px;
+	    margin-top: -6px;
+	}
+	
+	.bar {
+	    border-radius: 5px;
+	    width: 25px;
+	    height: 4px;
+	    background-color: #333;
+	}
+	
+	.on{
+		display: block;
+	}
+
+}

@@ -62,7 +62,8 @@
 				CASE WHEN  
 					(SELECT res_pick FROM li_book JOIN user_res USING(book_code) 
 					WHERE res_pick IS NULL AND book_code=#{book_code}) 
-					= 'null'  THEN 'N' ELSE 'Y' END  
+					= 'null'  THEN 'N' ELSE 'Y' END,
+			book_res_seq = book_res_seq + 1
 		WHERE 
 			book_code= #{book_code}
 	</update>
