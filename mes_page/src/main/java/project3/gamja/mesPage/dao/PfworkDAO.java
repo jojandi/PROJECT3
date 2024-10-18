@@ -15,6 +15,7 @@ public interface PfworkDAO {
 	
 	// 출고현황 select
 	List<MesPfworkDTO> selectde(MesPfworkDTO pfDTO);
+	int totalde(MesPfworkDTO pfDTO);
 	
 	// 주문현황 Read
 	MesPfworkDTO selectOne(MesPfworkDTO pfDTO);

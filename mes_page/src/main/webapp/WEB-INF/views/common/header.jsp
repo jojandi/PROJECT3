@@ -12,96 +12,7 @@
 <link href="./assets/css/base/user_base.css" rel="stylesheet">
 
 <style>
-	ul {
-    margin: 0;
-    padding: 0;
-}
-
-ul li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-.menu1 {
-	height: 60px;
-}
-
-.menu1 > li {
-    float: left;
-    text-align: center;
-    line-height: 40px;
-    position: relative;
-}
-
-/* 서브메뉴 크기 통일 */
-.submenu {
-	text-align: center;
-    display: none; /* 서브메뉴 항상 표시 */
-    position: absolute;
-    top: 60px;  /* 메인 메뉴 하단에 서브메뉴가 위치 */
-    left: -10px;  /* 모든 서브메뉴가 같은 위치에서 시작 */
-    background: white;
-    z-index: 1000;
-    padding: 0;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    width: 210px; /* 서브메뉴 너비 고정 */
-    font-size: 17px;
-    height: 160px;
-    border-left: 1px solid #ccc;
-}
-
-.borderNone{
-	border: none;
-}
-
-/* 전체 메뉴에 호버할 때 서브메뉴 표시 */
-.menu1:hover .submenu,
-.submenu li:hover {
-	display: block;
-}
-
-/* 서브메뉴 항목 스타일 */
-.submenu li {
-	font-weight: 500;
-    text-align: left;
-    padding: 5px 10px;
-    white-space: nowrap;  /* 서브메뉴 항목이 줄바꿈되지 않도록 설정 */
-}
-
-/* 서브메뉴 항목 호버 시 */
-.submenu li:hover {
-    text-decoration: underline;
-}
-
-/* 메뉴 호버 시 스타일 */
-.menu1 > li:hover {
-    text-decoration: underline;
-}
-
-/* clearfix를 사용해 플로트 요소 정리 */
-.menu1::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-#block{
-    display: none; /* 서브메뉴 항상 표시 */
-    position: absolute;
-    top: 100px;  /* 메인 메뉴 하단에 서브메뉴가 위치 */
-    left: 0;  /* 모든 서브메뉴가 같은 위치에서 시작 */
-    background: white;
-    z-index: 100;
-    width: 100%; /* 서브메뉴 너비 고정 */
-    font-size: 17px;
-    height: 160px;
-    border-bottom: 2px solid #ccc;
-}
+	
 
 </style>
 
@@ -115,10 +26,15 @@ a {
 				<a href="mes_main"><img class="logo_img"
 					src="./assets/img/mes_logo.png"></a>
 			</div>
-			<!-- <div id="name" class="left">행복만땅 <br>도서관</div> -->
 		</div>
 
 		<div id="menu">
+			<div id="hamburger-menu" class="right">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
+			
 			<div id="items" class="left">
 				<ul class="menu1">
 					<li class="item" id="i1"><a href="mes_pfwork1">작업 수행</a>
@@ -173,6 +89,7 @@ a {
 				</ul>
 				<div id="block" style="display:none;"></div>
 			</div>
+			
 			<%--             <c:if test="${ not empty login }"> --%>
 			<div class="right" id="userall">
 				<span class="inb" id="user">김승환님</span> <span
@@ -183,15 +100,62 @@ a {
 		
 		<script>
 			// hover가 되었을 때 뒷배경 block으로 변환
-			document.querySelectorAll('.menu1, .submenu .li').forEach(function(item) {
-			    item.addEventListener('mouseover', function() {
-			        document.getElementById('block').style.display = 'block';
-			    });
-			    
-			    item.addEventListener('mouseout', function() {
-			        document.getElementById('block').style.display = 'none';
-			    });
+			const isMobile = window.matchMedia("(max-width: 767px)").matches;
+			console.log(isMobile);
+			if(!isMobile) {
+				document.querySelectorAll('.menu1, .submenu .li').forEach(function(item) {
+				    item.addEventListener('mouseover', function() {
+				        document.getElementById('block').style.display = 'block';
+				    });
+				    
+				    item.addEventListener('mouseout', function() {
+				        document.getElementById('block').style.display = 'none';
+				    });
+				});
+			}
+			
+			// 모바일 아코디언 자바스크립트
+			let isOn = false;
+			const hamburgerMenu = document.querySelector("#hamburger-menu");
+			const items = document.querySelector("#items");
+			const userall = document.querySelector("#userall");
+			const overlay = document.querySelector("#overlay");
+			
+			// 햄버거 메뉴 클릭 시
+			hamburgerMenu.addEventListener('click', function() {
+			    console.log("메뉴", isOn);
+
+			    if (!isOn) {
+			        isOn = true;
+			        hamburgerMenu.classList.add("on"); // 햄버거 바 상태 추가
+			        items.classList.add("show"); // 애니메이션 클래스 추가
+			        userall.classList.add("show"); // 애니메이션 클래스 추가
+			    } else {
+			        isOn = false;
+			        hamburgerMenu.classList.remove("on"); // 햄버거 바 상태 제거
+			        items.classList.remove("show"); // 애니메이션 클래스 제거
+			        userall.classList.remove("show"); // 애니메이션 클래스 제거
+			    }
 			});
+			
+			// 메뉴 클릭시
+			if(isMobile){
+				document.querySelectorAll('.menu1 .item > a').forEach(function(item) {
+				    item.addEventListener('click', function(e) {
+				        e.preventDefault(); // 기본 링크 동작 방지
+				        const parentLi = item.parentElement; // a태그의 부모 요소 가져오기 -> 해당 .item 가져오기
+						let isActive = parentLi.classList.contains('active');
+				        
+				        if (isActive) {
+				            parentLi.classList.remove('active');
+				        } else {
+				            // 모든 메뉴를 닫고 클릭된 메뉴만 열기
+				            document.querySelectorAll('.menu1 .item').forEach(li => li.classList.remove('active'));
+				            parentLi.classList.add('active');
+				        }
+				    });
+				});
+			}
 		</script>
 	</header>
 </body>
