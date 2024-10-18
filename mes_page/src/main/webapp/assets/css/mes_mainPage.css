@@ -255,3 +255,9 @@
 .main_page {
     width: 100%;
 }
+
+#orderDeliveryChart{
+	
+	width: 300px;
+	height: 300px;
+}
