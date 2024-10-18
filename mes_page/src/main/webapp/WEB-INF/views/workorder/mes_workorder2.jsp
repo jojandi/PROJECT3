@@ -42,7 +42,7 @@
 									<tr>
 										<td><input type="checkbox" class="bom_checkbox"></td>
 										<td><a
-											href="http://localhost:8080/mesPage/mes_bom_read?bom_code=${dto.bom_code}">${dto.bom_code}</a></td>
+											href="http://localhost:8080/mesPage/mes_workorder2_read?bom_code=${dto.bom_code}">${dto.bom_code}</a></td>
 										<td>${dto.bom_name}</td>
 										<td>${dto.mes_book_code1}</td>
 										<td>${dto.mes_book_code2}</td>
@@ -53,7 +53,7 @@
 						</table>
 					</div>
 					<div class="bot_btn">
-						<a href="http://localhost:8080/mesPage/mes_bomcreate"><input type="button" id="addbom" value="BOM 생성"></a>
+						<a href="http://localhost:8080/mesPage/mes_workorder2_create"><input type="button" id="addbom" value="BOM 생성"></a>
 					</div>
 				</div>
 			</div>
