@@ -64,7 +64,18 @@
 	
 	<!-- workorder bom_code만 select -->
 	<select id="selectBom" resultType="workorderDTO">
-		SELECT bom_code, bom_name FROM bom
+	SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+			SELECT bom_code, bom_name FROM bom
+			) a
+		)
+	</select>
+	
+	 <select id="totalSt1" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			bom
 	</select>
 	
 	<!-- 작업지시서 완료시 주문현황 update -->
@@ -94,8 +105,19 @@
 	
 	<!--BOM 페이지 입니다 -->
     <select id="getList2" resultType="workorderDTO">
-      SELECT * From bom order by bom_code 
+     SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+      		SELECT * From bom order by bom_code 
+      		) a
+		)
+		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
     </select>
+    <select id="totalBom" resultType="int" parameterType="workorderDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			bom
+	</select>
     <select id="mesBomRead" resultType="workorderDTO" parameterType="workorderDTO">
 		  SELECT *
         FROM bom
