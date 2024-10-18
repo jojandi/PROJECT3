@@ -1,6 +1,7 @@
 package project3.gamja.mesPage.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import project3.gamja.mesPage.dto.MesNoticeDTO;
-import project3.gamja.mesPage.dto.MesPfworkDTO;
-import project3.gamja.mesPage.dto.MesStockDTO;
+
 import project3.gamja.mesPage.service.NoticeService;
 
 
@@ -21,15 +21,22 @@ public class NoticeController {
 	@Autowired
 	NoticeService noticeService;
 	
-	@RequestMapping("/mes_notice1")
-	public String notice1(Model model) {
-		List<MesNoticeDTO> list = noticeService.selectNotice1();
-		model.addAttribute("noticeList1",list);
+
+	@RequestMapping(value="mes_notice1", method=RequestMethod.GET)
+	public String selectStock1(Model model, Integer seq, Integer count, Integer pageNo) {
+		// 페이징 기본값 설정
+		if(count == null) count = 10;
+		if(pageNo == null) pageNo = 1;
 		
+		Map map = noticeService.selectNotice1(count, pageNo);
 		
+		model.addAttribute("map", map);
+		model.addAttribute("countPerPage", count);
+		model.addAttribute("page", pageNo);
 		
 		return "mes_notice1";
 	}
+	
 	@RequestMapping("/mes_notice2")
 	public String notice2() {
 

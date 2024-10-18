@@ -4,15 +4,19 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+
 import project3.gamja.mesPage.dto.MesStockDTO;
 
 
 @Mapper
 public interface StockDAO {
 
-	List<MesStockDTO> selectStock1();
-	List<MesStockDTO> selectStock2();
-	List<MesStockDTO> selectStock3();
+	List<MesStockDTO> selectStock1(MesStockDTO dto);
+	List<MesStockDTO> selectStock2(MesStockDTO dto);
+	List<MesStockDTO> selectStock3(MesStockDTO dto);
+	int totalSt1(MesStockDTO dto);
+	int totalSt2(MesStockDTO dto);
+	int totalSt3(MesStockDTO dto);
 	List<MesStockDTO> getMesPubId();
 	List<MesStockDTO> getMesBookCodes();
 	
