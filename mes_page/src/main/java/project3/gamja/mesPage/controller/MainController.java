@@ -1,6 +1,7 @@
 package project3.gamja.mesPage.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,28 +21,39 @@ import project3.gamja.mesPage.service.NoticeService;
 
 @Controller
 public class MainController {
-	@Autowired
-	MainService mainService;
+	 @Autowired
+	    private MainService mainService;
+
 	
-	@RequestMapping("/mes_main")
-	public String displayMainPage(Model model) {
-	 
-	   //데이터: 공지사항 리스트 (emp_id = 4)
-	    List<MesMainDTO> notices = mainService.getNoticesByEmpId(4);
-	    if (notices == null || notices.isEmpty()) {
-	        System.out.println("No notices found for emp_id = 4");
+	    @RequestMapping("/mes_main")
+	    public String displayMainPage(@RequestParam(value = "month", required = false) String month, Model model) {
+	        // 공지사항 리스트 (emp_id = 4)
+	        List<MesMainDTO> notices = mainService.getNoticesByEmpId(4);
+	        if (notices == null || notices.isEmpty()) {
+	            System.out.println("No notices found for emp_id = 4");
+	        }
+	        model.addAttribute("noticeList", notices);
+
+	        if (month == null || month.isEmpty()) {
+	            month = "2024-10";  
+	        }
+	        Map<String, Integer> orderAndDeliveryData = mainService.getMonthlyOrderAndDelivery(month);
+	        
+	        if (orderAndDeliveryData != null) {
+	            model.addAttribute("orderCount", orderAndDeliveryData.get("orderCount"));
+	            model.addAttribute("deliveryCount", orderAndDeliveryData.get("deliveryCount"));
+	        } else {
+	            System.out.println("No data found for the selected month: " + month);
+	            model.addAttribute("orderCount", 0);
+	            model.addAttribute("deliveryCount", 0);
+	        }
+
+	        return "mes_main";  
 	    }
-	    model.addAttribute("noticeList", notices);
-
-	    // 두 개의 데이터를 함께 mes_main.jsp로 전달
-	    return "mes_main";
 	}
-	@RequestMapping("/mesPage")
-	@ResponseBody  // JSON으로 반환
-	public interface MainDAO {
-	    List<MesMainDTO> getStatisticsByGenre(@Param("year") int year, @Param("month") int month);
-	}
+	
+	
 
 
 	
-}
+

@@ -1,115 +1,35 @@
-
-        let pi1 = document.querySelector("#sideleft #i1");
-        let pi2 = document.querySelector("#sideleft #i2");
-        let pi3 = document.querySelector("#sideleft #i3");
-        let pi4 = document.querySelector("#sideleft #i4");
-let bookChart = null;  // 도서 출고 통계 차트
-let demandChart = null;  // 수요 통계 차트
-let forecastChart = null; //수요예측 차트
-
+// 페이지 로드 후 실행
 document.addEventListener('DOMContentLoaded', function() {
-    // 도서 출고 통계 이벤트 리스너 추가
-    document.getElementById('yearSelect').addEventListener('change', loadBookStatistics);
-    document.getElementById('monthSelect').addEventListener('change', loadBookStatistics);
+    // JSP에서 전달된 데이터를 숨겨진 HTML 요소에서 가져오기
+    var dataContainer = document.getElementById('dataContainer');
+    var orderCount = parseInt(dataContainer.getAttribute('data-order-count'), 10);  // 주문 수량
+    var deliveryCount = parseInt(dataContainer.getAttribute('data-delivery-count'), 10);  // 출고 수량
 
-    // 수요 통계 이벤트 리스너 추가
-    document.getElementById('yearSelectDemand').addEventListener('change', loadDemandStatistics);
-    document.getElementById('monthSelectDemand').addEventListener('change', loadDemandStatistics);
+    // 그래프를 생성할 캔버스 선택
+    var ctx = document.getElementById('orderDeliveryChart').getContext('2d');
 
-    // 페이지가 로드될 때 두 통계 모두 첫 데이터를 로드
-    loadBookStatistics();
-    loadDemandStatistics();
-});
-
-// 도서 출고 통계 그래프 그리기
-function loadBookStatistics() {
-    const selectedYear = document.getElementById('yearSelect').value;
-    const selectedMonth = document.getElementById('monthSelect').value;
-
-    fetch(`/mesPage/getBookStatistics?year=${selectedYear}&month=${selectedMonth}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Received book statistics:', data);  // 데이터를 확인하는 콘솔 출력
-
-            if (data.length === 0) {
-                console.warn('No book statistics available for the selected year and month.');
-                return;
-            }
-
-            const labels = data.map(item => item.genre);  // 장르 데이터
-            const totals = data.map(item => item.total);  // 출고량 데이터
-
-            const ctx = document.getElementById('bookStatisticsChart').getContext('2d');
-
-            // 기존 차트가 있으면 삭제
-            if (bookChart) {
-                bookChart.destroy();
-            }
-
-            // 새로운 도서 출고 차트 생성
-            bookChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: '장르별 도서 출고 수량',
-                        data: totals,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: '#7C83FD',
-                        borderWidth: 1
-                    }]
+    // Chart.js를 사용하여 도넛 그래프 생성
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',  // 도넛 그래프 유형
+        data: {
+            labels: ['주문 수량', '출고 수량'],  // 라벨 설정
+            datasets: [{
+                data: [orderCount, deliveryCount],  // 데이터 값 설정 (주문 수량, 출고 수량)
+                backgroundColor: ['#A7EB5A', '#EEF18D'],  // 각 데이터의 색상
+                hoverBackgroundColor: ['#A7EB5A', '#EEF18D']
+            }]
+        },
+        options: {
+            responsive: false,  // 반응형 설정
+            plugins: {
+                legend: {
+                    position: 'top',  // 범례의 위치 설정
                 },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                font: {
-                                    family: 'Arial',  // 폰트 종류
-                                    weight: 'bold',  // 폰트 두께 (두껍게)
-                                    size: 14         // 글자 크기
-                                }
-                            }
-                        },
-                          x: {
-                            ticks: {
-                                font: {
-                                    family: 'Arial',  // 폰트 종류
-                                    weight: 'bold',  // 폰트 두께 (두껍게)
-                                    size: 12        // 글자 크기
-                                }
-                            }
-                        }
-                    
-                    
-                    }
+                tooltip: {
+                    enabled: true  // 툴팁 활성화
                 }
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching the book statistics:', error);
-        });
-}
-
-// 수요 통계 그래프 그리기
-function loadDemandStatistics() {
-    const selectedYear = document.getElementById('yearSelectDemand').value;
-    const selectedMonth = document.getElementById('monthSelectDemand').value;
-
-    fetch(`/mmes_page/getDemandStatistics?year=${selectedYear}&month=${selectedMonth}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log('Received demand statistics:', data);  // 데이터를 확인하는 콘솔 출력
-
-            if (data.length === 0) {
-                console.warn('No demand statistics available for the selected year and month.');
-                return;
             }
+<<<<<<< HEAD
 
             const labels = data.map(item => item.genre);  // 장르 데이터
             const demands = data.map(item => item.demand);  // 수요량 데이터
@@ -308,34 +228,8 @@ function loadForecastStatistics() {
                     });
                 })
                 .catch(error => console.error('출고 통계 데이터 처리 중 오류 발생:', error));
+=======
+>>>>>>> 83f0b24c033f1a5d97651d9bac870de60d4dadb5
         }
-
-        function fetchDemandStatistics() {
-            fetch(`getDemandStatistics?year=${selectedYear}&month=${selectedMonth}`)
-                .then(response => response.json())
-                .then(data => {
-                    const tbody = document.querySelector('#demandStatisticsTable tbody');
-                    tbody.innerHTML = '';
-                    data.forEach(item => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `<td>${item.genre}</td><td>${item.demand}</td>`;
-                        tbody.appendChild(row);
-                    });
-                })
-                .catch(error => console.error('수요 통계 데이터 처리 중 오류 발생:', error));
-        }
-
-        function fetchForecastStatistics() {
-            fetch(`/mmes_page/demandForecast?year=2023&month=9`)
-                .then(response => response.json())
-                .then(data => {
-                    const tbody = document.querySelector('#forecastStatisticsTable tbody');
-                    tbody.innerHTML = '';
-                    data.forEach(item => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `<td>${item.genre}</td><td>${item.expectedDemand}</td>`;
-                        tbody.appendChild(row);
-                    });
-                })
-                .catch(error => console.error('수요 예측 통계 데이터 처리 중 오류 발생:', error));
-        }
+    });
+});

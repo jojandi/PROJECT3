@@ -255,6 +255,7 @@
     width: 100%;
 }
 
+<<<<<<< HEAD
 @media (min-width: 768px) and (max-width: 991px) {
 	#wrap {
 		font-size: 0;
@@ -296,3 +297,10 @@
 	    flex-direction: column;
 	}
 }
+=======
+#orderDeliveryChart{
+	
+	width: 300px;
+	height: 300px;
+}
+>>>>>>> 83f0b24c033f1a5d97651d9bac870de60d4dadb5
