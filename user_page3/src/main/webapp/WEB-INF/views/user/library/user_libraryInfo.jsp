@@ -11,6 +11,39 @@
 <title>Insert title here</title>
     <link href="./assets/css/user_base.css" rel="stylesheet">
     <link href="./assets/css/library/library.css" rel="stylesheet">
+    <style>
+		<%
+		    Object selectLibraryObj = request.getAttribute("selectLibrary"); // lib_id값을 담은 객체 생성
+		    Integer libId = null; // 기본 libId 값
+		
+		    if (selectLibraryObj != null && selectLibraryObj instanceof LibraryDTO) {
+		        LibraryDTO selectLibrary = (LibraryDTO) selectLibraryObj;
+		        libId = selectLibrary.getLib_id(); // dto의 lib_id 값을 변수에 담기
+		    }
+		%>
+		<% if (libId != null && libId == 7000) { %>
+			#i1 .material-symbols-outlined {
+				background-color: rgb(165, 224, 144);
+			}
+		<% } else if (libId != null && libId == 7001) { %>
+			#i2 .material-symbols-outlined {
+				background-color: rgb(165, 224, 144);
+			}
+		<% } else if (libId != null && libId == 7002) { %>
+			#i3 .material-symbols-outlined {
+				background-color: rgb(165, 224, 144);
+			}
+		<% } else if (libId != null && libId == 7003) { %>
+			#i4 .material-symbols-outlined {
+				background-color: rgb(165, 224, 144);
+			}
+		<% } else if (libId != null && libId == 7004) { %>
+			#i5 .material-symbols-outlined {
+				background-color: rgb(165, 224, 144);
+		<%	}%>
+
+    </style>
+    
 </head>
 <body>
 	<section id = "library_infor">

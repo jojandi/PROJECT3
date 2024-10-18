@@ -22,9 +22,30 @@ public class MesStockDTO {
 	private Long emp_id;
 	private String order_st;
 	private Long mes_book_code;
+	private int start;
+	private int end;
 
 	private int rnum;
 	private int lv;
+	
+	
+	
+	
+	public int getStart() {
+		return start;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
 
 	public int getRnum() {
 		return rnum;

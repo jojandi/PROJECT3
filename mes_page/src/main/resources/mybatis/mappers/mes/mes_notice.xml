@@ -5,11 +5,24 @@
 <mapper namespace="project3.gamja.mesPage.dao.NoticeDAO">
 	
 	<select id="selectNotice1" resultType="noticeDTO">
-        SELECT n.notice_id, n.notice_name, e.emp_name, n.notice_date
-			FROM notice n
-				left outer join employee e
-		on (n.emp_id = e.emp_id)
+	SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+	        SELECT n.notice_id, n.notice_name, e.emp_name, n.notice_date
+				FROM notice n
+					LEFT OUTER JOIN employee e
+			ON (n.emp_id = e.emp_id)
+			) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
     </select>
+    
+    <select id="totalNt1" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			notice
+	</select>
+    
     
 	<select id="selectOne" resultType="noticeDTO" parameterType="noticeDTO">
 			SELECT * from notice join employee using(emp_id)

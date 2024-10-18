@@ -6,24 +6,57 @@
 
 
     <select id="selectStock1" resultType="stockDTO">
-        select b.bom_code,b.bom_name, p.pd_count, w.wh_name, p.pd_note
-			from warehouse w, product p , bom b
-			where w.wh_code = p.wh_code
-		and p.bom_code = b.bom_code
+    SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+	        SELECT b.bom_code,b.bom_name, p.pd_count, w.wh_name, p.pd_note
+				FROM warehouse w, product p , bom b
+				WHERE w.wh_code = p.wh_code
+			AND p.bom_code = b.bom_code
+			) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
     </select>
     
     <select id="selectStock2" resultType="stockDTO">
-        select m.mes_book_code,b.book_name, b.book_isbn, b.book_author, b.book_pub, m.book_count, m.wh_code
-		    from book b, mes_book m
-		WHERE b.book_isbn = m.book_isbn
+    SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+	        SELECT m.mes_book_code,b.book_name, b.book_isbn, b.book_author, b.book_pub, m.book_count, m.wh_code
+			    FROM book b, mes_book m
+			WHERE b.book_isbn = m.book_isbn
+			) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
     </select>
     
     <select id="selectStock3" resultType="stockDTO">
-        select mes_book_code, order_id, pub_name, order_st, emp_name, order_date
-			from tbl_order t, publisher p, employee e
-			where t.emp_id = e.emp_id
-		and t.pub_id = p.pub_id
+    SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+	        SELECT mes_book_code, order_id, pub_name, order_st, emp_name, order_date
+				FROM tbl_order t, publisher p, employee e
+				WHERE t.emp_id = e.emp_id
+			AND t.pub_id = p.pub_id
+			) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
     </select>
+    <select id="totalSt1" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			product
+	</select>
+    <select id="totalSt2" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			mes_book
+	</select>
+    <select id="totalSt3" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			tbl_order
+	</select>
 	
 	<select id="selectOrder" resultType="stockDTO" parameterType="int">
 		SELECT 
