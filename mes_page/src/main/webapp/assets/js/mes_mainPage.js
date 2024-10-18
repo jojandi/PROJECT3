@@ -287,11 +287,11 @@ function loadForecastStatistics() {
             });
 
             // 모달 외부 클릭 시 닫기
-            window.onclick = function (event) {
-                if (event.target.classList.contains('modal')) {
+            window.addEventListener("click", function(event) {
+            if (event.target.classList.contains('modal')) {
                     modals.forEach(modal => modal.style.display = 'none');
                 }
-            };
+            })
         });
 
         // 데이터 불러오기 함수

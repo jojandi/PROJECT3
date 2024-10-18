@@ -98,6 +98,7 @@
     top: 19px;
     left: -23px;
     color: black;
+    z-index: -1;
 }
 
 .section1 #calendar #dates .hu_1,
@@ -250,8 +251,48 @@
 /* ------------------------------------------------------------------ */
 /* section2 */
 
-
-
 .main_page {
     width: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#wrap {
+		font-size: 0;
+    	padding: 50px 20px;
+	}
+	
+	#section {
+	    display: flex; 
+	    justify-content: space-between;
+	    width: 100%;
+	}
+}
+	
+/* 반응형 웹 - 테블릿 가로 */
+@media (min-width: 992px) and (max-width: 1199px) {
+	#wrap {
+		font-size: 0;
+    	padding: 50px 30px;
+	}
+}
+
+/* 반응형 웹 - 모바일 */
+@media (max-width: 767px){
+	#wrap {
+		font-size: 0;
+    	padding: 50px 80px;
+	}
+	
+	#wrap .section1,
+	#wrap .section2, 
+	#wrap .section3 {
+		width: 100%;
+		padding: 20px 0;
+	}
+	
+	#section {
+	    display: flex; 
+	    width: 100%;
+	    flex-direction: column;
+	}
 }
