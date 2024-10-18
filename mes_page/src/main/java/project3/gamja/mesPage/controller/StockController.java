@@ -1,6 +1,7 @@
 package project3.gamja.mesPage.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,39 +20,58 @@ public class StockController {
 	StockService stockService;
 	
 	// 각 페이지 셀렉트 ///////////////////////////////////////////////////////////////////
-	@RequestMapping("/mes_stock1")
-	public String stock1(Model model) {
-		List<MesStockDTO> list = stockService.selectStock1();
-		model.addAttribute("StockList1", list);
+	@RequestMapping(value="mes_stock1", method=RequestMethod.GET)
+	public String selectStock1(Model model, Integer seq, Integer count, Integer pageNo) {
+		// 페이징 기본값 설정
+		if(count == null) count = 10;
+		if(pageNo == null) pageNo = 1;
+		
+		Map map = stockService.selectStock1(count, pageNo);
+		
+		model.addAttribute("map", map);
+		model.addAttribute("countPerPage", count);
+		model.addAttribute("page", pageNo);
 		
 		return "mes_stock1";
 	}
-	@RequestMapping("/mes_stock2")
-	public String stock2(Model model) {
-		List<MesStockDTO> list = stockService.selectStock2();
-		model.addAttribute("StockList2", list);
+	@RequestMapping(value="mes_stock2", method=RequestMethod.GET)
+	public String selectStock2(Model model, Integer seq, Integer count, Integer pageNo) {
+		// 페이징 기본값 설정
+		if(count == null) count = 10;
+		if(pageNo == null) pageNo = 1;
+		
+		Map map = stockService.selectStock2(count, pageNo);
+		
+		model.addAttribute("map", map);
+		model.addAttribute("countPerPage", count);
+		model.addAttribute("page", pageNo);
 		
 		return "mes_stock2";
 	}
-	@RequestMapping("/mes_stock3")
-	public String stock3(Model model) {
-		List<MesStockDTO> list = stockService.selectStock3();
-		model.addAttribute("StockList3", list);
+	@RequestMapping(value="mes_stock3", method=RequestMethod.GET)
+	public String selectStock3(Model model, Integer seq, Integer count, Integer pageNo) {
+		// 페이징 기본값 설정
+		if(count == null) count = 10;
+		if(pageNo == null) pageNo = 1;
+		MesStockDTO dto = new MesStockDTO();
+		Map map = stockService.selectStock3(count, pageNo);
 		
+		model.addAttribute("map", map);
+		model.addAttribute("countPerPage", count);
+		model.addAttribute("page", pageNo);
+
 
 		// 부품코드 셀렉트 옵션을 jsp로 전달해주는 친구~
-
 		List<MesStockDTO> mesBookCodes = stockService.getMesBookCodes();
 		model.addAttribute("mes_book_code", mesBookCodes);
-		// ---------------------------------------------------------
+		
 		// 발주처id를 셀렉트 옵션을 jsp로 전달해주는 친구~
 		List<MesStockDTO> mesPubId = stockService.getMesPubId();
 		model.addAttribute("pub_id", mesPubId);
-
-		// ---------------------------------------------------------
 		
 		return "mes_stock3";
 	}
+
 	////////////////////////////////////////////////////////////////////////////////////////
 	// 업데이트 페이지 /////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="/stock_update", method=RequestMethod.GET)

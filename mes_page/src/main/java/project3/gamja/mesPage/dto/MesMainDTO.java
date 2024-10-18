@@ -15,8 +15,56 @@ public class MesMainDTO {
 	    private int forecastDate;  
 	    private int dm_id;            // 도서 ID
 	    
+	    private Integer notice_id;
+		
+		private String notice_name;
+		
+		private java.sql.Date notice_date;
+		
+		private String notice_contents;
+		
+		private Integer emp_id;
+		
+		private String emp_name;
+	    
 
-	 public int getDm_id() {
+	 public Integer getNotice_id() {
+			return notice_id;
+		}
+		public void setNotice_id(Integer notice_id) {
+			this.notice_id = notice_id;
+		}
+		public String getNotice_name() {
+			return notice_name;
+		}
+		public void setNotice_name(String notice_name) {
+			this.notice_name = notice_name;
+		}
+		public java.sql.Date getNotice_date() {
+			return notice_date;
+		}
+		public void setNotice_date(java.sql.Date notice_date) {
+			this.notice_date = notice_date;
+		}
+		public String getNotice_contents() {
+			return notice_contents;
+		}
+		public void setNotice_contents(String notice_contents) {
+			this.notice_contents = notice_contents;
+		}
+		public Integer getEmp_id() {
+			return emp_id;
+		}
+		public void setEmp_id(Integer emp_id) {
+			this.emp_id = emp_id;
+		}
+		public String getEmp_name() {
+			return emp_name;
+		}
+		public void setEmp_name(String emp_name) {
+			this.emp_name = emp_name;
+		}
+	public int getDm_id() {
 			return dm_id;
 		}
 		public void setDm_id(int dm_id) {
@@ -114,8 +162,20 @@ public class MesMainDTO {
 		return "MesMainDTO [ds_id=" + ds_id + ", bom_code=" + bom_code + ", total_sales=" + total_sales + ", date_id="
 				+ date_id + ", genre=" + genre + ", demand=" + demand + ", expectedDemand=" + expectedDemand
 				+ ", actualSales=" + actualSales + ", accuracyRate=" + accuracyRate + ", forecastDate=" + forecastDate
-				+ ", dm_id=" + dm_id + ", year=" + year + ", month=" + month + ", total=" + total + "]";
+				+ ", dm_id=" + dm_id + ", notice_id=" + notice_id + ", notice_name=" + notice_name + ", notice_date="
+				+ notice_date + ", notice_contents=" + notice_contents + ", emp_id=" + emp_id + ", emp_name=" + emp_name
+				+ ", year=" + year + ", month=" + month + ", total=" + total + ", getNotice_id()=" + getNotice_id()
+				+ ", getNotice_name()=" + getNotice_name() + ", getNotice_date()=" + getNotice_date()
+				+ ", getNotice_contents()=" + getNotice_contents() + ", getEmp_id()=" + getEmp_id() + ", getEmp_name()="
+				+ getEmp_name() + ", getDm_id()=" + getDm_id() + ", getExpectedDemand()=" + getExpectedDemand()
+				+ ", getActualSales()=" + getActualSales() + ", getAccuracyRate()=" + getAccuracyRate()
+				+ ", getForecastDate()=" + getForecastDate() + ", getDemand()=" + getDemand() + ", getGenre()="
+				+ getGenre() + ", getDate_id()=" + getDate_id() + ", getYear()=" + getYear() + ", getMonth()="
+				+ getMonth() + ", getTotal()=" + getTotal() + ", getDs_id()=" + getDs_id() + ", getBom_code()="
+				+ getBom_code() + ", getTotal_sales()=" + getTotal_sales() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+	
 	
 	
 	

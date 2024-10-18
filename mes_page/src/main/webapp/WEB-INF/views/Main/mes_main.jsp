@@ -129,9 +129,29 @@
 				<div class="mini_title">
 					<h3>공지사항</h3>
 				</div>
+				  <table border="1">
+            <thead>
+                <tr>
+                  <th>공지날짜</th>
+                  <th>제목</th>
+                  <th>공지내용</th>
+                  <th>사원명</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="notice" items="${noticeList}">
+                    <tr>
+                        <td><fmt:formatDate value="${notice.notice_date}" pattern="yyyy-MM-dd"/></td>
+                       <td><a href="mes_noticeRead?notice_id=${ notice.notice_id }">${ notice.notice_name }</a></td>
+                       <td>${notice.notice_contents}</td>
+                        <td>${notice.emp_name}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
 				
 					
-					<canvas id="demandStatisticsChart" width="400" height="200"></canvas>
+					
 
 				
 			</div>

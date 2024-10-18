@@ -107,7 +107,7 @@ public class WorkorderController {
 	}
 
 	    //BOM 페이지
-	    @RequestMapping(value = "/mes_bom", method = RequestMethod.GET)
+	    @RequestMapping(value = "/mes_workorder2", method = RequestMethod.GET)
 	    public String mesBom(Model model) {
 	        System.out.println("Bomcreate 실행!");
 
@@ -115,10 +115,10 @@ public class WorkorderController {
 
 	        model.addAttribute("list", list);
 
-	        return "mes_bom"; 
+	        return "mes_workorder2"; 
 	    }
 	    
-	    @RequestMapping(value = "/mes_bom_read", method = RequestMethod.GET)
+	    @RequestMapping(value = "/mes_workorder2_read", method = RequestMethod.GET)
 	    public String MesBomRead(@RequestParam("bom_code") int bomCode, Model model) {
 	        // bom_code 값을 받아서 처리
 	        MesWorkorderDTO dto = new MesWorkorderDTO();
@@ -132,7 +132,7 @@ public class WorkorderController {
 	        model.addAttribute("list", list);
 	        model.addAttribute("list2", list2);
 	        // bom_read.jsp 페이지로 이동
-	        return "mes_bom_read";
+	        return "mes_workorder2_read";
 	    }
 	    
 	    @RequestMapping(value = "/updateBom", method = RequestMethod.POST)
@@ -159,7 +159,7 @@ public class WorkorderController {
 			return "redirect:mes_bom";
 		}
 	    //BOM create  Read 페이지
-	    @RequestMapping(value = "/mes_bomcreate", method = RequestMethod.GET)
+	    @RequestMapping(value = "/mes_workorder2_create", method = RequestMethod.GET)
 	    public String mesBomCreate(Model model) {
 	        System.out.println("Bomcreate 실행!");
 
@@ -167,7 +167,7 @@ public class WorkorderController {
 
 	        model.addAttribute("list", list);
 
-	        return "mes_bomcreate";
+	        return "mes_workorder2_create";
 	    }
 	    @RequestMapping(value="/mes_bomdelete", method=RequestMethod.POST)
 		public String mesBomDelete(MesWorkorderDTO dto, @RequestParam Integer bom_code) {
@@ -180,7 +180,7 @@ public class WorkorderController {
 			}
 			
 			
-			return "redirect:mes_bom";
+			return "redirect:mes_workorder2";
 		}
 	}
 

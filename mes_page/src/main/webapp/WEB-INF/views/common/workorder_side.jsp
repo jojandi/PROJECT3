@@ -21,7 +21,7 @@
 					</a>                       
                     </div>
                     <div class="item" id="i2">
-                     <a href="mes_bom">
+                     <a href="mes_workorder2">
                         <span>BOM</span>
                         <span class="material-symbols-outlined">arrow_forward_ios</span>
                      </a>

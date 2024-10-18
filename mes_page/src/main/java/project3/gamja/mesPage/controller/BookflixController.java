@@ -28,23 +28,23 @@ public class BookflixController {
     @Autowired
     private BookfilxService bookflixService;
 
-    @RequestMapping("/mes_buser")
+    @RequestMapping("/mes_bookflix1")
     public String listEmp(Model model, @RequestParam(value = "user_id2", required = false) String user_id2) {
         List<MesBuserDTO> userList = bookflixService.selectBuser(user_id2);
         model.addAttribute("userList", userList);
-        return "mes_buser";  // JSP 파일 이름
+        return "mes_bookflix1";  // JSP 파일 이름
     }
   
 
     // 리뷰 목록 가져오기
-    @RequestMapping("/mes_review")
+    @RequestMapping("/mes_bookflix2")
     public String getReviews(Model model) {
         System.out.println("review doGet 실행");
 
         List<MesReviewDTO> reviewList = bookflixService.getReview();
         model.addAttribute("reviewList", reviewList);
 
-        return "mes_review";
+        return "mes_bookflix2";
     }
     @RequestMapping(value="deleteReview", method=RequestMethod.DELETE)
 	@ResponseBody

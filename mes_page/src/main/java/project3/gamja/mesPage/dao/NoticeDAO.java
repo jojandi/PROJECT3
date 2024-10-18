@@ -5,14 +5,14 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import project3.gamja.mesPage.dto.MesNoticeDTO;
-import project3.gamja.mesPage.dto.MesPfworkDTO;
-import project3.gamja.mesPage.dto.MesStockDTO;
+
 
 @Mapper
 public interface NoticeDAO {
 	
-	List<MesNoticeDTO> selectNotice1();
+	List<MesNoticeDTO> selectNotice1(MesNoticeDTO dto);
 	
+	int totalNt1 (MesNoticeDTO dto);
 	
 	int insertNotice(MesNoticeDTO dto);
 	
