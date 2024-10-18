@@ -111,7 +111,7 @@
                 </c:if>
                 <c:if test="<%= sec_first != 1 %>">
                 	<span class="material-symbols-outlined">
-						<a href="mes_workorder1?page=<%= sec_first - 1 %>">chevron_left</a>
+						<a href="mes_workorder1?pageNo=<%= sec_first - 1 %>">chevron_left</a>
 					</span>
 				</c:if>
                 
@@ -119,11 +119,11 @@
 				<c:forEach var="i" begin="<%= sec_first %>" end="<%= sec_last %>">
 					
 					<!-- 페이지 이동, 현재 페이지는 strong 처리 -->
-					<c:if test="${i eq param.page}"> 
-						<a href="mes_workorder1?page=${i}" id="page" class="chap"><strong>${i}</strong></a>
+					<c:if test="${i eq param.pageNo}"> 
+						<a href="mes_workorder1?pageNo=${i}" id="page" class="chap"><strong>${i}</strong></a>
 					</c:if>
-					<c:if test="${i != param.page}"> 
-						<a href="mes_workorder1?page=${i}" id="page" class="chap">${i}</a>
+					<c:if test="${i != param.pageNo}"> 
+						<a href="mes_workorder1?pageNo=${i}" id="page" class="chap">${i}</a>
 					</c:if>
 						
 				</c:forEach>
@@ -133,7 +133,7 @@
 				</c:if>
 				<c:if test="<%= sec_last != lastPage %>">
                 	<span class="material-symbols-outlined">
-                		<a href="mes_workorder1?page=<%= sec_last + 1 %>">chevron_right</a>chevron_right
+                		<a href="mes_workorder1?pageNo=<%= sec_last + 1 %>">chevron_right</a>chevron_right
                 	</span>
                 </c:if>
             </div>
