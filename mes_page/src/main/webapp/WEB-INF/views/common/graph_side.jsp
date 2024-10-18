@@ -12,15 +12,15 @@
                 <h2 id="title">수요 예측 및 통계</h2>
                 <div id="items">
                     <div class="item" id="i1">
-                        <span><a href="mes_graph">도서 출고 통계</a></span>
+                        <span><a href="mes_graph1">도서 출고 통계</a></span>
                         <span class="material-symbols-outlined" id="i_1">arrow_forward_ios</span>
                     </div>
                     <div class="item" id="i2">
-                        <span><a href="mes_graph_2">도서 수요 통계</a></span>
+                        <span><a href="mes_graph2">도서 수요 통계</a></span>
                         <span class="material-symbols-outlined" id="i_2">arrow_forward_ios</span>
                     </div>
                     <div class="item" id="i3">
-                        <span><a href="mes_graph_3">도서 수요 예측</a></span>
+                        <span><a href="mes_graph3">도서 수요 예측</a></span>
                         <span class="material-symbols-outlined" id="i_3">arrow_forward_ios</span>
                     </div>
                    

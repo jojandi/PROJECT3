@@ -131,7 +131,7 @@ a {
 					<li class="item" id="i2"><a href="mes_workorder1">생산 관리</a>
 						<ul class="submenu">
 							<li><a href="mes_workorder1">작업지시서</a></li>
-							<li><a href="mes_bom">BOM</a></li>
+							<li><a href="mes_workorder2">BOM</a></li>
 						</ul>
 					</li>
 					
@@ -149,16 +149,16 @@ a {
 						</ul>
 					</li>
 					
-					<li class="item" id="i5"><a href="mes_buser">북플릭스 관리</a>
+					<li class="item" id="i5"><a href="mes_bookflix1">북플릭스 관리</a>
 						<ul class="submenu">
-							<li><a href="mes_buser">회원 관리</a></li>
-							<li><a href="mes_review">리뷰 관리</a></li>
+							<li><a href="mes_bookflix1">회원 관리</a></li>
+							<li><a href="mes_bookflix2">리뷰 관리</a></li>
 						</ul>
 					</li>
 					
-					<li class="item" id="i6"><a href="mes_graph">수요예측 및 통계</a>
+					<li class="item" id="i6"><a href="mes_graph1">수요예측 및 통계</a>
 						<ul class="submenu">
-							<li><a href="mes_graph">도서 출고 통계</a></li>
+							<li><a href="mes_graph1">도서 출고 통계</a></li>
 							<li><a href="mes_graph2">도서 수요 통계</a></li>
 							<li><a href="mes_graph3">도서 수요 예측</a></li>
 						</ul>

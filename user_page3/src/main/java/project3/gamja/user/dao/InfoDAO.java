@@ -27,11 +27,9 @@ public interface InfoDAO {
     // 새로 추가된 메서드: 공지사항 저장
     int insertNoti(NotiDTO dto);  // 공지사항 추가용 메서드
     
-
-    
-    
-    
-    
+    // 공지사항 검색 기능 추가 (검색어로 공지사항 조회)
+    List<NotiDTO> searchAnnouncement(NotiDTO dto);
+  
     
     
     // 도서 신청 관련

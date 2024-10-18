@@ -3,6 +3,7 @@ package project3.gamja.mesPage.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import project3.gamja.mesPage.dto.MesPfworkDTO;
 import project3.gamja.mesPage.dto.MesWorkorderDTO;
@@ -55,5 +56,7 @@ public interface WorkorderDAO {
 	List<MesWorkorderDTO> getList3();
 	
 	int deleteBom(MesWorkorderDTO DTO);
+	
+
 	
 }

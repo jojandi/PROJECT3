@@ -22,9 +22,9 @@ public class GraphController {
     private GraphService graphService;
  
     // JSP 페이지를 보여주는
-    @RequestMapping(value = "/mes_graph", method = RequestMethod.GET)
+    @RequestMapping(value = "/mes_graph1", method = RequestMethod.GET)
     public String selectAll() {
-        return "mes_graph";  // JSP 페이지 이름 반환
+        return "mes_graph1";  // JSP 페이지 이름 반환
     }
 
     @RequestMapping(value = "/mes_graph_data", method = RequestMethod.GET)
@@ -37,9 +37,9 @@ public class GraphController {
 
         return graphService.getStatisticsByGenre(year, month);
     }
-    @RequestMapping(value = "/mes_graph_2", method = RequestMethod.GET)
+    @RequestMapping(value = "/mes_graph2", method = RequestMethod.GET)
     public String selectAll_demand() {
-        return "mes_graph_2";  // JSP 페이지 이름 반환
+        return "mes_graph2";  // JSP 페이지 이름 반환
     }
 
     @RequestMapping(value = "/mes_graph_data_2", method = RequestMethod.GET)
@@ -52,9 +52,9 @@ public class GraphController {
 
         return graphService.getStatisticsByGenreForDemand(year, month);
     }
-    @RequestMapping(value = "/mes_graph_3", method = RequestMethod.GET)
+    @RequestMapping(value = "/mes_graph3", method = RequestMethod.GET)
     public String selectAll_totalG() {
-    	return "mes_graph_3";  // JSP 페이지 이름 반환
+    	return "mes_graph3";  // JSP 페이지 이름 반환
     }
     
     @RequestMapping(value = "/mes_graph_data_3", method = RequestMethod.GET)

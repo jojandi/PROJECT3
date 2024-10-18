@@ -128,4 +128,6 @@
 		delete from bom where bom_code = #{bom_code}
 	</delete>
 	
+
+	
 </mapper>
