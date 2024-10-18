@@ -14,8 +14,24 @@ public class MesMainDTO {
 	    private double accuracyRate;   // 정확도 (예측과 실제 출고량 비교)
 	    private int forecastDate;  
 	    private int dm_id;            // 도서 ID
+	    // 새로운 필드 추가
+	    private int orderCount;  // 월별 주문 수량
+	    private int deliveryCount;  // 월별 출고 수량
 	    
-	    private Integer notice_id;
+	    public int getOrderCount() {
+			return orderCount;
+		}
+		public void setOrderCount(int orderCount) {
+			this.orderCount = orderCount;
+		}
+		public int getDeliveryCount() {
+			return deliveryCount;
+		}
+		public void setDeliveryCount(int deliveryCount) {
+			this.deliveryCount = deliveryCount;
+		}
+
+		private Integer notice_id;
 		
 		private String notice_name;
 		
@@ -162,9 +178,11 @@ public class MesMainDTO {
 		return "MesMainDTO [ds_id=" + ds_id + ", bom_code=" + bom_code + ", total_sales=" + total_sales + ", date_id="
 				+ date_id + ", genre=" + genre + ", demand=" + demand + ", expectedDemand=" + expectedDemand
 				+ ", actualSales=" + actualSales + ", accuracyRate=" + accuracyRate + ", forecastDate=" + forecastDate
-				+ ", dm_id=" + dm_id + ", notice_id=" + notice_id + ", notice_name=" + notice_name + ", notice_date="
-				+ notice_date + ", notice_contents=" + notice_contents + ", emp_id=" + emp_id + ", emp_name=" + emp_name
-				+ ", year=" + year + ", month=" + month + ", total=" + total + ", getNotice_id()=" + getNotice_id()
+				+ ", dm_id=" + dm_id + ", orderCount=" + orderCount + ", deliveryCount=" + deliveryCount
+				+ ", notice_id=" + notice_id + ", notice_name=" + notice_name + ", notice_date=" + notice_date
+				+ ", notice_contents=" + notice_contents + ", emp_id=" + emp_id + ", emp_name=" + emp_name + ", year="
+				+ year + ", month=" + month + ", total=" + total + ", getOrderCount()=" + getOrderCount()
+				+ ", getDeliveryCount()=" + getDeliveryCount() + ", getNotice_id()=" + getNotice_id()
 				+ ", getNotice_name()=" + getNotice_name() + ", getNotice_date()=" + getNotice_date()
 				+ ", getNotice_contents()=" + getNotice_contents() + ", getEmp_id()=" + getEmp_id() + ", getEmp_name()="
 				+ getEmp_name() + ", getDm_id()=" + getDm_id() + ", getExpectedDemand()=" + getExpectedDemand()

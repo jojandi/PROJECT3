@@ -11,6 +11,10 @@
 <link href="./assets/css/main/main_user.css" rel="stylesheet">
 </head>
 <body>
+
+	<!-- popup 창 가져오기 -->
+	<jsp:include page="/WEB-INF/views/user/popup/user_popup.jsp" />
+
     <!-- google fonts 가져오기 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 

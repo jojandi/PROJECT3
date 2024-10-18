@@ -38,15 +38,20 @@
 	</select>
 	
 	<select id="selectde" resultType="pfworkDTO" parameterType="pfworkDTO">
-		select 
-		    d.os_id, d.ds_date, l.lib_name, d.ds_con, b.bom_name
-		FROM 
-		    deliverystatus d
-		left outer join orderstatus o on o.os_id = d.os_id
-		lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
-		left outer join library l on l.lib_id = lr.lib_id
-		left outer join bom b on b.bom_code = o.bom_code
-		order by os_id desc
+		SELECT * FROM (
+			select rownum AS rnum, a.*  FROM(
+				select 
+				    d.os_id, d.ds_date, l.lib_name, d.ds_con, b.bom_name
+				FROM 
+				    deliverystatus d
+				left outer join orderstatus o on o.os_id = d.os_id
+				lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
+				left outer join library l on l.lib_id = lr.lib_id
+				left outer join bom b on b.bom_code = o.bom_code
+				order by os_id desc
+			) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
 	</select>
 	
 	<!-- pfwork paging -->
@@ -56,6 +61,14 @@
 		FROM 
 			orderstatus 
 		WHERE os_status = '진행중' OR os_status IS NULL
+	</select>
+	
+	<!-- pfwork paging -->
+	<select id="totalde" resultType="int" parameterType="pfworkDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			deliverystatus 
 	</select>
 	
 	<!-- pfwork read -->

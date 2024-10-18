@@ -5,15 +5,20 @@
 <mapper namespace="project3.gamja.mesPage.dao.WorkorderDAO">
 
 	<select id="selectwo" resultType="workorderDTO" parameterType="workorderDTO">
-		SELECT 
-		    w.wo_id, b.bom_code, o.os_id, b.bom_name, w.wo_process, wo_count, wo_status, l.lib_id, lr.lr_seq
-		FROM 
-		    workorder w
-		LEFT OUTER JOIN bom b ON b.bom_code = w.bom_code
-		LEFT OUTER JOIN orderstatus o ON o.os_id = w.os_id
-		lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
-		left outer join library l on l.lib_id = lr.lib_id
-		    ORDER BY wo_id desc
+	SELECT * FROM (
+		select rownum AS rnum, a.*  FROM(
+			SELECT 
+			    w.wo_id, b.bom_code, o.os_id, b.bom_name, w.wo_process, wo_count, wo_status, l.lib_id, lr.lr_seq
+			FROM 
+			    workorder w
+			LEFT OUTER JOIN bom b ON b.bom_code = w.bom_code
+			LEFT OUTER JOIN orderstatus o ON o.os_id = w.os_id
+			lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
+			left outer join library l on l.lib_id = lr.lib_id
+			    ORDER BY wo_id desc
+		    ) a
+		)
+		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
 	</select>
 	
 	<!-- workorder paging -->

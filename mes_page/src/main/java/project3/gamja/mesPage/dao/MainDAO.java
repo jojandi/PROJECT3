@@ -13,7 +13,14 @@ import project3.gamja.mesPage.dto.MesNoticeDTO;
 public interface MainDAO {
 	
 	List<MesMainDTO> selectAll();
-	 List<MesMainDTO> getStatisticsByGenre(int year, int month);
+	 List<MesMainDTO> getStatisticsByGenre(int month);
 	  List<MesMainDTO> findNoticesByEmpId(int emp_id);
+	  // 월별 주문 수량 조회
+	   
+	    int getMonthlyOrderCount(@Param("month") String month);
+
+	    // 월별 출고 수량 조회
+	  
+	    int getMonthlyDeliveryCount(@Param("month") String month);
 
 }

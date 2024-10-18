@@ -46,9 +46,9 @@ public class PfworkController {
 	}
 	
 	@RequestMapping(value="mes_pfwork2", method=RequestMethod.GET)
-	public String pfwork2(Model model, Integer seq, Integer count, Integer pageNo) {
+	public String pfwork2(Model model, Integer count, Integer pageNo) {
 		// 페이징 기본값 설정
-		if(count == null) count = 7;
+		if(count == null) count = 5;
 		if(pageNo == null) pageNo = 1;
 		
 		Map map = pfService.selectde(count, pageNo);
