@@ -95,6 +95,7 @@
 				<a href="join" class="inb" id="userin">회원가입</a>
 			</c:if>
 		</div>
+	</div>
 
 
 		<script>
@@ -157,5 +158,5 @@
 			}
 		</script>
 
-	</div>
+
 </header>
