@@ -156,9 +156,9 @@ a {
 						</ul>
 					</li>
 					
-					<li class="item" id="i6"><a href="mes_graph">수요예측 및 통계</a>
+					<li class="item" id="i6"><a href="mes_graph1">수요예측 및 통계</a>
 						<ul class="submenu">
-							<li><a href="mes_graph">도서 출고 통계</a></li>
+							<li><a href="mes_graph1">도서 출고 통계</a></li>
 							<li><a href="mes_graph2">도서 수요 통계</a></li>
 							<li><a href="mes_graph3">도서 수요 예측</a></li>
 						</ul>

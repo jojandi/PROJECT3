@@ -46,15 +46,10 @@
 		<put-attribute name="content" value="/WEB-INF/views/Main/mes_main.jsp"/>
 	</definition>
 	<!-- 북플릭스 - 회원관리 -->
-<<<<<<< HEAD
+
 	<definition name="mes_bookflix1" extends="baseLayout">
-		<put-attribute name="side" value="/WEB-INF/views/common/buser_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/Bookflix/mes_bookflix1.jsp"/>
-=======
-	<definition name="mes_buser" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/Bookflix/mes_buser.jsp"/>
->>>>>>> 29a2d2d1c2767a2aaad2bbb04105d92ec5a3b24a
+		<put-attribute name="content" value="/WEB-INF/views/Bookflix/mes_bookflix1.jsp"/>
 	</definition>
 
 	<!-- 북플릭스 - 리뷰관리 -->
@@ -112,19 +107,19 @@
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1_read.jsp"/>
 	</definition>
 	<!-- 도서출고 통계 -->
-	<definition name="mes_graph" extends="baseLayout">
+	<definition name="mes_graph1" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph1.jsp"/>
 	</definition>
 	<!-- 도서수요 통계 -->
-	<definition name="mes_graph_2" extends="baseLayout">
+	<definition name="mes_graph2" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph_2.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph2.jsp"/>
 	</definition>
 	<!-- 도서수요 예측 통계 -->
-	<definition name="mes_graph_3" extends="baseLayout">
+	<definition name="mes_graph3" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
-		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph_3.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph3.jsp"/>
 	</definition>
 
 	<!-- 게시판 - 공지사항 -->
