@@ -93,7 +93,7 @@ public class LoginController {
                 session.setAttribute("isLogin", true);
 
                 // MES 메인 페이지로 이동
-                return "redirect:/mes/main";
+                return "redirect:/mes/mes_main";
             } else {
                 return "redirect:/login?code=LO01"; // 비밀번호가 일치하지 않는 경우
             }

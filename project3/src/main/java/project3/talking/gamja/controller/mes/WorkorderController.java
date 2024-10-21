@@ -90,7 +90,7 @@ public class WorkorderController {
            // 예외 발생 시 에러 로그 출력
            e.printStackTrace(); // 콘솔에 전체 예외 정보를 출력
        }
-       return "redirect:mes_workorder1";
+       return "redirect:/mes/mes_workorder1";
    }
 	
 	@RequestMapping(value="insertwo", method=RequestMethod.POST)
@@ -104,7 +104,7 @@ public class WorkorderController {
 		}
 		System.out.println("insert : " + result);
 		
-		return "redirect:mes_workorder1";
+		return "redirect:/mes/mes_workorder1";
 	}
 	
 	//BOM 페이지
@@ -150,7 +150,7 @@ public class WorkorderController {
 	        int result = woService.updateBom(orderDTO);
 	        System.out.println("update 결과 : " + result);
 
-	        return "redirect:/mes_bom";
+	        return "redirect:/mes/mes_bom";
 	    }
 	    @RequestMapping(value="/insertBom", method=RequestMethod.POST)
 		public String insertBom(MesWorkorderDTO dto) {
@@ -187,7 +187,7 @@ public class WorkorderController {
 			}
 			
 			
-			return "redirect:mes_workorder2";
+			return "redirect:/mes/mes_workorder2";
 		}
 	}
 

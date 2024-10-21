@@ -52,7 +52,7 @@ public class NotiController {
    public String insertNotice(NotiDTO dto) {
       System.out.println("dto " + dto);
       notiService.insertNotice(dto);
-      return "redirect:/notice2";
+      return "redirect:/admin/notice2";
    }
 
    // 공지사항 세부 조회 (ann_seq로 조회)
@@ -138,7 +138,7 @@ public class NotiController {
       notiService.insertNotice(dto);
 
       // 공지사항 목록 페이지로 리다이렉트
-      return "redirect:/notice2";
+      return "redirec/admin/notice2";
 
    }
 

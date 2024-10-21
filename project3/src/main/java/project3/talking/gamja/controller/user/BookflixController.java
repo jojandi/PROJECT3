@@ -66,7 +66,7 @@ public class BookflixController {
         System.out.println("북플릭스 탈퇴 : " + result);
         System.out.println("북플릭스 진짜 탈퇴 : " + resultOut);
 
-        return "redirect:main";  // 탈퇴 후 메인 페이지로 리다이렉트
+        return "redirect:/user/main";  // 탈퇴 후 메인 페이지로 리다이렉트
     }
    
     @RequestMapping(value = "/bookflix_review", method=RequestMethod.POST)
@@ -108,7 +108,7 @@ public class BookflixController {
         System.out.println("구독 진짜 완료! " + resultBuser);
 
         // 리다이렉트
-        return "redirect:/bookflix_user?seq=" + user;
+        return "redirect:/user/bookflix_user?seq=" + user;
     }
   
 }
