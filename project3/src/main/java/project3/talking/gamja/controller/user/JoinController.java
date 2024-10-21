@@ -46,7 +46,7 @@ public class JoinController {
 	    
 		joinService.insertJoin(dto);
 		
-		return "redirect:login";
+		return "redirect:/user/login";
 	}
 	
 	@RequestMapping(value="/check_username", method=RequestMethod.POST)

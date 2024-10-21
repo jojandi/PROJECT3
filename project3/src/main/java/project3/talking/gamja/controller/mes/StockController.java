@@ -92,7 +92,7 @@ public class StockController {
 		
 		stockService.insertOrder(dto);
 		
-		return "redirect:mes_stock3";
+		return "redirect:/mes/mes_stock3";
 	}
 	
 	
@@ -117,7 +117,7 @@ public class StockController {
 	        // 예외 발생 시 에러 로그 출력
 	        e.printStackTrace(); // 콘솔에 전체 예외 정보를 출력
 	    }
-	    return "redirect:mes_stock3";
+	    return "redirect:/mes/mes_stock3";
 	}
 	
 

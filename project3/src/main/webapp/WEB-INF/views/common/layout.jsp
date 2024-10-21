@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>GamJa</title>
 <link href="../assets/css/base/user_base.css" rel="stylesheet">
 </head>
 <body>

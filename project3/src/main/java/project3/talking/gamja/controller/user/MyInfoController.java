@@ -68,7 +68,7 @@ public class MyInfoController {
 		int result = myInfoService.updateInfo(userDTO);
 		System.out.println("업데이트 : " + result);
 		
-		return "redirect:/myInfo";
+		return "redirect:/user/myInfo";
 	}
 	
 	// 회원 아이디 중복 체크
@@ -95,7 +95,7 @@ public class MyInfoController {
 		int result = myInfoService.deleteUser(userDTO);
 		System.out.println("탈퇴 : " + result);
 		
-		return "redirect:/main";
+		return "redirect:/user/main";
 	}
 	
 	// 북플릭스 회원 탈퇴
@@ -107,7 +107,7 @@ public class MyInfoController {
 		System.out.println("구독취소 딜리트 : " + delete);
 		System.out.println("구독취소 업데이트 : " + update);
 		
-		return "redirect:/bookflix";
+		return "redirect:/user/bookflix";
 	}
 	
 }

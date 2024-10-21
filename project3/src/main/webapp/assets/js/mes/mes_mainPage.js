@@ -43,7 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
             responsive: false,  // 반응형 설정
             plugins: {
                 legend: {
-                    position: 'top',  // 범례의 위치 설정
+                    display: true, // 범례 활성화 (기본값 true)
+				  	position: 'top', // 범례를 상단에 위치
+				    align: 'end' // 오른쪽으로 정렬
                 },
                 tooltip: {
                     enabled: true  // 툴팁 활성화

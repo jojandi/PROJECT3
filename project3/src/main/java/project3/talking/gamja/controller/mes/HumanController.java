@@ -56,7 +56,7 @@ public class HumanController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/mes_human"; // 수정 후 목록 페이지로 이동
+        return "redirect:/mes/mes_human"; // 수정 후 목록 페이지로 이동
     }
 
     // 사원 삭제 처리
@@ -71,7 +71,7 @@ public class HumanController {
             e.printStackTrace();
         }
         System.out.println("삭제 확인");
-        return "redirect:/mes_human"; // 삭제 후 목록 페이지로 이동
+        return "redirect:/mes/mes_human"; // 삭제 후 목록 페이지로 이동
     }
     
     // 사원 추가 처리
@@ -82,6 +82,6 @@ public class HumanController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/mes_human";  // 추가 후 직원 목록으로 리다이렉트
+        return "redirect:/mes/mes_human";  // 추가 후 직원 목록으로 리다이렉트
     }
 }

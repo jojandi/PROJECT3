@@ -50,7 +50,7 @@ public class BestController {
 		int result = bestService.insertCart(cartDTO);
 		System.out.println("장바구니 : " + result);
 		
-		return "redirect:/cart?seq=" + cartDTO.getUser_seq();
+		return "redirect:/user/cart?seq=" + cartDTO.getUser_seq();
 	}
 	
 	// 예약하기
@@ -62,7 +62,7 @@ public class BestController {
 		System.out.println("예약 : " + insert);
 		System.out.println("재고 업데이트 : " + update);
 		
-		return "redirect:/res?seq=" + loanDTO.getUser_seq();
+		return "redirect:/user/res?seq=" + loanDTO.getUser_seq();
 	}
 	
 }

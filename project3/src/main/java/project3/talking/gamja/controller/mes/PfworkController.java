@@ -89,7 +89,7 @@ public class PfworkController {
 		System.out.println("insert : " + result);
 		System.out.println(pfDTO);
 		
-		return "redirect:mes_pfwork1";
+		return "redirect:/mes/mes_pfwork1";
 	}
 	
 	@RequestMapping(value="updatepf", method=RequestMethod.GET)
@@ -105,7 +105,7 @@ public class PfworkController {
 		System.out.println("update : " + result);
 		System.out.println(pfDTO);
 		
-		return "redirect:mes_pfwork1";
+		return "redirect:/mes/mes_pfwork1";
 	}
 	
 	@RequestMapping(value="deletepf", method=RequestMethod.DELETE)
@@ -141,7 +141,7 @@ public class PfworkController {
 		}
 		System.out.println("insert : " + result);
 		
-		return "redirect:mes_workorder1";
+		return "redirect:/mes/mes_workorder1";
 	}
 	
 }
