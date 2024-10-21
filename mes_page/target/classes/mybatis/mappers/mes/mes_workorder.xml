@@ -5,15 +5,20 @@
 <mapper namespace="project3.gamja.mesPage.dao.WorkorderDAO">
 
 	<select id="selectwo" resultType="workorderDTO" parameterType="workorderDTO">
-		SELECT 
-		    w.wo_id, b.bom_code, o.os_id, b.bom_name, w.wo_process, wo_count, wo_status, l.lib_id, lr.lr_seq
-		FROM 
-		    workorder w
-		LEFT OUTER JOIN bom b ON b.bom_code = w.bom_code
-		LEFT OUTER JOIN orderstatus o ON o.os_id = w.os_id
-		lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
-		left outer join library l on l.lib_id = lr.lib_id
-		    ORDER BY wo_id desc
+	SELECT * FROM (
+		select rownum AS rnum, a.*  FROM(
+			SELECT 
+			    w.wo_id, b.bom_code, o.os_id, b.bom_name, w.wo_process, wo_count, wo_status, l.lib_id, lr.lr_seq
+			FROM 
+			    workorder w
+			LEFT OUTER JOIN bom b ON b.bom_code = w.bom_code
+			LEFT OUTER JOIN orderstatus o ON o.os_id = w.os_id
+			lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
+			left outer join library l on l.lib_id = lr.lib_id
+			    ORDER BY wo_id desc
+		    ) a
+		)
+		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
 	</select>
 	
 	<!-- workorder paging -->
@@ -59,7 +64,18 @@
 	
 	<!-- workorder bom_code만 select -->
 	<select id="selectBom" resultType="workorderDTO">
-		SELECT bom_code, bom_name FROM bom
+	SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+			SELECT bom_code, bom_name FROM bom
+			) a
+		)
+	</select>
+	
+	 <select id="totalSt1" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			bom
 	</select>
 	
 	<!-- 작업지시서 완료시 주문현황 update -->
@@ -89,8 +105,19 @@
 	
 	<!--BOM 페이지 입니다 -->
     <select id="getList2" resultType="workorderDTO">
-      SELECT * From bom order by bom_code 
+     SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+      		SELECT * From bom order by bom_code 
+      		) a
+		)
+		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
     </select>
+    <select id="totalBom" resultType="int" parameterType="workorderDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			bom
+	</select>
     <select id="mesBomRead" resultType="workorderDTO" parameterType="workorderDTO">
 		  SELECT *
         FROM bom

@@ -105,18 +105,24 @@ public class WorkorderController {
 		
 		return "redirect:mes_workorder1";
 	}
-
-	    //BOM 페이지
-	    @RequestMapping(value = "/mes_workorder2", method = RequestMethod.GET)
-	    public String mesBom(Model model) {
-	        System.out.println("Bomcreate 실행!");
-
-	        List<MesWorkorderDTO> list = woService.getList2();
-
-	        model.addAttribute("list", list);
-
-	        return "mes_workorder2"; 
-	    }
+	
+	//BOM 페이지
+	@RequestMapping(value="/mes_workorder2", method=RequestMethod.GET)
+	public String mesBom(Model model, Integer seq, Integer count, Integer pageNo) {
+		// 페이징 기본값 설정
+		if(count == null) count = 9;
+		if(pageNo == null) pageNo = 1;
+		
+		Map map = woService.getList2(count, pageNo);
+		
+		model.addAttribute("map", map);
+		model.addAttribute("countPerPage", count);
+		model.addAttribute("page", pageNo);
+		
+		return "mes_workorder2";
+	}
+	    
+	  
 	    
 	    @RequestMapping(value = "/mes_workorder2_read", method = RequestMethod.GET)
 	    public String MesBomRead(@RequestParam("bom_code") int bomCode, Model model) {

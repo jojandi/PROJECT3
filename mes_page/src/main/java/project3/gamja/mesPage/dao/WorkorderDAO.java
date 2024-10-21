@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import project3.gamja.mesPage.dto.MesPfworkDTO;
+import project3.gamja.mesPage.dto.MesStockDTO;
 import project3.gamja.mesPage.dto.MesWorkorderDTO;
 
 @Mapper
@@ -43,7 +44,9 @@ public interface WorkorderDAO {
 	int requestpf(MesWorkorderDTO woDTO);
 	
 	// ----------------BOM 페이지입니다----------------------
-	List<MesWorkorderDTO> getList2();
+	List<MesWorkorderDTO> getList2(MesWorkorderDTO dto);
+	
+	int totalBom(MesWorkorderDTO dto);
 	
 	MesWorkorderDTO mesBomRead(MesWorkorderDTO dto);
 	

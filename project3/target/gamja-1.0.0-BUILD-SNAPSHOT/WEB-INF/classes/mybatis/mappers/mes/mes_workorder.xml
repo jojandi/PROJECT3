@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.talking.gamja.dao.mes.WorkorderDAO">
+
+	<select id="selectwo" resultType="workorderDTO" parameterType="workorderDTO">
+	SELECT * FROM (
+		select rownum AS rnum, a.*  FROM(
+			SELECT 
+			    w.wo_id, b.bom_code, o.os_id, b.bom_name, w.wo_process, wo_count, wo_status, l.lib_id, lr.lr_seq
+			FROM 
+			    workorder w
+			LEFT OUTER JOIN bom b ON b.bom_code = w.bom_code
+			LEFT OUTER JOIN orderstatus o ON o.os_id = w.os_id
+			lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
+			left outer join library l on l.lib_id = lr.lib_id
+			    ORDER BY wo_id desc
+		    ) a
+		)
+		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- workorder paging -->
+	<select id="totalwo" resultType="int" parameterType="workorderDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			workorder 
+	</select>
+	
+	<select id="selectOne" resultType="workorderDTO" parameterType="workorderDTO">
+		SELECT 
+   			 w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status, o.os_id, l.lib_id, lr.lr_seq
+		FROM 
+		    workorder w
+		left outer join bom b on w.bom_code = b.bom_code
+		left outer join orderstatus o on o.os_id = w.os_id
+		lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
+		left outer join library l on l.lib_id = lr.lib_id
+			where w.wo_id = #{wo_id}
+	</select>
+	
+	<delete id="deletewo" parameterType="workorderDTO">
+		delete from workorder where wo_id = #{wo_id}
+	</delete>
+	
+	<update id="updatewo" parameterType="workorderDTO">
+		UPDATE product
+		  SET pd_count = pd_count + #{wo_count}
+		  WHERE bom_code = #{bom_code}
+	</update>
+	
+	<update id="updatewopro" parameterType="workorderDTO">
+		UPDATE workorder
+		  SET wo_process = '배송공정'
+		  WHERE wo_id = #{wo_id}
+	</update>
+	
+	<insert id="insertwo" parameterType="workorderDTO">
+		INSERT INTO workorder (wo_id, bom_code, wo_process, wo_count, wo_status, os_id)
+		VALUES (wo_seq.NEXTVAL, #{bom_code}, #{wo_process}, #{wo_count}, '진행중', #{os_id})
+	</insert>
+	
+	<!-- workorder bom_code만 select -->
+	<select id="selectBom" resultType="workorderDTO">
+	SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+			SELECT bom_code, bom_name FROM bom
+			) a
+		)
+	</select>
+	
+	 <select id="totalSt1" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			bom
+	</select>
+	
+	<!-- 작업지시서 완료시 주문현황 update -->
+	<delete id="updatepf" parameterType="workorderDTO">
+		update orderstatus 
+		set os_status = '완료'
+		where os_id = #{os_id}
+	</delete>
+	
+	<!-- 작업지시서 완료시 출고현황 insert -->
+	<delete id="insertpf" parameterType="workorderDTO">
+		INSERT INTO deliverystatus (os_id, ds_date, ds_con)
+		VALUES (#{os_id}, sysdate, '완료')
+	</delete>
+	
+	<!-- 작업지시서 완료시 도서발주 페이지 update -->
+	<update id="requestpf" parameterType="workorderDTO">
+		UPDATE 
+			lib_request 
+		SET 
+			lr_ing = '완료'
+		WHERE 
+			lr_seq = #{lr_seq}
+	</update>
+	
+	<!-- //////////////////////// bom ////////////////////////// -->
+	
+	<!--BOM 페이지 입니다 -->
+    <select id="getList2" resultType="workorderDTO">
+     SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+      		SELECT * From bom order by bom_code 
+      		) a
+		)
+		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
+    </select>
+    <select id="totalBom" resultType="int" parameterType="workorderDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			bom
+	</select>
+    <select id="mesBomRead" resultType="workorderDTO" parameterType="workorderDTO">
+		  SELECT *
+        FROM bom
+        WHERE bom_code = #{bom_code}
+	</select>
+    <select id="getList3" resultType="workorderDTO" parameterType="workorderDTO">
+		  SELECT m.mes_book_code, b.book_name, b.book_isbn, b.book_author, b.book_pub, m.book_count, m.wh_code
+   	 	FROM book b 
+    	JOIN mes_book m ON b.book_isbn = m.book_isbn
+	</select>
+	 <select id="bomSelect" resultType="workorderDTO" parameterType="workorderDTO">
+		  SELECT mes_book_code1,mes_book_code2,mes_book_code3
+        FROM bom
+	</select>
+	 <update id="updatebom" parameterType="workorderDTO">
+        UPDATE bom
+        SET 
+        	bom_name = #{bom_name},
+            mes_book_code1 = #{mes_book_code1},
+            mes_book_code2 = #{mes_book_code2},
+            mes_book_code3 = #{mes_book_code3}
+        WHERE 
+            bom_code = #{bom_code}
+    </update>
+   <insert id="insertBom" parameterType="workorderDTO">
+        INSERT INTO bom (bom_code, bom_name, mes_book_code1, mes_book_code2, mes_book_code3)
+        VALUES (#{bom_code}, #{bom_name}, #{mes_book_code1}, #{mes_book_code2}, #{mes_book_code3})
+    </insert>
+    <delete id="deleteBom" parameterType="workorderDTO">
+		delete from bom where bom_code = #{bom_code}
+	</delete>
+	
+
+	
+</mapper>

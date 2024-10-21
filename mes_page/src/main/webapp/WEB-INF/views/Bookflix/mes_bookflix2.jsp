@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="project3.gamja.mesPage.dto.MesReviewDTO"%>
+<%@ page import="java.util.Map"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,6 +99,7 @@ width: 70px;
 					</div>
 					
 				</div>
+			
 			</div>
 		</section>
 

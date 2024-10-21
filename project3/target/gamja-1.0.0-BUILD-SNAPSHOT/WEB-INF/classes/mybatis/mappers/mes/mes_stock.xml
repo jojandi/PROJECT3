@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.talking.gamja.dao.mes.StockDAO">
+
+
+    <select id="selectStock1" resultType="stockDTO">
+    SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+	        SELECT b.bom_code,b.bom_name, p.pd_count, w.wh_name, p.pd_note
+				FROM warehouse w, product p , bom b
+				WHERE w.wh_code = p.wh_code
+			AND p.bom_code = b.bom_code
+			) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
+    </select>
+    
+    <select id="selectStock2" resultType="stockDTO">
+    SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+	        SELECT m.mes_book_code,b.book_name, b.book_isbn, b.book_author, b.book_pub, m.book_count, m.wh_code
+			    FROM book b, mes_book m
+			WHERE b.book_isbn = m.book_isbn
+			) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
+    </select>
+    
+    <select id="selectStock3" resultType="stockDTO">
+    SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+	        SELECT mes_book_code, order_id, pub_name, order_st, emp_name, order_date
+				FROM tbl_order t, publisher p, employee e
+				WHERE t.emp_id = e.emp_id
+			AND t.pub_id = p.pub_id
+			) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
+    </select>
+    <select id="totalSt1" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			product
+	</select>
+    <select id="totalSt2" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			mes_book
+	</select>
+    <select id="totalSt3" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			tbl_order
+	</select>
+	
+	<select id="selectOrder" resultType="stockDTO" parameterType="int">
+		SELECT 
+			*
+		FROM
+			tbl_order
+		WHERE
+			order_id= #{_parameter}
+	</select>
+	
+	<select id="getMesPubId" resultType="stockDTO">
+        SELECT pub_id FROM publisher
+    </select>
+	<select id="getMesBookCodes" resultType="stockDTO">
+        SELECT mes_book_code FROM mes_book
+    </select>
+	<update id="updateOrder" parameterType="stockDTO">
+		UPDATE mes_book
+			SET book_count = book_count + #{order_count}
+		WHERE mes_book_code = #{mes_book_code}
+	</update>
+	
+	<delete id="deleteOrder" parameterType="stockDTO">
+		delete from tbl_order where order_id = #{order_id}
+	</delete>
+	
+	<insert id="insertOrder" parameterType="stockDTO">
+		INSERT INTO tbl_order (order_id, order_date, order_count, order_st, emp_ID, pub_id, mes_book_code)
+			VALUES (tbl_order_seq.NEXTVAL, sysdate, #{order_count}, '진행중', 1, #{pub_id}, #{mes_book_code})
+	</insert>
+	
+	
+
+</mapper>

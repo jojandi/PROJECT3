@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.talking.gamja.dao.mes.NoticeDAO">
+	
+	<select id="selectNotice1" resultType="noticeDTO">
+	SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+	        SELECT n.notice_id, n.notice_name, e.emp_name, n.notice_date
+				FROM notice n
+					LEFT OUTER JOIN employee e
+			ON (n.emp_id = e.emp_id)
+			) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
+    </select>
+    
+    <select id="totalNt1" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			notice
+	</select>
+    
+    
+	<select id="selectOne" resultType="noticeDTO" parameterType="noticeDTO">
+			SELECT * from notice join employee using(emp_id)
+			WHERE notice_id = #{notice_id}
+	</select>
+	
+	<insert id="insertNotice" parameterType="noticeDTO">
+		INSERT INTO NOTICE (notice_id, notice_name, notice_contents, notice_date, emp_id)
+			VALUES (notice_seq.NEXTVAL, #{notice_name}, #{notice_contents}, sysdate, 4)
+	</insert>
+	<update id="updateNotice" parameterType="noticeDTO">
+		UPDATE notice
+			SET notice_name = #{notice_name}, notice_contents = #{notice_contents}
+			WHERE notice_id = #{notice_id}
+	</update>
+	<delete id="deleteNotice" parameterType="noticeDTO">
+		delete from notice where notice_id = #{notice_id}
+	</delete>
+
+</mapper>

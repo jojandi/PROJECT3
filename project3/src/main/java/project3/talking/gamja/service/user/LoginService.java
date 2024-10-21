@@ -1,0 +1,44 @@
+package project3.talking.gamja.service.user;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import project3.talking.gamja.dao.user.LoginDAO;
+import project3.talking.gamja.dto.user.UserDTO;
+
+
+@Service
+public class LoginService {
+
+
+	
+	@Autowired
+	LoginDAO loginDAO;
+
+	//UserDTO를 받아 정보를 조회하여 반환
+	public UserDTO selectLoginUser(UserDTO userDTO) { 
+
+		UserDTO dto = loginDAO.selectLoginUser(userDTO); // DAO에서 selectLoginUser 를 호출하여 
+																		// 데이터 베이스에서 사용자를 찾음 
+				
+
+		return dto; // dto를 반환
+	}
+	
+	public UserDTO selectLoginAdmin(UserDTO userDTO) {
+		
+		UserDTO dto = loginDAO.selectLoginAdmin(userDTO);
+		
+		return dto;
+	}
+	
+	public UserDTO selectLoginMes(UserDTO userDTO) {
+		
+		UserDTO dto = loginDAO.selectLoginMes(userDTO);
+		
+		return dto;
+	}
+}
+
+

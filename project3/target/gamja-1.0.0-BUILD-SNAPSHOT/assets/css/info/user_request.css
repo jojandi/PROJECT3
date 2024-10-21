@@ -1,0 +1,138 @@
+#section {
+	width: 80%;
+	font-size: 14px;
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: top;
+	padding-left: 30px;
+	/* border: 1px solid red; */
+	height: 600px;
+}
+
+#section>div {
+	margin-bottom: 20px;
+}
+
+#section>div:nth-child(2) {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.pagination div {
+	margin: 0 5px;
+	padding: 8px 12px;
+	background-color: #a2f796 #a2f796 #a2f796;
+	color: black;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.pagination div:hover {
+	background-color: #a2f796;
+}
+
+.search-bar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.search-bar select, .search-bar input[type="search"], .search-bar input[type="button"].search
+	{
+	margin-right: 10px;
+	padding: 8px;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+}
+
+.search-bar input[type="button"].search {
+	background-color: #a2f796;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+
+.search-bar input[type="button"].search:hover {
+	background-color: #a2f796b3;
+}
+
+.report table, .report th, .report td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 8px;
+}
+
+.report {
+	font-size: 13px;
+}
+
+#section div {
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#section input[type="text"] {
+	width: 300px;
+	height: 22px;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#section input[type="submit"] {
+	font-size: 18px;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 5%;
+    background: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
+    cursor: pointer;
+}
+
+#section #library{
+	width: 320px;
+	height: 45px;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#section div:last-child {
+	margin-top: 20px;
+}
+
+.app {
+	padding: 30px;
+}
+
+h3 {
+	border: 1px solid #ccc;
+	width: 100%;
+	text-align: center;
+	font-size: 22px;
+	padding: 17px;
+	box-sizing: border-box;
+}
+
+aside #items #i2 .material-symbols-outlined {
+	background: rgb(165, 224, 144);
+}
+
+/* 추가한 부분 */
+select.library-select {
+	width: 270px;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}

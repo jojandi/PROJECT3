@@ -1,0 +1,74 @@
+@charset "UTF-8";
+ #i1 .material-symbols-outlined {
+    background-color: rgb(165, 224, 144);
+}
+
+#menu #items #i5{
+    font-weight: 900;
+    text-decoration: underline;
+}  
+
+section h3{
+   border: 1px solid #ccc;
+   width: 100%;
+   text-align: center;
+   font-size: 22px;
+   padding: 17px;
+   box-sizing: border-box;
+}
+
+header #menu #items #i1 {
+    font-weight: 900;
+    text-decoration: underline;
+}
+/* ------------------------ */
+
+table {
+	margin: 0 auto;
+    width: 90%;
+    height: 500px;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+table th {
+    font-size: 15px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-weight: bold;
+}
+
+table td {
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    text-overflow: ellipsis;
+}
+
+
+input[type="submit"] {
+    font-size: 16px;
+    padding: 8px;
+    color: black;
+    border-radius: 4px;
+    margin-left: 5px;
+    background: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
+	cursor: pointer;
+}
+
+#submit{
+	text-align: right;
+}
+
+.page {
+    /* border: 1px solid red; */
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+}
+    

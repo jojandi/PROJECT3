@@ -51,7 +51,7 @@ public class PfworkService {
 		List<MesPfworkDTO> list = pfDAO.selectde(dto);
 		
 //		System.out.println(list.get(0));
-		int totalCount = pfDAO.totalpf(dto);
+		int totalCount = pfDAO.totalde(dto);
 		
 		Map map = new HashMap();
 		map.put("list", list);
