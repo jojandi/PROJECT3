@@ -41,5 +41,10 @@
 	<delete id="deleteNotice" parameterType="noticeDTO">
 		delete from notice where notice_id = #{notice_id}
 	</delete>
+	
+	<insert id="addComment" parameterType="noticeDTO">
+    INSERT INTO tbl_comments (cm_group, target_id, cm_content, cm_writer, cm_date)
+    VALUES (#{cm_group}, #{target_id}, #{cm_content}, #{cm_writer}, NOW())
+	</insert>
 
 </mapper>

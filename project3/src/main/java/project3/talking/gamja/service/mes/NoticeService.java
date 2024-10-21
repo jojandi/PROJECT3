@@ -58,4 +58,12 @@ public class NoticeService {
 		int result = noticeDAO.deleteNotice(dto);
 		return result;
 	}
+	
+	// 댓글기능
+	
+
+    public int addComment(MesNoticeDTO dto) {
+        return noticeDAO.addComment(dto);  // DAO 호출
+    }
+	
 }

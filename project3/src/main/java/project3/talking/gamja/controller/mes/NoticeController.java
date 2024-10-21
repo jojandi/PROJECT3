@@ -5,9 +5,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import project3.talking.gamja.dto.mes.MesNoticeDTO;
 import project3.talking.gamja.service.mes.NoticeService;
@@ -102,6 +104,24 @@ public class NoticeController {
 		
 		return "redirect:mes_notice1";
 	}
+	
+	//	댓글기능 구현
+	@RequestMapping(value="/addComment", method=RequestMethod.POST)
+	@ResponseBody
+	public String addComment(@RequestBody MesNoticeDTO noticeDTO) {
+	    try {
+	        int result = noticeService.addComment(noticeDTO);
+	        if (result > 0) {
+	            return "success";  // 댓글이 성공적으로 등록됨
+	        } else {
+	            return "fail";  // 실패
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return "error";  // 예외 처리
+	    }
+	}
+
 	
 
 }

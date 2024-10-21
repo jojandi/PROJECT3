@@ -23,6 +23,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="../assets/css/mes/click.css" rel="stylesheet">
+    <link href="../assets/css/mes/comment.css" rel="stylesheet">
     <link href="../assets/css/mes/mes_notice_read.css" rel="stylesheet">
   
 </head>
@@ -42,21 +43,31 @@
 						${ noticeRead.notice_contents }
 					</div>
 					<div style="text-align : right;">
+						<span>${noticeRead.emp_name}</span>
+						<div style="width: 76%; display: inline-block; margin-right:8px;">                       </div>
 						<a href="mes_noticeUpdate?notice_id=${ noticeRead.notice_id }"><input type=button value="수정"></a>
 						<a href="mes_noticeDelete?notice_id=${ noticeRead.notice_id }"><input type="button" value="삭제"></a>
 						<a href="notice"><input type="button" class="btnnn" value="목록으로"></a>
 					</div>
-					<div style="border: 1px solid lightgray; width: 100%; height: 100%; text-align: left; ">
-						<form class="noti_comment" action="noticeRead" method="post">
-						
-					         <!-- 원글의 글번호가 댓글의 ref_group 번호가 된다. -->
-					         <input type="hidden" name="cm_group" value="${num }"/>
-					         <!-- 원글의 작성자가 댓글의 대상자가 된다. -->
-					         <input type="hidden" name="target_id" value="${cm_id }"/>
-					   		 <p>${noticeRead.emp_name}</p>	
-					         <textarea name="cm_content" style="border: 0px; width: 80%; height: 30px;" >댓글을 입력해주세요.</textarea>
-					         <button type="submit">등록</button>
-				        </form>
+					<div class="comment_section">
+					    <form class="noti_comment" action="noticeRead" method="post">
+					        <input type="hidden" name="cm_group" value="${num }" />
+					        <input type="hidden" name="target_id" value="${cm_id }" />
+					        <div class="comment_input">
+					            <textarea name="cm_content">댓글을 입력해주세요.</textarea>
+					            <button type="submit">등록</button>
+					        </div>
+					    </form>
+					</div>
+					<!-- 댓글이 달리는 공간 -->
+					<div class="comment_list" style="margin-top: 20px;">
+					    <c:forEach var="comment" items="${commentList}">
+					        <div class="comment_item" style="border-bottom: 1px solid #ddd; padding: 10px;">
+					            <strong>${comment.writer}</strong> 
+					            <p>${comment.content}</p>
+					            <span style="font-size: 12px; color: #888;">${comment.date}</span>
+					        </div>
+					    </c:forEach>
 					</div>
 
 
