@@ -21,20 +21,27 @@
     font-size: 14px;
     display: inline-block;
     box-sizing: border-box;
-    width: 50%;
+    width: 30%;
     padding: 20px;
     vertical-align: top;
 }
 #wrap .section3{
-    /* border: 1px solid red; */
     font-size: 14px;
     display: inline-block;
     box-sizing: border-box;
-    width: 50%;
-    padding: 20px;
+    width: 70%;
+    padding: 25px;
     vertical-align: top;
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5%;
 }
 
+.section3 h3{
+	margin: 0;
+	margin-bottom: 8px;
+	font-size: 18px;
+}
 
 /* ------------------------------------------------------------------ */
 /* 휴관일 */
@@ -239,23 +246,139 @@
     'opsz' 24
 }
 
-/* .section1 #pageall .pages .page a{
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    position: relative;
-    bottom: 80px;
-} */
+/* 차트 */
+.section1 #chartName{
+	text-align: center;
+	font-weight: 900;
+	font-size: 18px;
+	margin: 15px 0;
+}
 
+table tbody td{
+    padding: 15px 0;
+    height: 35px;
+    box-sizing: border-box;
+    text-overflow: ellipsis; /* 말줄임표(...) 적용 */
+}
+
+#table{
+	height: 580px;	
+}
+
+table {
+	table-layout:fixed;
+    border: 1px solid #ccc;
+    font-size: .9em;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+
+th {
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+thead {
+    font-weight: bold;
+}
+
+thead td{
+	border-bottom: 2px solid #ccc;
+}
+
+td,
+th {
+    padding: 1em .5em;
+    vertical-align: middle;
+}
+
+td {
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+}
 
 /* ------------------------------------------------------------------ */
 /* section2 */
+/* 공지사항 */
+.section2 #noticewrap{
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 3%;
+    height: 210px;
+}
+
+.section2 #noticewrap #noticetitle{
+    font-size: 18px;
+    font-weight: 700;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.section2 #noticewrap #noticetitle span{
+    vertical-align: bottom;
+    font-size: 30px;
+}
+
+
+.section2 #noticewrap ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.section2 #noticewrap .notice{
+    margin-bottom: 15px;
+}
+
+.section2 #noticewrap .notice .nbox{
+    border: 2px solid rgb(106, 170, 82);
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+.section2 #noticewrap .notice .all{
+    border: 2px solid rgb(106, 170, 82);
+}
+
+.section2 #noticewrap .notice .joong{
+    border: 2px solid rgb(82, 150, 170);
+}
+
+.section2 #noticewrap .notice .noticeTD{
+    vertical-align: top;
+    height: 50px;
+    margin-left: 5px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.section2 #noticewrap .notice .noticeTD .title{
+    font-size: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.section2 #noticewrap .notice .noticeTD .update{
+    font-size: 12px;
+}
 
 .main_page {
     width: 100%;
 }
 
-<<<<<<< HEAD
 @media (min-width: 768px) and (max-width: 991px) {
 	#wrap {
 		font-size: 0;
@@ -297,10 +420,8 @@
 	    flex-direction: column;
 	}
 }
-=======
 #orderDeliveryChart{
 	
 	width: 300px;
 	height: 300px;
 }
->>>>>>> 83f0b24c033f1a5d97651d9bac870de60d4dadb5

@@ -37,6 +37,7 @@
 		<typeAlias type="project3.talking.gamja.dto.mes.MesNoticeDTO" alias="noticeDTO"/>
 		<typeAlias type="project3.talking.gamja.dto.mes.MesGraphDTO" alias="graphDTO"/>
 		<typeAlias type="project3.talking.gamja.dto.mes.MesHumanDTO" alias="humanDTO"/>
+		<typeAlias type="project3.talking.gamja.dto.mes.MesLogDTO" alias="logDTO"/>
 
 		<!-- admin -->
 		<typeAlias type="project3.talking.gamja.dto.admin.InvenDTO" alias="invenDTO"/>
