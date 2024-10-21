@@ -31,12 +31,11 @@ body .right {
 	float: right;
 }
 
-header #logoall #logo {
+header #logoall #logo{
 	margin: 5px 5px 0 40px;
 	/* border: 1px solid red; */
 	width: 120px;
 	height: 90px;
-	background-image: url("../../img/logo.png");
 	background-size: 100%;
 	background-position: 50%;
 	opacity: 0.9;
@@ -131,9 +130,9 @@ footer #footerinfo {
 }
 
 #logo img {
-	width: 140px;
+	width: 120px;
 	position: absolute;
-	top: -22px;
+	top: -13px;
 }
 
 /* 아코디언 */

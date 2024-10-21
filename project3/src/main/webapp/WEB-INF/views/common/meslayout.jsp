@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>GamJa Mes</title>
 <link href="../assets/css/base/mes_base.css" rel="stylesheet">
 <!-- <script src="./assets/js/click.js"></script> -->
 <style>

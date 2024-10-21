@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>GamJa Mes</title>
 <style>
 	
 	#side{display: inline-block; width: 30%; border: 1px solid green;}

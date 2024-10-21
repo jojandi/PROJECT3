@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import project3.talking.gamja.dto.mes.MesLogDTO;
 import project3.talking.gamja.dto.mes.MesMainDTO;
 import project3.talking.gamja.service.mes.MainService;
 
@@ -27,6 +28,9 @@ public class MainController {
 	    public String displayMainPage(@RequestParam(value = "month", required = false) String month, Model model) {
 	        // 공지사항 리스트 (emp_id = 4)
 	        List<MesMainDTO> notices = mainService.getNoticesByEmpId(4);
+	        // 작업 로그
+	        List<MesLogDTO> log = mainService.selectLog();
+	        model.addAttribute("log", log);
 	        if (notices == null || notices.isEmpty()) {
 	            System.out.println("No notices found for emp_id = 4");
 	        }
