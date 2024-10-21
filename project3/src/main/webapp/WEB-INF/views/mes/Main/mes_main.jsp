@@ -82,21 +82,46 @@
 				<small>도서입고일</small>
 			</div>
 		</section>
+<section class="section1">
+    <div class="all">
+        <div class="mini_title">
+            <h3>도서 출고 모니터링</h3>
+        </div>
 
-		<section class="section1">
-			<div class="all">
-				<div class="mini_title">
-					<h3>도서 출고 모니터링</h3>
-				</div>
-				
-				<div>
- 
-			</div>
-			<div id="dataContainer" data-order-count="${orderCount}" data-delivery-count="${deliveryCount}"></div>
-				<canvas id="orderDeliveryChart"></canvas>
+        <div id="chart-table-container" style="display: flex;">
+            <!-- 도넛 그래프 -->
+            <div style="flex: 1;">
+                <canvas id="orderDeliveryChart"></canvas>
+            </div>
 
-			</div>
-		</section>
+            <!-- 테이블 -->
+            <div style="flex: 1; margin-left: 20px;">
+                <table border="1" style="width: 100%; text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>수량</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>주문 수량</td>
+                            <td id="orderCountCell"></td> <!-- 주문 수량이 표시될 셀 -->
+                        </tr>
+                        <tr>
+                            <td>출고 수량</td>
+                            <td id="deliveryCountCell"></td> <!-- 출고 수량이 표시될 셀 -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 숨겨진 데이터 컨테이너 -->
+        <div id="dataContainer" data-order-count="${orderCount}" data-delivery-count="${deliveryCount}"></div>
+    </div>
+</section>
+
 
 		<section class="section2">
 			<div class="all">
