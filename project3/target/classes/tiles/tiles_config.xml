@@ -128,14 +128,14 @@
 	<!-- template : 기본 틀 -->
 	<definition name="baseLayoutMes" template="/WEB-INF/views/common/meslayout.jsp">
 		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
-		<put-attribute name="header" value="/WEB-INF/views/common/mse_header.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/views/common/mes_header.jsp"/>
 		<put-attribute name="side" value=""/>
 		<put-attribute name="content" value=""/>
 	</definition>
 	<!-- template : 메인 기본 틀 -->
 	<definition name="mainLayout" template="/WEB-INF/views/common/meslayout2.jsp">
 		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
-		<put-attribute name="header" value="/WEB-INF/views/common/mse_header.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/views/common/mes_header.jsp"/>
 		<put-attribute name="content" value=""/>
 	</definition>
 	
@@ -159,7 +159,7 @@
 
 	<!-- 메인페이지 -->
 	<definition name="mes_main" extends="mainLayout">
-		<put-attribute name="content" value="/WEB-INF/views/Main/mes_main.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/mes/Main/mes_main.jsp"/>
 	</definition>
 	<!-- 북플릭스 - 회원관리 -->
 
