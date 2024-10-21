@@ -30,7 +30,6 @@
 <body>
         <section>
          <div class="main_page">
-         			<h3>notice_id : ${noticeRead.notice_id} </h3>
 	                <h3>${ noticeRead.notice_name }</h3>
 	        	<div id="content_all">
 					<div class="name">
@@ -42,26 +41,26 @@
 					<div id="content">
 						${ noticeRead.notice_contents }
 					</div>
-					
-					<div style="border: 1px solid lightgray; whidth: 300px;">
-						<span>김승환 : 넵!</span>
+					<div style="text-align : right;">
+						<a href="mes_noticeUpdate?notice_id=${ noticeRead.notice_id }"><input type=button value="수정"></a>
+						<a href="mes_noticeDelete?notice_id=${ noticeRead.notice_id }"><input type="button" value="삭제"></a>
+						<a href="notice"><input type="button" class="btnnn" value="목록으로"></a>
 					</div>
-					<br>
+					<div style="border: 1px solid lightgray; width: 100%; height: 100%; text-align: left; ">
+						<form class="noti_comment" action="noticeRead" method="post">
+						
+					         <!-- 원글의 글번호가 댓글의 ref_group 번호가 된다. -->
+					         <input type="hidden" name="cm_group" value="${num }"/>
+					         <!-- 원글의 작성자가 댓글의 대상자가 된다. -->
+					         <input type="hidden" name="target_id" value="${cm_id }"/>
+					   		 <p>${noticeRead.emp_name}</p>	
+					         <textarea name="cm_content" style="border: 0px; width: 80%; height: 30px;" >댓글을 입력해주세요.</textarea>
+					         <button type="submit">등록</button>
+				        </form>
+					</div>
+
+
 					
-					<input type="button" value="댓글쓰기">
-					<br>
-					<br>
-					<a href="mes_noticeUpdate?notice_id=${ noticeRead.notice_id }"><input type=button value="수정"></a>
-					<a href="mes_noticeDelete?notice_id=${ noticeRead.notice_id }"><input type="button" value="삭제"></a>
-					
-					<div id="pagination"></div>
-	                <br>
-	                <br>
-	                <div class="write" style="text-align:right;">
-	                    <a href="notice">
-	                        <input type="button" class="btnnn" value="목록으로">
-	                    </a>
-	                </div>
 				</div>
 			</div>
         </section>
