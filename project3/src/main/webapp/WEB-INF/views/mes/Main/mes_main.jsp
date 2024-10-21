@@ -20,7 +20,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <!-- JavaScript 파일 -->
-<script src="<%=request.getContextPath()%>/assets/js/mes_mainPage.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/mes/mes_mainPage.js"></script>
 
 
 
