@@ -9,13 +9,15 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link href="../assets/css/base/user_base.css" rel="stylesheet">
+<link href="../assets/css/base/admin_base.css" rel="stylesheet">
 </head>
 <body>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 	<!-- header -->
+	<div>
 		<tiles:insertAttribute name="header"/>
+	</div>
 	
 	<div id="wrap">
 		<!-- side -->
@@ -26,7 +28,9 @@
 	</div>
 	
 	<!-- footer -->
+	<div>
 		<tiles:insertAttribute name="footer"/>
+	</div>
 
 </body>
 </html>

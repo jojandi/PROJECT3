@@ -99,7 +99,7 @@ public class InfoController {
 		 * model.addAttribute("list", list);
 		 */
 		// 리턴값이 타일즈로 가는거임 
-		return "request";
+		return "user_request";
 	}
 	// insert
 	@RequestMapping("/requestInsert")

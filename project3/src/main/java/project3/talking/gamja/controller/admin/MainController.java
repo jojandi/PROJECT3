@@ -29,7 +29,7 @@ public class MainController {
 		model.addAttribute("noti", list);
 		model.addAttribute("lib", lib);
 		
-		return "main";
+		return "admin_main";
 	}
 	
 }

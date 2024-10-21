@@ -2,20 +2,74 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="project3.talking.gamja.dao.user.MainDAO">
+<mapper namespace="project3.talking.gamja.dao.user.InfoDAO">
 
-	<select id="selectNoti" resultType="notiDTO">
-		SELECT * FROM (
-			SELECT 
-				ROWNUM AS rnum, a.class_id, a.ann_title, a.ann_seq, a.ann_regi, c.class AS class_name, a.lib_id, l.lib_name
-			FROM 
-				announcement a
-                LEFT OUTER JOIN ann_class c ON a.class_id = c.class_id
-                LEFT OUTER JOIN library l ON a.lib_id = l.lib_id
-            ORDER BY ANN_SEQ DESC
-		)
-		WHERE 
-			rnum BETWEEN 1 AND 3
+    <!-- 공지사항 총 개수 -->
+    <select id="totalnoti" resultType="int">
+        SELECT count(*) cnt FROM announcement
+    </select>
+
+
+<!-- 공지사항 목록 조회 -->
+<select id="selectAnnouncement" resultType="NotiDTO">
+    SELECT * FROM (
+        SELECT ROWNUM AS rnum, a.* FROM (
+            SELECT ann_seq, class_id, lib_id, lib_name, ann_title, ann_regi, ann_detail, ann_check AS viewCount, ann_attach
+            FROM announcement
+            JOIN ann_class USING(class_id)
+            JOIN library USING(lib_id)
+            ORDER BY ann_regi DESC
+        ) a
+    ) WHERE rnum BETWEEN #{start} AND #{end}
+</select>
+  
+
+    <!-- 공지사항 하나의 세부 정보 조회 -->
+    <select id="selectSeq" resultType="NotiDTO" parameterType="int">
+        SELECT * FROM announcement WHERE ann_seq = #{_parameter}
+    </select>
+
+    <!-- 공지사항 클래스 목록 조회 -->
+    <select id="selectAnnClass" resultType="NotiDTO">
+        SELECT * FROM ann_class
+    </select>
+
+    <!-- 공지사항 업데이트 -->
+    <update id="updateNotice" parameterType="NotiDTO">
+        UPDATE announcement
+        SET notice_name = #{notice_name}, notice_contents = #{notice_contents}
+        WHERE notice_id = #{notice_id}
+    </update>
+
+    <!-- 공지사항 삭제 -->
+    <delete id="deleteNotice" parameterType="NotiDTO">
+        DELETE FROM announcement WHERE ann_seq = #{ann_seq}
+    </delete>
+    
+        <!-- 공지사항 조회수 업데이트 -->
+    <update id="updateViewCount" parameterType="int">
+        UPDATE announcement
+        SET ann_check = ann_check + 1
+        WHERE ann_seq = #{_parameter}
+    </update>
+    
+
+    <!-- 공지사항 검색   -->
+    <select id="searchAnnouncement" parameterType="NotiDTO" resultType="NotiDTO">
+ 
+       
+       SELECT * FROM (
+        SELECT ROWNUM AS rnum, a.* FROM (
+            SELECT ann_seq, class_id, lib_id, lib_name, ann_title, ann_regi, ann_detail, ann_check AS viewCount, ann_attach
+            FROM announcement
+            JOIN ann_class USING(class_id)
+            JOIN library USING(lib_id)
+            WHERE ann_title LIKE '%' ||  #{searchTerm} ||'%'
+       OR ann_detail LIKE '%' ||  #{searchTerm} ||'%'
+            ORDER BY ann_regi DESC
+        ) a
+    ) WHERE rnum BETWEEN #{start} AND #{end}
+       
 	</select>
 
 </mapper>

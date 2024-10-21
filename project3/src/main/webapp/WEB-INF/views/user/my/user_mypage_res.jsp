@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 마이페이지</title>
-<link href="./assets/css/my/user_mypage_use.css" rel="stylesheet">
+<link href="../assets/css/my/user_mypage_use.css" rel="stylesheet">
 <style>
     section #smenu #res{ font-weight: 900; text-decoration: underline; }
 </style>

@@ -11,17 +11,17 @@
 <head>
 <meta charset="UTF-8">
 <title>도서 발주</title>
-<link href="./assets/css/mes/admin_table.css" rel="stylesheet">
-<link href="./assets/css/mes/00.user_side_base.css" rel="stylesheet">
-<link href="./assets/css/mes/admin.css" rel="stylesheet">
+<link href="../assets/css/mes/admin_table.css" rel="stylesheet">
+<link href="../assets/css/mes/00.user_side_base.css" rel="stylesheet">
+<link href="../assets/css/mes/admin.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<!-- <link href="./assets/css/mes/click.css" rel="stylesheet"> -->
-<link href="./assets/css/mes/mes_stock.css" rel="stylesheet">
+<!-- <link href="../assets/css/mes/click.css" rel="stylesheet"> -->
+<link href="../assets/css/mes/mes_stock.css" rel="stylesheet">
 
-<!-- <script src="./assets/js/mes/admin_stock.js"></script> -->
-<script src="./assets/js/mes/mes_stock.js"></script>
-<script src="./assets/js/mes/mes_stock_search.js"></script>
+<!-- <script src="../assets/js/mes/admin_stock.js"></script> -->
+<script src="../assets/js/mes/mes_stock.js"></script>
+<script src="../assets/js/mes/mes_stock_search.js"></script>
 
 <style>
 	#i3 .material-symbols-outlined {

@@ -5,7 +5,7 @@
 <mapper namespace="project3.talking.gamja.dao.admin.AdminMainDAO">
 
 	<!-- 공지사항 상위 3개 -->
-	<select id="selectNoti" resultType="notiDTO">
+	<select id="selectNoti" resultType="adminNotiDTO">
 		SELECT * FROM (
 			SELECT 
 				ROWNUM AS rnum, a.class_id, a.ann_title, a.ann_seq, a.ann_regi, c.class AS class_name, a.lib_id, l.lib_name

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>로그인 페이지</title>
-    <link href="./assets/css/login/login.css" rel="stylesheet">
+    <link href="../assets/css/login/login.css" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
             <!-- 비밀번호 입력 -->
             <div class="input-group">
                 <input type="password" id="password" name="user_pw" placeholder="Password" required>
-                <img src="./assets/img/logo.png" alt="Logo">
+                <img src="../assets/img/logo.png" alt="Logo">
             </div>
 
             <!-- 로그인 실패 시 오류 메시지 표시 -->

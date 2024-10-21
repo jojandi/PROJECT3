@@ -9,13 +9,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>사용자용 메인페이지</title>
-<link href="./assets/css/mes/mes_mainPage.css" rel="stylesheet">
-<link href="./assets/css/mes/admin.css" rel="stylesheet">
-<link href="./assets/css/mes/admin_table.css" rel="stylesheet">
-<link href="./assets/css/mes/modal.css" rel="stylesheet">
-<script src="./assets/js/mes/modal.js"></script>
-<script src="./assets/js/mes/click.js"></script>
-<link href="./assets/css/mes/click.css" rel="stylesheet">
+<link href="../assets/css/mes/mes_mainPage.css" rel="stylesheet">
+<link href="../assets/css/mes/admin.css" rel="stylesheet">
+<link href="../assets/css/mes/admin_table.css" rel="stylesheet">
+<link href="../assets/css/mes/modal.css" rel="stylesheet">
+<script src="../assets/js/mes/modal.js"></script>
+<script src="../assets/js/mes/click.js"></script>
+<link href="../assets/css/mes/click.css" rel="stylesheet">
 <!-- Chart.js CDN 포함 -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -72,7 +72,7 @@
 						<!-- 날짜들 들어오는 곳 -->
 					</div>
 				</div>
-				<script src="./assets/js/mes/01.calendar.js"></script>
+				<script src="../assets/js/mes/01.calendar.js"></script>
 
 			</div>
 			<div id="hukwan_bot">

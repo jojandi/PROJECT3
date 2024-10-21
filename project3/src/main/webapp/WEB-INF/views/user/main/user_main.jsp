@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 메인페이지</title>
-<link href="./assets/css/main/main_user.css" rel="stylesheet">
+<link href="../assets/css/main/main_user.css" rel="stylesheet">
 </head>
 <body>
 
@@ -56,7 +56,7 @@
                         <!-- 날짜들 들어오는 곳 -->
                     </div>
                 </div>
-                <script src="./assets/js/main/calendar.js"></script>
+                <script src="../assets/js/main/calendar.js"></script>
 
             </div>
 
@@ -152,7 +152,7 @@
                     
                 </div>
 
-                <script src="./assets/js/main/box.js"></script>
+                <script src="../assets/js/main/box.js"></script>
             </div>
         </div>
 	</section>
@@ -190,7 +190,7 @@
         <section class="section3">
             <div id="booksub">
             	<div id="img">
-	                <img src="./assets/img/bookflix.png">
+	                <img src="../assets/img/bookflix.png">
             	</div>
             	<div id="mineSection">
 	                <div id="booksubInfoTitle">

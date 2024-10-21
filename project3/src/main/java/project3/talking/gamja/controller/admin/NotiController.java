@@ -36,7 +36,7 @@ public class NotiController {
    public String notice(Model model, String cmd) {
 
       model.addAttribute("cmd", cmd);
-      return "notice";
+      return "admin_notice";
    }
 
    // 공지사항2 셀렉트
@@ -45,7 +45,7 @@ public class NotiController {
       List<NotiDTO> list = notiService.selectAnnouncement();
       System.out.println("list: " + list);
       model.addAttribute("noticeList", list);
-      return "notice2";
+      return "admin_notice2";
    }
    // // 공지사항 인서트
    @RequestMapping(value = "/insertNoti2", method = RequestMethod.POST)
@@ -63,7 +63,7 @@ public class NotiController {
       NotiDTO notice = notiService.selectSeq(annSeq);
 
       model.addAttribute("notice", notice);
-      return "notice3";
+      return "admin_notice3";
    }
 
    // 공지사항 세부 조회 (업데이트 시 조회)
@@ -74,7 +74,7 @@ public class NotiController {
 
       model.addAttribute("cmd", cmd);
       model.addAttribute("notice", notice);
-      return "notice";
+      return "admin_notice";
    }
 
    // 공지사항 인서트

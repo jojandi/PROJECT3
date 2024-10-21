@@ -9,14 +9,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>사용자용 메인페이지</title>
-<link href="./assets/css/mes/mes_mainPage.css" rel="stylesheet">
- <link href="./assets/css/mes/00.user_side_base.css" rel="stylesheet">
-<link href="./assets/css/mes/admin.css" rel="stylesheet">
-<link href="./assets/css/mes/admin_table.css" rel="stylesheet">
-<link href="./assets/css/mes/modal.css" rel="stylesheet">
-<script src="./assets/js/mes/modal.js"></script>
-<!-- <script src="./assets/js/mes/click.js"></script> -->
-<!-- <link href="./assets/css/mes/click.css" rel="stylesheet"> -->
+<link href="../assets/css/mes/mes_mainPage.css" rel="stylesheet">
+ <link href="../assets/css/mes/00.user_side_base.css" rel="stylesheet">
+<link href="../assets/css/mes/admin.css" rel="stylesheet">
+<link href="../assets/css/mes/admin_table.css" rel="stylesheet">
+<link href="../assets/css/mes/modal.css" rel="stylesheet">
+<script src="../assets/js/mes/modal.js"></script>
+<!-- <script src="../assets/js/mes/click.js"></script> -->
+<!-- <link href="../assets/css/mes/click.css" rel="stylesheet"> -->
 <!-- Chart.js CDN 포함 -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

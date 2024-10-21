@@ -31,7 +31,7 @@ public class MyApplyController {
 		model.addAttribute("countPerPage", count);
 		model.addAttribute("page", pageNo);
 		
-		return "apply";
+		return "myapply";
 	}
 	
 }

@@ -34,7 +34,7 @@ public class MyUseController {
 		model.addAttribute("countPerPage", count);
 		model.addAttribute("page", pageNo);
 		
-		return "res";
+		return "myres";
 	}
 	
 	// 이용내역 - 대출 내역 select
@@ -53,7 +53,7 @@ public class MyUseController {
 		model.addAttribute("countPerPage", count);
 		model.addAttribute("page", pageNo);
 				
-		return "loan";
+		return "myloan";
 	}
 	
 	// 이용내역 - 연체 내역 select
@@ -72,7 +72,7 @@ public class MyUseController {
 		model.addAttribute("countPerPage", count);
 		model.addAttribute("page", pageNo);
 		
-		return "over";
+		return "myover";
 	}
 	
 	

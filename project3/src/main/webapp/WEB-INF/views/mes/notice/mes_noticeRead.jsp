@@ -16,14 +16,14 @@
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="./assets/css/mes/admin_table.css" rel="stylesheet">
-    <link href="./assets/css/mes/00.user_side_base.css" rel="stylesheet">
-    <link href="./assets/css/mes/admin.css" rel="stylesheet">
+    <link href="../assets/css/mes/admin_table.css" rel="stylesheet">
+    <link href="../assets/css/mes/00.user_side_base.css" rel="stylesheet">
+    <link href="../assets/css/mes/admin.css" rel="stylesheet">
     
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="./assets/css/mes/click.css" rel="stylesheet">
-    <link href="./assets/css/mes/mes_notice_read.css" rel="stylesheet">
+    <link href="../assets/css/mes/click.css" rel="stylesheet">
+    <link href="../assets/css/mes/mes_notice_read.css" rel="stylesheet">
   
 </head>
 

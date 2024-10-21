@@ -3,7 +3,6 @@ package project3.talking.gamja.dao.admin;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import project3.talking.gamja.dto.admin.InvenDTO;
 import project3.talking.gamja.dto.admin.NotiDTO;

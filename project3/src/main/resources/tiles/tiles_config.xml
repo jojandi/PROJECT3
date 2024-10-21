@@ -39,19 +39,19 @@
 	</definition>
 
 	<!-- 마이페이지 - 이용내역 - 예약 -->
-	<definition name="res" extends="baseLayout">
+	<definition name="myres" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_res.jsp"/>
 	</definition>
 	
 	<!-- 마이페이지 - 이용내역 - 대출 -->
-	<definition name="loan" extends="baseLayout">
+	<definition name="myloan" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_loan.jsp"/>
 	</definition>
 	
 	<!-- 마이페이지 - 이용내역 - 연체 -->
-	<definition name="over" extends="baseLayout">
+	<definition name="myover" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_over.jsp"/>
 	</definition>
@@ -63,7 +63,7 @@
 	</definition>
 	
 	<!-- 마이페이지 - 도서신청 -->
-	<definition name="apply" extends="baseLayout">
+	<definition name="myapply" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/user_my_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/user/my/user_mypage_apply.jsp"/>
 	</definition>
@@ -98,7 +98,7 @@
 	</definition>
 	
 	<!--도서신청  -->
-	<definition name="request" extends="baseLayout">
+	<definition name="user_request" extends="baseLayout">
 		<put-attribute name="side" value="/WEB-INF/views/common/user_notice_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/user/info/user_request.jsp"/> 
 	</definition>
@@ -126,14 +126,14 @@
 
 
 	<!-- template : 기본 틀 -->
-	<definition name="baseLayoutMes" template="/WEB-INF/views/common/layout.jsp">
+	<definition name="baseLayoutMes" template="/WEB-INF/views/common/meslayout.jsp">
 		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
 		<put-attribute name="header" value="/WEB-INF/views/common/mse_header.jsp"/>
 		<put-attribute name="side" value=""/>
 		<put-attribute name="content" value=""/>
 	</definition>
 	<!-- template : 메인 기본 틀 -->
-	<definition name="mainLayout" template="/WEB-INF/views/common/layout2.jsp">
+	<definition name="mainLayout" template="/WEB-INF/views/common/meslayout2.jsp">
 		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
 		<put-attribute name="header" value="/WEB-INF/views/common/mse_header.jsp"/>
 		<put-attribute name="content" value=""/>
@@ -287,7 +287,7 @@
 	
 	<!-- admin page -->
 	<!-- template : 기본 틀 -->
-	<definition name="baseLayoutAdmin" template="/WEB-INF/views/common/layout.jsp">
+	<definition name="baseLayoutAdmin" template="/WEB-INF/views/common/adminlayout.jsp">
 		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
 		<put-attribute name="header" value="/WEB-INF/views/common/admin_header.jsp"/>
 		<put-attribute name="side" value=""/>
@@ -296,7 +296,7 @@
 	</definition>
 	
 	<!-- template : 기본 틀2 -->
-	<definition name="baseLayout2Admin" template="/WEB-INF/views/common/layout2.jsp">
+	<definition name="baseLayout2Admin" template="/WEB-INF/views/common/adminlayout2.jsp">
 		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
 		<put-attribute name="header" value="/WEB-INF/views/common/admin_header.jsp"/>
 		<put-attribute name="content" value=""/>
@@ -304,7 +304,7 @@
 	</definition>
 	
 	<!-- 메인페이지 -->
-	<definition name="main" extends="baseLayout2Admin">
+	<definition name="admin_main" extends="baseLayout2Admin">
 		<put-attribute name="content" value="/WEB-INF/views/admin/main/main.jsp"/>
 	</definition>
 	
@@ -346,19 +346,19 @@
 	
 	
 	<!--공지사항1-->
-		<definition name="notice" extends="baseLayoutAdmin">
+		<definition name="admin_notice" extends="baseLayoutAdmin">
 		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice.jsp"/>
 	</definition>
 	
 	<!--공지사항 2-->
-		<definition name="notice2" extends="baseLayoutAdmin">
+		<definition name="admin_notice2" extends="baseLayoutAdmin">
 		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice2.jsp"/>
 	</definition>
 	
 		<!--공지사항 3-->
-		<definition name="notice3" extends="baseLayoutAdmin">
+		<definition name="admin_notice3" extends="baseLayoutAdmin">
 		<put-attribute name="side" value="/WEB-INF/views/common/noti_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/admin/notice/notice3.jsp"/>
 	</definition>

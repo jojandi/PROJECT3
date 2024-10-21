@@ -12,14 +12,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 
-<link href="./assets/css/mes/00.user_side_base.css" rel="stylesheet"> 
-<link href="./assets/css/mes/admin.css" rel="stylesheet">
-<link href="./assets/css/mes/mes_buser.css" rel="stylesheet">
-<link href="./assets/css/mes/admin_table.css" rel="stylesheet">
+<link href="../assets/css/mes/00.user_side_base.css" rel="stylesheet"> 
+<link href="../assets/css/mes/admin.css" rel="stylesheet">
+<link href="../assets/css/mes/mes_buser.css" rel="stylesheet">
+<link href="../assets/css/mes/admin_table.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<!-- <script src="./assets/js/mes/click.js"></script> -->
-<!-- <link href="./assets/css/mes/click.css" rel="stylesheet"> -->
+<!-- <script src="../assets/js/mes/click.js"></script> -->
+<!-- <link href="../assets/css/mes/click.css" rel="stylesheet"> -->
 <style>
 	#i2 .material-symbols-outlined {
 		background-color: rgb(165, 224, 144);
@@ -120,7 +120,7 @@ width: 70px;
 	<!-- //////////////////////////// 두번째 모달 ////////////////////////////////////// -->
 
 	<!--자바 스크립트 영역-->
-	<script src="./assets/js/mes/mes_review.js"></script>
+	<script src="../assets/js/mes/mes_review.js"></script>
 	<script>
 		function ajax(url, param, cb, method) {
 			// javascript에서 false는 null, undefined, 0

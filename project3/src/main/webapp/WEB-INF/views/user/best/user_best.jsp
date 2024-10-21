@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>베스트 도서</title>
-<link href="./assets/css/best/user_best.css" rel="stylesheet">
+<link href="../assets/css/best/user_best.css" rel="stylesheet">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -9,14 +9,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="./assets/css/mes/base/user_base.css" rel="stylesheet">
+<link href="../assets/css/mes/base/user_base.css" rel="stylesheet">
 </head>
 <body>
 	<!-- 가장 위 고정 -->
     <header id="top" class="clearfix">
 
         <div id="logoall">
-            <div id="logo" class="left"><a href="main"><img class="logo_img" src="./assets/img/mes_logo.png"></a></div>
+            <div id="logo" class="left"><a href="main"><img class="logo_img" src="../assets/img/mes_logo.png"></a></div>
             <!-- <div id="name" class="left">행복만땅 <br>도서관</div> -->
         </div>
 

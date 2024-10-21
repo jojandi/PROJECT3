@@ -26,8 +26,8 @@
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<div class="right" id="userall">
 			<form action="logout">
-				<input type="submit" class="inb" id="user" value="조잔디님"> <span
-					class="material-symbols-outlined">person</span>
+				<a href="user/logout"> <span class="inb" id="user">${ login.user_name }님</span></a>
+				<span class="material-symbols-outlined">person</span>
 			</form>
 		</div>
 	</div>

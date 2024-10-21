@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="../assets/css/my/user_mypage_side.css" rel="stylesheet">
+<link href=".../assets/css/my/user_mypage_side.css" rel="stylesheet">
 
 </head>
 <body>
@@ -29,6 +29,6 @@
                 </div>
             </div>
         </aside>
-        <script src="../assets/js/my/mypage.js"></script>
+        <script src=".../assets/js/my/mypage.js"></script>
 </body>
 </html>

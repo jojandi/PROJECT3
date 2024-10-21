@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 메인페이지</title>
-<link href="./assets/css/main/main_user.css" rel="stylesheet">
+<link href="../assets/css/mainAdmin/main_user.css" rel="stylesheet">
 </head>
 <body>
     <!-- google fonts 가져오기 -->
@@ -51,7 +51,7 @@
                         <!-- 날짜들 들어오는 곳 -->
                     </div>
                 </div>
-                <script src="./assets/js/mainAdmin/calendar.js"></script>
+                <script src="../assets/js/mainAdmin/calendar.js"></script>
 
             </div>
 
