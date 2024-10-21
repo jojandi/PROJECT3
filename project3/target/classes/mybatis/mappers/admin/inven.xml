@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.talking.gamja.dao.admin.InvenDAO">
+	
+	<!-- ////////////////////////////// 재고현황 ////////////////////////////// -->
+	<!-- 실시간 재고현황 -->
+	<select id="selectInven" resultType="invenDTO" parameterType="invenDTO">
+		SELECT * FROM(
+		    SELECT 
+		        rownum as rnum, book_code, book_isbn, lib_name, lib_id, book_author, book_name, 
+		        book_pub, book_loan, book_res, li_book_info, book_img
+		    FROM ( 
+		        SELECT 
+		            * 
+		        FROM book 
+		        JOIN li_book USING (book_isbn)
+		        JOIN library USING (lib_id)
+		        <where>
+					<if test="searchType != null and searchType != '' 
+							and keyword != null and keyword != ''">
+						<!-- choose문 ( otherwise 사용 가능 ) -->
+						<choose>
+							<when test="searchType == 1">
+								AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+							<when test="searchType == 2">
+								AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+						</choose>
+					</if>
+				</where>
+		        ORDER BY to_number(book_code) 
+		    ))
+		WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- 실시간 재고현황 전체 목록 개수 -->
+	<select id="totalInven" resultType="int" parameterType="invenDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			li_book 
+			JOIN library USING(lib_id)
+			JOIN book USING (book_isbn)
+		<where>
+			<if test="searchType != null and searchType != '' 
+					and keyword != null and keyword != ''">
+				<!-- choose문 ( otherwise 사용 가능 ) -->
+				<choose>
+					<when test="searchType == 1">
+						AND LOWER(book_name) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+					<when test="searchType == 2">
+						AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+	
+	<select id="readInven" resultType="invenDTO" parameterType="invenDTO">
+		SELECT * FROM (
+		    SELECT 
+		        b.*, 
+		        l.lib_name, 
+		        ( 
+		            SELECT COUNT(*) 
+		            FROM book 
+		            JOIN li_book USING (book_ISBN) 
+		            JOIN library USING (lib_id)
+		            WHERE book_isbn = #{book_ISBN}
+		              AND lib_id = #{lib_id}
+		        ) AS count, 
+		        ( 
+		            SELECT SUM(book_loan_seq) 
+		            FROM li_book 
+		            WHERE book_isbn = #{book_ISBN}
+		        ) AS book_loan_seq
+		    FROM 
+		        book b 
+		        LEFT OUTER JOIN li_book lb ON b.book_ISBN = lb.book_ISBN 
+		        LEFT OUTER JOIN library l ON lb.lib_id = l.lib_id
+		    WHERE 
+		        b.book_isbn = #{book_ISBN}
+		        AND lb.lib_id = #{lib_id}
+		) WHERE ROWNUM = 1
+	</select>
+	
+	<!-- ////////////////////////////// 예약현황 ////////////////////////////// -->
+	<!-- 도서 예약 현황 -->
+	<select id="selectRes" resultType="loanResDTO" parameterType="loanResDTO">
+		SELECT * FROM( 
+			select rownum AS rnum, a.* from (
+                SELECT 
+                    book_code, res_id, res_day, res_pick, user_seq, book_name, res_ing, l.lib_name, r.lib_id
+                FROM 
+                    user_res r
+                    LEFT OUTER JOIN library l ON r.lib_id = l.lib_id
+                    JOIN li_book USING(book_code) 
+                    JOIN book USING(book_isbn)
+                <where>
+					<if test="searchType != null and searchType != '' 
+							and keyword != null and keyword != ''">
+						<!-- choose문 ( otherwise 사용 가능 ) -->
+						<choose>
+							<when test="searchType == 1">
+								AND LOWER(res_id) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+							<when test="searchType == 2">
+								AND LOWER(l.lib_name) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+						</choose>
+					</if>
+				</where>
+                ORDER BY book_res DESC, res_id DESC
+            ) a
+		) WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- 도서 예약 현황 전체 목록 갯수 -->
+	<select id="totalRes" resultType="int" parameterType="loanResDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			user_res 
+			JOIN library USING(lib_id)
+		<where>
+			<if test="searchType != null and searchType != '' 
+					and keyword != null and keyword != ''">
+				<!-- choose문 ( otherwise 사용 가능 ) -->
+				<choose>
+					<when test="searchType == 1">
+						AND LOWER(res_id) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+					<when test="searchType == 2">
+						AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+	
+	<!-- 픽업 시 예약 현황 업데이트 -->
+	<update id="updateRes" parameterType="loanResDTO">
+		UPDATE 
+			user_res
+		SET 
+			res_pick = sysdate, 
+			res_ing = 'N'
+		WHERE 
+			res_id = #{res_id}
+	</update>
+	
+	<!-- 픽업 시 대출 내역으로 이동 -->
+	<insert id="inseResLoan" parameterType="loanResDTO">
+		INSERT INTO 
+			user_loan
+			(loan_seq, book_code, user_seq, loan_date, loan_ing, loan_ex, loan_over, lib_id)
+		VALUES 
+			(user_loan_seq.nextval, #{book_code}, #{user_seq}, sysdate, 'Y', sysdate + 7, 'N', #{lib_id})
+	</insert>
+	
+	<!-- 픽업 시 재고에 대출 중 표시 및 대출 시퀀스 업데이트 -->
+	<update id="invenLoan" parameterType="loanResDTO">
+		UPDATE 
+			li_book
+		SET 
+			book_loan = CASE WHEN (
+				SELECT 
+					loan_ing 
+				FROM 
+					li_book 
+					JOIN user_loan USING(book_code)
+				WHERE 
+					loan_ing = 'Y' and book_code= #{book_code}
+			) = 'Y'  THEN 'Y' ELSE 'N' END,
+			book_res = CASE WHEN (
+				SELECT 
+					res_ing 
+				FROM 
+					li_book 
+					JOIN user_res USING(book_code) 
+				WHERE 
+					res_ing = 'Y' AND book_code= #{book_code}
+			) = 'N'  THEN 'Y' ELSE 'N' END ,
+			book_loan_seq = book_loan_seq + 1
+		 WHERE 
+		 	book_code= #{book_code}
+	</update>
+	
+	<!-- ////////////////////////////// 대출현황 ////////////////////////////// -->
+	<!-- 도서 대출 현황 -->
+	<select id="selectLoan" resultType="loanResDTO" parameterType="loanResDTO">
+		SELECT * FROM (
+		    SELECT 
+		    	rownum as rnum, a.* 
+		    FROM (
+                SELECT 
+                    ul.loan_seq, ul.book_code, ul.user_seq, b.book_name, ul.loan_date, ul.loan_ing, ul.loan_return, ul.loan_ex, 
+                    (ul.loan_ex - ul.loan_return) as isOver, l.lib_name, ul.lib_id
+                FROM 
+                    user_loan ul
+                    LEFT JOIN library l ON ul.lib_id = l.lib_id
+                    LEFT JOIN li_book lb ON ul.book_code = lb.book_code
+                    LEFT JOIN book b ON lb.book_isbn = b.book_isbn
+                  
+		      	<where>
+					<if test="searchType != null and searchType != '' 
+							and keyword != null and keyword != ''">
+						<!-- choose문 ( otherwise 사용 가능 ) -->
+						<choose>
+							<when test="searchType == 1">
+								AND LOWER(ul.book_code) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+							<when test="searchType == 2">
+								AND LOWER(l.lib_name) LIKE LOWER('%' || #{keyword} || '%')
+							</when>
+						</choose>
+					</if>
+				</where>
+                ORDER BY 
+                    ul.loan_seq DESC, ul.loan_ing DESC
+           ) a
+		) WHERE 
+			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
+	</select>
+	
+	<!-- 도서 대출 현황 전체 목록 갯수 -->
+	<select id="totalLoan" resultType="int" parameterType="loanResDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			user_loan
+			JOIN library USING(lib_id)
+		<where>
+			<if test="searchType != null and searchType != '' 
+					and keyword != null and keyword != ''">
+				<!-- choose문 ( otherwise 사용 가능 ) -->
+				<choose>
+					<when test="searchType == 1">
+						AND LOWER(book_code) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+					<when test="searchType == 2">
+						AND LOWER(lib_name) LIKE LOWER('%' || #{keyword} || '%')
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+	
+	<!-- 반납 시 대출내역 업데이트 -->
+	<update id="laonUpdate" parameterType="loanResDTO">
+		UPDATE 
+			user_loan
+		SET 
+			loan_ing = 'N',
+			loan_return = sysdate,
+			loan_over = 
+				CASE WHEN (
+					SELECT 
+						(loan_ex - loan_return) AS over 
+					FROM 
+						user_loan 
+					WHERE loan_seq = #{loan_seq} 
+				) >= 0 THEN 'N' ELSE 'Y' END  
+			WHERE loan_seq = #{loan_seq}
+	</update>
+	
+	<!-- 반납 시 재고 업데이트 -->
+	<update id="invenUpdate" parameterType="loanResDTO">
+		UPDATE 
+			li_book
+		SET 
+			book_loan = CASE WHEN (
+				SELECT 
+					loan_ing 
+				FROM 
+					li_book 
+					JOIN user_loan USING(book_code)
+				WHERE 
+					loan_ing='Y' AND book_code = #{book_code}
+				) = 'Y'  THEN 'Y' ELSE 'N' END,
+				book_return_seq = book_return_seq + 1
+		WHERE book_code= #{book_code}
+	</update>
+	
+	<!-- 반납 시 연체 여부 회원 업데이트 -->
+	<update id="overUserUpdate" parameterType="loanResDTO">
+		UPDATE 
+			tbl_user
+		SET 
+			user_pass = case when (
+					SELECT 
+						(loan_return - loan_ex) AS over_date 
+					FROM user_loan 
+					WHERE 
+					loan_seq = #{loan_seq}
+				) > 0 
+				THEN (
+					SELECT 
+						loan_return + (loan_return - loan_ex) AS user_pass 
+					FROM 
+						user_loan 
+					WHERE loan_seq = #{loan_seq}
+				)
+			ELSE null END 
+		WHERE user_seq= #{user_seq}
+	</update>
+	
+</mapper>

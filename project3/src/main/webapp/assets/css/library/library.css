@@ -1,0 +1,108 @@
+@charset "UTF-8";
+#wrap{
+    font-size: 0;
+    /* border: 1px solid red; */
+    padding: 30px 150px;
+    text-align: center;
+}
+
+#wrap section {
+    width: 80%;
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-left: 30px;
+    /* border: 1px solid red; */
+}
+
+#libraryInfo{
+	width: 95%;
+	margin: 0 auto;
+}
+
+#info{
+	text-align: left;
+}
+
+section h1{
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    padding: 17px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#infor_top_box {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 17px;
+    box-sizing: border-box;
+    margin-top: 22px;
+}
+
+#infor_img{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#infor_table{
+    font-size: 17px;
+    margin-top : 50px;
+}
+
+#daumRoughmapContainer1721612623091{
+    margin-top: 50px;
+}
+
+#info_map_addr{
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    padding: 0 30px 10px 30px;
+    border-radius: 10px;
+}
+
+#infor_map h3{
+	text-align: left;
+}
+
+#infor_adress {
+    margin-top: 20px;
+}
+
+.addr,
+.call{
+    font-size: 15px;
+    display: inline-block;
+    margin: 0 7px;
+}
+
+#infor_adress{
+	text-align: right;
+}
+
+#infor_adress .material-symbols-outlined{
+    vertical-align: bottom;
+    font-size: 15px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+section{
+    padding-right: 30px;
+}
+
+#menu #items #i20{
+    font-weight: 900;
+    text-decoration: underline;
+}  
+
+.root_daum_roughmap{
+	width: 100%;
+}
+

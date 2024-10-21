@@ -1,0 +1,8 @@
+.material-symbols-outlined {
+    color: black; /* 기본 색상 */
+}
+
+.material-symbols-outlined.active {
+    background-color: rgb(165, 224, 144);
+
+}

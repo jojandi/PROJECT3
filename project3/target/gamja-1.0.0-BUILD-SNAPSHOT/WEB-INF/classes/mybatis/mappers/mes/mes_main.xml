@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.talking.gamja.dao.mes.MainDAO">
+
+
+    <!-- 공지사항 -->
+        <select id="findNoticesByEmpId" parameterType="int" resultType="mainDTO">
+       SELECT n.notice_id, n.notice_name, n.notice_date, n.notice_contents, e.emp_id, e.emp_name
+		FROM notice n
+		JOIN employee e ON n.emp_id = e.emp_id
+		WHERE e.emp_id = 4
+    </select>
+    
+    <!-- 월별 주문 수량 조회 -->
+	<select id="getMonthlyOrderCount" resultType="int" parameterType="string">
+    SELECT COUNT(*) 
+    FROM orderstatus 
+    WHERE TO_CHAR(os_date, 'YYYY-MM') = #{month}
+	</select>
+
+	<!-- 월별 출고 수량 조회 -->
+	<select id="getMonthlyDeliveryCount" resultType="int" parameterType="string">
+    SELECT COUNT(*) 
+    FROM deliverystatus 
+    WHERE TO_CHAR(ds_date, 'YYYY-MM') = #{month}
+	</select>
+  
+</mapper>
