@@ -27,6 +27,6 @@
 	
 	<!-- footer -->
 		<tiles:insertAttribute name="footer"/>
-
+<script src="../assets/js/loginFilter/loginFilter.js"></script>
 </body>
 </html>

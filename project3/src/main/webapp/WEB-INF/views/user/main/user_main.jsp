@@ -112,7 +112,12 @@
                     <div>
                         <div class="page" id="p4">
                             <span class="material-symbols-outlined">assignment_add</span>
-                            <a href="request"></a>
+                            <c:if test="${empty login}">
+	                            <a class="loginFilter" href="request"></a>
+                            </c:if>
+                            <c:if test="${not empty login}">
+	                            <a href="request"></a>
+                            </c:if>
                         </div>
                         <div class="pname">도서 신청</div>
                     </div>
@@ -124,14 +129,24 @@
                     <div>
                         <div class="page" id="p5">
                             <span class="material-symbols-outlined">shopping_cart</span>
-                            <a href="cart?seq=${login.user_seq}"></a>
+                            <c:if test="${empty login}">
+	                            <a class="loginFilter" href="cart?seq=${login.user_seq}"></a>
+                            </c:if>
+                            <c:if test="${not empty login}">
+	                            <a href="cart?seq=${login.user_seq}"></a>
+                            </c:if>
                         </div>
                         <div class="pname">장바구니</div>
                     </div>
                     <div>
                         <div class="page" id="p6">
                             <span class="material-symbols-outlined">person_edit</span>
-                            <a href="res?seq=${login.user_seq}"></a>
+                            <c:if test="${empty login}">
+	                            <a class="loginFilter" href="res?seq=${login.user_seq}"></a>
+                            </c:if>
+                            <c:if test="${not empty login}">
+	                            <a href="res?seq=${login.user_seq}"></a>
+                            </c:if>
                         </div>
                         <div class="pname">내 이용정보</div>
                     </div>
