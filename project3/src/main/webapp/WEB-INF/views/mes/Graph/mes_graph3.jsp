@@ -21,7 +21,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <!-- JavaScript 파일 -->
-<script src="<%=request.getContextPath()%>/assets/js/mes_graph3.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/mes/mes_graph3.js"></script>
 
 
 <style>

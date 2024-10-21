@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     enabled: true  // 툴팁 활성화
                 }
             }
-<<<<<<< HEAD
+
 
             const labels = data.map(item => item.genre);  // 장르 데이터
             const demands = data.map(item => item.demand);  // 수요량 데이터
@@ -228,8 +228,7 @@ function loadForecastStatistics() {
                     });
                 })
                 .catch(error => console.error('출고 통계 데이터 처리 중 오류 발생:', error));
-=======
->>>>>>> 83f0b24c033f1a5d97651d9bac870de60d4dadb5
+
         }
     });
 });

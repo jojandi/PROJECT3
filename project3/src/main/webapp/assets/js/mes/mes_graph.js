@@ -30,7 +30,7 @@ function loadBookStatistics(year, month) {
     console.log(`Fetching statistics for year: ${year}, month: ${month}`);
 
     // 서버로부터 데이터를 가져옴
-    fetch(`/mesPage/mes_graph_data?year=${encodeURIComponent(year)}&month=${encodeURIComponent(month)}`)
+    fetch(`/gamja/mes/mes_graph_data?year=${encodeURIComponent(year)}&month=${encodeURIComponent(month)}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
