@@ -15,6 +15,35 @@ public class MesBuserDTO {
 	private java.sql.Date buser_date;
 	
 	private java.sql.Date buser_end;
+	
+	private String user_id2;
+	
+	public String getUser_id2() {
+		return user_id2;
+	}
+
+	public void setUser_id2(String user_id2) {
+		this.user_id2 = user_id2;
+	}
+
+	private int start;
+	public int getStart() {
+		return start;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
+
+	private int end;
 
 	public Integer getUser_seq() {
 		return user_seq;
