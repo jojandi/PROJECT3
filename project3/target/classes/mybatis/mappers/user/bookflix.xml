@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.talking.gamja.dao.user.BookflixDAO">
+    <!--  북플릭스 회원용 페이지입니다 -->
+	 <select id="bookflix_user" resultType="bookflixDTO">
+       SELECT b.mes_book_code1, b.mes_book_code2, b.mes_book_code3, u.like_id, u.user_seq,
+       u.user_name, b.bom_name, bk.book_name, bk.book_img, li.li_book_info, 
+       bu.buser_seq, bu.buser_date, bu.buser_end, bk.book_pub, bk.book_author
+		FROM bom b
+		LEFT JOIN tbl_user u ON b.bom_code = (u.like_id + 1000)
+		LEFT JOIN mes_book m ON (m.mes_book_code = b.mes_book_code1 
+		                        OR m.mes_book_code = b.mes_book_code2 
+		                        OR m.mes_book_code = b.mes_book_code3)
+		LEFT JOIN book bk ON m.book_isbn = bk.book_isbn
+		LEFT JOIN li_book li ON bk.book_isbn = li.book_isbn
+		LEFT JOIN bookflix_user bu ON u.user_seq = bu.user_seq
+		WHERE u.user_seq = #{seq}
+		GROUP BY b.mes_book_code1, b.mes_book_code2, b.mes_book_code3, u.like_id, u.user_seq,
+         u.user_name, b.bom_name, bk.book_name, bk.book_img, li.li_book_info, 
+         bk.book_pub, bk.book_author, bu.buser_date, bu.buser_end, bu.buser_seq
+
+    </select>
+    
+	 <select id="selectReviewsByStar" resultType="ReviewDTO">
+    SELECT * 
+    FROM bf_review
+       
+	</select>
+    
+    <!--  북플릭스 리뷰입니다 -->
+    <insert id="bookflix_review" parameterType="map">
+    	INSERT INTO bf_review (review_seq, buser_seq, review_name, review_contents, review_date, review_score)
+    	VALUES (
+        review_seq.nextval,
+        #{buser_seq},
+        (SELECT bom_name FROM bom b
+         LEFT JOIN tbl_user u ON b.bom_code = (u.like_id + 1000)
+         WHERE u.user_seq = #{user_seq}) || ' 후기',
+        #{review_contents},
+        SYSDATE,
+        #{review_score}
+    )
+	</insert>
+	  <!-- 북플릭스 가입 처리 -->
+    <update id="bookflix_sub">
+        UPDATE tbl_user SET user_sub = 'Y' WHERE user_seq = #{userSeq}
+    </update>
+
+    <!-- 북플릭스 유저 인서트 -->
+    <insert id="bookflix_subInsert">
+        INSERT INTO bookflix_user (buser_seq, user_seq, buser_date, buser_end)
+        VALUES (buser_seq.nextval, #{userSeq}, sysdate, add_months(sysdate, 1))
+    </insert>
+
+    <!-- 북플릭스 유저 삭제 -->
+    <delete id="bookflix_del">
+        DELETE FROM bookflix_user WHERE buser_seq = #{buserSeq}
+    </delete>
+
+    <!-- 북플릭스 탈퇴 처리 -->
+    <update id="bookflix_out">
+        UPDATE tbl_user SET user_sub = 'N' WHERE user_seq = #{userSeq}
+    </update>
+    
+	
+</mapper>

@@ -1,0 +1,225 @@
+@charset "UTF-8";
+.page {
+            /* border: 1px solid red; */
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            margin-top: 10px;
+/*             overflow: scroll; */
+        }
+        .page_1 {
+            /* border: 1px solid red; */
+            width: 100%;
+            height: 250px;
+            margin: auto;
+            margin-top: 10px;
+/*             overflow: scroll; */
+        }
+        .page_2 {
+            /* border: 1px solid red; */
+            width: 100%;
+            height: 500px;
+            /*overflow: scroll; height: 500px;*/
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        .table_wrap {
+            /* border: 1px solid red; */
+            /* width: 80%; */
+            height: 100%;
+            /* overflow: scroll; */
+        }
+
+        .bot_btn {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        #main_library {
+            margin-bottom: 10px;
+        }
+
+        th.sortable {
+            cursor: pointer;
+        }
+
+        th.sorted-asc::after {
+            content: " ▲";
+        }
+
+        th.sorted-desc::after {
+            content: " ▼";
+        }
+
+        .main_page {
+            width: 100%;
+        }
+        .input_style {
+            width: 30px;
+            text-align: center;
+        }
+
+        #menu #items #i2{
+            font-weight: 900;
+            text-decoration: underline;
+        }  
+
+        #modal_2 {
+        	display: none;
+            position: absolute; 
+            top: 70px; 
+            left: 350px; 
+            background: white;
+            width: 50%;
+            border: 2px solid #ccc;
+            padding: 25px;
+            box-sizing: border-box;
+        } 
+
+        #daylist_2 {
+            text-align: center; 
+            margin-bottom: 5px;
+        }
+        
+        .modal-content_2{
+            text-align: center;
+        }
+
+        .modal-div_{
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .red{
+            color: red;
+        }
+
+        .modal-item{
+            font-size: 17px;
+        }
+
+        table{
+            width: 100%;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+        }
+        
+        table input,
+        table select{
+            width: 90%;
+        }
+        
+/*         table td{ */
+/*             border: 1px solid #ccc; */
+/*         } */
+        
+        #table{
+            margin-bottom: 20px;
+            margin: 0 auto;
+            margin-top: 10px;
+            width: 95%;
+        }
+
+        .modal-div_3{
+            margin-top: 20px;
+        }
+
+        .close_2 {
+            text-align: right;
+        }
+
+        .close_2 .material-symbols-outlined {
+        	cursor: pointer;
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+
+        #modal_4 {
+        	display: none;
+            position: absolute; 
+            top: 200px; 
+            left: 200px; 
+            background: white;
+            width: 70%;
+            border: 2px solid #ccc;
+            padding: 40px;
+            box-sizing: border-box;
+        } 
+
+        #daylist_4 {
+            text-align: center; 
+            margin-bottom: 5px;
+        }
+        
+        .modal-content_4{
+            text-align: center;
+        }
+
+        .close_4 {
+            text-align: right;
+        }
+
+        .close_4 .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+
+        #bomsh {
+            text-align: right;
+        }
+        
+        #bom_head {
+            text-align: center;
+        }
+        
+        .search-container {
+        	text-align: right;
+        }
+        
+        #modal_6 {
+        	display: none;
+            position: absolute; 
+            top: 70px; 
+            left: 350px; 
+            background: white;
+            width: 50%;
+            border: 2px solid #ccc;
+            padding: 25px;
+            box-sizing: border-box;
+        } 
+
+        #daylist_6 {
+            text-align: center; 
+            margin-bottom: 5px;
+        }
+        
+        .modal-content_6{
+            text-align: center;
+        }
+        
+        .close_6 {
+            text-align: right;
+        }
+
+        .close_6 .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        
+        #deleteButton{
+        	float: right;
+        
+        }
+        
+        
+    

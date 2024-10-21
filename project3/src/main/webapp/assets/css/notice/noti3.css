@@ -1,0 +1,330 @@
+
+#wrap{
+    font-size: 0;
+    /* border: 1px solid red; */
+    padding: 30px 150px;
+}
+/* aside CSS */
+aside #items .item .material-symbols-outlined{
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 5px;
+    float: right;
+}
+
+#side{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 20%;
+    /* border: 1px solid red; */
+}
+
+aside #sideleft{
+    float: left;
+    padding: 10px;
+}
+
+aside #title{
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #666666;
+}
+
+aside #items .item{
+    font-size: 16px;
+    padding: 10px 0;
+    width: 170px;
+    border-bottom: 1px solid #ccc;
+}
+
+aside #items .item a:link{
+    color: inherit;
+    text-decoration: none;
+}
+
+aside #items .item a:visited{
+    color: inherit;
+    text-decoration: none;
+}
+
+#wrap section {
+    width: 80%;
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-left: 30px;
+    /* border: 1px solid red; */
+}
+
+
+
+
+#section .name{
+    text-align: center;
+    font-size: 22px;
+    border-bottom: 1px solid #ccc;
+    padding: 17px;
+    box-sizing: border-box;
+}
+
+#wrap #section {
+    width: 80%;
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-left: 30px;
+    /* border: 1px solid red; */
+}
+
+#wrap #section #content_all{
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    margin-top: 22px;
+    padding: 15px;
+}
+
+aside #items #i1 .material-symbols-outlined{
+    background: rgb(165, 224, 144);
+}
+
+#section .name{
+    text-align: left;
+    font-size: 25px;
+    padding: 17px;
+    box-sizing: border-box;
+    margin-top: 22px;
+}
+
+#section .name .mini_name{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#section .name #mini{
+    text-align: right;
+    font-size: 14px;
+}
+
+#section .name .mini_date{
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+#section #content{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+#section #content #file{
+    text-align: right;
+    font-size: 15px;
+    margin: 10px 0 20px 0;
+}
+
+#section #content #file .material-symbols-outlined {
+    font-size: 20px;
+    vertical-align: bottom;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+#section #content img{
+    width: 100%;
+}
+
+/* 목록으로 이동 */
+#back{
+    border-top: 1px solid #ccc;
+    text-align: right;
+    margin-bottom: 50px;
+}
+
+#back input[type="button"] {
+    margin-top: 25px;
+    background: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
+    border-radius: 5%;
+    padding: 8px 15px;
+    font-size: 15px;
+}
+/*책 출간*/
+/* 테이블 스타일 */
+table.report {
+    width: 97%;
+    /* border-collapse: collapse; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table.report th, table.report td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table.report th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+table.report tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* 이미지 스타일 */
+able.report img {
+    width: 30px;  
+    height: 30px;  
+    border: 1px solid #ddd;
+    padding: 5px;  
+    background-color: #fff;  
+}
+
+/* 버튼 스타일 */
+[type=submit],
+[type=button]{
+    font-size: 18px;
+    padding: 7px 15px;
+    margin: 5px 0;
+    border-radius: 5%;
+    background: white;
+    border: 1px solid rgb(106, 170, 82);
+    cursor: pointer;
+}
+#back a {
+    text-decoration: none;
+}
+
+/* 반응형 처리 */
+@media screen and (max-width: 768px) {
+    #wrap {
+        flex-direction: column;
+    }
+
+    #section {
+        width: 100%;
+    }
+
+    table.report th, table.report td {
+        padding: 8px;
+    }
+
+    #back img {
+        width: 150px;
+    }
+}
+
+/*  ---------------------------------- */
+ table{
+    table-layout:fixed;
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+
+table thead{
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+ table thead td{
+    /* border: 1px solid red; */
+    font-size: 15px;
+    font-weight: 900;
+    padding: 15px 0;
+    box-sizing: border-box;
+    text-overflow: ellipsis; /* 말줄임표(...) 적용 */
+    overflow: hidden; /* 넘어가는 부분 안 보이게 */
+    white-space: nowrap; /* 줄바꿈 X */
+}
+
+ table tbody td{
+    height: 40px;
+    box-sizing: border-box;
+    padding: 5px;
+    text-align: left;
+}
+
+ table tbody .border{
+   border-bottom: 1px solid #ccc;
+}
+
+ table tbody td:not(.book){
+    text-align: center;
+}
+
+ table tbody .bookTitle{
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 900;
+    padding-bottom: 5px;
+}
+
+ table tbody .book{
+   padding-left: 10px;
+}
+
+ table tbody #info{
+   font-size: 16px;
+    font-weight: 500;
+    padding-left: 15px;
+    padding-top: 0;
+   border: none;
+   text-overflow: ellipsis; /* 말줄임표(...) 적용 */
+    overflow: hidden; /* 넘어가는 부분 안 보이게 */
+    white-space: nowrap; /* 줄바꿈 X */
+}
+
+ table tbody .wirter{
+    vertical-align: top;
+    padding-left: 15px;
+    padding-top: 5px;
+    font-size: 15px;
+}
+
+ table tbody .wirter span{
+   margin-right: 8px;
+}
+
+ table tbody .bookCover img{
+    width: 60px;
+}
+
+ #bntall{
+    /* border: 1px solid red; */
+    text-align: right;
+    margin-top: 40px;
+    margin-right: 10px;
+}
+
+ #bntall .bnt{
+    font-size: 14px;
+    width: 150px;
+    padding: 8px;
+}
+
+ #bntall #reserchk{
+    background: white;
+    border: 1px solid rgb(106, 170, 82);
+    border-radius: 5%;
+    margin-bottom: 5px;
+}
+
+ #bntall #reserall,
+ #bntall #delall{
+    border-radius: 5%;
+    background: rgb(165, 224, 144);
+    border: 1px solid rgb(106, 170, 82);
+}
+
+
+
