@@ -55,7 +55,7 @@
 					        <input type="hidden" name="target_id" value="${noticeRead.notice_id }" />
 					        <input type="hidden" name="notice_id" value="${noticeRead.notice_id }" />
 					        <div class="comment_input">
-					            <textarea name="cm_content">댓글을 입력해주세요.</textarea>
+					            <textarea name="cm_content" placeholder="댓글을 남겨주세요."></textarea>
 					            <button type="submit">등록</button>
 					        </div>
 					    </form>
