@@ -4,6 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project3.talking.gamja.dao.mes.WorkorderDAO">
 
+	<!-- workorder 작업지시서 select -->
 	<select id="selectwo" resultType="workorderDTO" parameterType="workorderDTO">
 	SELECT * FROM (
 		select rownum AS rnum, a.*  FROM(
@@ -15,6 +16,7 @@
 			LEFT OUTER JOIN orderstatus o ON o.os_id = w.os_id
 			lEFT OUTER JOIN lib_request lr ON o.lr_seq = lr.lr_seq
 			left outer join library l on l.lib_id = lr.lib_id
+			WHERE wo_status = '진행중' OR wo_status IS NULL
 			    ORDER BY wo_id desc
 		    ) a
 		)
@@ -27,6 +29,7 @@
 			count(*) cnt 
 		FROM 
 			workorder 
+		WHERE wo_status = '진행중' OR wo_status IS NULL
 	</select>
 	
 	<!-- log 업데이트 -->
@@ -39,6 +42,9 @@
  			os_id = #{os_id}
 	</update>
 	
+<<<<<<< HEAD
+	<!-- workoerder 작업지시서 selectOne -->
+=======
 	<insert id="logInsert">
 		INSERT INTO 
 	 		log 
@@ -47,6 +53,7 @@
 				(seq_log.nextval, sysdate, #{wo_id}, #{od_is})
 	</insert>
 	
+>>>>>>> 2349db89d9dffe41dc9b266ee54ea759134308da
 	<select id="selectOne" resultType="workorderDTO" parameterType="workorderDTO">
 		SELECT 
    			 w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status, o.os_id, l.lib_id, lr.lr_seq
@@ -59,22 +66,33 @@
 			where w.wo_id = #{wo_id}
 	</select>
 	
+	<!-- 작업시시서 delete -->
 	<delete id="deletewo" parameterType="workorderDTO">
 		delete from workorder where wo_id = #{wo_id}
 	</delete>
 	
+	<!-- 작업지시서 update -->
 	<update id="updatewo" parameterType="workorderDTO">
 		UPDATE product
 		  SET pd_count = pd_count + #{wo_count}
 		  WHERE bom_code = #{bom_code}
 	</update>
 	
+	<!-- 작업지시서 상태 완료로 update -->
+	<update id="updateworead" parameterType="workorderDTO">
+		UPDATE workorder
+		  SET wo_status = '완료'
+		  WHERE wo_id = #{wo_id}
+	</update>
+	
+	<!-- 작업지시서 공정 배송공정으로 update -->
 	<update id="updatewopro" parameterType="workorderDTO">
 		UPDATE workorder
 		  SET wo_process = '배송공정'
 		  WHERE wo_id = #{wo_id}
 	</update>
 	
+	<!-- 작업지시서 insert -->
 	<insert id="insertwo" parameterType="workorderDTO">
 		INSERT INTO workorder (wo_id, bom_code, wo_process, wo_count, wo_status, os_id)
 		VALUES (wo_seq.NEXTVAL, #{bom_code}, #{wo_process}, #{wo_count}, '진행중', #{os_id})
@@ -89,19 +107,13 @@
 		)
 	</select>
 	
-	 <select id="totalSt1" resultType="int" parameterType="stockDTO">
-		SELECT 
-			count(*) cnt 
-		FROM 
-			bom
-	</select>
-	
 	<!-- 작업지시서 완료시 주문현황 update -->
 	<delete id="updatepf" parameterType="workorderDTO">
 		update orderstatus 
 		set os_status = '완료'
 		where os_id = #{os_id}
 	</delete>
+	
 	
 	<!-- 작업지시서 완료시 출고현황 insert -->
 	<delete id="insertpf" parameterType="workorderDTO">
@@ -120,6 +132,13 @@
 	</update>
 	
 	<!-- //////////////////////// bom ////////////////////////// -->
+	
+	<select id="totalSt1" resultType="int" parameterType="stockDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			bom
+	</select>
 	
 	<!--BOM 페이지 입니다 -->
     <select id="getList2" resultType="workorderDTO">

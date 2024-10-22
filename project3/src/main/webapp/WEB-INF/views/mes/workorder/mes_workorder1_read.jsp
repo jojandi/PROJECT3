@@ -69,7 +69,11 @@
 										<input type="hidden" name="lr_seq" value="${list.lr_seq }">
 										<input type="hidden" name="lib_id" value="${list.lib_id }">
 										<input type="hidden" name="os_id" value="${list.os_id }">
+<<<<<<< HEAD
+										<input type="hidden" name="wo_id" value="${ list.wo_id }">
+=======
 										<input type="hidden" name="wo_id" value="${list.wo_id }">
+>>>>>>> 2349db89d9dffe41dc9b266ee54ea759134308da
 										<input type="submit" value="완료">
 									</td>
 								</tr>
