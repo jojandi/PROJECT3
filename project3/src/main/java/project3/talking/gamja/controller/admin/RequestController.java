@@ -64,16 +64,16 @@ public class RequestController {
 	
 	///////////////////////////// 도서 신청 내역 /////////////////////////////
 	@RequestMapping("apply")
-	public String apply(Model model, Integer seq, Integer count, Integer pageNo) {
+	public String apply(Model model, Integer seq, Integer count, Integer page) {
 		// 페이징 기본값 설정
 		if(count == null) count = 10;
-		if(pageNo == null) pageNo = 1;
+		if(page == null) page = 1;
 		
-		Map map = reService.selectApply(count, pageNo);
+		Map map = reService.selectApply(count, page);
 		
 		model.addAttribute("map", map);
 		model.addAttribute("countPerPage", count);
-		model.addAttribute("page", pageNo);
+		model.addAttribute("page", page);
 		
 		return "apply";
 	}
@@ -106,6 +106,7 @@ public class RequestController {
 		}
 		
 		int result = reService.applyReq(applyDTO);
+		System.out.println("신청->발주");
 		int update = reService.applyUpdate(applyDTO);
 		System.out.println("신청 -> 발주 : " + result);
 		System.out.println("신청 상태 : " + update);

@@ -15,6 +15,15 @@ public class MesLogDTO {
 	private String os_status;
 	private int lib_id;
 	private String lib_name;
+	private String wo_process;
+	
+	
+	public String getWo_process() {
+		return wo_process;
+	}
+	public void setWo_process(String wo_process) {
+		this.wo_process = wo_process;
+	}
 	public int getLog_seq() {
 		return log_seq;
 	}

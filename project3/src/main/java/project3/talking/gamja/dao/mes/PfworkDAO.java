@@ -28,6 +28,9 @@ public interface PfworkDAO {
 	// 주문현황 insert
 	int insertpf(MesPfworkDTO pfDTO);
 	
+	// 로그 insert
+	int logInsert(MesPfworkDTO pfDTO);
+	
 	// 주문현황 update
 	int updatepf(MesPfworkDTO pfDTO);
 	
