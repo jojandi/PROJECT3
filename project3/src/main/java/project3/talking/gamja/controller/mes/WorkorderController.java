@@ -86,9 +86,13 @@ public class WorkorderController {
         	   // 5. admin request 테이블에서 상태 update
         	   woService.requestpf(dto);
         	   
+        	   // 6. 작업 로그 insert
+        	   woService.logInsert(dto);
+        	   
            }
            if("배송공정".equals(dto.getWo_process())) {
         	   woService.updatewopro(dto);
+        	   woService.logInsert(dto);
            }
            
        } catch (Exception e) {

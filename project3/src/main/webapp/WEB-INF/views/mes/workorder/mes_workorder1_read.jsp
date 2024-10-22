@@ -55,7 +55,8 @@
 												${list.wo_status == '포장공정' ? 'selected' : ''}>포장공정</option>
 											<option value="배송공정"
 												${list.wo_status == '배송공정' ? 'selected' : ''}>배송공정</option>
-										</select></td>
+										</select>
+									</td>
 									<td><input type="hidden" name="wo_count"
 										value="${ list.wo_count }">${ list.wo_count }</td>
 									<td><select name="wo_status">
@@ -68,6 +69,7 @@
 										<input type="hidden" name="lr_seq" value="${list.lr_seq }">
 										<input type="hidden" name="lib_id" value="${list.lib_id }">
 										<input type="hidden" name="os_id" value="${list.os_id }">
+										<input type="hidden" name="wo_id" value="${list.wo_id }">
 										<input type="submit" value="완료">
 									</td>
 								</tr>
