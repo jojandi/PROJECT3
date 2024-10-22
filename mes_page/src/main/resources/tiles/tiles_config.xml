@@ -5,7 +5,7 @@
 <tiles-definitions>
 
 	<!-- template : 기본 틀 -->
-	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+	<definition name="baseLayoutMes" template="/WEB-INF/views/common/layout.jsp">
 		<!-- name = jsp에서 쓴 name, value = 해당 name에 넣을 파일 경로 -->
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
 		<put-attribute name="side" value=""/>
@@ -22,19 +22,19 @@
 
 	
 	<!-- 작업수행 - 주문 현황 -->
-	<definition name="mes_pfwork1" extends="baseLayout">
+	<definition name="mes_pfwork1" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1.jsp"/>
 	</definition>
 	
 	<!-- 작업수행 - 출고 현황 -->
-	<definition name="mes_pfwork2" extends="baseLayout">
+	<definition name="mes_pfwork2" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork2.jsp"/>
 	</definition>
 	
 	<!-- 작업수행 - 출고 현황 -->
-	<definition name="mes_pfwork1_read" extends="baseLayout">
+	<definition name="mes_pfwork1_read" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/pfwork_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/pfwork/mes_pfwork1_read.jsp"/>
 	</definition>
@@ -47,98 +47,98 @@
 	</definition>
 	<!-- 북플릭스 - 회원관리 -->
 
-	<definition name="mes_bookflix1" extends="baseLayout">
+	<definition name="mes_bookflix1" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Bookflix/mes_bookflix1.jsp"/>
 	</definition>
 
 	<!-- 북플릭스 - 리뷰관리 -->
-	<definition name="mes_bookflix2" extends="baseLayout">
+	<definition name="mes_bookflix2" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/review_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Bookflix/mes_bookflix2.jsp"/>
 	</definition>
 	<!-- 재고 관리 - 재고 현황 -->
-	<definition name="mes_stock1" extends="baseLayout">
+	<definition name="mes_stock1" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock1.jsp"/>
 	</definition>
 	<!-- 재고 관리 - 보유 도서 목록 -->
-	<definition name="mes_stock2" extends="baseLayout">
+	<definition name="mes_stock2" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock2.jsp"/>
 	</definition>
 	<!-- 재고 관리 - 도서 발주 -->
-	<definition name="mes_stock3" extends="baseLayout">
+	<definition name="mes_stock3" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/mes_stock3.jsp"/>
 	</definition>
 	<!-- 재고 관리 - 도서 수정 -->
-	<definition name="stock_update" extends="baseLayout">
+	<definition name="stock_update" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/stock_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/stock/stock_update.jsp"/>
 
 	</definition>
 	
 	<!-- 생산 관리 - 작업지시서 -->
-	<definition name="mes_workorder1" extends="baseLayout">
+	<definition name="mes_workorder1" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1.jsp"/>
 	</definition>
 	
 	<!-- 생산관리 - BOM -->
-	<definition name="mes_workorder2" extends="baseLayout">
+	<definition name="mes_workorder2" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder2.jsp"/>
 	</definition>
 	<!-- 생산관리 - BOM- Read -->
-	<definition name="mes_workorder2_read" extends="baseLayout">
+	<definition name="mes_workorder2_read" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder2_read.jsp"/>
 	</definition>
 	<!-- 생산관리 - BOMcreate- Read -->
-	<definition name="mes_workorder2_create" extends="baseLayout">
+	<definition name="mes_workorder2_create" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder2_create.jsp"/>
 	</definition>
 	
 	<!-- 생산 관리 - 작업지시서 - read -->
-	<definition name="mes_workorder1_read" extends="baseLayout">
+	<definition name="mes_workorder1_read" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/workorder_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/workorder/mes_workorder1_read.jsp"/>
 	</definition>
 	<!-- 도서출고 통계 -->
-	<definition name="mes_graph1" extends="baseLayout">
+	<definition name="mes_graph1" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph1.jsp"/>
 	</definition>
 	<!-- 도서수요 통계 -->
-	<definition name="mes_graph2" extends="baseLayout">
+	<definition name="mes_graph2" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph2.jsp"/>
 	</definition>
 	<!-- 도서수요 예측 통계 -->
-	<definition name="mes_graph3" extends="baseLayout">
+	<definition name="mes_graph3" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/graph_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Graph/mes_graph3.jsp"/>
 	</definition>
 
 	<!-- 게시판 - 공지사항 -->
-	<definition name="mes_notice1" extends="baseLayout">
+	<definition name="mes_notice1" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/notice/mes_notice1.jsp"/>
 	</definition>
 	<!-- 게시판 - 글쓰기 -->
-	<definition name="mes_notice2" extends="baseLayout">
+	<definition name="mes_notice2" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/notice/mes_notice2.jsp"/>
 	</definition>
 	<!-- 게시판 - 리드 -->
-	<definition name="mes_noticeRead" extends="baseLayout">
+	<definition name="mes_noticeRead" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/notice/mes_noticeRead.jsp"/>
 	</definition>
 	<!-- 게시판 - 업데이트 -->
-	<definition name="mes_noticeUpdate" extends="baseLayout">
+	<definition name="mes_noticeUpdate" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/mes_notice_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/notice/mes_noticeUpdate.jsp"/>
 	</definition>
@@ -146,25 +146,25 @@
 	
 		
 		<!--직원 관리 -->
-	<definition name="mes_human" extends="baseLayout">
+	<definition name="mes_human" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Human/mes_human.jsp"/>
 	</definition>
 	
 		<!--직원 관리 리드-->
-	<definition name="mes_read" extends="baseLayout">
+	<definition name="mes_read" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
 	</definition>
 		
 		<!-- 직원관리 업데이트  -->
-		<definition name="mes_humanUpdate" extends="baseLayout">
+		<definition name="mes_humanUpdate" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
 	</definition>
 	
 		<!-- 직원관리 삭제  -->
-		<definition name="mes_humanDelete" extends="baseLayout">
+		<definition name="mes_humanDelete" extends="baseLayoutMes">
 		<put-attribute name="side" value="/WEB-INF/views/common/human_side.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/Human/mes_read.jsp"/>
 	</definition>

@@ -1,0 +1,54 @@
+@charset "UTF-8";
+#pagination button {
+            margin: 0 4px;
+            padding: 8px 16px;
+        }
+
+        /* #pagination {
+            text-align: center;
+        } */
+
+        .write {
+            text-align: right;
+            margin-top: 35px;
+        }
+
+        .delete-btn {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .delete-btn:hover {
+            background-color: #c9302c;
+        }
+        section h3{
+            border: 1px solid #ccc;
+            width: 100%;
+            text-align: center;
+            font-size: 22px;
+            padding: 17px;
+            box-sizing: border-box;
+        }
+        .notince {
+            width: 100%;
+            height: 80%;
+            display: inline-block;
+        }
+        .t1 {
+            width: 100%;
+            height: 78%;
+        }
+        #menu #items #i6{
+            font-weight: 900;
+            text-decoration: underline;
+        } 
+        
+        .scc {
+        	text-align: right;
+        }
+        .page {
+        	height: 500px;
+        }

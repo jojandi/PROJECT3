@@ -1,0 +1,270 @@
+
+
+#wrap{
+    font-size: 0;
+    /* border: 1px solid red; */
+    padding: 30px 150px;
+}
+
+#wrap section {
+    width: 80%;
+    font-size: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-left: 30px;
+    /* border: 1px solid red; */
+}
+
+section h3{
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    padding: 17px;
+    box-sizing: border-box;
+}
+
+section h1 {
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+
+/* 테이블 */
+section .table{
+    /* border: 1px solid red; */
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    height: 400px;
+}
+
+section table{
+   	table-layout:fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+
+section table thead{
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+section table thead td{
+    /* border: 1px solid red; */
+    font-size: 15px;
+    font-weight: 900;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+
+section table thead .bnameall{
+    width: 35%;
+}
+
+section table thead #overdueall,
+section table thead #day{
+    width: 10%;
+}
+
+section table thead .day1{
+    width: 13%;
+}
+
+section table td:not(.ing){
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+    height: 18px;
+    box-sizing: border-box;
+
+    text-overflow: ellipsis; /* 말줄임표(...) 적용 */
+    overflow: hidden; /* 넘어가는 부분 안 보이게 */
+    white-space: nowrap; /* 줄바꿈 X */
+}
+
+section table .ing{
+    border-bottom: 1px solid #ccc;
+}
+
+section table .bname{
+    padding-left: 10px !important;
+}
+
+section table td:not(.bname){
+    text-align: center;
+}
+
+td a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    #wrap {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    section {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    table {
+        font-size: 14px;
+        width: calc(100% - 40px); 
+        margin-left: 20px;  
+        margin-right: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* aside CSS */
+aside #items .item .material-symbols-outlined{
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 5px;
+    float: right;
+}
+
+#side{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 20%;
+    /* border: 1px solid red; */
+}
+
+aside #sideleft{
+    float: left;
+    padding: 10px;
+}
+
+aside #title{
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #666666;
+}
+
+    aside #items #i3 .material-symbols-outlined{
+	background-color: rgb(165, 224, 144);	
+	
+	}
+
+aside #items .item{
+    font-size: 16px;
+    padding: 10px 0;
+    width: 170px;
+    border-bottom: 1px solid #ccc;
+}
+
+aside #items .item a:link{
+    color: inherit;
+    text-decoration: none;
+}
+
+aside #items .item a:visited{
+    color: inherit;
+    text-decoration: none;
+}
+
+
+h1 {
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    padding: 17px;
+    box-sizing: border-box;
+}
+
+section h1 {
+    border: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    padding: 17px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 50px;
+}
+
+
+/* 모달창 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+label {
+    color: black; 
+    font-size: 16px; 
+    display: block; 
+    margin-bottom: 5px; 
+    
+}
+
+#modalUpdateButton{
+    width : 100px;
+}
+
+.fileDowon:hover{
+	text-decoration: underline;
+}
+
+

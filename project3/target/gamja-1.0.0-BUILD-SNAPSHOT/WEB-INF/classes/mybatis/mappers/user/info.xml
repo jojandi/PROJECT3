@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.talking.gamja.dao.user.MyDAO">
+
+	<!-- 비밀번호 체크 -->
+	<select id="selectUser" resultType="userDTO" parameterType="userDTO">
+		SELECT
+			 * 
+		FROM 
+			tbl_user 
+		WHERE 
+			user_id = #{user_id}
+	</select>
+	
+	<!-- 아이디 중복 체크 -->
+	<select id="checkUserId" parameterType="joinDTO" resultType="int">
+		SELECT COUNT(*)
+		FROM tbl_user
+		WHERE user_id = #{user_id}
+	</select>
+
+	<!-- 회원정보 업데이트 -->
+	<update id="updateInfo" parameterType="userDTO">
+		UPDATE tbl_user 
+		SET user_id = #{user_id}, 
+			user_name = #{user_name}, 
+			user_tel = #{user_tel}, 
+			user_addr = #{user_addr}, 
+			user_addr_info = #{user_addr_info}, 
+			user_email = #{user_email}, 
+			like_id = #{like_id} 
+		WHERE 
+			user_seq = #{user_seq} 
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteUser" parameterType="userDTO">
+		DELETE 
+			tbl_user 
+		WHERE 
+			user_seq = #{user_seq}
+	</delete>
+	
+	<!-- 북플릭스 회원 - 추천 도서 select -->
+	<select id="bookflixSelect" resultType="BookflixDTO" parameterType="String">
+		SELECT 
+			b.mes_book_code1, b.mes_book_code2, b.mes_book_code3, u.like_id, u.user_seq, u.user_name, 
+			b.bom_name, bk.book_name, bk.book_img, li.li_book_info, bk.book_pub, bk.book_author, bu.buser_seq 
+		FROM 
+			bom b 
+			LEFT JOIN 
+				tbl_user u ON (b.bom_code = (u.like_id+1000))
+			LEFT JOIN 
+				mes_book m ON (m.mes_book_code = b.mes_book_code1 OR 
+				m.mes_book_code = b.mes_book_code2 OR 
+				m.mes_book_code = b.mes_book_code3)
+			LEFT JOIN 
+				book bk ON (m.book_isbn = bk.book_isbn)
+			LEFT JOIN 
+				li_book li ON (bk.book_isbn = li.book_isbn)
+			LEFT JOIN 
+				bookflix_user bu ON (u.user_seq = bu.user_seq)
+		WHERE 
+			u.user_seq = #{_parameter}
+		GROUP BY 
+			b.mes_book_code1, b.mes_book_code2, b.mes_book_code3, u.like_id, u.user_seq, u.user_name, b.bom_name, 
+			bk.book_name, bk.book_img, li.li_book_info, bk.book_pub, bk.book_author, bu.buser_seq
+	</select>
+	
+	<!-- 북플릭스 회원 탈퇴 - 북플릭스 테이블에서 delete -->
+	<delete id="deleteBuser" parameterType="BookflixDTO">
+		DELETE 
+			bookflix_user 
+		WHERE 
+			buser_seq= #{buser_seq}
+	</delete>
+
+	<!-- 북플릭스 회원 탈퇴 - 유저 테이블에서 update -->
+	<update id="updateBuser" parameterType="BookflixDTO">
+		UPDATE 
+			tbl_user 
+		SET 
+			user_sub = 'N' 
+		WHERE user_seq= #{user_seq}
+	</update>
+	
+</mapper>

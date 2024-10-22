@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project3.talking.gamja.dao.user.MyDAO">
+	<!-- 찜목록 - 장바구니 select -->
+	<select id="selectCart" resultType="cartDTO" parameterType="int">
+		SELECT 
+			book_code, cart_seq, user_seq, li_book_info, book_name, book_author, book_pub, book_img, book_isbn
+		FROM 
+			user_cart 
+			JOIN li_book USING(book_code) 
+			JOIN book USING(book_isbn) 
+			WHERE 
+				user_seq = #{_parameter}
+		ORDER BY cart_seq
+	</select>
+	
+	<!-- 도서관별 재고 -->
+	<select id="selectLibCount" resultType="bestDTO" parameterType="bestDTO">
+		SELECT 
+		    b.book_name, b.book_author, b.book_pub, b.book_isbn, 
+		    MAX(CASE WHEN lb.book_loan = 'N' AND lb.book_res = 'N' THEN lb.book_code END) AS book_code, 
+		    b.book_img, lb.li_book_info, MAX(lb.book_loan_seq) AS book_loan_seq, l.lib_id, l.lib_name, l.lib_call, l.lib_add,
+		    COALESCE(SUM(CASE WHEN lb.book_loan = 'N' AND lb.book_res = 'N' THEN 1 ELSE 0 END), 0) AS count
+		FROM 
+		    library l
+		LEFT OUTER JOIN 
+		    li_book lb ON l.lib_id = lb.lib_id AND lb.book_isbn = #{book_ISBN} 
+		LEFT OUTER JOIN 
+		    book b ON lb.book_isbn = b.book_isbn
+		WHERE 
+		    l.lib_id IS NOT NULL
+		GROUP BY 
+		    b.book_name, b.book_author, b.book_pub, b.book_isbn, b.book_img, l.lib_id, l.lib_name,lb.li_book_info, l.lib_call, l.lib_add
+		ORDER BY 
+		    l.lib_id
+	</select>
+	
+	<!-- 예약하기 -->
+	<insert id="insertAllCart" parameterType="loanDTO">
+		INSERT INTO 
+			user_res(res_id, book_code, user_seq, res_day, res_pick, lib_id) 
+		VALUES 
+			(user_res_seq.nextval, #{book_code}, #{user_seq}, to_date(sysdate,'YYYY-MM-DD'), null, #{lib_id})
+	</insert>
+	
+	<!-- 삭제하기 -->
+	<delete id="deleteChkCart" parameterType="cartDTO">
+		DELETE 
+			user_cart
+		WHERE 
+			cart_seq = #{cart_seq}
+	</delete>
+	
+	<!-- 예약 시 재고에 예약 중 표시 -->
+	<update id="updateInvenRes" parameterType="loanDTO">
+		UPDATE 
+			li_book 
+		SET 
+			book_res = 
+				CASE WHEN  
+					(SELECT res_pick FROM li_book JOIN user_res USING(book_code) 
+					WHERE res_pick IS NULL AND book_code=#{book_code}) 
+					= 'null'  THEN 'N' ELSE 'Y' END,
+			book_res_seq = book_res_seq + 1
+		WHERE 
+			book_code= #{book_code}
+	</update>
+</mapper>

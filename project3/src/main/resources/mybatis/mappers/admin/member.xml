@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project3.talking.gamja.dao.admin.MemberDAO">
+
+    <!-- 공지사항 전체 조회 -->
+    <select id="selectMember" resultType="MemberDTO">
+        SELECT * from tbl_user JOIN user_like using(like_id)
+			ORDER BY user_name
+    </select>
+    
+    
+	<select id="selectOne" resultType="MemberDTO" parameterType="MemberDTO">
+		SELECT 
+		    u.user_seq, 
+		    u.user_name, 
+		    u.user_birth, 
+		    u.user_id, 
+		    u.user_tel, 
+		    u.user_email, 
+		    u.user_addr, 
+		    u.user_addr_info, 
+		    lk.like_like,
+		    u.domain,
+		    u.user_pass, 
+		    COUNT(CASE WHEN loan_return - loan_ex > 0 THEN user_pass END) AS count 
+		FROM 
+		    tbl_user u 
+		LEFT JOIN 
+		    user_loan ul ON u.user_seq = ul.user_seq 
+		LEFT JOIN 
+		    user_like lk ON u.like_id = lk.like_id 
+		WHERE 
+		    u.user_seq = #{user_seq}
+		GROUP BY 
+		    u.user_seq, 
+		    u.user_name, 
+		    u.user_birth, 
+		    u.user_id, 
+		    u.user_tel, 
+		    u.user_email, 
+		    u.user_addr, 
+		    u.user_addr_info, 
+		    lk.like_like,
+		    u.domain,
+		    u.user_pass
+	</select>
+
+
+</mapper>

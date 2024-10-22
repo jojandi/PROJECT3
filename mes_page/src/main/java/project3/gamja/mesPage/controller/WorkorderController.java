@@ -94,6 +94,7 @@ public class WorkorderController {
 		}
 		return "redirect:mes_workorder1";
 	}
+<<<<<<< HEAD
 
 	// 작업지시서 insert
 	@RequestMapping(value = "insertwo", method = RequestMethod.POST)
@@ -104,6 +105,66 @@ public class WorkorderController {
 			result = woService.insertwo(dto);
 		} catch (Exception e) {
 			e.printStackTrace();
+=======
+	
+	//BOM 페이지
+	@RequestMapping(value="/mes_workorder2", method=RequestMethod.GET)
+	public String mesBom(Model model, Integer seq, Integer count, Integer pageNo) {
+		// 페이징 기본값 설정
+		if(count == null) count = 9;
+		if(pageNo == null) pageNo = 1;
+		
+		Map map = woService.getList2(count, pageNo);
+		
+		model.addAttribute("map", map);
+		model.addAttribute("countPerPage", count);
+		model.addAttribute("page", pageNo);
+		
+		return "mes_workorder2";
+	}
+	    
+	  
+	    
+	    @RequestMapping(value = "/mes_workorder2_read", method = RequestMethod.GET)
+	    public String MesBomRead(@RequestParam("bom_code") int bomCode, Model model) {
+	        // bom_code 값을 받아서 처리
+	        MesWorkorderDTO dto = new MesWorkorderDTO();
+	        dto.setBom_code(bomCode);
+
+	        // 서비스 호출해서 해당 bom_code에 대한 데이터를 가져옴
+	        MesWorkorderDTO list = woService.MesBomRead(dto);
+	        List list2 = woService.bomSelect();
+
+	        // 모델에 데이터 추가
+	        model.addAttribute("list", list);
+	        model.addAttribute("list2", list2);
+	        // bom_read.jsp 페이지로 이동
+	        return "mes_workorder2_read";
+	    }
+	    
+	    @RequestMapping(value = "/updateBom", method = RequestMethod.POST)
+	    public String updateBom(MesWorkorderDTO orderDTO) {
+
+	        System.out.println("updateBom 실행");
+
+	        int result = woService.updateBom(orderDTO);
+	        System.out.println("update 결과 : " + result);
+
+	        return "redirect:/mes_bom";
+	    }
+	    @RequestMapping(value="/insertBom", method=RequestMethod.POST)
+		public String insertBom(MesWorkorderDTO dto) {
+			int result = -1;
+			
+			try {
+				result = woService.insertBom(dto);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			System.out.println("insert : " + result);
+			
+			return "redirect:mes_bom";
+>>>>>>> d976fefa5579cda88fa1f5963129f8f0ff960711
 		}
 		System.out.println("insert : " + result);
 

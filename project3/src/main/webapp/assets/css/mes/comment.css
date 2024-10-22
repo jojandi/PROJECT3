@@ -1,0 +1,28 @@
+.comment_section {
+    border: 1px solid lightgray;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    display: flex;
+}
+
+.noti_comment {
+    width: 100%;
+}
+
+.comment_input {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.comment_input textarea {
+    border: 0;
+    flex-grow: 1;
+    height: 50px;
+}
+
+.comment_input button {
+    width: 100px;
+    height: 50px;
+}

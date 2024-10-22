@@ -24,7 +24,7 @@ public class MainController {
 	 @Autowired
 	    private MainService mainService;
 
-	
+	    // 메인 페이지에서 공지사항과 주문/출고 정보를 모두 표시
 	    @RequestMapping("/mes_main")
 	    public String displayMainPage(@RequestParam(value = "month", required = false) String month, Model model) {
 	        // 공지사항 리스트 (emp_id = 4)
