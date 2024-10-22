@@ -22,4 +22,5 @@ public interface NoticeDAO {
 	
 	// 댓글기능
 	int addComment(MesNoticeDTO dto);
+	List<MesNoticeDTO> listNoti(MesNoticeDTO dto);
 }

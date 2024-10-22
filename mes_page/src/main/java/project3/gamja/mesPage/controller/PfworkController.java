@@ -24,6 +24,7 @@ public class PfworkController {
 	@Autowired
 	PfworkDAO pfDAO;
 	
+	// 주문현황 리스트로 가져오기
 	@RequestMapping(value="mes_pfwork1", method=RequestMethod.GET)
 	public String pfwork1(Model model, Integer seq, Integer count, Integer pageNo) {
 		// 페이징 기본값 설정
@@ -45,6 +46,7 @@ public class PfworkController {
 		return "mes_pfwork1";
 	}
 	
+	// 출고현황 리스트로 가져오기
 	@RequestMapping(value="mes_pfwork2", method=RequestMethod.GET)
 	public String pfwork2(Model model, Integer count, Integer pageNo) {
 		// 페이징 기본값 설정
@@ -60,6 +62,7 @@ public class PfworkController {
 		return "mes_pfwork2";
 	}
 	
+	// 주문현황 select one
 	@RequestMapping(value="mes_pfwork1_read", method=RequestMethod.GET)
 	public String PfworkOne (int os_id, Model model) {
 		
@@ -75,6 +78,7 @@ public class PfworkController {
 		return "mes_pfwork1_read";
 	}
 	
+	// 주문현황 insert
 	@RequestMapping(value="insertpf", method=RequestMethod.POST)
 	public String insertpf(MesPfworkDTO pfDTO) {
 		
@@ -91,6 +95,7 @@ public class PfworkController {
 		return "redirect:mes_pfwork1";
 	}
 	
+	// 주문현황 update
 	@RequestMapping(value="updatepf", method=RequestMethod.GET)
 	public String updatepf(MesPfworkDTO pfDTO) {
 		
@@ -107,6 +112,7 @@ public class PfworkController {
 		return "redirect:mes_pfwork1";
 	}
 	
+	// 주문현황 delete
 	@RequestMapping(value="deletepf", method=RequestMethod.DELETE)
 	@ResponseBody
 	public int deletepf(@RequestBody MesPfworkDTO pfDTO) {
