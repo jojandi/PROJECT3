@@ -43,8 +43,17 @@
 	</delete>
 	
 	<insert id="addComment" parameterType="noticeDTO">
-    INSERT INTO tbl_comments (cm_group, target_id, cm_content, cm_writer, cm_date)
-    VALUES (#{cm_group}, #{target_id}, #{cm_content}, #{cm_writer}, NOW())
+    INSERT INTO noti_comment (cm_id, target_id, cm_content, emp_id, notice_id)
+    VALUES (comment_seq.nextval, #{target_id}, #{cm_content}, #{emp_id}, #{notice_id})
 	</insert>
+	
+	<select id="listNoti" resultType="noticeDTO">
+		SELECT 
+			*
+		FROM
+			noti_comment,employee
+		WHERE noti_comment.emp_id = employee.emp_id
+	</select>
+	
 
 </mapper>

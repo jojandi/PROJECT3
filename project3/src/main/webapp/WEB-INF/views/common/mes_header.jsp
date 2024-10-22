@@ -92,7 +92,7 @@
 			
 			<%--             <c:if test="${ not empty login }"> --%>
 			<div class="right" id="userall">
-				<span class="inb" id="user">김승환님</span> <span
+				<span class="inb" id="user">박규태님</span> <span
 					class="material-symbols-outlined">person</span>
 			</div>
 			<%-- 			</c:if> --%>

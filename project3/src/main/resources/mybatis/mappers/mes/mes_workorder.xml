@@ -29,6 +29,16 @@
 			workorder 
 	</select>
 	
+	<!-- log 업데이트 -->
+	<update id="logUpdate" parameterType="workorderDTO">
+	 	UPDATE 
+	 		log 
+	 	SET
+	 		wo_id = #{wo_id}
+ 		WHERE 
+ 			os_id = #{os_id}
+	</update>
+	
 	<select id="selectOne" resultType="workorderDTO" parameterType="workorderDTO">
 		SELECT 
    			 w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status, o.os_id, l.lib_id, lr.lr_seq
