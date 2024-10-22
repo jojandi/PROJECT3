@@ -38,6 +38,10 @@ public class WorkorderService {
 		return map;
 	}
 	
+	public int logUpdate(MesWorkorderDTO woDTO) {
+		return woDAO.logUpdate(woDTO);
+	}
+	
 	public MesWorkorderDTO selectOne(MesWorkorderDTO woDTO) {
 		MesWorkorderDTO list = woDAO.selectOne(woDTO);
 		

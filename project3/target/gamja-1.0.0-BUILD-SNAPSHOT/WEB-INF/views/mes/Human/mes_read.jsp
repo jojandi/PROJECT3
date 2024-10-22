@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>사원 상세 내역</title>
-<link href="./assets/css/00.user_side_base.css" rel="stylesheet">
-<link href="./assets/css/admin.css" rel="stylesheet">
+<link href="../assets/css/mes/00.user_side_base.css" rel="stylesheet">
+<link href="../assets/css/mes/admin.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <style>

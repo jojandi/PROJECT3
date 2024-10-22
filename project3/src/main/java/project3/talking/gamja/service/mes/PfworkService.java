@@ -111,6 +111,8 @@ public class PfworkService {
 	
 	public int pfupdatepf(MesPfworkDTO pfDTO) {
 		int result = pfDAO.pfupdatepf(pfDTO);
+		int log = pfDAO.logInsert(pfDTO);
+		System.out.println("로그!!!!!!!!! : " + log);
 		
 		return result;
 	}

@@ -31,9 +31,14 @@ public class WorkorderController {
 		Map map = woService.selectwo(count, pageNo);
 		List<MesWorkorderDTO> bom_code = woService.selectBom();
 		
-		MesWorkorderDTO dto = new MesWorkorderDTO();
-		dto.setOs_id(os_id);
+		List<MesWorkorderDTO> list = (List<MesWorkorderDTO>) map.get("list");
 		
+		// 접속할 때 로그가 상태에 따라 업데이트
+		for(int i = 0; i < list.size(); i++) {
+			MesWorkorderDTO dto = list.get(i);
+			int log = woService.logUpdate(dto);
+			System.out.println("로그 업뎃 : " + log);
+		}
 		
 		model.addAttribute("map", map);
 		model.addAttribute("countPerPage", count);

@@ -5,14 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="../assets/css/noti/noti2.css" rel="stylesheet">
+<link href=".../assets/css/noti/noti2.css" rel="stylesheet">
 <meta charset="UTF-8">
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<!--<link href="../assets/css/noti/noti2.css" rel="stylesheet"> -->
+<!--<link href=".../assets/css/noti/noti2.css" rel="stylesheet"> -->
 <title>공지사항 수정</title>
 </head>
 <body>

@@ -40,6 +40,7 @@ public class RequestService {
 		return map;
 	}
 	
+	// 발주 상태 업데이트
 	public int reqUpdate(RequestDTO reqDTO) {
 		int result = 0;
 		
@@ -56,6 +57,7 @@ public class RequestService {
 		return result;
 	}
 	
+	// 발주 -> 작업지시
 	public int reqOrder(RequestDTO reqDTO) {
 		int result = 0;
 		
@@ -94,6 +96,7 @@ public class RequestService {
 		return map;
 	}
 	
+	// 신청 삭제
 	public int applyDelete(ApplyDTO applyDTO) {
 		
 		int result = reDAO.applyDelete(applyDTO);
@@ -101,6 +104,7 @@ public class RequestService {
 		return result;
 	}
 	
+	// 신청 -> 발주
 	public int applyReq(ApplyDTO applyDTO) {
 		int result = 0;
 		
@@ -108,6 +112,7 @@ public class RequestService {
 		int[] lib_ids = applyDTO.getLib_ids();
 		
 		for(int i = 0; i < checks.length; i++) {
+			System.out.println(checks[i]);
 			applyDTO.setApp_seq(checks[i]);
 			applyDTO.setLib_id(lib_ids[i]);
 			
@@ -117,6 +122,7 @@ public class RequestService {
 		return result;
 	}
 	
+	// 신청 내역 업데이트
 	public int applyUpdate(ApplyDTO applyDTO) {
 		int result = reDAO.applyUpdate(applyDTO);
 		

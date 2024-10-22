@@ -8,15 +8,15 @@
 <head>
 <meta charset="UTF-8">
 <title>북플릭스</title>
-<link href="./assets/css/bookflix/bookflix.css" rel="stylesheet">
-<link href="./assets/css/base/admin_table.css" rel="stylesheet">
+<link href="../assets/css/bookflix/bookflix.css" rel="stylesheet">
+<link href="../assets/css/base/admin_table.css" rel="stylesheet">
 </head>
 <body>
 
             <div id="parent">
                 <div id="top_logo">
                     <img id="top_logo_img"
-                        src="./assets/img/bookflix.png">
+                        src="../assets/img/bookflix.png">
                 </div>
                 
                 <div class="top_for_you">
@@ -105,8 +105,8 @@
             </div>
 	       
         <!-- wrap -->
-        <script src="./assets/js/bookflix/slider.js"></script>
-        <script src="./assets/js/bookflix/bookflix_use.js"></script>
+        <script src="../assets/js/bookflix/slider.js"></script>
+        <script src="../assets/js/bookflix/bookflix_use.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+#all{
+	display:flex;
+}
+
+#graph, #tableSection{
+	padding: 0 20px;
+}
+
+#graph{
+	width: 70%;
+}
+
+#tableSection{
+	width: 30%;
+    text-align: center;
+}

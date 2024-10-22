@@ -14,7 +14,7 @@
         <h3>도서신청</h3>
 
         <form method="post"
-            action="<%=request.getContextPath()%>/requestInsert">
+            action="<%=request.getContextPath()%>/user/requestInsert">
             <div class="app">
                 <input type="hidden" name="user_seq" value="${login.user_seq }">
 

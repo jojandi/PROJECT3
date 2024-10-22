@@ -128,6 +128,14 @@
 		VALUES (wo_seq.NEXTVAL, #{lib_id}, '포장공정', #{lr_count}, '진행중', #{os_id})
 	</insert>
 	
+	<insert id="logInsert" parameterType="pfworkDTO">
+	 	INSERT INTO 
+	 		log 
+	 			(log_seq, log_date, os_id)
+			VALUES
+				(seq_log.nextval, sysdate, #{os_id})
+	</insert>
+	
 	<!-- 주문현황 작업지시서 생성버튼 클릭시 상태 update -->
 	<update id="pfupdatepf" parameterType="pfworkDTO">
 		update orderstatus

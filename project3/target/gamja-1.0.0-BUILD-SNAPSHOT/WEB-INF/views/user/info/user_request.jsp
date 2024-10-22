@@ -5,16 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 도서신청</title>
-    <link href="./assets/css/info/user_request.css" rel="stylesheet">
-    <link href="./assets/css/base/user_base.css" rel="stylesheet">
-    <link href="./assets/css/info/user_info_side.css" rel="stylesheet">
+    <link href="../assets/css/info/user_request.css" rel="stylesheet">
+    <link href="../assets/css/base/user_base.css" rel="stylesheet">
+    <link href="../assets/css/info/user_info_side.css" rel="stylesheet">
 </head>
 <body>
     <div id="section">
         <h3>도서신청</h3>
 
         <form method="post"
-            action="<%=request.getContextPath()%>/requestInsert">
+            action="<%=request.getContextPath()%>/user/requestInsert">
             <div class="app">
                 <input type="hidden" name="user_seq" value="${login.user_seq }">
 

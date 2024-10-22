@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="./assets/css/base/user_base.css" rel="stylesheet">
+<title>GamJa</title>
+<link href="../assets/css/base/user_base.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
@@ -23,6 +23,6 @@
 	<div>
 		<tiles:insertAttribute name="footer"/>
 	</div>
-
+<script src="../assets/js/loginFilter/loginFilter.js"></script>
 </body>
 </html>

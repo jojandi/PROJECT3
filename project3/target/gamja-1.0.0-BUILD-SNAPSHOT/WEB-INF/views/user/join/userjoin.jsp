@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 페이지</title>
-<link href="./assets/css/join/user_join.css" rel="stylesheet">
+<link href="../assets/css/join/user_join.css" rel="stylesheet">
 </head>
 <body>
 
@@ -251,8 +251,8 @@
 	        }).open();
 	    }
 	</script>
-	<script src="./assets/js/join/user_join.js"></script>
-	<script src="./assets/js/join/user_join_post.js"></script>
+	<script src="../assets/js/join/user_join.js"></script>
+	<script src="../assets/js/join/user_join_post.js"></script>
 
 </body>
 </html>

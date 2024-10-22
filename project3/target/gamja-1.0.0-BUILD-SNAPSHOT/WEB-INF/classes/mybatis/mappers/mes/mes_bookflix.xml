@@ -3,57 +3,83 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="project3.talking.gamja.dao.mes.BookflixDAO">
+<mapper namespace="project3.talking.gamja.dao.mes.MesBookflixDAO">
 
     <!-- user_id2가 제공되었을 때의 SQL -->
     <select id="selectBuser" parameterType="string" resultType="buserDTO">
-        SELECT 
-            b.buser_seq, 
-            u.user_id, 
-            u.user_addr, 
-            u.user_email, 
-            b.buser_date, 
-            b.buser_end
-        FROM 
-            bookflix_user b
-        LEFT OUTER JOIN 
-            tbl_user u ON b.user_seq = u.user_seq
-        WHERE 
-            LOWER(u.user_id) LIKE LOWER(CONCAT('%', #{user_id2}, '%'))
+         SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+	        SELECT 
+	            b.buser_seq, 
+	            u.user_id, 
+	            u.user_addr, 
+	            u.user_email, 
+	            b.buser_date, 
+	            b.buser_end
+	        FROM 
+	            bookflix_user b
+	        LEFT OUTER JOIN 
+	            tbl_user u ON b.user_seq = u.user_seq
+	        WHERE 
+	            LOWER(u.user_id) LIKE LOWER(CONCAT('%', #{user_id2}, '%'))
+	            	) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
     </select>
 
     <!-- user_id2가 제공되지 않았을 때의 SQL -->
   <select id="selectAllBusers" resultType="buserDTO">
-        SELECT 
-            b.buser_seq, 
-            u.user_id, 
-            u.user_addr, 
-            u.user_email, 
-            b.buser_date, 
-            b.buser_end
-        FROM 
-            bookflix_user b
-        JOIN 
-            tbl_user u ON b.user_seq = u.user_seq
+         SELECT * FROM (
+	    SELECT rownum AS rnum, a.*  FROM(
+			SELECT 
+	            b.buser_seq, 
+	            u.user_id, 
+	            u.user_addr, 
+	            u.user_email, 
+	            b.buser_date, 
+	            b.buser_end
+	        FROM 
+	            bookflix_user b
+	        JOIN 
+	            tbl_user u ON b.user_seq = u.user_seq
+	            ) a
+		)
+ 		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
     </select>
+    <select id="totalBuserCount" resultType="int" parameterType="BuserDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			bookflix_user
+	</select>
     
      <select id="getReviews" resultType="mesReviewDTO">
-        SELECT 
-            f.review_seq, 
-            f.review_name, 
-            t.user_id, 
-            f.review_date, 
-            f.review_score, 
-            f.review_contents
-        FROM 
-            bf_review f
-        LEFT OUTER JOIN 
-            bookflix_user b ON f.buser_seq = b.buser_seq
-        LEFT OUTER JOIN 
-            tbl_user t ON b.user_seq = t.user_seq
-        ORDER BY 
-            f.review_seq DESC
+        SELECT * FROM (
+		select rownum AS rnum, a.*  FROM(
+	        SELECT 
+	            f.review_seq, 
+	            f.review_name, 
+	            t.user_id, 
+	            f.review_date, 
+	            f.review_score, 
+	            f.review_contents
+	        FROM 
+	            bf_review f
+	        LEFT OUTER JOIN 
+	            bookflix_user b ON f.buser_seq = b.buser_seq
+	        LEFT OUTER JOIN 
+	            tbl_user t ON b.user_seq = t.user_seq
+	        ORDER BY 
+	            f.review_seq DESC
+	             )a
+		)WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
     </select>
+    <select id="totalReview" resultType="int" parameterType="mesReviewDTO">
+		SELECT 
+			count(*) cnt 
+		FROM 
+			bf_review
+	</select>
     <delete id="deleteReview" parameterType="mesReviewDTO">
 		  DELETE FROM bf_review WHERE review_seq = #{review_seq}
 	</delete>

@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 메인페이지</title>
-<link href="./assets/css/main/main_user.css" rel="stylesheet">
+<link href="../assets/css/main/main_user.css" rel="stylesheet">
 </head>
 <body>
 
@@ -56,7 +56,7 @@
                         <!-- 날짜들 들어오는 곳 -->
                     </div>
                 </div>
-                <script src="./assets/js/main/calendar.js"></script>
+                <script src="../assets/js/main/calendar.js"></script>
 
             </div>
 
@@ -112,7 +112,12 @@
                     <div>
                         <div class="page" id="p4">
                             <span class="material-symbols-outlined">assignment_add</span>
-                            <a href="request"></a>
+                            <c:if test="${empty login}">
+	                            <a class="loginFilter" href="request"></a>
+                            </c:if>
+                            <c:if test="${not empty login}">
+	                            <a href="request"></a>
+                            </c:if>
                         </div>
                         <div class="pname">도서 신청</div>
                     </div>
@@ -124,14 +129,24 @@
                     <div>
                         <div class="page" id="p5">
                             <span class="material-symbols-outlined">shopping_cart</span>
-                            <a href="cart?seq=${login.user_seq}"></a>
+                            <c:if test="${empty login}">
+	                            <a class="loginFilter" href="cart?seq=${login.user_seq}"></a>
+                            </c:if>
+                            <c:if test="${not empty login}">
+	                            <a href="cart?seq=${login.user_seq}"></a>
+                            </c:if>
                         </div>
                         <div class="pname">장바구니</div>
                     </div>
                     <div>
                         <div class="page" id="p6">
                             <span class="material-symbols-outlined">person_edit</span>
-                            <a href="res?seq=${login.user_seq}"></a>
+                            <c:if test="${empty login}">
+	                            <a class="loginFilter" href="res?seq=${login.user_seq}"></a>
+                            </c:if>
+                            <c:if test="${not empty login}">
+	                            <a href="res?seq=${login.user_seq}"></a>
+                            </c:if>
                         </div>
                         <div class="pname">내 이용정보</div>
                     </div>
@@ -152,7 +167,7 @@
                     
                 </div>
 
-                <script src="./assets/js/main/box.js"></script>
+                <script src="../assets/js/main/box.js"></script>
             </div>
         </div>
 	</section>
@@ -190,7 +205,7 @@
         <section class="section3">
             <div id="booksub">
             	<div id="img">
-	                <img src="./assets/img/bookflix.png">
+	                <img src="../assets/img/bookflix.png">
             	</div>
             	<div id="mineSection">
 	                <div id="booksubInfoTitle">
