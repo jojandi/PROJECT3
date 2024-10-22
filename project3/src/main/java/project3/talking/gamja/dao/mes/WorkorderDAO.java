@@ -15,6 +15,7 @@ public interface WorkorderDAO {
 	
 	// log update
 	int logUpdate(MesWorkorderDTO woDTO);
+	int logInsert(MesWorkorderDTO woDTO);
 	
 	// workorder Read
 	MesWorkorderDTO selectOne(MesWorkorderDTO woDTO);
@@ -62,7 +63,6 @@ public interface WorkorderDAO {
 	List<MesWorkorderDTO> getList3();
 	
 	int deleteBom(MesWorkorderDTO DTO);
-	int logInsert(MesWorkorderDTO dTO);
 	
 
 	

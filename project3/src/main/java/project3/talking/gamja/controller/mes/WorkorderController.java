@@ -71,27 +71,35 @@ public class WorkorderController {
 	public String workorderUpdate(MesWorkorderDTO dto) {
 
 		System.out.println("update 실행 ");
-		System.out.println("////////////////////////////// : " + dto.getOs_id());
+		System.out.println("////////////////////////////// od_is : " + dto.getOs_id());
+		System.out.println("////////////////////////////// wo_id : " + dto.getWo_id());
+		System.out.println("////////////////////////////// lr_seq : " + dto.getLr_seq());
 
 		try {
 			if ("완료".equals(dto.getWo_status())) {
 				// 1. workorder 테이블에서 완료시 상태 update
-				woService.updateworead(dto);
+				int result = woService.updateworead(dto);
+				System.out.println("workorder 테이블에서 완료시 상태 update : " + result);
 
 				// 2. pfwork 테이블에서 주문현황 상태 update
-				woService.updatepf(dto);
+				int update = woService.updatepf(dto);
+				System.out.println("pfwork 테이블에서 주문현황 상태 update : " + update);
 
 				// 3. mes_book 테이블에서 book_count 업데이트 (수량 추가)
-				woService.updatewo(dto);
+				int add =woService.updatewo(dto);
+				System.out.println("3. mes_book 테이블에서 book_count 업데이트 (수량 추가) : " + add);
 
 				// 4. pfwork 테이블에서 출고현황 insert
-				woService.insertpf(dto);
+				int insert = woService.insertpf(dto);
+				System.out.println("4. pfwork 테이블에서 출고현황 insert : " + insert);
 
 				// 5. admin request 테이블에서 상태 update
-				woService.requestpf(dto);
+				int req = woService.requestpf(dto);
+				System.out.println("5. admin request 테이블에서 상태 update : " + req);
 				
-				//6. 로그 insert
-				woService.logInsert(dto);
+				// 6. 로그 insert
+				int log = woService.logInsert(dto);
+				System.out.println("6. 로그 insert : " + log);
 			}
 			if ("배송공정".equals(dto.getWo_process())) {
 				woService.updatewopro(dto);

@@ -43,6 +43,11 @@ public class WorkorderService {
 	public int logUpdate(MesWorkorderDTO woDTO) {
 		return woDAO.logUpdate(woDTO);
 	}
+	public int logInsert(MesWorkorderDTO DTO) {
+		int result = woDAO.logInsert(DTO);
+		
+		return result;
+	}
 	
 	// 작업지시서 selectOne
 	public MesWorkorderDTO selectOne(MesWorkorderDTO woDTO) {
@@ -166,11 +171,7 @@ public class WorkorderService {
 			return result;
 		}
 
-		public int logInsert(MesWorkorderDTO DTO) {
-			int result = woDAO.logInsert(DTO);
-			
-			return result;
-		}
+		
 	    
 	 
 
