@@ -6,7 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
-<link href="./assets/css/inven/inven.css" rel="stylesheet">
+<link href="../assets/css/inven/inven.css" rel="stylesheet">
 <style>
 	 #i3 .material-symbols-outlined { background-color: rgb(165, 224, 144); }
 </style>

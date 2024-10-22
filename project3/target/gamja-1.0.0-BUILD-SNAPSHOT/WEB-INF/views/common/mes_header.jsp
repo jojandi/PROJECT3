@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="./assets/css/base/user_base.css" rel="stylesheet">
+<link href="../assets/css/base/mes_base.css" rel="stylesheet">
 
 <style>
 	
@@ -24,7 +24,7 @@
 		<div id="logoall">
 			<div id="logo" class="left">
 				<a href="mes_main"><img class="logo_img"
-					src="./assets/img/mes_logo.png"></a>
+					src="../assets/img/mes_logo.png"></a>
 			</div>
 		</div>
 

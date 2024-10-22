@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
-<link href="./assets/css/member/member.css" rel="stylesheet">
+<link href="../assets/css/member/member.css" rel="stylesheet">
 <style>
 	 #i1 .material-symbols-outlined { background-color: rgb(165, 224, 144); }
 </style>
@@ -69,7 +69,7 @@
 				</div>
 			</div>
 		</section>
-	<script src="./assets/js/mem/member.js"></script>
+	<script src="../assets/js/mem/member.js"></script>
 
 </body>
 </html>

@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>재고현황</title>
-<link href="./assets/css/inven/inven.css" rel="stylesheet">
+<link href="../assets/css/inven/inven.css" rel="stylesheet">
 <style>
 aside #items #i1 .material-symbols-outlined {
 	background: rgb(165, 224, 144);

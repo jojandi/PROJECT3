@@ -9,8 +9,8 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-    <link href="./assets/css/user_base.css" rel="stylesheet">
-    <link href="./assets/css/library/library.css" rel="stylesheet">
+    <link href="../assets/css/user_base.css" rel="stylesheet">
+    <link href="../assets/css/library/library.css" rel="stylesheet">
     <style>
 		<%
 		    Object selectLibraryObj = request.getAttribute("selectLibrary"); // lib_id값을 담은 객체 생성

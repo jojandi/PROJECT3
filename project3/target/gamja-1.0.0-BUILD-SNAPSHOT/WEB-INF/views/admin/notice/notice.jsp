@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 공지사항 추가</title>
-<link href="./assets/css/notice/noti.css" rel="stylesheet">
+<link href="../assets/css/notice/noti.css" rel="stylesheet">
 </head>
 <body>
 
@@ -147,7 +147,7 @@
         }
 	</script>
 
-	<script src="../assets/js/noti/noti.js"></script>
+	<script src=".../assets/js/noti/noti.js"></script>
 
 </body>
 </html>

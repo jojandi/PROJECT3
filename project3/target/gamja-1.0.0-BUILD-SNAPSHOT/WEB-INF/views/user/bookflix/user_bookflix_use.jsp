@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Bookflix</title>
-    <link href="./assets/css/bookflix/bookflix_use.css" rel="stylesheet">
+    <link href="../assets/css/bookflix/bookflix_use.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
@@ -23,7 +23,7 @@
 <div id="wrap">
     <div id="parent">
         <div id="top_logo">
-            <img id="top_logo_img" src="./assets/img/bookflix.png">
+            <img id="top_logo_img" src="../assets/img/bookflix.png">
         </div>
 
   		<%
@@ -116,7 +116,7 @@
             </form>
         </div>
     </div>
-    <script src="./assets/js/bookflix/bookflix_use.js"></script>
+    <script src="../assets/js/bookflix/bookflix_use.js"></script>
 </div>
 
 </body>

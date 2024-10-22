@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link href="./assets/css/inven/inven_side.css" rel="stylesheet">
+<link href="../assets/css/inven/inven_side.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>

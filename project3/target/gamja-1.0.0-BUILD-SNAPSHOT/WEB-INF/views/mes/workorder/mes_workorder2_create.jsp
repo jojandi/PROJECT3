@@ -9,14 +9,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-<link href="./assets/css/admin_table.css" rel="stylesheet">
-<link href="./assets/css/00.user_side_base.css" rel="stylesheet">
-<link href="./assets/css/admin.css" rel="stylesheet">
+<link href="../assets/css/mes/admin_table.css" rel="stylesheet">
+<link href="../assets/css/mes/00.user_side_base.css" rel="stylesheet">
+<link href="../assets/css/mes/admin.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<script src="./assets/js/click.js"></script>
-<link href="./assets/css/mes_workorder.css" rel="stylesheet">
-<link href="./assets/css/click.css" rel="stylesheet">
+<script src="../assets/js/mes/click.js"></script>
+<link href="../assets/css/mes/mes_workorder.css" rel="stylesheet">
+<link href="../assets/css/mes/click.css" rel="stylesheet">
 </head>
 <body>
 		<section>
@@ -104,6 +104,6 @@
 		
 	
 	
-	<script src="./assets/js/mes_workorderBom.js"></script>
+	<script src="../assets/js/mes/mes_workorderBom.js"></script>
 </body>
 </html>

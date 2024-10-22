@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 사용자용 이용시간 안내</title>
-<link href="./assets/css/info/user_notice2.css" rel="stylesheet">
-<link href="./assets/css/base/user_base.css" rel="stylesheet">
-<link href="./assets/css/info/user_info_side.css" rel="stylesheet">
+<link href="../assets/css/info/user_notice2.css" rel="stylesheet">
+<link href="../assets/css/base/user_base.css" rel="stylesheet">
+<link href="../assets/css/info/user_info_side.css" rel="stylesheet">
 </head>
 <style>
 aside #items #i3 .material-symbols-outlined {
@@ -82,6 +82,6 @@ aside #items #i3 .material-symbols-outlined {
         </div>
 
     </div>
-    <script src="./assets/js/info/user_notice.js"></script>
+    <script src="../assets/js/info/user_notice.js"></script>
 </body>
 </html>

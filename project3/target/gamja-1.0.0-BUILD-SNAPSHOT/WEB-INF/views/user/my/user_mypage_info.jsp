@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 마이페이지</title>
-<link href="./assets/css/my/user_mypage_info.css" rel="stylesheet">
+<link href="../assets/css/my/user_mypage_info.css" rel="stylesheet">
 </head>
 <body>
         <section id="info">
@@ -34,7 +34,7 @@
 				<c:if test="${ login.user_sub == 'Y' }">
 	               <div id="booksub">
 	                   <div id="booklogo">
-	                       <img src="./assets/img/bookflix.png">
+	                       <img src="../assets/img/bookflix.png">
 	                   </div>
 	
 	                   <div id="bookuser">
@@ -260,6 +260,6 @@
 		        }).open();
 		    }
 		</script>
-        <script src="./assets/js/my/mypage_info.js"></script>
+        <script src="../assets/js/my/mypage_info.js"></script>
 </body>
 </html>

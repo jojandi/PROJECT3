@@ -7,6 +7,7 @@ public class RequestDTO {
 	private int lib_id; // 도서관 아이디 
 	private int user_seq;
 
+
 	public int getLib_id() {
 		return lib_id;
 	}

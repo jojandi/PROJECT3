@@ -17,13 +17,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="layout.css" type="text/css">
-    <link href="./assets/css/admin_table.css" rel="stylesheet">
-    <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
-    <link href="./assets/css/admin.css" rel="stylesheet">
+    <link href="../assets/css/mes/admin_table.css" rel="stylesheet">
+    <link href="../assets/css/mes/00.user_side_base.css" rel="stylesheet">
+    <link href="../assets/css/mes/admin.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="./assets/css/click.css" rel="stylesheet">
-    <link href="./assets/css/mes_notice1.css" rel="stylesheet">
+    <link href="../assets/css/mes/click.css" rel="stylesheet">
+    <link href="../assets/css/mes/mes_notice1.css" rel="stylesheet">
     
     <style>
     	#menu #items #i6{
@@ -135,7 +135,7 @@
             </div>
         </section>
 
-<script src="./assets/js/mes_notice.js"></script>
+<script src="../assets/js/mes/mes_notice.js"></script>
 </body>
 
 </html>

@@ -5,9 +5,9 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<link href="./assets/css/info/user_notice3.css" rel="stylesheet">
-<link href="./assets/css/base/user_base.css" rel="stylesheet">
-<link href="./assets/css/info/user_info_side.css" rel="stylesheet">
+<link href="../assets/css/info/user_notice3.css" rel="stylesheet">
+<link href="../assets/css/base/user_base.css" rel="stylesheet">
+<link href="../assets/css/info/user_info_side.css" rel="stylesheet">
 <title>Notice Page</title>
 
 <style>

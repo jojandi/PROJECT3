@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-<link href="../assets/css/info/user_info_side.css"
+<link href=".../assets/css/info/user_info_side.css"
 	rel="stylesheet">
 </head>
 <body>

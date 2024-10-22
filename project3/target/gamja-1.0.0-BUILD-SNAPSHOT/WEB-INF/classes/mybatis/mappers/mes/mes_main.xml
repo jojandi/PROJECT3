@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="project3.talking.gamja.dao.mes.MainDAO">
+<mapper namespace="project3.talking.gamja.dao.mes.MesMainDAO">
 
 
     <!-- 공지사항 -->
@@ -25,6 +25,27 @@
     SELECT COUNT(*) 
     FROM deliverystatus 
     WHERE TO_CHAR(ds_date, 'YYYY-MM') = #{month}
+	</select>
+	
+	<!-- 작업 로그 -->
+	<select id="selectLog" resultType="logDTO">
+		SELECT *
+		FROM (
+		    SELECT 
+		        ROWNUM, TO_CHAR(l.log_date, 'YYYY-MM-DD HH24:MI:SS') AS log_date, l.log_seq, l.bom_code, 
+		        b.bom_name, w.wo_count, w.wo_status, o.os_id, e.emp_id, e.emp_name, o.buser_seq, o.os_status, 
+		        lr.lib_id, lib.lib_name
+		    FROM 
+		        log l
+		        LEFT OUTER JOIN workorder w on(w.wo_id = l.wo_id)
+		        LEFT OUTER JOIN orderstatus o on(l.os_id = o.os_id)
+		        LEFT OUTER JOIN employee e on(o.emp_id = e.emp_id)
+		        LEFT OUTER JOIN bom b on(l.bom_code = b.bom_code)
+		        left outer join lib_request lr on(lr.lr_seq = o.lr_seq)
+		        left outer join library lib on(lr.lib_id = lib.lib_id)
+		    ORDER BY log_seq desc
+		) 
+		WHERE ROWNUM BETWEEN 1 AND 3
 	</select>
   
 </mapper>
