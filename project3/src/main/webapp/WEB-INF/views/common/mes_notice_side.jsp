@@ -12,8 +12,10 @@
                 <h2 id="title">게시판</h2>
                 <div id="items">
                     <div class="item" id="i1">
+                    	<a href="mes_notice1">
                         <span>게시판</span>
                         <span class="material-symbols-outlined active">arrow_forward_ios</span>
+                        </a>
                     </div>
                 </div>
             </div>
