@@ -64,6 +64,8 @@
 
 .section1 #calendar .calHeader {
     padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .section1 #calendar #days {
@@ -155,15 +157,12 @@
     background: rgb(105, 170, 82);
     color: white;
 }
-#hukwan_bot div{
-    margin-right: 5px;
-}
 .circle_1 {
     border: 1px solid rgb(106, 170, 82);
     background: rgb(106, 170, 82);
     box-sizing: border-box;
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     color: white;
     display: inline-block;
@@ -173,8 +172,8 @@
     background: rgb(34, 194, 186);
     border-radius: 50%;
     box-sizing: border-box;
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
     color: white;
     display: inline-block;
 }
@@ -182,6 +181,10 @@
     width: 100%;
     text-align: right;
     margin-top: 5px;
+}
+
+#hukwan_bot small{
+	margin-right: 5px;
 }
 
 /* ------------------------------------------------------------------ */
