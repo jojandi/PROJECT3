@@ -65,5 +65,10 @@ public class NoticeService {
     public int addComment(MesNoticeDTO dto) {
         return noticeDAO.addComment(dto);  // DAO 호출
     }
+    public List<MesNoticeDTO> listNoti(MesNoticeDTO dto) {
+    	List<MesNoticeDTO> list = noticeDAO.listNoti(dto);
+    	
+    	return list;
+    }
 	
 }
