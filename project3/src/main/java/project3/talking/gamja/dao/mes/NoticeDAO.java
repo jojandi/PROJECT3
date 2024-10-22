@@ -19,4 +19,7 @@ public interface NoticeDAO {
 	MesNoticeDTO selectOne(MesNoticeDTO dto);
 	int updateNotice(MesNoticeDTO dto);
 	int deleteNotice(MesNoticeDTO dto);
+	
+	// 댓글기능
+	int addComment(MesNoticeDTO dto);
 }
