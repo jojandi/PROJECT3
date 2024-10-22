@@ -24,9 +24,21 @@
     </select>
     
 	 <select id="selectReviewsByStar" resultType="ReviewDTO">
-    SELECT * 
-    FROM bf_review
-       
+    	SELECT 
+    		rownum, a.* 
+    	FROM (
+			 SELECT 
+	            bu.user_seq, rpad(substr(user_id, 1, 2), length(user_id), '*') as user_id, review_contents, review_date, review_score
+	        FROM 
+	            bf_review br
+		        LEFT OUTER JOIN bookflix_user bu ON br.buser_seq = bu.buser_seq
+		        LEFT OUTER JOIN tbl_user u ON bu.user_seq = u.user_seq
+	        WHERE 
+	            review_score = 5
+	        ORDER BY 
+	            review_seq
+        	) a
+		WHERE rownum <![CDATA[ <= ]]> 3
 	</select>
     
     <!--  북플릭스 리뷰입니다 -->

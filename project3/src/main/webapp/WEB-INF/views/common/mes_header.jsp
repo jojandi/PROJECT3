@@ -90,12 +90,12 @@
 				<div id="block" style="display:none;"></div>
 			</div>
 			
-			<%--             <c:if test="${ not empty login }"> --%>
 			<div class="right" id="userall">
-				<span class="inb" id="user">박규태님</span> <span
-					class="material-symbols-outlined">person</span>
+				<form action="logout">
+					<a href="/gamja/user/logout"> <span class="inb" id="user">${ login.user_name }님</span></a>
+					<span class="material-symbols-outlined">person</span>
+				</form>
 			</div>
-			<%-- 			</c:if> --%>
 		</div>
 		
 		<script>

@@ -66,7 +66,14 @@
 				<li class="item" id="i3"><a href="notice">정보광장</a>
 					<ul class="submenu">
 						<li><a href="notice">공지사항</a></li>
-						<li><a href="request" class="loginFilter">도서신청</a></li>
+						<li>
+							<c:if test="${empty login}">
+								<a href="request" class="loginFilter">도서신청</a>
+							</c:if>
+							<c:if test="${not empty login}">
+								<a href="request">도서신청</a>
+							</c:if>
+						</li>
 						<li><a href="notice2">이용안내</a></li>
 					</ul>
 				</li>
@@ -111,6 +118,18 @@
 
 		
 		<script>
+			// 로그아웃
+			document.getElementById("userall").addEventListener('click',function(e) {
+				let c = confirm("로그아웃 하시겠습니까?");
+
+				if (c) {
+					window.location.href = "http://localhost:8080/user_page/user/main"
+				} else {
+					e.preventDefault();
+					window.location.href = "main"
+				}
+			})
+			
 			// hover가 되었을 때 뒷배경 block으로 변환
 			const isMobile = window.matchMedia("(max-width: 767px)").matches;
 			console.log(isMobile);
