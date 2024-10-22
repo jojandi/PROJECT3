@@ -13,6 +13,9 @@ public interface WorkorderDAO {
 	List<MesWorkorderDTO> selectwo(MesWorkorderDTO woDTO);
 	int totalwo(MesWorkorderDTO woDTO);
 	
+	// log update
+	int logUpdate(MesWorkorderDTO woDTO);
+	
 	// workorder Read
 	MesWorkorderDTO selectOne(MesWorkorderDTO woDTO);
 	
