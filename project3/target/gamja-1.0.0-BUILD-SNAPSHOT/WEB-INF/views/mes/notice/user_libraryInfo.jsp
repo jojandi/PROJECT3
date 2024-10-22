@@ -10,13 +10,13 @@
 <title>Insert title here</title>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="layout.css" type="text/css">
-    <link href="./assets/css/admin_table.css" rel="stylesheet">
-    <link href="./assets/css/00.user_side_base.css" rel="stylesheet">
-    <link href="./assets/css/admin.css" rel="stylesheet">
+    <link href="../assets/css/mes/admin_table.css" rel="stylesheet">
+    <link href="../assets/css/mes/00.user_side_base.css" rel="stylesheet">
+    <link href="../assets/css/mes/admin.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="./assets/css/click.css" rel="stylesheet">
-    <link href="./assets/css/mes_notice.css" rel="stylesheet">
+    <link href="../assets/css/mes/click.css" rel="stylesheet">
+    <link href="../assets/css/mes/mes_notice.css" rel="stylesheet">
 </head>
 <body>
 	<section>

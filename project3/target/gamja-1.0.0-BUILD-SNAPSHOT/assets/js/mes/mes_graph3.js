@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function loadForecastStatistics(year, month) {
     console.log(`Fetching forecast statistics for year: ${year}, month: ${month}`);
 
-    fetch(`/mesPage/mes_graph_data_3?year=${encodeURIComponent(year)}&month=${encodeURIComponent(month)}`)
+    fetch(`/gamja/mes/mes_graph_data_3?year=${encodeURIComponent(year)}&month=${encodeURIComponent(month)}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

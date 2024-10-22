@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="./assets/css/notice/noti2.css" rel="stylesheet">
+<link href="../assets/css/notice/noti2.css" rel="stylesheet">
 <meta charset="UTF-8">
 <title>공지사항 게시판</title>
 <style>
@@ -24,8 +24,8 @@ aside #items #i2.material-symbols-outlined {
                 <col width="6%">
                 <col width="6%">
                 <col width="12%">
-                <col width="25%">
-                <col width="10%">
+                <col width="30%">
+                <col width="12%">
                 <col width="6%">
                 <col width="7%">
                 <col width="7%">
@@ -66,11 +66,14 @@ aside #items #i2.material-symbols-outlined {
                         <td>
                             <c:choose>
                                 <c:when test="${notice.ann_attach != null}">
-                                    <a  target="_blank" href="${pageContext.request.contextPath}/download?fileName=${notice.ann_attach}">파일 다운로드</a>
+                                    <a target="_blank" class="fileDown"
+                                    href="download?fileName=${notice.ann_attach}">
+                                    O
+                                    </a>
 <%--                                    <img src="http://localhost:8080/admin/download?fileName=${notice.ann_attach}"/> --%>
                                 </c:when>
                                 <c:otherwise>
-                                    없음
+                                    X
                                 </c:otherwise>
                             </c:choose>
                         </td>

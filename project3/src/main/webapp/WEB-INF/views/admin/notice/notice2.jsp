@@ -102,7 +102,7 @@ aside #items #i2.material-symbols-outlined {
         // 공지사항 삭제용 Ajax 함수
         function deleteNotice(ann_seq) {
             if (confirm('정말로 삭제하시겠습니까?')) {
-                const url = "${pageContext.request.contextPath}/notice2"; // 삭제 URL
+                const url = "${pageContext.request.contextPath}/admin/notice2"; // 삭제 URL
                 const param = { "ann_seq": ann_seq }; // 삭제할 공지사항 번호
                 ajax(url, param, function(response) {
                     alert("공지사항이 삭제되었습니다.");

@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 마이페이지</title>
-<link href="./assets/css/my/user_mypage_bookadd.css" rel="stylesheet">
+<link href="../assets/css/my/user_mypage_bookadd.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </head>
 <body>
@@ -107,6 +107,6 @@
             </div>
         </section>
 
-		<script src="../assets/js/my/mypage_bookadd.js"></script>
+		<script src=".../assets/js/my/mypage_bookadd.js"></script>
 </body>
 </html>

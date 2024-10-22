@@ -102,7 +102,7 @@
 			<div class="cont">
 				<p>
 					<a href="notice">
-						<img src="assets/img/notice.png" id="poppng" usemap="#popup" alt="event page">
+						<img src="../assets/img/notice.png" id="poppng" usemap="#popup" alt="event page">
 					</a>
 				</p>
 			</div>

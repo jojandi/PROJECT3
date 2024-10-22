@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 도서 검색</title>
-<link href="./assets/css/search/search.css" rel="stylesheet">
+<link href="../assets/css/search/search.css" rel="stylesheet">
 <!-- Bootstrap -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">

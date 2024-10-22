@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>도서발주</title>
-<link href="./assets/css/request/request.css" rel="stylesheet">
+<link href="../assets/css/request/request.css" rel="stylesheet">
 <style>
 aside #items #i1 .material-symbols-outlined {
 	background: rgb(165, 224, 144);

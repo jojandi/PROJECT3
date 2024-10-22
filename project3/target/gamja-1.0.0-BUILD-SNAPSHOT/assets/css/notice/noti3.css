@@ -190,24 +190,16 @@ able.report img {
 }
 
 /* 버튼 스타일 */
-#back input[type="button"] {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
+[type=submit],
+[type=button]{
+    font-size: 18px;
+    padding: 7px 15px;
+    margin: 5px 0;
+    border-radius: 5%;
+    background: white;
+    border: 1px solid rgb(106, 170, 82);
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
-    text-align: center;
-    transition: background-color 0.3s;
 }
-
-#back input[type="button"]:hover {
-    background-color: #45a049;
-}
-
 #back a {
     text-decoration: none;
 }

@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>사용자 마이페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link href="./assets/css/my/user_mypage_cart.css" rel="stylesheet">
+<link href="../assets/css/my/user_mypage_cart.css" rel="stylesheet">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -123,7 +123,7 @@
         
         </div>
         </section>
-        <script src="./assets/js/my/mypage_cart.js"></script>
+        <script src="../assets/js/my/mypage_cart.js"></script>
 		<script>
 			const user = '${login.user_seq}';
 			document.querySelector("#reserchk").addEventListener('click', function(){

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<link href="./assets/css/base/user_base.css" rel="stylesheet">
+<link href="../assets/css/base/user_base.css" rel="stylesheet">
 <!-- 가장 위 고정 -->
 <header id="top" class="clearfix">
 
@@ -66,18 +66,30 @@
 				<li class="item" id="i3"><a href="notice">정보광장</a>
 					<ul class="submenu">
 						<li><a href="notice">공지사항</a></li>
-						<li><a href="request">도서신청</a></li>
+						<li><a href="request" class="loginFilter">도서신청</a></li>
 						<li><a href="notice2">이용안내</a></li>
 					</ul>
 				</li>
-				<li class="item" id="i4"><a href="res?seq=${login.user_seq}">마이페이지</a>
-					<ul class="submenu">
-						<li><a href="res?seq=${login.user_seq}">이용내역</a></li>
-						<li><a href="cart?seq=${login.user_seq}">찜 목록</a></li>
-						<li><a href="apply?seq=${login.user_seq}">도서 신청 내역</a></li>
-						<li><a href="info?seq=${login.user_seq}">내 정보</a></li>
-					</ul>
-				</li>
+				<c:if test="${not empty login}">
+					<li class="item" id="i4"><a href="res?seq=${login.user_seq}">마이페이지</a>
+						<ul class="submenu">
+							<li><a href="res?seq=${login.user_seq}">이용내역</a></li>
+							<li><a href="cart?seq=${login.user_seq}">찜 목록</a></li>
+							<li><a href="apply?seq=${login.user_seq}">도서 신청 내역</a></li>
+							<li><a href="info?seq=${login.user_seq}">내 정보</a></li>
+						</ul>
+					</li>
+				</c:if>
+				<c:if test="${empty login}">
+					<li class="item" id="i4"><a href="res?seq=${login.user_seq}" class="loginFilter">마이페이지</a>
+						<ul class="submenu">
+							<li><a href="res?seq=${login.user_seq}" class="loginFilter">이용내역</a></li>
+							<li><a href="cart?seq=${login.user_seq}" class="loginFilter">찜 목록</a></li>
+							<li><a href="apply?seq=${login.user_seq}" class="loginFilter">도서 신청 내역</a></li>
+							<li><a href="info?seq=${login.user_seq}" class="loginFilter">내 정보</a></li>
+						</ul>
+					</li>
+				</c:if>
 			</ul>
 			<div id="block" style="display: none;"></div>
 		</div>
@@ -97,7 +109,7 @@
 		</div>
 	</div>
 
-
+		
 		<script>
 			// hover가 되었을 때 뒷배경 block으로 변환
 			const isMobile = window.matchMedia("(max-width: 767px)").matches;

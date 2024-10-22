@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="./assets/css/notice/noti3.css" rel="stylesheet">
+<link href="../assets/css/notice/noti3.css" rel="stylesheet">
 <meta charset="UTF-8">
 </head>
 <body>
@@ -29,7 +29,7 @@
 					<div class="bookTitle book">${notice.ann_detail }</div>
 
 					<div id="back">
-						<a href="/admin/notice2"><input type="button"
+						<a href="notice2"><input type="button"
 							value="목록"></a>
 					</div>
 				</div>

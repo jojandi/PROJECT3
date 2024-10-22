@@ -45,13 +45,18 @@
 	    <beans:property name="order" value="1" />
 	</beans:bean>
 
-	
+	 <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- max upload size in bytes -->
+        <beans:property name="maxUploadSize" value="5242880" /> <!-- 5MB -->
+        <!-- max size of file in memory (in bytes) -->
+        <beans:property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
+    </beans:bean>
 	<context:component-scan base-package="project3.talking.gamja" />
 	
 	<!-- @Mapper 설정 코드 추가 -->
-	<mybatis-spring:scan base-package="project3.gamja.talking.dao.user" />
-	<mybatis-spring:scan base-package="project3.gamja.talking.dao.admin" />
-	<mybatis-spring:scan base-package="project3.gamja.talking.dao.mes" />
+	<mybatis-spring:scan base-package="project3.talking.gamja.dao.user" />
+	<mybatis-spring:scan base-package="project3.talking.gamja.dao.admin" />
+	<mybatis-spring:scan base-package="project3.talking.gamja.dao.mes" />
 	
 	
 </beans:beans>
