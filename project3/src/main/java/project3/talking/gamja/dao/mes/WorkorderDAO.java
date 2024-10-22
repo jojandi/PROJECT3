@@ -43,6 +43,9 @@ public interface WorkorderDAO {
 	// 작업지시서 완료시 도서발주 페이지 update
 	int requestpf(MesWorkorderDTO woDTO);
 	
+	// 작업지시서 완료시 작업지시서 완료로 update
+	int updateworead(MesWorkorderDTO woDTO);
+	
 	// ----------------BOM 페이지입니다----------------------
 	List<MesWorkorderDTO> getList2(MesWorkorderDTO dto);
 	
