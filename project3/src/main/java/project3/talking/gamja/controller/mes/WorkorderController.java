@@ -66,6 +66,7 @@ public class WorkorderController {
 		return "mes_workorder1_read";
 	}
 
+<<<<<<< HEAD
 	// 작업지시서 상태 update
 	@RequestMapping(value = "/workorderUpdate", method = RequestMethod.POST)
 	public String workorderUpdate(MesWorkorderDTO dto) {
@@ -104,6 +105,31 @@ public class WorkorderController {
 
 	// 작업지시서 insert
 	@RequestMapping(value = "insertwo", method = RequestMethod.POST)
+=======
+        	   // 4. pfwork 테이블에서 출고현황 insert
+        	   woService.insertpf(dto);
+        	   
+        	   // 5. admin request 테이블에서 상태 update
+        	   woService.requestpf(dto);
+        	   
+        	   // 6. 작업 로그 insert
+        	   woService.logInsert(dto);
+        	   
+           }
+           if("배송공정".equals(dto.getWo_process())) {
+        	   woService.updatewopro(dto);
+        	   woService.logInsert(dto);
+           }
+           
+       } catch (Exception e) {
+           // 예외 발생 시 에러 로그 출력
+           e.printStackTrace(); // 콘솔에 전체 예외 정보를 출력
+       }
+       return "redirect:/mes/mes_workorder1";
+   }
+	
+	@RequestMapping(value="insertwo", method=RequestMethod.POST)
+>>>>>>> 2349db89d9dffe41dc9b266ee54ea759134308da
 	public String insertwo(MesWorkorderDTO dto) {
 		int result = -1;
 

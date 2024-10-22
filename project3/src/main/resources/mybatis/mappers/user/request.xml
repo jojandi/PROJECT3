@@ -17,7 +17,7 @@
 			app_seq,
 			user_seq,
 			lib_id,
-			add_date
+			app_date
 		) VALUES(
 			#{app_book}, 
 			#{app_name}, 

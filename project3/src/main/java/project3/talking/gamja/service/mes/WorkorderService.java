@@ -165,6 +165,12 @@ public class WorkorderService {
 			
 			return result;
 		}
+
+		public int logInsert(MesWorkorderDTO DTO) {
+			int result = woDAO.logInsert(DTO);
+			
+			return result;
+		}
 	    
 	 
 

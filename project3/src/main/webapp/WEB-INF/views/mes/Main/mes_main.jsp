@@ -153,7 +153,7 @@
 										${log.lib_name} 세트 ${log.wo_process}
 									</c:if>
 									<c:if test="${log.os_status == '완료'}">
-										${log.bom_name} 작업
+										${log.lib_name} 세트 ${log.wo_process}
 									</c:if>
 								</td>
 								<td>

@@ -42,7 +42,18 @@
  			os_id = #{os_id}
 	</update>
 	
+<<<<<<< HEAD
 	<!-- workoerder 작업지시서 selectOne -->
+=======
+	<insert id="logInsert">
+		INSERT INTO 
+	 		log 
+	 			(log_seq, log_date, wo_id, os_id)
+			VALUES
+				(seq_log.nextval, sysdate, #{wo_id}, #{od_is})
+	</insert>
+	
+>>>>>>> 2349db89d9dffe41dc9b266ee54ea759134308da
 	<select id="selectOne" resultType="workorderDTO" parameterType="workorderDTO">
 		SELECT 
    			 w.wo_id, b.bom_code, b.bom_name, w.wo_process, wo_count, wo_status, o.os_id, l.lib_id, lr.lr_seq

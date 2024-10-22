@@ -107,7 +107,7 @@ public class InfoController {
 		int result = InfoService.insertApplication(dto);
 		System.out.println("dto = " + dto);
 		System.out.println(result);
-		return "redirect:/request";
+		return "redirect:/user/request";
 	}
 	
 	

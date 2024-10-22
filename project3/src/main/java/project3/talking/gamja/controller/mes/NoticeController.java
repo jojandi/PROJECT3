@@ -96,6 +96,8 @@ public class NoticeController {
 		try {
 			dto.setNotice_id(notice_id);
 			System.out.println("@@@@@@@@@@@@delete dto :" + dto);
+			
+			noticeService.deleteNotiCm(dto);
 			noticeService.deleteNotice(dto);
 			
 		}catch (Exception e) {
@@ -127,9 +129,10 @@ public class NoticeController {
 	@RequestMapping("/listNoti")
 	@ResponseBody
 	public List listEmp(MesNoticeDTO dto) {
+		
 		List list = noticeService.listNoti(dto);
 		System.out.println("list.size() : "+ list.size());
-		
+		System.out.println( dto.getNotice_id());
 		return list;
 	}
 

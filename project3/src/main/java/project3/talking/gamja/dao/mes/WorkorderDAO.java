@@ -62,6 +62,7 @@ public interface WorkorderDAO {
 	List<MesWorkorderDTO> getList3();
 	
 	int deleteBom(MesWorkorderDTO DTO);
+	int logInsert(MesWorkorderDTO dTO);
 	
 
 	

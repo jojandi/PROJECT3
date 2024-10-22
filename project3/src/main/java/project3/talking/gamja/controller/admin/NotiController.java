@@ -138,7 +138,7 @@ public class NotiController {
       notiService.insertNotice(dto);
 
       // 공지사항 목록 페이지로 리다이렉트
-      return "redirec/admin/notice2";
+      return "redirect/admin/notice2";
 
    }
 
@@ -150,7 +150,7 @@ public class NotiController {
    // }
 
    // @RequestMapping 경로설정
-   @RequestMapping(value = "/notice2", method = RequestMethod.DELETE)
+   @RequestMapping(value = "admin/notice2", method = RequestMethod.DELETE)
    @ResponseBody
    public int delEmp(@RequestBody NotiDTO notiDTO) {
       System.out.println("삭제확인");
