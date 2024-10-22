@@ -25,7 +25,7 @@
     <link href="../assets/css/mes/click.css" rel="stylesheet">
     <link href="../assets/css/mes/comment.css" rel="stylesheet">
     <link href="../assets/css/mes/mes_notice_read.css" rel="stylesheet">
-  
+  	<script src="../assets/js/mes/mes_notice_ajax.js"></script>
 </head>
 
 <body>
@@ -50,9 +50,10 @@
 						<a href="notice"><input type="button" class="btnnn" value="목록으로"></a>
 					</div>
 					<div class="comment_section">
-					    <form class="noti_comment" action="noticeRead" method="post">
-					        <input type="hidden" name="cm_group" value="${num }" />
-					        <input type="hidden" name="target_id" value="${cm_id }" />
+					    <form class="noti_comment" action="addComment" method="post">
+					        <input type="hidden" name="emp_id" value="${noticeRead.emp_id }" />
+					        <input type="hidden" name="target_id" value="${noticeRead.notice_id }" />
+					        <input type="hidden" name="notice_id" value="${noticeRead.notice_id }" />
 					        <div class="comment_input">
 					            <textarea name="cm_content">댓글을 입력해주세요.</textarea>
 					            <button type="submit">등록</button>
@@ -61,17 +62,12 @@
 					</div>
 					<!-- 댓글이 달리는 공간 -->
 					<div class="comment_list" style="margin-top: 20px;">
-					    <c:forEach var="comment" items="${commentList}">
-					        <div class="comment_item" style="border-bottom: 1px solid #ddd; padding: 10px;">
-					            <strong>${comment.writer}</strong> 
-					            <p>${comment.content}</p>
-					            <span style="font-size: 12px; color: #888;">${comment.date}</span>
-					        </div>
-					    </c:forEach>
+						<table>
+							<tbody id="list">
+							</tbody>
+						</table>  
 					</div>
 
-
-					
 				</div>
 			</div>
         </section>

@@ -1,5 +1,6 @@
 package project3.talking.gamja.controller.mes;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,12 +108,13 @@ public class NoticeController {
 	
 	//	댓글기능 구현
 	@RequestMapping(value="/addComment", method=RequestMethod.POST)
-	@ResponseBody
-	public String addComment(@RequestBody MesNoticeDTO noticeDTO) {
+	public String addComment(MesNoticeDTO noticeDTO) {
+		
 	    try {
 	        int result = noticeService.addComment(noticeDTO);
+	        
 	        if (result > 0) {
-	            return "success";  // 댓글이 성공적으로 등록됨
+	            return "redirect:mes_noticeRead?notice_id="+noticeDTO.getNotice_id();  // 댓글이 성공적으로 등록됨
 	        } else {
 	            return "fail";  // 실패
 	        }
@@ -120,6 +122,15 @@ public class NoticeController {
 	        e.printStackTrace();
 	        return "error";  // 예외 처리
 	    }
+	}
+	
+	@RequestMapping("/listNoti")
+	@ResponseBody
+	public List listEmp(MesNoticeDTO dto) {
+		List list = noticeService.listNoti(dto);
+		System.out.println("list.size() : "+ list.size());
+		
+		return list;
 	}
 
 	
