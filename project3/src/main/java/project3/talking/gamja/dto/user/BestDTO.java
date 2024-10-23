@@ -16,8 +16,15 @@ public class BestDTO {
 	private String lib_name;
 	private String lib_add;
 	private Integer lib_call;
+	private Integer rnum;
 	
 	
+	public Integer getRnum() {
+		return rnum;
+	}
+	public void setRnum(Integer rnum) {
+		this.rnum = rnum;
+	}
 	public String getLib_add() {
 		return lib_add;
 	}

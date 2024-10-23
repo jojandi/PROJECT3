@@ -57,17 +57,17 @@
                     	<input type="hidden" name="user_seq" class="code" value="${login.user_seq}">
             			<input type="hidden" name="book_code" class="user" value="${list.book_code}">
 	                        <tr class="cart">
-	                            <td rowspan="3" class="border">
+	                            <td rowspan="3" class="border-bottom">
 	                                <input type="checkbox" name="cart_chk" data-cart="${list.cart_seq}" 
 	                                value="${list.book_code}" class="chk"> 
 	                            </td>
-	                            <td rowspan="3" class="bookCover border">
+	                            <td rowspan="3" class="bookCover border-bottom">
 	                                <img src="${list.book_img}"  alt="${list.book_name}의 책표지">
 	                            </td>
 	                            <td class="bookTitle book">
 	                                ${list.book_name}
 	                            </td>
-	                            <td class="border" rowspan="3">
+	                            <td class="border-bottom" rowspan="3">
 	                            	<form method="post" action="cart_res">
 	                            		<input type="hidden" name="user_seq" value="${list.user_seq}">
 	                            		<input type="hidden" name="book_code" value="${list.book_code}">
@@ -88,7 +88,7 @@
 	                            </td>
 	                        </tr>
 	                        <tr class="cart">
-	                            <td class="wirter book border">
+	                            <td class="wirter book border-bottom">
 	                            	<span>${list.book_author}(지은이)</span>
 	                            	<span> | </span>
 	                            	<span>${list.book_pub}(주)</span>
@@ -99,11 +99,11 @@
                 </table>
             </div>
 
-            <div id="bntall">
+            <!-- <div id="bntall">
                 <input type="button" id="reserchk" class="bnt" value="선택 도서 예약하기"><br>
                 <input type="button" id="delall" class="bnt" value="전체 도서 삭제하기">
                 <input type="button" id="reserall" class="bnt" value="전체 도서 예약하기">
-            </div>
+            </div> -->
             
             <!-- //////////////////////////////// 모달 - 예약하기 //////////////////////////////// -->
             <div class="modal fade"  id="reserModal" tabindex="-1" role="dialog" aria-labelledby="reserModalLabel" aria-hidden="true">
@@ -126,7 +126,7 @@
         <script src="../assets/js/my/mypage_cart.js"></script>
 		<script>
 			const user = '${login.user_seq}';
-			document.querySelector("#reserchk").addEventListener('click', function(){
+			/* document.querySelector("#reserchk").addEventListener('click', function(){
 			    ajax_reschk();
 			})
 			document.querySelector("#delall").addEventListener('click', function(){
@@ -134,7 +134,7 @@
 			})
 			document.querySelector("#reserall").addEventListener('click', function(){
 			    ajax_resall();
-			})
+			}) */
 			
 			window.addEventListener("load",function(){
             	reserOn();

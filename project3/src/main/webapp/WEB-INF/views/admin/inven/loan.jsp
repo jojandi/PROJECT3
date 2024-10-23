@@ -54,6 +54,7 @@
 										<td>${list.lib_name}</td>
 										<td>${list.loan_date}</td>
 										<td>
+											<!-- 대출중이면 반납으로 수정, 반납 완료면 '반납완료' 출력 -->
 											<c:if test="${list.loan_ing == true}">
 												<select name="loan_ing" class="loan_ing">
 													<option value="Y" selected>대출중</option>
@@ -66,6 +67,7 @@
 										</td>
 										<td>${list.loan_ex}</td>
 										<td>
+											<!-- 대출중이면 '-', 반납 완료면 반납날짜 출력 -->
 											<c:if test="${list.loan_return == null}">
 			                            		-
 			                            	</c:if>
@@ -74,6 +76,7 @@
 			                            	</c:if> 
 										</td>
 										<td>
+											<!-- 대출중이면 반납으로 수정, 반납 완료면 수정 불가 -->
 											<c:if test="${list.loan_ing == true}">
 												<input type="hidden" value=${list.lib_id } class="lib_id">
 												<input type="hidden" value="${list.user_seq}" class="user_seq">
@@ -93,11 +96,13 @@
 					<div class="bot_btn">
 						<form action="loan" method="get">
 							<div class="search-container">
+								<!-- 도서코드, 도서관으로 검색 가능 -->
 								<select name="searchType">
 									<option value="1" ${param.searchType == 1 or param.searchType == null ? "selected='selected'" : ""}>도서코드</option>
 									<option value="2" ${param.searchType == 2 ? "selected='selected'" : ""}>도서관</option>
 								</select>
-								<input type="text" id="searchInput" name="keyword" value="${param.keyword}" placeholder="검색어를 입력하시오. "> 
+								<input type="text" id="searchInput" name="keyword" 
+									value="${param.keyword}" placeholder="검색어를 입력하시오. "> 
 									<input type="submit" value="검색">
 							</div>
 						</form>

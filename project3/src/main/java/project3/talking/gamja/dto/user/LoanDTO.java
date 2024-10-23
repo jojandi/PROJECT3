@@ -12,7 +12,7 @@ public class LoanDTO {
 	private java.sql.Date user_pass;
 	private String book_name;
 	private int isOver;
-	private int over;
+	private int over_date;
 	private int res_id;
 	private java.sql.Date res_day;
 	private java.sql.Date res_pick;
@@ -78,11 +78,11 @@ public class LoanDTO {
 	public void setRes_ing(int res_ing) {
 		this.res_ing = res_ing;
 	}
-	public int getOver() {
-		return over;
+	public int getOver_date() {
+		return over_date;
 	}
-	public void setOver(int over) {
-		this.over = over;
+	public void setOver_date(int over_date) {
+		this.over_date = over_date;
 	}
 	public int getIsOver() {
 		return isOver;
@@ -150,13 +150,4 @@ public class LoanDTO {
 	public void setLoan_over(boolean loan_over) {
 		this.loan_over = loan_over;
 	}
-	@Override
-	public String toString() {
-		return "LoanDTO [loan_seq=" + loan_seq + ", book_code=" + book_code + ", user_seq=" + user_seq + ", loan_date="
-				+ loan_date + ", loan_ing=" + loan_ing + ", loan_return=" + loan_return + ", loan_ex=" + loan_ex
-				+ ", loan_over=" + loan_over + ", user_pass=" + user_pass + ", book_name=" + book_name + ", isOver="
-				+ isOver + ", over=" + over + ", res_id=" + res_id + ", res_day=" + res_day + ", res_pick=" + res_pick
-				+ ", res_ing=" + res_ing + "]";
-	}
-	
 }

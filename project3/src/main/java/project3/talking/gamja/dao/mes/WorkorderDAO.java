@@ -15,6 +15,8 @@ public interface WorkorderDAO {
 	
 	// log update
 	int logUpdate(MesWorkorderDTO woDTO);
+	
+	// log insert
 	int logInsert(MesWorkorderDTO woDTO);
 	
 	// workorder Read
@@ -43,7 +45,10 @@ public interface WorkorderDAO {
 	
 	// 작업지시서 완료시 도서발주 페이지 update
 	int requestpf(MesWorkorderDTO woDTO);
-	
+
+	// 작업지시서 완료시 도서신청 페이지 update
+	int applypf(MesWorkorderDTO woDTO);
+
 	// 작업지시서 완료시 작업지시서 완료로 update
 	int updateworead(MesWorkorderDTO woDTO);
 	

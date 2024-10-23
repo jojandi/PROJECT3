@@ -6,21 +6,22 @@
 	
 	<!-- 베스트 도서 5권 select -->
 	<select id="selectBest" resultType="bestDTO">
-		SELECT 
-			* 
-		FROM (
+		SELECT * FROM(
 			SELECT 
-				book_name, book_pub, book_author, book_isbn, SUM(book_loan_seq) AS total_loan_seq,
-				MAX(book_code) AS book_code,
-				book_img, li_book_info
-			FROM 
-				book 
-			JOIN li_book USING (book_isbn)
-			GROUP BY 
-				book_name, book_pub, book_img, li_book_info, book_author, book_isbn
-			ORDER BY 
-				total_loan_seq desc
-		) 
+			    rownum as rnum, a.* 
+			FROM (
+			    SELECT 
+			        book_name, book_pub, book_author, book_isbn, SUM(book_loan_seq) AS total_loan_seq,
+			        MAX(book_code) AS book_code,
+			        book_img, li_book_info
+			    FROM 
+			        book 
+			    JOIN li_book USING (book_isbn)
+			    GROUP BY 
+			        book_name, book_pub, book_img, li_book_info, book_author, book_isbn
+			    ORDER BY 
+			        total_loan_seq desc
+			) a)
 		WHERE rownum <![CDATA[ <= ]]> 5
 	</select>
 	
