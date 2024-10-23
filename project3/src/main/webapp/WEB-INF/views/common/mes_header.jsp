@@ -91,9 +91,12 @@
 			</div>
 			
 			<div class="right" id="userall">
-				<form action="logout">
-					<a href="/gamja/user/logout"> <span class="inb" id="user">${ login.user_name }님</span></a>
-					<span class="material-symbols-outlined">person</span>
+				<form action="logout" id="logoutbase">
+					<span class="inb" id="user">${ login.user_name }님</span>
+					<span class="material-symbols-outlined">person</span><br>
+					<a href="/gamja/user/logout"> 
+					<span id="logout">로그아웃</span>
+					</a>
 				</form>
 			</div>
 		</div>
@@ -156,6 +159,18 @@
 				    });
 				});
 			}
+			
+			// 로그아웃
+			document.getElementById("logout").addEventListener('click',function(e) {
+				let c = confirm("로그아웃 하시겠습니까?");
+
+				if (c) {
+					window.location.href = "http://localhost:8080/user_page/user/main"
+				} else {
+					e.preventDefault();
+					window.location.href = "mes_main"
+				}
+			})
 		</script>
 	</header>
 </body>

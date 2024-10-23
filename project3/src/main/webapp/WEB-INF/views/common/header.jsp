@@ -104,9 +104,12 @@
 
 		<div class="right" id="userall">
 			<c:if test="${ not empty login }">
-				<a href="logout"> <span class="inb" id="user">${ login.user_name }님</span>
-				</a>
+				<span class="inb" id="user">${ login.user_name }님</span>
 				<span class="material-symbols-outlined">person</span>
+				<div class="inb">|</div>
+				<a href="logout"> 
+					<span id="logout">로그아웃</span>
+				</a>
 			</c:if>
 			<c:if test="${ empty login }">
 				<a href="login" class="inb" id="login">로그인</a>
@@ -119,6 +122,18 @@
 		
 		<script>
 			// 로그아웃
+<<<<<<< HEAD
+			document.getElementById("logout").addEventListener('click',function(e) {
+				let c = confirm("로그아웃 하시겠습니까?");
+
+				if (c) {
+					window.location.href = "http://localhost:8080/user_page/user/main"
+				} else {
+					e.preventDefault();
+					window.location.href = "main"
+				}
+			})
+=======
 			const login = '${login}';
 			if(login){
 				document.getElementById("user").addEventListener('click',function(e) {
@@ -132,6 +147,7 @@
 					}
 				})
 			} 
+>>>>>>> 1d95b94d38a785db5d5ef54985d42c3679dd01a2
 			
 			// hover가 되었을 때 뒷배경 block으로 변환
 			const isMobile = window.matchMedia("(max-width: 767px)").matches;
