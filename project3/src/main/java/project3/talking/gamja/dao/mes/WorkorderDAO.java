@@ -13,6 +13,12 @@ public interface WorkorderDAO {
 	List<MesWorkorderDTO> selectwo(MesWorkorderDTO woDTO);
 	int totalwo(MesWorkorderDTO woDTO);
 	
+	// log update
+	int logUpdate(MesWorkorderDTO woDTO);
+	
+	// log insert
+	int logInsert(MesWorkorderDTO woDTO);
+	
 	// workorder Read
 	MesWorkorderDTO selectOne(MesWorkorderDTO woDTO);
 	
@@ -39,6 +45,12 @@ public interface WorkorderDAO {
 	
 	// 작업지시서 완료시 도서발주 페이지 update
 	int requestpf(MesWorkorderDTO woDTO);
+
+	// 작업지시서 완료시 도서신청 페이지 update
+	int applypf(MesWorkorderDTO woDTO);
+
+	// 작업지시서 완료시 작업지시서 완료로 update
+	int updateworead(MesWorkorderDTO woDTO);
 	
 	// ----------------BOM 페이지입니다----------------------
 	List<MesWorkorderDTO> getList2(MesWorkorderDTO dto);

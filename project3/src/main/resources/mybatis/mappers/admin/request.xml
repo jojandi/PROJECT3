@@ -49,18 +49,21 @@
 	
 	<!-- 도서 신청 내역 -->
 	<select id="selectApply" resultType="adminApplyDTO" parameterType="adminApplyDTO">
-		SELECT * FROM(
-		    SELECT 
-		        rownum AS rnum, app_seq, app_book, app_name, app_pub, app_date, user_seq, purchased, 
-		        lib_id, lib_name
-		    FROM 
-		        application
-		        JOIN library USING(lib_id)
-		    ORDER BY app_date DESC
-		    )
+		SELECT* FROM(
+			SELECT 
+				rownum as rnum, a.* 
+			FROM(
+			    SELECT 
+			        app_seq, app_book, app_name, app_pub, app_date, user_seq, purchased, 
+			        lib_id, lib_name
+			    FROM 
+			        application
+			        JOIN library USING(lib_id)
+			    ORDER BY app_date DESC, purchased DESC
+			    ) a)
 		WHERE 
 			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
-	</select>	
+	</select>
 	
 	<!-- 도서 신청 내역 페이지 paging -->
 	<select id="totalApply" resultType="int" parameterType="adminApplyDTO">

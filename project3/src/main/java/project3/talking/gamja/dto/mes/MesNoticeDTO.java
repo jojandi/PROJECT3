@@ -17,7 +17,55 @@ public class MesNoticeDTO {
 	private int start;
 	private int end;
 	
+	// 게시판 댓글
+	private String cm_content;
+	private Integer cm_id;
+	private Integer target_id;
+	private Integer cm_group;
 	
+
+	
+	
+	@Override
+	public String toString() {
+		return "MesNoticeDTO [notice_id=" + notice_id + ", notice_name=" + notice_name + ", notice_date=" + notice_date
+				+ ", notice_contents=" + notice_contents + ", emp_id=" + emp_id + ", emp_name=" + emp_name + ", start="
+				+ start + ", end=" + end + ", cm_content=" + cm_content + ", cm_id=" + cm_id + ", target_id="
+				+ target_id + ", cm_group=" + cm_group + "]";
+	}
+
+	public String getCm_content() {
+		return cm_content;
+	}
+
+	public void setCm_content(String cm_content) {
+		this.cm_content = cm_content;
+	}
+
+	public Integer getCm_id() {
+		return cm_id;
+	}
+
+	public void setCm_id(Integer cm_id) {
+		this.cm_id = cm_id;
+	}
+
+	public Integer getTarget_id() {
+		return target_id;
+	}
+
+	public void setTarget_id(Integer target_id) {
+		this.target_id = target_id;
+	}
+
+	public Integer getCm_group() {
+		return cm_group;
+	}
+
+	public void setCm_group(Integer cm_group) {
+		this.cm_group = cm_group;
+	}
+
 	public int getStart() {
 		return start;
 	}

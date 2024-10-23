@@ -32,9 +32,9 @@
 		SELECT *
 		FROM (
 		    SELECT 
-		        ROWNUM, TO_CHAR(l.log_date, 'YYYY-MM-DD HH24:MI:SS') AS log_date, l.log_seq, l.bom_code, 
+		        ROWNUM, TO_CHAR(l.log_date + NUMTODSINTERVAL(9, 'HOUR'), 'YYYY-MM-DD HH24:MI:SS') AS log_date, l.log_seq, l.bom_code, 
 		        b.bom_name, w.wo_count, w.wo_status, o.os_id, e.emp_id, e.emp_name, o.buser_seq, o.os_status, 
-		        lr.lib_id, lib.lib_name
+		        lr.lib_id, lib.lib_name, w.wo_process
 		    FROM 
 		        log l
 		        LEFT OUTER JOIN workorder w on(w.wo_id = l.wo_id)

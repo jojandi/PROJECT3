@@ -41,5 +41,22 @@
 	<delete id="deleteNotice" parameterType="noticeDTO">
 		delete from notice where notice_id = #{notice_id}
 	</delete>
+	<delete id="deleteNotiCm" parameterType="noticeDTO">
+		delete from noti_comment where target_id = #{notice_id}
+	</delete>
+	
+	<insert id="addComment" parameterType="noticeDTO">
+    INSERT INTO noti_comment (cm_id, target_id, cm_content, emp_id, notice_id)
+    VALUES (comment_seq.nextval, #{target_id}, #{cm_content}, #{emp_id}, #{notice_id})
+	</insert>
+	
+	<select id="listNoti" resultType="noticeDTO">
+		SELECT 
+			*
+		FROM
+			noti_comment,employee
+		WHERE noti_comment.emp_id = employee.emp_id
+	</select>
+	
 
 </mapper>

@@ -23,14 +23,14 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="../assets/css/mes/click.css" rel="stylesheet">
+    <link href="../assets/css/mes/comment.css" rel="stylesheet">
     <link href="../assets/css/mes/mes_notice_read.css" rel="stylesheet">
-  
+  	<script src="../assets/js/mes/mes_notice_ajax.js"></script>
 </head>
 
 <body>
         <section>
          <div class="main_page">
-         			<h3>notice_id : ${noticeRead.notice_id} </h3>
 	                <h3>${ noticeRead.notice_name }</h3>
 	        	<div id="content_all">
 					<div class="name">
@@ -42,26 +42,32 @@
 					<div id="content">
 						${ noticeRead.notice_contents }
 					</div>
-					
-					<div style="border: 1px solid lightgray; whidth: 300px;">
-						<span>김승환 : 넵!</span>
+					<div style="text-align : right;">
+						<span>${noticeRead.emp_name}</span>
+						<div style="width: 76%; display: inline-block; margin-right:8px;">                       </div>
+						<a href="mes_noticeUpdate?notice_id=${ noticeRead.notice_id }"><input type=button value="수정"></a>
+						<a href="mes_noticeDelete?notice_id=${ noticeRead.notice_id }"><input type="button" value="삭제"></a>
+						<a href="notice"><input type="button" class="btnnn" value="목록으로"></a>
 					</div>
-					<br>
-					
-					<input type="button" value="댓글쓰기">
-					<br>
-					<br>
-					<a href="mes_noticeUpdate?notice_id=${ noticeRead.notice_id }"><input type=button value="수정"></a>
-					<a href="mes_noticeDelete?notice_id=${ noticeRead.notice_id }"><input type="button" value="삭제"></a>
-					
-					<div id="pagination"></div>
-	                <br>
-	                <br>
-	                <div class="write" style="text-align:right;">
-	                    <a href="notice">
-	                        <input type="button" class="btnnn" value="목록으로">
-	                    </a>
-	                </div>
+					<div class="comment_section">
+					    <form class="noti_comment" action="addComment" method="post">
+					        <input type="hidden" name="emp_id" value="${noticeRead.emp_id }" />
+					        <input type="hidden" name="target_id" value="${noticeRead.notice_id }" />
+					        <input type="hidden" name="notice_id" value="${noticeRead.notice_id }" />
+					        <div class="comment_input">
+					            <textarea name="cm_content" placeholder="댓글을 남겨주세요."></textarea>
+					            <button type="submit">등록</button>
+					        </div>
+					    </form>
+					</div>
+					<!-- 댓글이 달리는 공간 -->
+					<div class="comment_list" style="margin-top: 20px;">
+						<table>
+							<tbody id="list">
+							</tbody>
+						</table>  
+					</div>
+
 				</div>
 			</div>
         </section>

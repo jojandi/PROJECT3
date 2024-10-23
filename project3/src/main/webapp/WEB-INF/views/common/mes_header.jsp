@@ -72,7 +72,7 @@
 						</ul>
 					</li>
 					
-					<li class="item" id="i6"><a href="mes_graph1">수요예측 및 통계</a>
+					<li class="item" id="i6"><a href="mes_graph1">수요 예측 및 통계</a>
 						<ul class="submenu">
 							<li><a href="mes_graph1">도서 출고 통계</a></li>
 							<li><a href="mes_graph2">도서 수요 통계</a></li>
@@ -90,12 +90,15 @@
 				<div id="block" style="display:none;"></div>
 			</div>
 			
-			<%--             <c:if test="${ not empty login }"> --%>
 			<div class="right" id="userall">
-				<span class="inb" id="user">김승환님</span> <span
-					class="material-symbols-outlined">person</span>
+				<form action="logout" id="logoutbase">
+					<span class="inb" id="user">${ login.user_name }님</span>
+					<span class="material-symbols-outlined">person</span><br>
+					<a href="/gamja/user/logout"> 
+					<span id="logout">로그아웃</span>
+					</a>
+				</form>
 			</div>
-			<%-- 			</c:if> --%>
 		</div>
 		
 		<script>
@@ -156,6 +159,18 @@
 				    });
 				});
 			}
+			
+			// 로그아웃
+			document.getElementById("logout").addEventListener('click',function(e) {
+				let c = confirm("로그아웃 하시겠습니까?");
+
+				if (c) {
+					window.location.href = "http://localhost:8080/user_page/user/main"
+				} else {
+					e.preventDefault();
+					window.location.href = "mes_main"
+				}
+			})
 		</script>
 	</header>
 </body>

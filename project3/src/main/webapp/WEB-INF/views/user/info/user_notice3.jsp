@@ -20,6 +20,9 @@
   word-wrap: break-word; /* 긴 텍스트 줄바꿈 */
   white-space: pre-wrap; /* 공백과 줄바꿈 유지 */
 }
+aside #items #i1 .material-symbols-outlined {
+        background: rgb(165, 224, 144);
+}
 </style>
 </head>
 <body>

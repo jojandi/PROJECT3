@@ -1,0 +1,53 @@
+.comment_section {
+    width: 100%;
+    height: auto;
+}
+
+.noti_comment {
+    width: 100%;
+}
+
+.comment_input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* 요소들 사이 간격 균등 분배 */
+}
+
+
+.comment_input textarea {
+    width: calc(100% - 110px); /* 버튼 공간을 제외한 나머지 크기 */
+    height: 50px;
+    margin-right: 10px; /* 버튼과의 간격 추가 */
+    box-sizing: border-box; /* 패딩 포함한 크기 계산 */
+}
+
+.comment_input button {
+    width: 100px;
+    height: 50px;
+}
+
+.comment_list {
+    width: 100%;
+}
+
+.comment_list table {
+    width: 100%;
+}
+
+.comment_list td {
+    padding: 10px;
+}
+.comment_list table {
+    width: 100%;
+    table-layout: fixed; /* 셀 너비를 고정된 비율로 설정 */
+}
+
+.comment_list td.cm_name {
+    width: 20%; /* 이름 칸이 20% 차지 */
+    text-align: left; /* 이름을 왼쪽 정렬 */
+}
+
+.comment_list td.cm_content {
+    width: 80%; /* 댓글 내용이 80% 차지 */
+    text-align: left; /* 댓글 내용을 왼쪽 정렬 */
+}

@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project3.talking.gamja.dao.mes.PfworkDAO">
 
-	<!-- pfwork select -->
+	<!-- 주문현황 select -->
 	<select id="selectpf" resultType="pfworkDTO" parameterType="pfworkDTO">
 		SELECT * FROM (
 			select rownum AS rnum, a.*  FROM(
@@ -37,6 +37,7 @@
  		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
 	</select>
 	
+	<!-- 출고현황 select -->
 	<select id="selectde" resultType="pfworkDTO" parameterType="pfworkDTO">
 		SELECT * FROM (
 			select rownum AS rnum, a.*  FROM(
@@ -54,7 +55,7 @@
  		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}
 	</select>
 	
-	<!-- pfwork paging -->
+	<!-- 주문현황 paging -->
 	<select id="totalpf" resultType="int" parameterType="pfworkDTO">
 		SELECT 
 			count(*) cnt 
@@ -63,7 +64,7 @@
 		WHERE os_status = '진행중' OR os_status IS NULL
 	</select>
 	
-	<!-- pfwork paging -->
+	<!-- 출고현황 paging -->
 	<select id="totalde" resultType="int" parameterType="pfworkDTO">
 		SELECT 
 			count(*) cnt 
@@ -71,7 +72,7 @@
 			deliverystatus 
 	</select>
 	
-	<!-- pfwork read -->
+	<!-- 주문현황 read -->
 	<select id="selectOne" resultType="pfworkDTO" parameterType="pfworkDTO">
 		SELECT * FROM (
 			SELECT 
@@ -111,21 +112,31 @@
 		VALUES (os_seq.NEXTVAL, #{bom_code}, #{emp_id}, sysdate, #{buser_seq})
 	</insert>
 	
+	<!-- 주문현황 update -->
 	<update id="updatepf" parameterType="pfworkDTO">
 		update orderstatus
 			set bom_code = #{bom_code}
 			where os_id = #{os_id}
 	</update>
 	
+	<!-- 주문현황 delete -->
 	<delete id="deletepf" parameterType="pfworkDTO">
 		delete orderstatus where os_id = #{os_id}
 	</delete>
-	
 	
 	<!-- 작업지시서 insert  -->
 	<insert id="pfinsertwo" parameterType="pfworkDTO">
 		INSERT INTO workorder (wo_id, bom_code, wo_process, wo_count, wo_status, os_id)
 		VALUES (wo_seq.NEXTVAL, #{lib_id}, '포장공정', #{lr_count}, '진행중', #{os_id})
+	</insert>
+	
+	<!-- 로그 insert -->
+	<insert id="logInsert" parameterType="pfworkDTO">
+	 	INSERT INTO 
+	 		log 
+	 			(log_seq, log_date, os_id)
+			VALUES
+				(seq_log.nextval, sysdate, #{os_id})
 	</insert>
 	
 	<!-- 주문현황 작업지시서 생성버튼 클릭시 상태 update -->

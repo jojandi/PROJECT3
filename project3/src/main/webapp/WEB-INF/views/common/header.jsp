@@ -66,7 +66,14 @@
 				<li class="item" id="i3"><a href="notice">정보광장</a>
 					<ul class="submenu">
 						<li><a href="notice">공지사항</a></li>
-						<li><a href="request" class="loginFilter">도서신청</a></li>
+						<li>
+							<c:if test="${empty login}">
+								<a href="request" class="loginFilter">도서신청</a>
+							</c:if>
+							<c:if test="${not empty login}">
+								<a href="request">도서신청</a>
+							</c:if>
+						</li>
 						<li><a href="notice2">이용안내</a></li>
 					</ul>
 				</li>
@@ -76,7 +83,7 @@
 							<li><a href="res?seq=${login.user_seq}">이용내역</a></li>
 							<li><a href="cart?seq=${login.user_seq}">찜 목록</a></li>
 							<li><a href="apply?seq=${login.user_seq}">도서 신청 내역</a></li>
-							<li><a href="info?seq=${login.user_seq}">내 정보</a></li>
+							<li><a href="myInfo?seq=${login.user_seq}">내 정보</a></li>
 						</ul>
 					</li>
 				</c:if>
@@ -86,7 +93,7 @@
 							<li><a href="res?seq=${login.user_seq}" class="loginFilter">이용내역</a></li>
 							<li><a href="cart?seq=${login.user_seq}" class="loginFilter">찜 목록</a></li>
 							<li><a href="apply?seq=${login.user_seq}" class="loginFilter">도서 신청 내역</a></li>
-							<li><a href="info?seq=${login.user_seq}" class="loginFilter">내 정보</a></li>
+							<li><a href="myInfo?seq=${login.user_seq}" class="loginFilter">내 정보</a></li>
 						</ul>
 					</li>
 				</c:if>
@@ -97,9 +104,12 @@
 
 		<div class="right" id="userall">
 			<c:if test="${ not empty login }">
-				<a href="logout"> <span class="inb" id="user">${ login.user_name }님</span>
-				</a>
+				<span class="inb" id="user">${ login.user_name }님</span>
 				<span class="material-symbols-outlined">person</span>
+				<div class="inb">|</div>
+				<a href="logout"> 
+					<span id="logout">로그아웃</span>
+				</a>
 			</c:if>
 			<c:if test="${ empty login }">
 				<a href="login" class="inb" id="login">로그인</a>
@@ -111,6 +121,34 @@
 
 		
 		<script>
+			// 로그아웃
+<<<<<<< HEAD
+			document.getElementById("logout").addEventListener('click',function(e) {
+				let c = confirm("로그아웃 하시겠습니까?");
+
+				if (c) {
+					window.location.href = "http://localhost:8080/user_page/user/main"
+				} else {
+					e.preventDefault();
+					window.location.href = "main"
+				}
+			})
+=======
+			const login = '${login}';
+			if(login){
+				document.getElementById("user").addEventListener('click',function(e) {
+					let c = confirm("로그아웃 하시겠습니까?");
+	
+					if (c) {
+						window.location.href = "http://localhost:8080/user_page/user/main"
+					} else {
+						e.preventDefault();
+						window.location.href = "main"
+					}
+				})
+			} 
+>>>>>>> 1d95b94d38a785db5d5ef54985d42c3679dd01a2
+			
 			// hover가 되었을 때 뒷배경 block으로 변환
 			const isMobile = window.matchMedia("(max-width: 767px)").matches;
 			console.log(isMobile);

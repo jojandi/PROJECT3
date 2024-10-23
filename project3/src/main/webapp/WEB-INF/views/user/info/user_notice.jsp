@@ -74,10 +74,10 @@ aside #items #i1 .material-symbols-outlined {
 								<td>${noti.viewCount}</td>
 								<td><c:choose>
 										<c:when test="${noti.ann_attach != null}">
-										<a  target="_blank" href="${pageContext.request.contextPath}/download?fileName=${noti.ann_attach}">파일 다운로드</a>
+										<a  target="_blank" href="${pageContext.request.contextPath}/admin/download?fileName=${noti.ann_attach}">O</a>
 										</c:when>
 										<c:otherwise>
-                                        없음
+                                        X
                                     </c:otherwise>
 									</c:choose></td>
 							</tr>
@@ -145,7 +145,7 @@ aside #items #i1 .material-symbols-outlined {
 		</div>
 
 	
-<form id="search" method="get" action="/user/searchNoti">
+<form id="search" method="get" action="/gamja/user/searchNoti">
     <div id="search">
         <select name="period">
             <option value="분류">분류</option>

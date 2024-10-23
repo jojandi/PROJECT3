@@ -24,7 +24,7 @@
 			<div id="admin_controls">
 				<!-- 추가하기 form -->
 				<c:if test="${cmd eq 'insert'}">
-					<form action="insertNoti" method="post" enctype="multipart/form-data" accept-charset="utf-8" >
+					<form action="notice2" method="post" enctype="multipart/form-data" accept-charset="utf-8" >
 						<div id="con">
 							<select id="notice_category" name="class_id">
 								<option value="5001">공지</option>
@@ -120,7 +120,7 @@
                         ann_detail: document.getElementById("new_notice_content").value
                     };
 
-                    const url = "${pageContext.request.contextPath}/notice2"; // 수정 URL
+                    const url = "${pageContext.request.contextPath}/admin/notice2"; // 수정 URL
 
                     ajax(url, updatedData, function(response) {
                         alert("공지사항이 수정되었습니다.");

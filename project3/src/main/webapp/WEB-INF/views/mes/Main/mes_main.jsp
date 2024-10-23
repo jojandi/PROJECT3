@@ -54,6 +54,12 @@
 						<h2 id="YearMonth">
 							<!-- YYYY년 M월 -->
 						</h2>
+						<div id="hukwan_bot">
+							<div class="circle_1"></div>
+							<small>출고일</small>
+							<div class="circle_2"></div>
+							<small>도서입고일</small>
+						</div>
 					</div>
 
 					<div id="days">
@@ -73,12 +79,7 @@
 				<script src="../assets/js/mes/01.calendar.js"></script>
 
 			</div>
-			<div id="hukwan_bot">
-				<div class="circle_1"></div>
-				출고일
-				<div class="circle_2"></div>
-				<small>도서입고일</small>
-			</div>
+			
 		</section>
 		<section class="section1">
 			<div class="all">
@@ -150,10 +151,10 @@
 										${log.bom_name} 주문
 									</c:if>
 									<c:if test="${log.os_status == '진행중'}">
-										${log.bom_name} 작업
+										${log.lib_name} 세트 ${log.wo_process}
 									</c:if>
 									<c:if test="${log.os_status == '완료'}">
-										${log.bom_name} 작업
+										${log.lib_name} 세트 ${log.wo_process}
 									</c:if>
 								</td>
 								<td>
