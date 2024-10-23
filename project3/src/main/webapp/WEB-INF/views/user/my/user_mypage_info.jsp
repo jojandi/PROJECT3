@@ -166,6 +166,7 @@
 	        	likeSet();
 	        	info1On();
 	        	idCheck();
+	        	userEdit();
 	        })
 	        
 	        function likeSet(){
@@ -244,6 +245,13 @@
 		                }
 		            }, "post");
 		        })
+	        }
+	        
+	        // 유저가 정보를 업데이트 할 때
+	        function userEdit(){
+	        	document.querySelector("#update input").addEventListener("click", function(){
+	        		alert("정보가 수정되었습니다. 다시 로그인 해주세요. ");
+	        	})
 	        }
         </script>
 
