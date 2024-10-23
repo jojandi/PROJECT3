@@ -83,7 +83,7 @@
 							<li><a href="res?seq=${login.user_seq}">이용내역</a></li>
 							<li><a href="cart?seq=${login.user_seq}">찜 목록</a></li>
 							<li><a href="apply?seq=${login.user_seq}">도서 신청 내역</a></li>
-							<li><a href="info?seq=${login.user_seq}">내 정보</a></li>
+							<li><a href="myInfo?seq=${login.user_seq}">내 정보</a></li>
 						</ul>
 					</li>
 				</c:if>
@@ -93,7 +93,7 @@
 							<li><a href="res?seq=${login.user_seq}" class="loginFilter">이용내역</a></li>
 							<li><a href="cart?seq=${login.user_seq}" class="loginFilter">찜 목록</a></li>
 							<li><a href="apply?seq=${login.user_seq}" class="loginFilter">도서 신청 내역</a></li>
-							<li><a href="info?seq=${login.user_seq}" class="loginFilter">내 정보</a></li>
+							<li><a href="myInfo?seq=${login.user_seq}" class="loginFilter">내 정보</a></li>
 						</ul>
 					</li>
 				</c:if>
@@ -104,9 +104,12 @@
 
 		<div class="right" id="userall">
 			<c:if test="${ not empty login }">
-				<a href="logout"> <span class="inb" id="user">${ login.user_name }님</span>
-				</a>
+				<span class="inb" id="user">${ login.user_name }님</span>
 				<span class="material-symbols-outlined">person</span>
+				<div class="inb">|</div>
+				<a href="logout"> 
+					<span id="logout">로그아웃</span>
+				</a>
 			</c:if>
 			<c:if test="${ empty login }">
 				<a href="login" class="inb" id="login">로그인</a>
@@ -119,16 +122,18 @@
 		
 		<script>
 			// 로그아웃
-			document.getElementById("userall").addEventListener('click',function(e) {
-				let c = confirm("로그아웃 하시겠습니까?");
-
-				if (c) {
-					window.location.href = "http://localhost:8080/user_page/user/main"
-				} else {
-					e.preventDefault();
-					window.location.href = "main"
-				}
-			})
+			if('${login}'){
+				document.getElementById("logout").addEventListener('click',function(e) {
+					let c = confirm("로그아웃 하시겠습니까?");
+	
+					if (c) {
+						window.location.href = "http://localhost:8080/user_page/user/main"
+					} else {
+						e.preventDefault();
+						window.location.href = "main"
+					}
+				})
+			}
 			
 			// hover가 되었을 때 뒷배경 block으로 변환
 			const isMobile = window.matchMedia("(max-width: 767px)").matches;

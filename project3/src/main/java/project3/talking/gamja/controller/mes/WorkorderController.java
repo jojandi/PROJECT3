@@ -69,7 +69,6 @@ public class WorkorderController {
 	// 작업지시서 상태 update
 	@RequestMapping(value = "/workorderUpdate", method = RequestMethod.POST)
 	public String workorderUpdate(MesWorkorderDTO dto) {
-
 		System.out.println("update 실행 ");
 		System.out.println("////////////////////////////// od_is : " + dto.getOs_id());
 		System.out.println("////////////////////////////// wo_id : " + dto.getWo_id());
@@ -97,13 +96,16 @@ public class WorkorderController {
 				int req = woService.requestpf(dto);
 				System.out.println("5. admin request 테이블에서 상태 update : " + req);
 				
-				// 6. 로그 insert
+				// 6. admin application 테이블에서 상태 update
+				int apply = woService.applypf(dto);
+				System.out.println("6. admin application 테이블에서 상태 update : " + apply);
+				
+				// 7. 로그 insert
 				int log = woService.logInsert(dto);
-				System.out.println("6. 로그 insert : " + log);
+				System.out.println("7. 로그 insert : " + log);
 			}
 			if ("배송공정".equals(dto.getWo_process())) {
 				woService.updatewopro(dto);
-				//6. 로그 insert
 				woService.logInsert(dto);
 			}
 

@@ -24,6 +24,7 @@
                     <thead> 
                         <tr>
                             <td id="bnameall">도서명</td>
+                            <td>도서관</td>
                             <td>신청일</td>
                             <td>신청현황</td>
                         </tr>
@@ -32,6 +33,7 @@
                     <c:forEach var="add" items="${map.list}">
                         <tr class="parent">
                             <td class="bname">${add.app_book }</td>
+                            <td>${add.lib_name}</td>
                             <td>${add.app_date }</td>
                             <c:if test="${ add.purchased eq null }">
                           		<td>신청완료</td>

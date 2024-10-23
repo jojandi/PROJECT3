@@ -58,7 +58,7 @@
 	                            <td>${list.lib_name}</td>
 	                            <td>${list.loan_date}</td>
 	                            <td class="ing">${list.loan_return}</td>
-	                            <td>${list.over}일</td>
+	                            <td>${list.over_date}일</td>
 	                            <td>${list.user_pass}</td>
 	                        </tr>
                        	</c:forEach>

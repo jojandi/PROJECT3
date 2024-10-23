@@ -7,12 +7,16 @@
 	<select id="selectBookApply" resultType="applyDTO" parameterType="applyDTO">
 		SELECT * FROM (
 		    SELECT 
-		        rownum as rnum, user_seq, app_book, app_date, purchased 
+		        rownum as rnum, user_seq, app_book, app_date, purchased, lib_id, lib_name
 		    FROM  (
 		        SELECT 
-		        	user_seq, app_book, app_date, purchased from application
+			        user_seq, app_book, app_date, purchased, lib_id, lib_name
+			    FROM 
+			        application
+			        JOIN library USING(lib_id)
 		        WHERE 
 		        	user_seq = #{user_seq}
+		        ORDER BY app_date DESC
 		    ))
 		WHERE 
 			rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end}

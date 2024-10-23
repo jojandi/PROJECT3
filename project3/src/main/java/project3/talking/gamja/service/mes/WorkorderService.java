@@ -119,6 +119,12 @@ public class WorkorderService {
 		return result;
 	}
 	
+	public int applypf(MesWorkorderDTO woDTO) {
+		int result = woDAO.applypf(woDTO);
+		
+		return result;
+	}
+	
 //-----------------------BOM 페이지입니다------------------------
 	public Map getList2(int count, int pageNo) {
 		// 시작 번호 : 이전 페이지까지 보여준 것 바로 다음 것

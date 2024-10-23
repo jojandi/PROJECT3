@@ -32,7 +32,7 @@
 	                                <img src="${list.book_img}" alt="'${list.book_name}' 책 표지">
 	                            </div>
 	                        </td>
-	                        <td><span id="in_top">전체 1위</span></td>
+	                        <td><span id="in_top">전체 ${list.rnum}위</span></td>
 	                        <td rowspan="3" class="bookBnt">
 	                        	<input type="button" class="invenBnt" data-isbn="${list.book_ISBN}" value="재고현황">
 	                        	<c:if test="${not empty login.user_seq}">

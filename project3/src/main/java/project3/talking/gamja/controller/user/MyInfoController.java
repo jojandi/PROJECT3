@@ -60,15 +60,10 @@ public class MyInfoController {
 	@RequestMapping(value="/infoEdit", method=RequestMethod.POST)
 	public String updateInfo(Model model, UserDTO userDTO) {
 		
-		String email = userDTO.getUser_email() + userDTO.getDomain();
-		
-		userDTO.setUser_email(email);
-		System.out.println("이메일 : " + email);
-		
 		int result = myInfoService.updateInfo(userDTO);
 		System.out.println("업데이트 : " + result);
 		
-		return "redirect:/user/myInfo";
+		return "redirect:/user/logout";
 	}
 	
 	// 회원 아이디 중복 체크

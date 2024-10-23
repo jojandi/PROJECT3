@@ -25,27 +25,43 @@
 		<link rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<div class="right" id="userall">
-			<form action="logout">
-				<a href="/gamja/user/logout"> <span class="inb" id="user">${ login.user_name }님</span></a>
+			<form action="logout" id="logoutbase">
+				<span class="inb" id="user">${ login.user_name }님</span>
 				<span class="material-symbols-outlined">person</span>
+				<div class="inb">|</div>
+				<a href="/gamja/user/logout"> 
+					<span id="logout">로그아웃</span>
+				</a>
 			</form>
 		</div>
 	</div>
 
 	<script>
-		document
-				.getElementById("userall")
-				.addEventListener(
-						'click',
-						function() {
-							let c = confirm("로그아웃 하시겠습니까?");
+// 		document
+// 				.getElementById("userall")
+// 				.addEventListener(
+// 						'click',
+// 						function() {
+// 							let c = confirm("로그아웃 하시겠습니까?");
 
-							if (c) {
-								window.location.href = "http://localhost:8080/user_page/user/main"
-							} else {
-								window.location.href = "main"
-							}
-						})
+// 							if (c) {
+// 								window.location.href = "http://localhost:8080/user_page/user/main"
+// 							} else {
+// 								window.location.href = "main"
+// 							}
+// 						})
+						
+		document.getElementById("logout").addEventListener('click',function(e) {
+				let c = confirm("로그아웃 하시겠습니까?");
+
+				if (c) {
+					window.location.href = "http://localhost:8080/user_page/user/main"
+				} else {
+					e.preventDefault();
+					window.location.href = "main"
+					console.log("로그아웃 하기싫어")
+				}
+			})
 	</script>
 
 </header>
