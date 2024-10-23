@@ -5,6 +5,16 @@ body {
 	margin: 0;
 }
 
+#logout {
+	vertical-align: top;
+    font-weight: 700;
+    
+}
+
+#logout:hover{
+	text-decoration: underline;
+}
+
 #top {
 	/* border: 1px solid red; */
 	background-color: rgb(165, 224, 144);
@@ -70,7 +80,7 @@ header #menu #items .item {
 
 header #menu #userall {
 	/* border: 1px solid red; */
-	width: 130px;
+	width: 200px;
 	height: 20px;
 	margin: 5px 0;
 	margin-right: 40px;

@@ -123,6 +123,16 @@ header #menu #userall .material-symbols-outlined {
     font-size: 21px;
 } 
 
+#logout {
+	border-bottom: 1px solid black; 
+	font-size: 14px;
+	margin-left: 20px;
+}
+
+#logoutbase {
+	margin-top: -15px;
+}
+
 /* ------------------------------------------------------------------ */
 footer #bottom {
 	background-color: rgb(73, 73, 73);

@@ -74,7 +74,6 @@ header #menu #items .item {
 
 header #menu #userall {
 	/* border: 1px solid red; */
-	width: 130px;
 	height: 20px;
 	margin: 5px 0;
 	margin-right: 40px;
@@ -125,6 +124,15 @@ header #menu #userall .material-symbols-outlined {
 #movepage .material-symbols-outlined{
     font-size: 21px;
 } 
+
+#logout {
+	vertical-align: top;
+    font-weight: 700;
+}
+
+#logout:hover{
+	text-decoration: underline;
+}
 
 /* ------------------------------------------------------------------ */
 footer #bottom {
