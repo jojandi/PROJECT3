@@ -114,23 +114,6 @@ a {
 	padding: 0;
 }
 
-/* -----------------------기본-------------------------------- */
-
-            
-header #menu #items .item{
-    /* border: 1px solid red; */
-    font-size: 20px;
-    margin: 0 15px;
-    display: inline-block;
-}
-
-/* #userall {
-    position: absolute;
-    top: 0;
-    right: 0;
-} */
-
-/* ---------------------------------------------------- */
 .main_page {
     /* border: 1px solid red; */
     display: inline-block;

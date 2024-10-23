@@ -6,18 +6,14 @@
 
 	<!-- 검색 select -->
     <select id="selectSearch" parameterType="String"  resultType="searchDTO">
-    	WITH RandomBooks AS (
-		SELECT book_name, book_pub, book_author, book_isbn, book_code,
-		ROW_NUMBER() OVER (PARTITION BY book_name ORDER BY DBMS_RANDOM.RANDOM) AS rn, 
-		book_img, li_book_info, book_loan FROM book
-		JOIN li_book USING (book_isbn)
-		WHERE lower(book_name) LIKE lower('%'||#{_parameter}||'%') AND book_loan = 'N' and book_res = 'N')
-		SELECT book_name, book_pub, book_author, book_isbn,
-		(SELECT book_code FROM RandomBooks rb WHERE rb.book_name = b.book_name AND rn = 1) AS book_code,
-		COUNT(*) AS count, book_img, li_book_info
-		FROM RandomBooks b
-		GROUP BY book_name, book_pub, book_img, li_book_info, book_author, book_isbn
-		HAVING lower(book_name) LIKE lower('%'||#{_parameter}||'%')
+    	SELECT 
+		    book_name, book_pub, book_author, book_isbn, book_img, li_book_info
+		FROM 
+		    book
+		    JOIN li_book USING (book_isbn)
+		GROUP BY book_name, book_pub, book_author, book_isbn, book_img, li_book_info
+		HAVING 
+		    lower(book_name) LIKE lower('%'||#{_parameter}||'%')
     </select>
     
     <!-- 도서관별 재고 -->
