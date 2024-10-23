@@ -13,6 +13,15 @@ public class ApplyDTO {
 	private String app_status;
 	private int start;
 	private int end;
+	private String lib_name;
+
+	public String getLib_name() {
+		return lib_name;
+	}
+
+	public void setLib_name(String lib_name) {
+		this.lib_name = lib_name;
+	}
 
 	public int getStart() {
 		return start;

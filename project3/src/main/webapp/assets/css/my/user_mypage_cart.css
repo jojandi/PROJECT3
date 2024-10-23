@@ -101,7 +101,14 @@ section table tbody td{
     
 }
 
-section table tbody .border{
+section #table_btn .table tbody td,
+section #table_btn .table thead td{
+	 border: none;
+	 vertical-align: middle;
+}
+
+
+section #table_btn table tbody .border-bottom{
 	border-bottom: 1px solid #ccc;
 }
 

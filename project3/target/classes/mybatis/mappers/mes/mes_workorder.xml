@@ -127,6 +127,21 @@
 		WHERE 
 			lr_seq = #{lr_seq}
 	</update>
+
+	<!-- 작업지시서 완료시 도서신청 페이지 update -->
+	<update id="applypf" parameterType="workorderDTO">
+		UPDATE 
+			application 
+		SET 
+			purchased = '구비 완료'
+		WHERE 
+			app_seq = (
+				SELECT 
+					app_seq 
+				FROM 
+					lib_request 
+				WHERE lr_seq = #{lr_seq})
+	</update>
 	
 	<!-- //////////////////////// bom ////////////////////////// -->
 	
