@@ -218,7 +218,7 @@
 	             	};
 	             	
 	             	ajax("infoEditPw", data, function(result){
-            			if(result){
+            			if(result == 'true'){
             				info2.style.display = "block";
                          	info1.style.display = "none";
             			} else{

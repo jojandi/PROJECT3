@@ -33,11 +33,13 @@
 	    SELECT rownum AS rnum, a.*  FROM(
 			SELECT 
 	            b.buser_seq, 
-	            u.user_id, 
+	            rpad(substr(u.user_id, 1, 2), length(u.user_id), '*') as user_id, 
 	            u.user_addr, 
 	            u.user_email, 
+	            u.user_email, 
 	            b.buser_date, 
-	            b.buser_end
+	            b.buser_end,
+	            u.domain
 	        FROM 
 	            bookflix_user b
 	        JOIN 
@@ -59,7 +61,7 @@
 	        SELECT 
 	            f.review_seq, 
 	            f.review_name, 
-	            t.user_id, 
+	            rpad(substr(t.user_id, 1, 2), length(t.user_id), '*') as user_id, 
 	            f.review_date, 
 	            f.review_score, 
 	            f.review_contents

@@ -47,7 +47,7 @@
 								</tr>
 								<tr>
 									<th>이메일</th>
-									<td>${dto.user_email}${dto.domain}</td>
+									<td>${dto.user_email}@${dto.domain}</td>
 								</tr>
 								<tr>
 									<th>주소</th>

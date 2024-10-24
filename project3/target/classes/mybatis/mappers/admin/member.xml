@@ -7,7 +7,20 @@
 
     <!-- 공지사항 전체 조회 -->
     <select id="selectMember" resultType="MemberDTO">
-        SELECT * from tbl_user JOIN user_like using(like_id)
+        SELECT  
+        	user_seq, 
+		    user_name, 
+		    user_birth, 
+		    rpad(substr(user_id, 1, 2), length(user_id), '*') as user_id, 
+		    user_tel, 
+		    user_email, 
+		    user_addr, 
+		    user_addr_info, 
+		    like_like,
+		    domain,
+		    user_pass,  
+            like_id
+		from tbl_user JOIN user_like using(like_id)
 			ORDER BY user_name
     </select>
     
@@ -17,7 +30,7 @@
 		    u.user_seq, 
 		    u.user_name, 
 		    u.user_birth, 
-		    u.user_id, 
+		    rpad(substr(u.user_id, 1, 2), length(u.user_id), '*') as user_id, 
 		    u.user_tel, 
 		    u.user_email, 
 		    u.user_addr, 
