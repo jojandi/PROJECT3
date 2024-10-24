@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter("/user/*")
-public class LoginCheck implements Filter {
+@WebFilter("/admin/*")
+public class AdminLoginCheck implements Filter {
 
 
 	public void destroy() {
@@ -49,7 +49,7 @@ public class LoginCheck implements Filter {
 	    } else {
 	    	// 세션을 점검
 	    	HttpSession session = req.getSession();
-			Boolean isLogon = (Boolean)session.getAttribute("isLogin");
+			Boolean isLogon = (Boolean)session.getAttribute("isALogin");
 			
 			// 서블릿 실행 ( ex. doGet )
 //		  	chain.doFilter(request, response);
@@ -60,7 +60,7 @@ public class LoginCheck implements Filter {
 		    	chain.doFilter(request, response);
 	    	} else {
 	    		System.out.println("로그인 안 되어있음...");
-				resp.sendRedirect(req.getContextPath() + "/user/login");
+				resp.sendRedirect(req.getContextPath() + "/user/main");
 			}
 	    }
 	    
@@ -71,28 +71,23 @@ public class LoginCheck implements Filter {
 	}
 	
 	private boolean isExclude(String servletPath) {
-		// 로그인 없어도 되는 페이지
-		if("/user/main".equals(servletPath) 
-			|| "/user/best".equals(servletPath) 
-			|| "/user/bestInven".equals(servletPath) 
-			|| "/user/bookadd".equals(servletPath) 
-			|| "/user/notice".equals(servletPath)
-			|| "/user/notice2".equals(servletPath)
-			|| "/user/notice3".equals(servletPath)
-			|| "/user/download".equals(servletPath)
-			|| "/user/login".equals(servletPath)
-			|| "/user/logingo".equals(servletPath)
-			|| "/user/logout".equals(servletPath)
-			|| "/user/join".equals(servletPath)
-			|| "/user/check_username".equals(servletPath)
-			|| "/user/search".equals(servletPath)
-			|| "/user/searchInven".equals(servletPath)
-			|| "/user/user_libraryInfo".equals(servletPath)
-			|| "/user/bookflix_info".equals(servletPath)
-			|| "/user/join_insert".equals(servletPath)) {
-			return true;
-		} else { // 로그인 있어야하는 페이지
+		// 로그인 있어야함
+		if("/admin/main".equals(servletPath) ||
+			"/admin/inven".equals(servletPath) ||
+			"/admin/inven_".equals(servletPath) ||
+			"/admin/res".equals(servletPath) ||
+			"/admin/loan".equals(servletPath) ||
+			"/admin/member1".equals(servletPath) ||
+			"/admin/member2".equals(servletPath) ||
+			"/admin/notice".equals(servletPath) ||
+			"/admin/notice2".equals(servletPath) ||
+			"/admin/notice3".equals(servletPath) ||
+			"/admin/request".equals(servletPath) ||
+			"/admin/apply".equals(servletPath)
+			) {
 			return false;
+		} else { 
+			return true;
 		}
 	}
 
