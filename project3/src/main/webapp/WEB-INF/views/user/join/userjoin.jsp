@@ -191,7 +191,7 @@
 					</tr>
 					<tr>
 						<td class="label"><span>*</span> 전화번호</td>
-						<td><input type="text" id="phone" name="user_tel" placeholder="숫자만 입력해주세요."></td>
+						<td><input type="number" id="phone" name="user_tel" placeholder="숫자만 입력해주세요."></td>
 					</tr>
 					<tr>
 						<td class="label"><span>*</span> 주소</td>
