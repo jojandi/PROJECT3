@@ -1,6 +1,8 @@
 package project3.talking.gamja.controller.user;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +74,7 @@ public class LoginController {
                 session.setMaxInactiveInterval(60 * 60 * 60);
 
                 session.setAttribute("login", admin);
-                session.setAttribute("isLogin", true);
+                session.setAttribute("isALogin", true);
 
                 // 관리자 메인 페이지로 이동
                 return "redirect:/admin/main";
@@ -90,7 +92,7 @@ public class LoginController {
                 session.setMaxInactiveInterval(60 * 60 * 60);
 
                 session.setAttribute("login", mes);
-                session.setAttribute("isLogin", true);
+                session.setAttribute("isMLogin", true);
 
                 // MES 메인 페이지로 이동
                 return "redirect:/mes/mes_main";
@@ -105,13 +107,22 @@ public class LoginController {
 
     // 로그아웃 기능 추가
     @RequestMapping("/logout")
-    public String logout(HttpServletRequest req) {
+    public String logout(HttpServletRequest req, HttpServletResponse res) {
+    	System.out.println("로그아웃!!!!!!!!!!!!!!");
+    	// 쿠키 만료
+    	Cookie cookie = new Cookie("JSESSIONID", null);
+    	cookie.setPath("/"); // 모든 경로에 대해 쿠키를 제거
+    	cookie.setMaxAge(0); // 쿠키의 유효기간을 0으로 설정
+    	res.addCookie(cookie);
+    	
         HttpSession session = req.getSession(false); // 기존 세션이 없으면 null 반환
 
         if (session != null) {
             // 세션 무효화하여 로그아웃 처리
             session.invalidate();
             System.out.println("로그아웃 됨.");
+        } else {
+        	System.out.println("세션 없음");
         }
 
         // 로그아웃 후 로그인 페이지로 리다이렉트

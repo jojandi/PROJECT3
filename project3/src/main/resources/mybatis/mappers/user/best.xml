@@ -12,7 +12,6 @@
 			FROM (
 			    SELECT 
 			        book_name, book_pub, book_author, book_isbn, SUM(book_loan_seq) AS total_loan_seq,
-			        MAX(book_code) AS book_code,
 			        book_img, li_book_info
 			    FROM 
 			        book 

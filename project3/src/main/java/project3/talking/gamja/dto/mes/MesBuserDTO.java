@@ -12,12 +12,22 @@ public class MesBuserDTO {
 	
 	private String user_email;
 	
+	private String domain;
+	
 	private java.sql.Date buser_date;
 	
 	private java.sql.Date buser_end;
 	
 	private String user_id2;
 	
+	public String getDomain() {
+		return domain;
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+
 	public String getUser_id2() {
 		return user_id2;
 	}

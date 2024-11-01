@@ -30,19 +30,27 @@
     <!-- user_id2가 제공되지 않았을 때의 SQL -->
   <select id="selectAllBusers" resultType="buserDTO">
          SELECT * FROM (
-	    SELECT rownum AS rnum, a.*  FROM(
+	    	SELECT rownum AS rnum, buser_seq, 
+	           	user_id, 
+	            user_addr, 
+	            user_email, 
+                buser_date, 
+	            buser_end,
+	            domain
+            FROM(
 			SELECT 
 	            b.buser_seq, 
-	            u.user_id, 
+	            rpad(substr(u.user_id, 1, 2), length(u.user_id), '*') as user_id, 
 	            u.user_addr, 
 	            u.user_email, 
 	            b.buser_date, 
-	            b.buser_end
+	            b.buser_end,
+	            u.domain
 	        FROM 
 	            bookflix_user b
 	        JOIN 
 	            tbl_user u ON b.user_seq = u.user_seq
-	            ) a
+            ) 
 		)
  		WHERE rnum <![CDATA[ >= ]]> #{start} AND rnum <![CDATA[ <= ]]> #{end} 
     </select>
@@ -59,7 +67,7 @@
 	        SELECT 
 	            f.review_seq, 
 	            f.review_name, 
-	            t.user_id, 
+	            rpad(substr(t.user_id, 1, 2), length(t.user_id), '*') as user_id, 
 	            f.review_date, 
 	            f.review_score, 
 	            f.review_contents

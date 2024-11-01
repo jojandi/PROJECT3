@@ -100,7 +100,7 @@
                             <tr>
                                 <td class="center">전화번호</td>
                                 <td>
-                                    <input type="text" id=tel name="user_tel" placeholder="숫자만 입력해주세요. " value="${login.user_tel}">
+                                    <input type="number" id=tel name="user_tel" placeholder="숫자만 입력해주세요. " value="${login.user_tel}">
                                 </td>
                             </tr>
                             <tr>
@@ -218,7 +218,7 @@
 	             	};
 	             	
 	             	ajax("infoEditPw", data, function(result){
-            			if(result){
+            			if(result == 'true'){
             				info2.style.display = "block";
                          	info1.style.display = "none";
             			} else{

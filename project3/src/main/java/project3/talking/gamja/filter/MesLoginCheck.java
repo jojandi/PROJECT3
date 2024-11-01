@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter("/user/*")
-public class LoginCheck implements Filter {
+@WebFilter("/mes/*")
+public class MesLoginCheck implements Filter {
 
 
 	public void destroy() {
@@ -49,7 +49,7 @@ public class LoginCheck implements Filter {
 	    } else {
 	    	// 세션을 점검
 	    	HttpSession session = req.getSession();
-			Boolean isLogon = (Boolean)session.getAttribute("isLogin");
+			Boolean isLogon = (Boolean)session.getAttribute("isMLogin");
 			
 			// 서블릿 실행 ( ex. doGet )
 //		  	chain.doFilter(request, response);
@@ -60,7 +60,7 @@ public class LoginCheck implements Filter {
 		    	chain.doFilter(request, response);
 	    	} else {
 	    		System.out.println("로그인 안 되어있음...");
-				resp.sendRedirect(req.getContextPath() + "/user/login");
+				resp.sendRedirect(req.getContextPath() + "/user/main");
 			}
 	    }
 	    
@@ -71,27 +71,39 @@ public class LoginCheck implements Filter {
 	}
 	
 	private boolean isExclude(String servletPath) {
-		// 로그인 없어도 되는 페이지
-		if("/user/main".equals(servletPath) 
-			|| "/user/best".equals(servletPath) 
-			|| "/user/bestInven".equals(servletPath) 
-			|| "/user/bookadd".equals(servletPath) 
-			|| "/user/notice".equals(servletPath)
-			|| "/user/notice2".equals(servletPath)
-			|| "/user/notice3".equals(servletPath)
-			|| "/user/download".equals(servletPath)
-			|| "/user/login".equals(servletPath)
-			|| "/user/logingo".equals(servletPath)
-			|| "/user/logout".equals(servletPath)
-			|| "/user/join".equals(servletPath)
-			|| "/user/check_username".equals(servletPath)
-			|| "/user/search".equals(servletPath)
-			|| "/user/searchInven".equals(servletPath)
-			|| "/user/user_libraryInfo".equals(servletPath)
-			|| "/user/bookflix_info".equals(servletPath)
-			|| "/user/join_insert".equals(servletPath)) {
+		// 로그인 있어야함
+		if("mes/mes_bookflix1".equals(servletPath) ||
+			"mes/mes_bookflix2".equals(servletPath) ||
+			"mes/mes_graph1".equals(servletPath) ||
+			"mes/mes_graph2".equals(servletPath) ||
+			"mes/mes_graph3".equals(servletPath) ||
+			"mes/mes_graph_data".equals(servletPath) ||
+			"mes/mes_graph_data_2".equals(servletPath) ||
+			"mes/mes_graph_data_3".equals(servletPath) ||
+			"mes/mes_human".equals(servletPath) ||
+			"mes/mes_read".equals(servletPath) ||
+			"mes/mes_notice1".equals(servletPath) ||
+			"mes/mes_notice2".equals(servletPath) ||
+			"mes/mes_noticeRead".equals(servletPath) ||
+			"mes/mes_noticeUpdate".equals(servletPath) ||
+			"mes/mes_noticeDelete".equals(servletPath) ||
+			"mes/listNoti".equals(servletPath) ||
+			"mes/mes_pfwork1".equals(servletPath) ||
+			"mes/mes_pfwork2".equals(servletPath) ||
+			"mes/mes_pfwork1_read".equals(servletPath) ||
+			"mes/updatepf".equals(servletPath) ||
+			"mes/mes_stock1".equals(servletPath) ||
+			"mes/mes_stock2".equals(servletPath) ||
+			"mes/mes_stock3".equals(servletPath) ||
+			"mes/stock_update".equals(servletPath) ||
+			"mes/mes_workorder1".equals(servletPath) ||
+			"mes/mes_workorder1_read".equals(servletPath) ||
+			"mes/mes_workorder2".equals(servletPath) ||
+			"mes/mes_workorder2_read".equals(servletPath) ||
+			"mes/mes_workorder2_create".equals(servletPath)
+			) {
 			return true;
-		} else { // 로그인 있어야하는 페이지
+		} else { 
 			return false;
 		}
 	}
