@@ -14,7 +14,7 @@
 			<h2 id="title"></h2>
 			<div id="items">
 				<div class="item" id="i1">
-					<a href="member"> 
+					<a href="member1"> 
 						<span>도서 회원 관리</span> <span
 						class="material-symbols-outlined">arrow_forward_ios</span>
 					</a>

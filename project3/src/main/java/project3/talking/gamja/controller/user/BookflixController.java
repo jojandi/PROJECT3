@@ -94,7 +94,7 @@ public class BookflixController {
         int result = bookflixService.review(user, buser, star, reviewText);
         System.out.println("리뷰 작성 완료: " + result);
 
-        return "redirect:/bookflix_user?seq=" + user;
+        return "redirect:/user/bookflix_user?seq=" + user;
     }
     @RequestMapping(value = "/bookflix_sub", method=RequestMethod.POST)
     public String postSubscription(@RequestParam("seq") int user) {
