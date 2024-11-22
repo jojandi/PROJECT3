@@ -43,11 +43,7 @@ public class BookflixController {
 
         return "mes_bookflix1";
     }
-    
-   
-  
 
-  //BOM 페이지
   	@RequestMapping(value="/mes_bookflix2", method=RequestMethod.GET)
   	public String getReviews(Model model, Integer seq, Integer count, Integer pageNo) {
   		// 페이징 기본값 설정
@@ -62,16 +58,7 @@ public class BookflixController {
   		System.out.println(map);
   		return "mes_bookflix2";
   	}
-  /*  // 리뷰 목록 가져오기
-    @RequestMapping("/mes_bookflix2")
-    public String getReviews(Model model) {
-        System.out.println("review doGet 실행");
-
-        List<MesReviewDTO> reviewList = bookflixService.getReview();
-        model.addAttribute("reviewList", reviewList);
-
-        return "mes_bookflix2";
-    }*/
+ 
     @RequestMapping(value="deleteReview", method=RequestMethod.DELETE)
 	@ResponseBody
 	public int deleteReview(@RequestBody MesReviewDTO reviewDTO) {
